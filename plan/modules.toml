@@ -1644,14 +1644,14 @@ notes = "7 fns; largest: SmSurfaceCache::SubdivideNode, SmSurfaceCache::BuildTre
 id = "surface.volume_p2"
 upstream = ["source/SMLib/src/SmVolume.cpp"]
 rust_module = "surface::volume::p2"
-depends_on = ["geom.extent1d", "geom.extent3d", "geom.local_solve_nd", "geom.pseudo_box", "geom.solution_array", "geom.transform", "geom.vector3d", "surface.b_spline_volume", "surface.bend_volume", "surface.twist_volume", "surface.unbend_volume", "surface.volume_p1", "topology.database_io"]
+depends_on = ["geom.extent1d", "geom.extent3d", "geom.local_solve_nd", "geom.pseudo_box", "geom.solution_array", "geom.transform", "geom.vector3d", "surface.b_spline_volume", "surface.twist_volume", "surface.volume_p1", "topology.database_io"]
 est_lines = 1490
-layer = 25
+layer = 17
 tests = ["prog_test:my_test_surface_closest_point", "prog_test:my_test_drop_point", "prog_test:my_test_matrix", "prog_test:my_test_reversed_line_join", "SM_API_test:TestSmCreateRectangle", "SM_API_test:TestSmCreateRegularPolygon"]
 status = "todo"
 claimed_by = ""
 claimed_at = ""
-notes = "18 fns; largest: SmVolume::EvaluateBoundingBoxSimple, SmVolume::EvaluateBoundingBox, SmVolume::EvaluatePseudoBoxSimple, SmVolume::InvMapPoint; unit-SCC #22 (220 units); 317 upstream test entry points reach this unit"
+notes = "18 fns; largest: SmVolume::EvaluateBoundingBoxSimple, SmVolume::EvaluateBoundingBox, SmVolume::EvaluatePseudoBoxSimple, SmVolume::InvMapPoint; cycle back-edges (call into later units; stub or co-port): surface.bend_volume(1), surface.unbend_volume(1); unit-SCC #22 (220 units); 317 upstream test entry points reach this unit"
 
 [[unit]]
 id = "surface.surface_p7"
@@ -2008,14 +2008,14 @@ notes = "49 fns; largest: SmSurfPtGlobalSolver::RefineGuessPolygonLeg, WellBehav
 id = "topology.brep_data"
 upstream = ["source/SMLib/inc/SmBrepData.h", "source/SMLib/src/SmBrepData.cpp"]
 rust_module = "topology::brep_data"
-depends_on = ["curve.composite_curve_p1", "curve.curve_p2", "geom.a_object", "geom.attribute", "geom.extent1d", "geom.extent2d", "geom.object", "geom.tol", "geom.vector2d", "geom.vector3d", "nurbs.b_spline_curve_p2", "nurbs.b_spline_surface_p1", "surface.offset_surface", "surface.surface_p2", "topology.database_io"]
+depends_on = ["curve.composite_curve_p1", "curve.curve_p2", "geom.a_object", "geom.attribute", "geom.extent1d", "geom.extent2d", "geom.object", "geom.tol", "geom.vector2d", "geom.vector3d", "nurbs.b_spline_curve_p2", "nurbs.b_spline_surface_p1", "surface.surface_p2", "topology.database_io"]
 est_lines = 1466
-layer = 32
+layer = 22
 tests = ["prog_test:my_test_surface_closest_point", "prog_test:my_test_drop_point", "prog_test:my_test_matrix", "prog_test:my_test_reversed_line_join", "SM_API_test:TestSmCreateRectangle", "SM_API_test:TestSmCreateRegularPolygon"]
 status = "todo"
 claimed_by = ""
 claimed_at = ""
-notes = "17 fns; largest: SmBrepData::ReadFromDB, SmBrepData::ReadCurveFromDB, SmBrepData::ReadSurfaceFromDB, SmEUData::ReadFromDB; unit-SCC #22 (220 units); 317 upstream test entry points reach this unit"
+notes = "17 fns; largest: SmBrepData::ReadFromDB, SmBrepData::ReadCurveFromDB, SmBrepData::ReadSurfaceFromDB, SmEUData::ReadFromDB; cycle back-edges (call into later units; stub or co-port): surface.offset_surface(1); unit-SCC #22 (220 units); 317 upstream test entry points reach this unit"
 
 [[unit]]
 id = "topology.proto_topology_p1"
