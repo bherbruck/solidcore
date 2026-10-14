@@ -7,7 +7,7 @@ Last updated: 2026-10-13, PR workflow (`surface.trim_srf_cache` verified partial
 The original local swarm (one machine, up to 10 agents) was stopped here so that others
 can contribute. From now on all work goes through PRs; see AGENTS.md section 4.
 
-- **Where things get ticked off:** `plan/PROGRESS.md` (checklist, regenerated on `main`
+- **Where things get ticked off:** `plan/PROGRESS.md` on the `progress` branch (checklist, regenerated
   by `.github/workflows/progress.yml` from `plan/modules.toml` and open `port: <id>` PRs).
   The source of truth stays `plan/modules.toml`; evidence per unit is
   `reports/difftest/<unit>.json`.

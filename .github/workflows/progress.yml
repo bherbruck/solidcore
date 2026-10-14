@@ -1,7 +1,8 @@
 name: Progress checklist
 
 # Regenerates plan/PROGRESS.md from plan/modules.toml and open "port: <unit id>" PRs,
-# and commits it to main when it changed. PRs never edit PROGRESS.md themselves.
+# and publishes it on the `progress` branch (main is protected and only changes
+# through PRs). Read it at https://github.com/bherbruck/solidcore/blob/progress/plan/PROGRESS.md
 on:
   push:
     branches: [main]
@@ -32,12 +33,20 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 harness/plan/progress.py --prs
-      - name: Commit if changed
+      - name: Publish to the progress branch if changed
         run: |
-          if git diff --quiet -- plan/PROGRESS.md; then echo "unchanged"; exit 0; fi
+          cp plan/PROGRESS.md "$RUNNER_TEMP/PROGRESS.md"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git fetch origin progress 2>/dev/null; then
+            git checkout -q -B progress FETCH_HEAD
+          else
+            git checkout -q --orphan progress
+            git rm -rq --cached . && git clean -fdq -e .git
+          fi
+          mkdir -p plan
+          cp "$RUNNER_TEMP/PROGRESS.md" plan/PROGRESS.md
           git add plan/PROGRESS.md
-          git commit -m "plan/PROGRESS.md: regenerate [skip ci]"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          if git diff --cached --quiet; then echo "unchanged"; exit 0; fi
+          git commit -q -m "plan/PROGRESS.md: regenerate"
+          git push origin HEAD:progress

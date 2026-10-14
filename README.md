@@ -25,7 +25,7 @@ C++ to `1e-9` relative with identical topology, verified unit by unit.
 ## Status
 
 About a third ported and verified against the C++: the math, NURBS and curve layers,
-with surfaces and topology under way. **Checklist: [`plan/PROGRESS.md`](plan/PROGRESS.md)**
+with surfaces and topology under way. **Checklist: [`PROGRESS.md`](https://github.com/bherbruck/solidcore/blob/progress/plan/PROGRESS.md)**
 (updated automatically). Notes and handoff: [`plan/STATUS.md`](plan/STATUS.md).
 Nothing is usable end to end yet (no primitives, booleans or fillets).
 
@@ -87,7 +87,7 @@ links it.
 
 Contributions are pull requests, one per port unit, and AI agents are welcome:
 
-1. Pick any unclaimed unit in [`plan/PROGRESS.md`](plan/PROGRESS.md). "Ready" ones are
+1. Pick any unclaimed unit in the [checklist](https://github.com/bherbruck/solidcore/blob/progress/plan/PROGRESS.md). "Ready" ones are
    easiest; the others need stubs or co-porting of missing dependencies.
 2. Claim it by opening a draft PR titled `port: <unit id>` (lowest-numbered PR wins).
 3. Port it, prove it with difftest against the C++ reference, mark the PR ready.
