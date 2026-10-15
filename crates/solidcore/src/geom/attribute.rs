@@ -4,7 +4,8 @@
 //! default propagation handlers (split, copy, merge, coincident) that edit
 //! operations call through `Notify`.
 //!
-//! Upstream: `source/SMLib/src/SmAttribute.cpp`, `source/SMLib/inc/SmAttribute.h`.
+//! Upstream: `source/SMLib/src/SmAttribute.cpp`, `source/SMLib/inc/SmAttribute.h`,
+//! `source/SMLib/src/SmPolyDecimate.cpp`, `source/SMLib/inc/SmPolyDecimate.h`.
 //!
 //! | Rust                                              | Upstream                                         |
 //! |---------------------------------------------------|--------------------------------------------------|
@@ -24,7 +25,7 @@
 //! | [`Attribute::color`]                              | `SmColorAttribute(ULONG, const SmVector3d&, ...)` |
 //! | [`Attribute::tag`]                                | `SmTagAttribute(ULONG, long x8, ...)`            |
 //! | [`Attribute::merge_region`]                       | `SmMergeRegionAttribute(SmRegion*, ULONG, SmRegion*, ULONG)` |
-//! | [`Attribute::make_copy`]                          | every `MakeCopy` override and copy constructor   |
+//! | [`Attribute::make_copy`]                          | every `MakeCopy` override and copy constructor, including the three decimation attributes |
 //! | [`Attribute::attribute_id`] / [`Attribute::behavior`] | `GetAttributeID` / `GetBehavior`             |
 //! | [`Attribute::type_code`] / [`Attribute::type_string`] / [`Attribute::is_kind_of`] | `GetType` / `GetTypeString` / `IsKindOf` (every class) |
 //! | [`Attribute::is_propagated_through_booleans`]     | `IsPropagatedThroughBooleans` (base, `SmColorAttribute`) |
@@ -499,6 +500,12 @@ impl MergeRegionData {
 /// The derived attribute class and its data.
 #[derive(Debug, Clone, PartialEq)]
 pub enum AttributeValue {
+    /// `SmDecimateVertexAttr` (unit `query.brep`).
+    DecimateVertex(crate::query::brep::DecimateVertexData),
+    /// `SmQuadricVertexAttr` (unit `query.brep`).
+    QuadricVertex(crate::query::brep::QuadricVertexData),
+    /// `SmQuadricEdgeAttr` (unit `query.brep`).
+    QuadricEdge(crate::query::brep::QuadricEdgeData),
     /// `SmAttribute`: no data (a label).
     None,
     /// `SmGenericAttribute`: arrays of longs, doubles and characters (what
@@ -655,7 +662,8 @@ impl Attribute {
     ///
     /// As upstream, `SmLongAttribute`, `SmVector3dAttribute` and `SmColorAttribute`
     /// copies get [`Behavior::Copy`] whatever the original's behaviour; the other
-    /// classes keep it.
+    /// classes keep it. Decimation vertex and quadric edge copies reset their
+    /// sort indices to zero, as their virtual `MakeCopy` overrides do.
     #[must_use]
     pub fn make_copy(&self) -> Self {
         let id = self.id;
@@ -663,6 +671,16 @@ impl Attribute {
             AttributeValue::Long(v) => Self::long(id, *v, Behavior::Copy),
             AttributeValue::Vector3d(v) => Self::vector3d(id, *v, Behavior::Copy),
             AttributeValue::Color(v) => Self::color(id, *v, Behavior::Copy),
+            AttributeValue::DecimateVertex(v) => {
+                let mut copy = v.clone();
+                copy.sort_index = 0;
+                Self::with_value(id, self.behavior, AttributeValue::DecimateVertex(copy))
+            }
+            AttributeValue::QuadricEdge(v) => {
+                let mut copy = v.clone();
+                copy.sort_index = Some(0);
+                Self::with_value(id, self.behavior, AttributeValue::QuadricEdge(copy))
+            }
             other => Self::with_value(id, self.behavior, other.clone()),
         }
     }
@@ -703,6 +721,9 @@ impl Attribute {
     pub const fn type_code(&self) -> i64 {
         match self.value {
             AttributeValue::None
+            | AttributeValue::DecimateVertex(_)
+            | AttributeValue::QuadricVertex(_)
+            | AttributeValue::QuadricEdge(_)
             | AttributeValue::PolyToEuVu { .. }
             | AttributeValue::PolyEdgeToVertexUse { .. } => type_code::ATTRIBUTE,
             AttributeValue::Generic { .. } => type_code::GENERIC,
@@ -719,6 +740,9 @@ impl Attribute {
     pub const fn type_string(&self) -> &'static str {
         match self.value {
             AttributeValue::None
+            | AttributeValue::DecimateVertex(_)
+            | AttributeValue::QuadricVertex(_)
+            | AttributeValue::QuadricEdge(_)
             | AttributeValue::PolyToEuVu { .. }
             | AttributeValue::PolyEdgeToVertexUse { .. } => "SmAttribute_TYPE",
             AttributeValue::Generic { .. } => "SmGenericAttribute_TYPE",
@@ -740,6 +764,9 @@ impl Attribute {
     pub fn is_kind_of(&self, t: i64) -> bool {
         let own: &[i64] = match self.value {
             AttributeValue::None
+            | AttributeValue::DecimateVertex(_)
+            | AttributeValue::QuadricVertex(_)
+            | AttributeValue::QuadricEdge(_)
             | AttributeValue::PolyToEuVu { .. }
             | AttributeValue::PolyEdgeToVertexUse { .. } => &[],
             AttributeValue::Generic { .. } => &[type_code::GENERIC],

@@ -2800,7 +2800,7 @@ tests = ["prog_test:my_test_extent3d", "prog_test:my_test_vector2d", "prog_test:
 status = "todo"
 claimed_by = ""
 claimed_at = ""
-notes = "50 fns; largest: SmBrep::HealBrep, SmBrep::CreateCornerBlend, SmBrep::CreateEdgeEdgeBlend, sm_MakeVertexSplitUVTrimCurve; cycle back-edges (call into later units; stub or co-port): query.brep(3), heal.heal_data_p1(2); unit-SCC #22 (220 units); hazards: ptr-hash; 319 upstream test entry points reach this unit; CO-PORTED in topology.edgeuse_p1 (PR #55): SmBrep::m_bValidateOnly, the region/face use/loop use/edge use/vertex use arenas -> topology::Brep (validate_only, regions(), faceuses(), ..., add_*_record, *_mut); CO-PORTED in topology.edgeuse_p2 (PR #87): SmBrep::m_sThisZoneTol3d, GetTolerance -> topology::Brep::tolerance, set_tolerance"
+notes = "CO-PORTED in query.brep (PR #101): SmBrep::m_pLockedBoundingBox -> topology::Brep::locked_bounding_box; unfiltered owned vertex/edge/face list views -> topology::Brep::{vertices, edges, faces} (arenas in insertion order); 50 fns; largest: SmBrep::HealBrep, SmBrep::CreateCornerBlend, SmBrep::CreateEdgeEdgeBlend, sm_MakeVertexSplitUVTrimCurve; cycle back-edges (call into later units; stub or co-port): query.brep(3), heal.heal_data_p1(2); unit-SCC #22 (220 units); hazards: ptr-hash; 319 upstream test entry points reach this unit; CO-PORTED in topology.edgeuse_p1 (PR #55): SmBrep::m_bValidateOnly, the region/face use/loop use/edge use/vertex use arenas -> topology::Brep (validate_only, regions(), faceuses(), ..., add_*_record, *_mut); CO-PORTED in topology.edgeuse_p2 (PR #87): SmBrep::m_sThisZoneTol3d, GetTolerance -> topology::Brep::tolerance, set_tolerance"
 
 [[unit]]
 id = "topology.brep_p6"
@@ -2951,10 +2951,10 @@ soft_depends_on = ["geom.extent2d", "geom.tol", "intersect.topology_solver_p2", 
 est_lines = 517
 layer = 48
 tests = ["prog_test:my_test_surface_closest_point", "prog_test:my_test_drop_point", "prog_test:my_test_matrix", "prog_test:my_test_reversed_line_join", "SM_API_test:TestSmCreateRectangle", "SM_API_test:TestSmCreateRegularPolygon"]
-status = "todo"
+status = "partial"
 claimed_by = ""
 claimed_at = ""
-notes = "17 fns; largest: SmBrep::Point3DClassify, SmBrep::CalculateBoundingBox, SmBrep::CalculateTightBoundingBox, SmApiEvaluateSurfaceDerivatives; entry points: SmApiEvaluateSurfaceDerivatives, SmApiEvaluateSurfaceNormal, SmApiEvaluateSurfacePoint; unit-SCC #22 (220 units); 317 upstream test entry points reach this unit"
+notes = "17 fns; largest: SmBrep::Point3DClassify, SmBrep::CalculateBoundingBox, SmBrep::CalculateTightBoundingBox, SmApiEvaluateSurfaceDerivatives; entry points: SmApiEvaluateSurfaceDerivatives, SmApiEvaluateSurfaceNormal, SmApiEvaluateSurfacePoint; unit-SCC #22 (220 units); 317 upstream test entry points reach this unit; PARTIAL (PR #101): all 17 owned functions ported; optimized difftest 1028 cases, 991 exact, 0 failures, 37 genuine deferrals (query.face_p1 5, topology.brep_cache 20, topology.brep_p2 12); max_rel_err 0, no absolute floors; sensitivity 991/991. Last completed certification (head 34f27ddb, official main ecab4aef): 163 units, 92 green, 71 partial, 0 failures. Local fmt, strict workspace and cpp Clippy, 1095 kernel tests, wasm, 20 FFI tests and license gates passed; difftest harness/self-tests passed before final main integration. Genuine query.brep back-edges were audited; opaque-context callers still blocked by earlier dependencies are not faked. Official main 0481fa25 (topology.vertex) was subsequently integrated; its focused/full revalidation is pending. PR remains draft; earlier results are not claimed for this new combination."
 
 [[unit]]
 id = "topology.brep_p3"

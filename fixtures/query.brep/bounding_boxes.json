@@ -1,0 +1,3416 @@
+{
+  "cases": [
+    {
+      "name": "bbox_empty_000",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": null,
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_empty_001",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": null,
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_empty_010",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": null,
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": true,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_empty_011",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": null,
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": true,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_empty_100",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": null,
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_empty_101",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": null,
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_empty_110",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": null,
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": true,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_empty_111",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": null,
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": true,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_empty_cache_sequence",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": null,
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "default"
+          },
+          {
+            "op": "tight"
+          },
+          {
+            "op": "lock",
+            "tight": false
+          },
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          },
+          {
+            "op": "lock",
+            "tight": true
+          },
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          },
+          {
+            "op": "unlock"
+          },
+          {
+            "op": "default"
+          },
+          {
+            "op": "unlock"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_line_000",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 1,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                3,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_line_001",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 1,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                3,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_line_010",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 1,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                3,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": true,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_line_011",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 1,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                3,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": true,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_line_100",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 1,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                3,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_line_101",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 1,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                3,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_line_110",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 1,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                3,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": true,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_line_111",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 1,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                3,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": true,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_line_cache_sequence",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 1,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                3,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "default"
+          },
+          {
+            "op": "tight"
+          },
+          {
+            "op": "lock",
+            "tight": false
+          },
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          },
+          {
+            "op": "lock",
+            "tight": true
+          },
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          },
+          {
+            "op": "unlock"
+          },
+          {
+            "op": "default"
+          },
+          {
+            "op": "unlock"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_line_no_wire_curves",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 1,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                1,
+                2,
+                3,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": true,
+        "steps": [
+          {
+            "op": "default"
+          },
+          {
+            "op": "tight"
+          },
+          {
+            "op": "lock",
+            "tight": false
+          },
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          },
+          {
+            "op": "lock",
+            "tight": true
+          },
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          },
+          {
+            "op": "unlock"
+          },
+          {
+            "op": "default"
+          },
+          {
+            "op": "unlock"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_bulge_000",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_bulge_001",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_bulge_010",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": true,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_bulge_011",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": true,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_bulge_100",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_bulge_101",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_bulge_110",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": true,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_bulge_111",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": true,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_bulge_cache_sequence",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "default"
+          },
+          {
+            "op": "tight"
+          },
+          {
+            "op": "lock",
+            "tight": false
+          },
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          },
+          {
+            "op": "lock",
+            "tight": true
+          },
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          },
+          {
+            "op": "unlock"
+          },
+          {
+            "op": "default"
+          },
+          {
+            "op": "unlock"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_bulge_no_wire_curves",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": true,
+        "steps": [
+          {
+            "op": "default"
+          },
+          {
+            "op": "tight"
+          },
+          {
+            "op": "lock",
+            "tight": false
+          },
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          },
+          {
+            "op": "lock",
+            "tight": true
+          },
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          },
+          {
+            "op": "unlock"
+          },
+          {
+            "op": "default"
+          },
+          {
+            "op": "unlock"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_network_000",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "network"
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_network_001",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "network"
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_network_010",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "network"
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": true,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_network_011",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "network"
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": true,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_network_100",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "network"
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_network_101",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "network"
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_network_110",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "network"
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": true,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_network_111",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "network"
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": true,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_network_cache_sequence",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "network"
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "default"
+          },
+          {
+            "op": "tight"
+          },
+          {
+            "op": "lock",
+            "tight": false
+          },
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          },
+          {
+            "op": "lock",
+            "tight": true
+          },
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          },
+          {
+            "op": "unlock"
+          },
+          {
+            "op": "default"
+          },
+          {
+            "op": "unlock"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_network_no_wire_curves",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "network"
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": true,
+        "steps": [
+          {
+            "op": "default"
+          },
+          {
+            "op": "tight"
+          },
+          {
+            "op": "lock",
+            "tight": false
+          },
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          },
+          {
+            "op": "lock",
+            "tight": true
+          },
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          },
+          {
+            "op": "unlock"
+          },
+          {
+            "op": "default"
+          },
+          {
+            "op": "unlock"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_face_000",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "face",
+          "surface": {
+            "bspline": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    1,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    1,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          },
+          "dom": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_face_001",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "face",
+          "surface": {
+            "bspline": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    1,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    1,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          },
+          "dom": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_face_010",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "face",
+          "surface": {
+            "bspline": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    1,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    1,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          },
+          "dom": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": true,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_face_011",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "face",
+          "surface": {
+            "bspline": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    1,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    1,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          },
+          "dom": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": true,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_face_100",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "face",
+          "surface": {
+            "bspline": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    1,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    1,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          },
+          "dom": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_face_101",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "face",
+          "surface": {
+            "bspline": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    1,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    1,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          },
+          "dom": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_face_110",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "face",
+          "surface": {
+            "bspline": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    1,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    1,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          },
+          "dom": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": true,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_face_111",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "face",
+          "surface": {
+            "bspline": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    1,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    1,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          },
+          "dom": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": true,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_face_cache_sequence",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "face",
+          "surface": {
+            "bspline": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    1,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    1,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          },
+          "dom": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "default"
+          },
+          {
+            "op": "tight"
+          },
+          {
+            "op": "lock",
+            "tight": false
+          },
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          },
+          {
+            "op": "lock",
+            "tight": true
+          },
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          },
+          {
+            "op": "unlock"
+          },
+          {
+            "op": "default"
+          },
+          {
+            "op": "unlock"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_approx_threshold_500_100",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 300,
+        "extra_edges": 99,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_full_threshold_500_100",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 300,
+        "extra_edges": 99,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_approx_threshold_500_101",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 298,
+        "extra_edges": 100,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_full_threshold_500_101",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 298,
+        "extra_edges": 100,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_approx_threshold_501_100",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 301,
+        "extra_edges": 99,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_full_threshold_501_100",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 301,
+        "extra_edges": 99,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_approx_threshold_501_101",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 299,
+        "extra_edges": 100,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_full_threshold_501_101",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 299,
+        "extra_edges": 100,
+        "tolerances": [
+          1e-07,
+          0.01,
+          0.1
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_bulge_scale_1e-06",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                1
+              ],
+              [
+                5e-07,
+                0.0,
+                0.001,
+                1
+              ],
+              [
+                1e-06,
+                0.0,
+                0.0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          0,
+          1e-05,
+          0
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "default"
+          },
+          {
+            "op": "tight"
+          },
+          {
+            "op": "lock",
+            "tight": false
+          },
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          },
+          {
+            "op": "lock",
+            "tight": true
+          },
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          },
+          {
+            "op": "unlock"
+          },
+          {
+            "op": "default"
+          },
+          {
+            "op": "unlock"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_bulge_scale_0.001",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                1
+              ],
+              [
+                0.0005,
+                0.0,
+                1.0,
+                1
+              ],
+              [
+                0.001,
+                0.0,
+                0.0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          0,
+          1e-05,
+          0
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "default"
+          },
+          {
+            "op": "tight"
+          },
+          {
+            "op": "lock",
+            "tight": false
+          },
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          },
+          {
+            "op": "lock",
+            "tight": true
+          },
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          },
+          {
+            "op": "unlock"
+          },
+          {
+            "op": "default"
+          },
+          {
+            "op": "unlock"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_bulge_scale_1",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0,
+                0,
+                0,
+                1
+              ],
+              [
+                0.5,
+                0,
+                1000,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          0,
+          1e-05,
+          0
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "default"
+          },
+          {
+            "op": "tight"
+          },
+          {
+            "op": "lock",
+            "tight": false
+          },
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          },
+          {
+            "op": "lock",
+            "tight": true
+          },
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          },
+          {
+            "op": "unlock"
+          },
+          {
+            "op": "default"
+          },
+          {
+            "op": "unlock"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_bulge_scale_1000.0",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                1
+              ],
+              [
+                500.0,
+                0.0,
+                1000000.0,
+                1
+              ],
+              [
+                1000.0,
+                0.0,
+                0.0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          0,
+          1e-05,
+          0
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "default"
+          },
+          {
+            "op": "tight"
+          },
+          {
+            "op": "lock",
+            "tight": false
+          },
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          },
+          {
+            "op": "lock",
+            "tight": true
+          },
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          },
+          {
+            "op": "unlock"
+          },
+          {
+            "op": "default"
+          },
+          {
+            "op": "unlock"
+          }
+        ]
+      }
+    },
+    {
+      "name": "bbox_bulge_scale_1000000.0",
+      "upstream_ref": "source/SMLib/src/SmBrep.cpp:1009-1258; tests/prog_test/src/smTopoTest.cpp:my_test_topology",
+      "inputs": {
+        "bbox_brep": {
+          "kind": "wire",
+          "curve": {
+            "dim": 3,
+            "p": 2,
+            "cpts": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                1
+              ],
+              [
+                500000.0,
+                0.0,
+                1000000000.0,
+                1
+              ],
+              [
+                1000000.0,
+                0.0,
+                0.0,
+                1
+              ]
+            ],
+            "u": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "t0": 0,
+          "t1": 1
+        },
+        "extra_vertices": 0,
+        "extra_edges": 0,
+        "tolerances": [
+          0,
+          1e-05,
+          0
+        ],
+        "drop_wire_curves": false,
+        "steps": [
+          {
+            "op": "default"
+          },
+          {
+            "op": "tight"
+          },
+          {
+            "op": "lock",
+            "tight": false
+          },
+          {
+            "op": "bounding",
+            "approximate": true,
+            "tight": false,
+            "expand": false
+          },
+          {
+            "op": "lock",
+            "tight": true
+          },
+          {
+            "op": "bounding",
+            "approximate": false,
+            "tight": false,
+            "expand": true
+          },
+          {
+            "op": "unlock"
+          },
+          {
+            "op": "default"
+          },
+          {
+            "op": "unlock"
+          }
+        ]
+      }
+    }
+  ]
+}

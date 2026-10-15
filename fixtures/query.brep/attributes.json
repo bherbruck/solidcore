@@ -1,0 +1,2686 @@
+{
+  "cases": [
+    {
+      "name": "attribute_0_0_0_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 0,
+        "behavior": 0,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 0,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_0_0_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 0,
+        "behavior": 0,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 0,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_0_9007199254740993_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 9007199254740993,
+        "behavior": 0,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 0,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_0_9007199254740993_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 9007199254740993,
+        "behavior": 0,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 0,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_0_18446744073709551615_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 18446744073709551615,
+        "behavior": 0,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 0,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_0_18446744073709551615_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 18446744073709551615,
+        "behavior": 0,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 0,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_1_0_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 0,
+        "behavior": 1,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 1,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_1_0_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 0,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 1,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_1_9007199254740993_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 9007199254740993,
+        "behavior": 1,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 1,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_1_9007199254740993_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 9007199254740993,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 1,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_1_18446744073709551615_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 18446744073709551615,
+        "behavior": 1,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 1,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_1_18446744073709551615_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 18446744073709551615,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 1,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_2_0_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 0,
+        "behavior": 2,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_2_0_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 0,
+        "behavior": 2,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_2_9007199254740993_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 9007199254740993,
+        "behavior": 2,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_2_9007199254740993_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 9007199254740993,
+        "behavior": 2,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_2_18446744073709551615_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 18446744073709551615,
+        "behavior": 2,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_2_18446744073709551615_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 18446744073709551615,
+        "behavior": 2,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_3_0_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 0,
+        "behavior": 3,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_3_0_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 0,
+        "behavior": 3,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_3_9007199254740993_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 9007199254740993,
+        "behavior": 3,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_3_9007199254740993_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 9007199254740993,
+        "behavior": 3,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_3_18446744073709551615_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 18446744073709551615,
+        "behavior": 3,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_3_18446744073709551615_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 18446744073709551615,
+        "behavior": 3,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_4_0_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 0,
+        "behavior": 4,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_4_0_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 0,
+        "behavior": 4,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_4_9007199254740993_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 9007199254740993,
+        "behavior": 4,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_4_9007199254740993_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 9007199254740993,
+        "behavior": 4,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_4_18446744073709551615_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 18446744073709551615,
+        "behavior": 4,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_4_18446744073709551615_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 18446744073709551615,
+        "behavior": 4,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_0_0_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 0,
+        "behavior": 0,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 1,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_0_0_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 0,
+        "behavior": 0,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 1,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_0_9007199254740993_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 9007199254740993,
+        "behavior": 0,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 1,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_0_9007199254740993_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 9007199254740993,
+        "behavior": 0,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 1,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_0_18446744073709551615_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 18446744073709551615,
+        "behavior": 0,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 1,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_0_18446744073709551615_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 18446744073709551615,
+        "behavior": 0,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 1,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_1_0_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 0,
+        "behavior": 1,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_1_0_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 0,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_1_9007199254740993_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 9007199254740993,
+        "behavior": 1,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_1_9007199254740993_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 9007199254740993,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_1_18446744073709551615_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 18446744073709551615,
+        "behavior": 1,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_1_18446744073709551615_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 18446744073709551615,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_2_0_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 0,
+        "behavior": 2,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_2_0_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 0,
+        "behavior": 2,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_2_9007199254740993_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 9007199254740993,
+        "behavior": 2,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_2_9007199254740993_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 9007199254740993,
+        "behavior": 2,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_2_18446744073709551615_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 18446744073709551615,
+        "behavior": 2,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_2_18446744073709551615_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 18446744073709551615,
+        "behavior": 2,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_3_0_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 0,
+        "behavior": 3,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_3_0_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 0,
+        "behavior": 3,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_3_9007199254740993_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 9007199254740993,
+        "behavior": 3,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_3_9007199254740993_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 9007199254740993,
+        "behavior": 3,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_3_18446744073709551615_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 18446744073709551615,
+        "behavior": 3,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_3_18446744073709551615_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 18446744073709551615,
+        "behavior": 3,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_4_0_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 0,
+        "behavior": 4,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_4_0_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 0,
+        "behavior": 4,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_4_9007199254740993_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 9007199254740993,
+        "behavior": 4,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_4_9007199254740993_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 9007199254740993,
+        "behavior": 4,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_4_18446744073709551615_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 18446744073709551615,
+        "behavior": 4,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_4_18446744073709551615_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 18446744073709551615,
+        "behavior": 4,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_0_0_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 0,
+        "behavior": 0,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_0_0_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 0,
+        "behavior": 0,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_0_9007199254740993_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 9007199254740993,
+        "behavior": 0,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_0_9007199254740993_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 9007199254740993,
+        "behavior": 0,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_0_18446744073709551615_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 18446744073709551615,
+        "behavior": 0,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_0_18446744073709551615_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 18446744073709551615,
+        "behavior": 0,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 2,
+        "data": [
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_1_0_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 0,
+        "behavior": 1,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_1_0_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 0,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_1_9007199254740993_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 9007199254740993,
+        "behavior": 1,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_1_9007199254740993_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 9007199254740993,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_1_18446744073709551615_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 18446744073709551615,
+        "behavior": 1,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_1_18446744073709551615_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 18446744073709551615,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 3,
+        "data": [
+          1e-300,
+          -2e-300,
+          3e-300,
+          -4e-300,
+          5e-300,
+          -6e-300,
+          7e-300,
+          -8e-300,
+          9e-300,
+          -1e-299,
+          1.1e-299,
+          -1.2e-299,
+          1.3e-299
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_2_0_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 0,
+        "behavior": 2,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_2_0_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 0,
+        "behavior": 2,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_2_9007199254740993_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 9007199254740993,
+        "behavior": 2,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_2_9007199254740993_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 9007199254740993,
+        "behavior": 2,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_2_18446744073709551615_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 18446744073709551615,
+        "behavior": 2,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_2_18446744073709551615_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 18446744073709551615,
+        "behavior": 2,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 4,
+        "data": [
+          1.0,
+          -2.0,
+          3.0,
+          -4.0,
+          5.0,
+          -6.0,
+          7.0,
+          -8.0,
+          9.0,
+          -10.0,
+          11.0,
+          -12.0,
+          13.0
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_3_0_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 0,
+        "behavior": 3,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_3_0_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 0,
+        "behavior": 3,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_3_9007199254740993_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 9007199254740993,
+        "behavior": 3,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_3_9007199254740993_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 9007199254740993,
+        "behavior": 3,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_3_18446744073709551615_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 18446744073709551615,
+        "behavior": 3,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_3_18446744073709551615_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 18446744073709551615,
+        "behavior": 3,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "data": [
+          1e+100,
+          -2e+100,
+          3.0000000000000002e+100,
+          -4e+100,
+          5e+100,
+          -6.0000000000000005e+100,
+          7e+100,
+          -8e+100,
+          9e+100,
+          -1e+101,
+          1.1e+101,
+          -1.2000000000000001e+101,
+          1.3e+101
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_4_0_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 0,
+        "behavior": 4,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 0,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_4_0_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 0,
+        "behavior": 4,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 0,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_4_9007199254740993_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 9007199254740993,
+        "behavior": 4,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 0,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_4_9007199254740993_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 9007199254740993,
+        "behavior": 4,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 0,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_4_18446744073709551615_0",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 18446744073709551615,
+        "behavior": 4,
+        "mutate": false,
+        "sort": 18446744073709551615,
+        "class": 0,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_4_18446744073709551615_1",
+      "upstream_ref": "source/SMLib/inc/SmPolyDecimate.h:80-263; source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 18446744073709551615,
+        "behavior": 4,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 0,
+        "data": [
+          1e+300,
+          -2e+300,
+          3e+300,
+          -4e+300,
+          5e+300,
+          -6e+300,
+          7e+300,
+          -8e+300,
+          9.000000000000001e+300,
+          -1e+301,
+          1.1e+301,
+          -1.2e+301,
+          1.3000000000000001e+301
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_nonfinite_1",
+      "upstream_ref": "source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 18446744073709551615,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "special": 1,
+        "data": [
+          1,
+          -2,
+          3,
+          -4,
+          5,
+          -6,
+          7,
+          -8,
+          9,
+          -10,
+          11,
+          -12,
+          13
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_nonfinite_2",
+      "upstream_ref": "source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 18446744073709551615,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "special": 2,
+        "data": [
+          1,
+          -2,
+          3,
+          -4,
+          5,
+          -6,
+          7,
+          -8,
+          9,
+          -10,
+          11,
+          -12,
+          13
+        ]
+      }
+    },
+    {
+      "name": "attribute_0_nonfinite_3",
+      "upstream_ref": "source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 0,
+        "id": 18446744073709551615,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "special": 3,
+        "data": [
+          1,
+          -2,
+          3,
+          -4,
+          5,
+          -6,
+          7,
+          -8,
+          9,
+          -10,
+          11,
+          -12,
+          13
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_nonfinite_1",
+      "upstream_ref": "source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 18446744073709551615,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "special": 1,
+        "data": [
+          1,
+          -2,
+          3,
+          -4,
+          5,
+          -6,
+          7,
+          -8,
+          9,
+          -10,
+          11,
+          -12,
+          13
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_nonfinite_2",
+      "upstream_ref": "source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 18446744073709551615,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "special": 2,
+        "data": [
+          1,
+          -2,
+          3,
+          -4,
+          5,
+          -6,
+          7,
+          -8,
+          9,
+          -10,
+          11,
+          -12,
+          13
+        ]
+      }
+    },
+    {
+      "name": "attribute_1_nonfinite_3",
+      "upstream_ref": "source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 1,
+        "id": 18446744073709551615,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "special": 3,
+        "data": [
+          1,
+          -2,
+          3,
+          -4,
+          5,
+          -6,
+          7,
+          -8,
+          9,
+          -10,
+          11,
+          -12,
+          13
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_nonfinite_1",
+      "upstream_ref": "source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 18446744073709551615,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "special": 1,
+        "data": [
+          1,
+          -2,
+          3,
+          -4,
+          5,
+          -6,
+          7,
+          -8,
+          9,
+          -10,
+          11,
+          -12,
+          13
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_nonfinite_2",
+      "upstream_ref": "source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 18446744073709551615,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "special": 2,
+        "data": [
+          1,
+          -2,
+          3,
+          -4,
+          5,
+          -6,
+          7,
+          -8,
+          9,
+          -10,
+          11,
+          -12,
+          13
+        ]
+      }
+    },
+    {
+      "name": "attribute_2_nonfinite_3",
+      "upstream_ref": "source/SMLib/src/SmPolyDecimate.cpp:421-473",
+      "inputs": {
+        "attribute_kind": 2,
+        "id": 18446744073709551615,
+        "behavior": 1,
+        "mutate": true,
+        "sort": 18446744073709551615,
+        "class": 5,
+        "special": 3,
+        "data": [
+          1,
+          -2,
+          3,
+          -4,
+          5,
+          -6,
+          7,
+          -8,
+          9,
+          -10,
+          11,
+          -12,
+          13
+        ]
+      }
+    }
+  ]
+}

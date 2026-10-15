@@ -4309,6 +4309,29 @@ default 3,093-case set (which the gate and CI run) is clean, and the previous ge
   (`ComputeUVPoint`, `GetVertex`) and `intersect::point_class` (`IsConnectedTo`). Those
   callers hold opaque object handles without a `Brep` (as for `topology.edgeuse_p1`).
 
+
+## query.brep: complete owned-list fixture export (resolved)
+
+The initial complete-unit report in commit `38672bb1` has 10 failures among
+1,016 cases, all from the `prog_test` wire network. For
+`bbox_network_000` (no expansion, no tight/approximate flags), C++ returned
+maximum Y/Z = 1/1, while Rust returned 0/0.
+
+The box kernel was consuming an incomplete fixture graph. The shared P1 `walk`
+explicitly registers topology reachable from region shells; `SmBrep` box queries
+instead enumerate its complete owned vertex/edge/face lists. The network includes
+owned objects outside that region-reachable registry. The initial shim also
+applied requested fixture tolerances only to that incomplete registry.
+
+`query_brep_bbox.cpp` now completes its own registry from all three owned lists,
+then closes their use-record links, before edits or export. The common P1 walker
+and other contributors' adapters are unchanged. No case, input tolerance, kernel
+formula, comparison tolerance or absolute floor was changed. The corrected run
+has 991 bit-identical comparisons, zero failures and 25 genuine deferrals
+(`query.face_p1`: 5; `topology.brep_cache`: 20). The initial failure report remains
+in Git history. Future B-rep-wide fixture exporters must distinguish owned lists
+from region reachability.
+
 ## topology.vertex (`SmVertex`, 2026-10-15; partial, no disagreements)
 
 - **Vertex use lists.** `topology::Vertex` gained `vertexuses` (`m_pList`, upstream list

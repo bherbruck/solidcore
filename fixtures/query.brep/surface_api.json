@@ -1,0 +1,8767 @@
+{
+  "cases": [
+    {
+      "name": "api_0_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 0,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 0,
+        "uv": [
+          -2,
+          -3
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 0,
+        "uv": [
+          4,
+          5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_outside_u",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 0,
+        "uv": [
+          -2.00000000001,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_outside_v",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 0,
+        "uv": [
+          0,
+          5.00000000001
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_nan_u",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 0,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_nan_v",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 0,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 2,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_inf_u",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 0,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 3,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_inf_v",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 0,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 4,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_null",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": null,
+        "op": 0,
+        "uv": [
+          0,
+          0
+        ],
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 1,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 1,
+        "uv": [
+          -2,
+          -3
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 1,
+        "uv": [
+          4,
+          5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_outside_u",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 1,
+        "uv": [
+          -2.00000000001,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_outside_v",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 1,
+        "uv": [
+          0,
+          5.00000000001
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_nan_u",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 1,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_nan_v",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 1,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 2,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_inf_u",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 1,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 3,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_inf_v",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 1,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 4,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_null",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": null,
+        "op": 1,
+        "uv": [
+          0,
+          0
+        ],
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 2,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 2,
+        "uv": [
+          -2,
+          -3
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 2,
+        "uv": [
+          4,
+          5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_outside_u",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 2,
+        "uv": [
+          -2.00000000001,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_outside_v",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 2,
+        "uv": [
+          0,
+          5.00000000001
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_nan_u",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 2,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_nan_v",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 2,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 2,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_inf_u",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 2,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 3,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_inf_v",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "plane": {
+            "o": [
+              1,
+              2,
+              3
+            ],
+            "x": [
+              1,
+              0,
+              0
+            ],
+            "y": [
+              0,
+              1,
+              0
+            ],
+            "scale": [
+              2,
+              3
+            ],
+            "dom": [
+              -2,
+              -3,
+              4,
+              5
+            ]
+          }
+        },
+        "op": 2,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 4,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_null",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": null,
+        "op": 2,
+        "uv": [
+          0,
+          0
+        ],
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_bspline_corners_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_bspline_corners_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_bspline_corners_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_bspline_corners_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_bspline_corners_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_bspline_corners_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_bspline_corners_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_bspline_corners_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_bspline_corners_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_bspline_corners_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_bspline_corners_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_bspline_corners_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_bspline_corners_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_bspline_corners_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_bspline_corners_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_bspline_collapsed_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_bspline_collapsed_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_bspline_collapsed_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_bspline_collapsed_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_bspline_collapsed_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_bspline_collapsed_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_bspline_collapsed_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_bspline_collapsed_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_bspline_collapsed_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_bspline_collapsed_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_bspline_collapsed_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_bspline_collapsed_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_bspline_collapsed_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_bspline_collapsed_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_bspline_collapsed_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_bspline_rational_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_bspline_rational_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_bspline_rational_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_bspline_rational_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_bspline_rational_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_bspline_rational_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_bspline_rational_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_bspline_rational_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_bspline_rational_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_bspline_rational_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_bspline_rational_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_bspline_rational_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_bspline_rational_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_bspline_rational_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_bspline_rational_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "bspline": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_curve_bounded_corners_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_curve_bounded_corners_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_curve_bounded_corners_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_curve_bounded_corners_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_curve_bounded_corners_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_curve_bounded_corners_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_curve_bounded_corners_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_curve_bounded_corners_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_curve_bounded_corners_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_curve_bounded_corners_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_curve_bounded_corners_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_curve_bounded_corners_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_curve_bounded_corners_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_curve_bounded_corners_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_curve_bounded_corners_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    10,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    10,
+                    12,
+                    0,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_curve_bounded_collapsed_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_curve_bounded_collapsed_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_curve_bounded_collapsed_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_curve_bounded_collapsed_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_curve_bounded_collapsed_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_curve_bounded_collapsed_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_curve_bounded_collapsed_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_curve_bounded_collapsed_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_curve_bounded_collapsed_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_curve_bounded_collapsed_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_curve_bounded_collapsed_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_curve_bounded_collapsed_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_curve_bounded_collapsed_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_curve_bounded_collapsed_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_curve_bounded_collapsed_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ],
+                  [
+                    2,
+                    3,
+                    4,
+                    1
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_curve_bounded_rational_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_curve_bounded_rational_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_curve_bounded_rational_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_curve_bounded_rational_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_0_curve_bounded_rational_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 0,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_curve_bounded_rational_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_curve_bounded_rational_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_curve_bounded_rational_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_curve_bounded_rational_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_1_curve_bounded_rational_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 1,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_curve_bounded_rational_lower",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0,
+          0
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_curve_bounded_rational_interior",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_curve_bounded_rational_upper",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          1,
+          1
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_curve_bounded_rational_outside",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          1.00000000001,
+          0.5
+        ],
+        "special": 0,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    },
+    {
+      "name": "api_2_curve_bounded_rational_nan",
+      "upstream_ref": "tests/SM_API_test/src/TestSmSurfaces.cpp:201-240; source/SM_API/src/SmApiSurfaces.cpp:550-640",
+      "inputs": {
+        "surf": {
+          "curve_bounded": {
+            "srf": {
+              "net": [
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    2
+                  ]
+                ],
+                [
+                  [
+                    30,
+                    0,
+                    0,
+                    3
+                  ],
+                  [
+                    40,
+                    48,
+                    20,
+                    4
+                  ]
+                ]
+              ],
+              "p": 1,
+              "q": 1,
+              "u": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "v": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "op": 2,
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "special": 1,
+        "initial": [
+          [
+            17,
+            -29,
+            41
+          ],
+          [
+            53,
+            -67,
+            79
+          ],
+          [
+            83,
+            -97,
+            101
+          ]
+        ]
+      }
+    }
+  ]
+}

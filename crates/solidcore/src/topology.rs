@@ -53,6 +53,7 @@ use crate::error::{EntityRef, Result, SolidError};
 use crate::geom::attribute::ObjectKey;
 use crate::geom::extent1d::Extent1d;
 use crate::geom::extent2d::Extent2d;
+use crate::geom::extent3d::Extent3d;
 use crate::geom::solution_array::{ObjectKind, SolutionObject};
 use crate::geom::tol::ZONE_TOL_3D;
 use crate::geom::vector2d::Point2;
@@ -524,6 +525,8 @@ pub struct Brep {
     validate_only: bool,
     /// `m_sThisZoneTol3d` (CO-PORTED by `topology.edgeuse_p2`): the B-rep's tolerance.
     tolerance: f64,
+    /// `m_pLockedBoundingBox` (unit `query.brep`): the explicitly locked box.
+    pub(crate) locked_bounding_box: Option<Extent3d>,
     /// The identity the B-rep is attributed and notified under (`SmBrep*`).
     key: ObjectKey,
 }
@@ -543,6 +546,7 @@ impl Default for Brep {
             vertexuses: Arena::default(),
             validate_only: false,
             tolerance: ZONE_TOL_3D,
+            locked_bounding_box: None,
             key: ObjectKey(0),
         }
     }

@@ -358,6 +358,9 @@ enum Step {
 fn kind(a: &Attribute) -> i64 {
     match a.value() {
         AttributeValue::None
+        | AttributeValue::DecimateVertex(_)
+        | AttributeValue::QuadricVertex(_)
+        | AttributeValue::QuadricEdge(_)
         | AttributeValue::PolyToEuVu { .. }
         | AttributeValue::PolyEdgeToVertexUse { .. } => KIND_PLAIN,
         AttributeValue::Generic { .. } => KIND_GENERIC,
@@ -830,6 +833,11 @@ impl RustRun {
                     v.extend(&m.other_types);
                 }
                 AttributeValue::Tag(t) => v.extend(t.to_array()),
+                AttributeValue::DecimateVertex(_)
+                | AttributeValue::QuadricVertex(_)
+                | AttributeValue::QuadricEdge(_) => {
+                    return Err(HarnessError::new("decimation payloads belong to the query.brep runner"));
+                }
             }
             ints.push(v.len() as i64);
             ints.extend(v);
