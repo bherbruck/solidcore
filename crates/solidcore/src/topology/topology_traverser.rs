@@ -93,9 +93,11 @@ fn check_mark(mark: MarkType) -> Result<()> {
     Ok(())
 }
 
-// SmFace::GetEdges(defaults) appends each loop's unique edges, including repeats
-// between loops, exactly as upstream. Existing loop-use iteration is cycle-bounded.
-fn face_edges(b: &Brep, f: FaceId) -> Result<Vec<EdgeId>> {
+/// `SmFace::GetEdges(rEdges)` with its default arguments (CO-PORTED from unit
+/// `topology.face_p4`; also used by `query::face::p3`): appends each loop's unique
+/// edges, including repeats between loops, exactly as upstream. Existing loop-use
+/// iteration is cycle-bounded.
+pub(crate) fn face_edges(b: &Brep, f: FaceId) -> Result<Vec<EdgeId>> {
     let mut out = Vec::new();
     if let Some(fu) = b.face(f)?.faceuse {
         for &lu in &b.faceuse(fu)?.loopuses {

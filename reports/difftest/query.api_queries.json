@@ -931,8 +931,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "face_kind4_op17",
@@ -1175,8 +1175,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "face_kind5_op17",
@@ -1411,8 +1411,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "face_kind6_op17",
@@ -2051,8 +2051,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "rational_kind8_op17",
@@ -2287,8 +2287,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "spherical_band_op17",
@@ -3739,8 +3739,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0009",
@@ -4007,8 +4007,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0035",
@@ -4195,8 +4195,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0053",
@@ -4378,21 +4378,17 @@
       "values_compared": 0
     },
     {
-      "deferred": {
-        "symbol": "SmFace::CalculateTightBoundingBox",
-        "unit": "query.face_p3"
-      },
       "max_rel_err": 0.0,
       "name": "gen0071",
-      "outcome": "deferred",
-      "pass": false,
+      "outcome": "pass",
+      "pass": true,
       "source": "generated:seed=2348217451497337137",
-      "values_compared": 0
+      "values_compared": 6
     },
     {
       "deferred": {
-        "symbol": "SmFace::CalculateTightBoundingBox",
-        "unit": "query.face_p3"
+        "symbol": "SmFace::GetTolerance",
+        "unit": "topology.face_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0072",
@@ -4787,8 +4783,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0112",
@@ -5135,8 +5131,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmFace::CalculateTightBoundingBox",
-        "unit": "query.face_p3"
+        "symbol": "SmFace::GetTolerance",
+        "unit": "topology.face_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0147",
@@ -5775,8 +5771,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmFace::CalculateTightBoundingBox",
-        "unit": "query.face_p3"
+        "symbol": "SmFace::GetTolerance",
+        "unit": "topology.face_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0211",
@@ -5923,8 +5919,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmFace::CalculateTightBoundingBox",
-        "unit": "query.face_p3"
+        "symbol": "SmFace::GetTolerance",
+        "unit": "topology.face_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0225",
@@ -6587,8 +6583,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0292",
@@ -6611,8 +6607,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0294",
@@ -6622,16 +6618,12 @@
       "values_compared": 0
     },
     {
-      "deferred": {
-        "symbol": "SmFace::CalculateTightBoundingBox",
-        "unit": "query.face_p3"
-      },
       "max_rel_err": 0.0,
       "name": "gen0295",
-      "outcome": "deferred",
-      "pass": false,
+      "outcome": "pass",
+      "pass": true,
       "source": "generated:seed=2348217451497337361",
-      "values_compared": 0
+      "values_compared": 6
     },
     {
       "max_rel_err": 0.0,
@@ -6703,8 +6695,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0302",
@@ -6807,8 +6799,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmFace::CalculateTightBoundingBox",
-        "unit": "query.face_p3"
+        "symbol": "SmFace::GetTolerance",
+        "unit": "topology.face_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0311",
@@ -7115,8 +7107,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmFace::CalculateTightBoundingBox",
-        "unit": "query.face_p3"
+        "symbol": "SmFace::GetTolerance",
+        "unit": "topology.face_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0340",
@@ -7230,16 +7222,12 @@
       "values_compared": 0
     },
     {
-      "deferred": {
-        "symbol": "SmFace::CalculateTightBoundingBox",
-        "unit": "query.face_p3"
-      },
       "max_rel_err": 0.0,
       "name": "gen0351",
-      "outcome": "deferred",
-      "pass": false,
+      "outcome": "pass",
+      "pass": true,
       "source": "generated:seed=2348217451497337417",
-      "values_compared": 0
+      "values_compared": 6
     },
     {
       "deferred": {
@@ -7267,8 +7255,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0354",
@@ -7387,8 +7375,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0367",
@@ -7475,8 +7463,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0375",
@@ -7630,16 +7618,12 @@
       "values_compared": 5
     },
     {
-      "deferred": {
-        "symbol": "SmFace::CalculateTightBoundingBox",
-        "unit": "query.face_p3"
-      },
       "max_rel_err": 0.0,
       "name": "gen0391",
-      "outcome": "deferred",
-      "pass": false,
+      "outcome": "pass",
+      "pass": true,
       "source": "generated:seed=2348217451497337457",
-      "values_compared": 0
+      "values_compared": 6
     },
     {
       "max_rel_err": 0.0,
@@ -7735,8 +7719,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0402",
@@ -8007,8 +7991,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0427",
@@ -8119,8 +8103,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0438",
@@ -8219,8 +8203,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmFace::CalculateTightBoundingBox",
-        "unit": "query.face_p3"
+        "symbol": "SmFace::GetTolerance",
+        "unit": "topology.face_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0447",
@@ -8251,8 +8235,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0450",
@@ -9063,8 +9047,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0528",
@@ -9467,8 +9451,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0568",
@@ -9491,8 +9475,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0570",
@@ -9555,8 +9539,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmFace::CalculateTightBoundingBox",
-        "unit": "query.face_p3"
+        "symbol": "SmFace::GetTolerance",
+        "unit": "topology.face_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0577",
@@ -9703,8 +9687,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0592",
@@ -9775,8 +9759,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0599",
@@ -10103,8 +10087,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0630",
@@ -10174,16 +10158,12 @@
       "values_compared": 0
     },
     {
-      "deferred": {
-        "symbol": "SmFace::CalculateTightBoundingBox",
-        "unit": "query.face_p3"
-      },
       "max_rel_err": 0.0,
       "name": "gen0637",
-      "outcome": "deferred",
-      "pass": false,
+      "outcome": "pass",
+      "pass": true,
       "source": "generated:seed=2348217451497337703",
-      "values_compared": 0
+      "values_compared": 6
     },
     {
       "deferred": {
@@ -10319,8 +10299,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0650",
@@ -10419,8 +10399,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0659",
@@ -10507,8 +10487,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0668",
@@ -10659,8 +10639,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0682",
@@ -10747,8 +10727,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0691",
@@ -11067,8 +11047,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmFace::CalculateTightBoundingBox",
-        "unit": "query.face_p3"
+        "symbol": "SmFace::GetTolerance",
+        "unit": "topology.face_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0724",
@@ -11599,8 +11579,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0775",
@@ -11855,18 +11835,19 @@
     }
   ],
   "cases_both_errored": 0,
-  "cases_deferred": 557,
+  "cases_deferred": 552,
   "cases_failed": 0,
-  "cases_passed": 646,
+  "cases_passed": 651,
   "cases_total": 1203,
   "deferred_by_unit": {
+    "intersect.curve_class_p2": 31,
     "query.brep": 335,
     "query.face_p1": 12,
-    "query.face_p3": 45,
     "surface.surface_p8": 2,
     "topology.brep_p1": 114,
     "topology.brep_p2": 42,
-    "topology.edgeuse_p3": 7
+    "topology.edgeuse_p3": 7,
+    "topology.face_p2": 9
   },
   "max_rel_err": 0.0,
   "pass": true,

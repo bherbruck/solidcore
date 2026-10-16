@@ -5893,8 +5893,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "internal_plane",
@@ -5981,8 +5981,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "internal_plane_box_side",
@@ -6069,8 +6069,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "internal_plane_tilted",
@@ -6157,8 +6157,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "internal_bss",
@@ -6245,8 +6245,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "internal_bss_sub",
@@ -6333,8 +6333,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "internal_bss_tiny",
@@ -6421,8 +6421,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "internal_bss_huge",
@@ -6509,8 +6509,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "internal_bss_pinched",
@@ -10453,8 +10453,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0001",
@@ -10477,8 +10477,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0003",
@@ -10489,8 +10489,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0004",
@@ -10562,8 +10562,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0011",
@@ -10686,8 +10686,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00009",
@@ -10940,8 +10940,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00037",
@@ -11429,8 +11429,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00092",
@@ -12720,8 +12720,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00232",
@@ -12815,8 +12815,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00243",
@@ -12907,8 +12907,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00253",
@@ -13536,8 +13536,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00321",
@@ -13548,8 +13548,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00322",
@@ -14567,8 +14567,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00438",
@@ -15054,8 +15054,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00492",
@@ -15493,8 +15493,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00542",
@@ -15741,8 +15741,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00570",
@@ -15846,8 +15846,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00581",
@@ -16077,8 +16077,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00607",
@@ -16790,8 +16790,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00685",
@@ -16881,8 +16881,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00695",
@@ -16968,8 +16968,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00704",
@@ -17005,8 +17005,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00708",
@@ -17076,8 +17076,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00716",
@@ -17528,8 +17528,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00767",
@@ -18693,8 +18693,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00900",
@@ -19394,8 +19394,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra00981",
@@ -19715,8 +19715,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra01019",
@@ -20181,8 +20181,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra01070",
@@ -20351,8 +20351,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra01089",
@@ -20859,8 +20859,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra01148",
@@ -20990,8 +20990,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra01163",
@@ -21159,8 +21159,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra01182",
@@ -21360,8 +21360,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra01204",
@@ -22030,8 +22030,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra01280",
@@ -22273,8 +22273,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra01307",
@@ -22636,8 +22636,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra01349",
@@ -22980,8 +22980,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra01388",
@@ -23393,8 +23393,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra01436",
@@ -23555,8 +23555,8 @@
     },
     {
       "deferred": {
-        "symbol": "sm_FaceClassifyUVLine",
-        "unit": "query.face_p3"
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
       },
       "max_rel_err": 0.0,
       "name": "extra01454",
@@ -23967,8 +23967,8 @@
   "cases_total": 2692,
   "deferred_by_unit": {
     "curve.crv_on_surf": 74,
+    "intersect.curve_class_p2": 47,
     "intersect.curve_class_p4": 30,
-    "query.face_p3": 47,
     "surface.offset_surface": 112,
     "topology.edgeuse_p3": 156,
     "topology.face_p1": 63
