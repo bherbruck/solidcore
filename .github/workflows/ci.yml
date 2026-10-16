@@ -18,8 +18,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - run: rustup show active-toolchain || rustup toolchain install
       - run: cargo fmt --all --check
+      # `cargo fmt` cannot see `src/units/*.rs`: they are registered through
+      # `include!(OUT_DIR/units.rs)`, which rustfmt does not expand. Check the units
+      # files a PR adds; existing ones predate this check and are left alone so
+      # open PRs that modify them do not conflict.
+      - name: rustfmt units added by this PR
+        if: github.event_name == 'pull_request'
+        run: |
+          git diff --name-only --diff-filter=A "origin/${{ github.base_ref }}...HEAD" -- \
+            'crates/difftest/src/units/*.rs' 'crates/solidcore-ffi/src/units/*.rs' \
+            | xargs -r rustfmt --check
 
   clippy:
     runs-on: ubuntu-latest

@@ -173,6 +173,7 @@ into `upstream/` (see README), build the C++ reference with
    `nice -n 10`):
    ```sh
    cargo fmt --all --check
+   rustfmt --check crates/difftest/src/units/<unit_id_with_underscores>.rs crates/solidcore-ffi/src/units/<unit_id_with_underscores>.rs   # cargo fmt cannot see units
    cargo clippy --workspace --all-targets -- -D warnings
    cargo test -p solidcore
    cargo check -p solidcore --target wasm32-unknown-unknown
