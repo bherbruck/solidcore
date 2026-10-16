@@ -28,8 +28,10 @@ jobs:
       # open PRs that modify them do not conflict.
       - name: rustfmt units added by this PR
         if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
         run: |
-          git diff --name-only --diff-filter=A "origin/${{ github.base_ref }}...HEAD" -- \
+          git diff --name-only --diff-filter=A "origin/$BASE_REF...HEAD" -- \
             'crates/difftest/src/units/*.rs' 'crates/solidcore-ffi/src/units/*.rs' \
             | xargs -r rustfmt --check
 
