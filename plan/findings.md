@@ -5148,6 +5148,72 @@ mutated scales and accepted/reduced step counts are compared.
 - **Null-pointer coverage.** Typed Rust APIs cannot receive native null pointers.
   The 25 native null contracts are FFI tests, not differential passes with a
   synthesized Rust status.
+## intersect.curve_class_p2 (`SmCurveClassification`, part 2, 2026-10-14; partial, no disagreements)
+
+- **`sm_RefineCCIToSurfaces` is only partly ported.** Its entry checks (recursion
+  counter, point-solution test, both classification surfaces) are ported and compared;
+  everything after them starts with `pEdge->GetCurve()` and walks the edge's faces, edge
+  uses and Boolean mate, so it is the `UNPORTED(topology.edge)` site in
+  `intersect::curve_class::p2::refine_cci_to_surfaces`. Whoever wires that site must port
+  the remaining ~1,250 lines (`SmCurveClass.cpp` 1690-2940); the note is also in
+  `topology.edge`'s `notes`. The shim runs only the entry checks (past them the bare
+  stand-in edge's topology would be walked and its curve edited).
+- **`EditIntervalMin` reads the stale slot past `m_lSize`.** When collapsing the
+  neighbour removes the interval before the last one, upstream's next `(*this)[lIndex]`
+  is past the end: the slot `RemoveAt` left behind, a copy of the last interval. The port
+  reads that copy the same way; the following `CollapseInterval` fails (status ignored).
+- **`InsertAt(0, ..)` into a non-empty classification** is UB-98 (unsigned shift loop);
+  Rust returns `InvalidInput` and the shim rejects it.
+- **Shim guards.** Edits are rejected when any interval end classifies to an
+  `SmPoint3d` (UB-79: its zone tolerance is taken through `SmObject` virtuals); this is
+  conservative (not every end is reached). Owned curves (`ReSet(.., bIsCurveOwned=TRUE)`,
+  copied by `operator=`) are disowned before the ops that delete them, since they may be
+  pool objects; a curve deep-copied by `operator=` reports the id of its source.
+- **`operator=` keeps the old curve when `SmCurve::Copy` fails** (review fix, PR #85).
+  For an owned source curve upstream frees this classification's owned curve, then calls
+  `crOther.m_cpCurve->Copy(..)` and ignores its status. `SmHermiteCurve`, `SmConic` and
+  `SmIsoCurve` have no `Copy` override, so the base `SmCurve::Copy` returns `SM_ERR` and
+  leaves `m_cpCurve` unchanged: the target keeps its old (non-owned) curve, or `NULL` if
+  it owned the old one. The first port always copied the handle; `--seeds 30000` found 4
+  generated failures (gen8797, gen10415, gen11711, gen21161: a Hermite curve `ReSet`
+  owned, then assigned), now `fixtures/intersect.curve_class_p2/adv.json`. Because the
+  shim disowns the target before `operator=` (its curve may be a pool object), the
+  "owned old curve freed, copy fails -> `NULL`" branch is not compared against the C++;
+  it is covered by the Rust unit test `assign_owned_curve_without_copy` only.
+- **`ReSet` with a new curve and no interval** dereferences `NULL` upstream; Rust returns
+  `InvalidInput` before changing anything (the first port had already set
+  `m_bIsCurveCurrent`).
+
+## query.face_p4 (`SmFace::ClassifyLoops`, PR #129, 2026-10-15; partial, no disagreements)
+
+- **What is compared.** `ClassifyLoops` classifies a target loop either from the seam
+  touch lists the face props already hold (loops crossing a periodic seam: the no-area
+  loops of faces without seam edge, and seam-straddling area loops) or from a new
+  bisecting classification curve (`sms_FindAndClassifyLoopBisector`, unit
+  `query.face_p3`, then `GetLoopCrossings`, unit `intersect.curve_class_p4`). The first
+  path is fully ported and compared; any target loop needing the second defers the
+  case. The face props are built in the shim exactly as `SetProps_Stage3` builds them
+  before its call (copied prefix) and exported, so both sides classify from the same
+  props; fresh props (computed inside by `SetProps_Stage2`) are compared only on open
+  surfaces (on a closed surface `ClassifyLoops` then reads the empty `m_sLoopProps`).
+- **`SmTArray::SetSize` zero-fills.** New `SmClassifyLoopIO` records are `smos_Calloc` /
+  `memset` bytes, not the constructor's values: an unclassified record has
+  `m_tLoopuseType` 0 and `m_bArea_Loop` `FALSE` (not 16999 / `UNSURE`). The port's
+  `ZEROED_CLASSIFY_LOOP_IO` reproduces it; `LoopuseType::Zero` was added for it.
+- **Vertex loops fall through.** A target vertex loop is recorded and marked, then the
+  same pass still builds a classification curve for it (no `continue` upstream).
+- **Each pass deletes the previous loop tree** (`if(rpLooptreeRoot) delete`): only the
+  last pass's tree is returned. `SmTArray::FindElement` misses leave the no-area index
+  at 0. Ported as is.
+- **heal.face_props runner.** Wiring `ClassifyLoops` into `SetProps_Stage3` first
+  showed that the then Rust B-rep of the `heal.face_props` runner lacked the shim's
+  single vertex loop (11 stage-3 cases failed with `SM_ERR_NOTYET_HEAL_FACE` vs
+  `SM_SUCCESS`). The runner on `main` has since been rebuilt (vertex and edge loops,
+  surfaces of revolution); after merging it, its 4 `query.face_p4` deferrals and those
+  of `heal.heal_data_p1` now defer on `query.face_p3`, 0 failed.
+- **FFI guard beyond UB.** A seam touch connected to an object that is not a loop is
+  rejected although upstream only compares the pointer: the port's loop tree holds loop
+  ids. `SmCurveClassification` touch lists only ever connect to loops.
 
 ## heal.heal_data_p2 (`SmHealData` p2 steps, `SmEdgeProps`, `SmVertexProps`, problem arrays; 2026-10-16 review, PR #128; partial, no disagreements)
 

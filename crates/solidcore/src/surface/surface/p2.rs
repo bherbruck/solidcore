@@ -104,7 +104,7 @@
 //!   `SmSurfaceIntersector::DoIntersection` (unit `intersect.surface_intersector_p5`);
 //!   `PointBasedSurfaceIntersect` builds the `SmAdvSurfaceIntersector` and then needs
 //!   `DoPointIntersection` (`intersect.surface_intersector_p4`); `CurveOnClassify` needs
-//!   `SmCurveClassification` (`intersect.curve_class_p*`); `CreatePlaneWith3DCurves`
+//!   `SmCurveClassification::IntersectNaturalBounds` (`intersect.curve_class_p8`); `CreatePlaneWith3DCurves`
 //!   needs `SmTrimmingTools` (`topology.trimming_tools`); `smsurf_GetSurfaceCache`
 //!   needs the cache store to make surface caches (`SmSurface::CacheMakeOrValidate`,
 //!   `surface.surface_p1`); the polar box test of `sm_CsArePerpenDisjoint` needs the
@@ -174,6 +174,8 @@ use crate::geom::tree::{AuxDataType, Tree, TreeNode, TreeOwner};
 use crate::geom::vector2d::{Point2, Vec2};
 use crate::geom::vector3d::{sqrt, Point3, Vec3};
 use crate::intersect::adv_surface_intersector::{AdvSurfaceIntersector, NoSurfaceHandle};
+use crate::intersect::curve_class::{CurveClassification, ResetOptions};
+use crate::intersect::point_class::ClassObject;
 use crate::intersect::surface_intersector::p1::{SrfIndex, TsectPnt};
 use crate::kernel::Kernel;
 use crate::math::{EFF_ZERO, EFF_ZERO_SQ, EFF_ZERO_SQRT, PI, UNDEF_DOUBLE};
@@ -1220,20 +1222,31 @@ impl Surface {
     // ---- intersections and classification -------------------------------------------
 
     /// Splits the curve of `classification` at this surface's natural boundaries and
-    /// classifies the pieces (`CurveOnClassify`). `C` stands for
-    /// `SmCurveClassification` until that type is ported.
+    /// classifies the pieces (`CurveOnClassify`): the classification is reset to one
+    /// interval, its face cleared and its surfaces set to `this` (the handle naming
+    /// this surface) and none, then intersected with the natural bounds.
     ///
     /// # Errors
     ///
-    /// [`SolidError::Unported`]: `SmCurveClassification` (units
-    /// `intersect.curve_class_*`).
-    pub fn curve_on_classify<C: ?Sized>(&self, _classification: &mut C) -> Result<()> {
-        // UNPORTED(intersect.curve_class_p2): SmCurveClassification::ReSet
-        // (then SetFace, SetSurface1, SetSurface2, IntersectNaturalBounds
-        // (intersect.curve_class_p8) and the end interval classifications)
+    /// [`SolidError::Unported`] after the reset: `IntersectNaturalBounds` (unit
+    /// `intersect.curve_class_p8`).
+    pub fn curve_on_classify<O: ClassObject>(
+        &self,
+        k: &Kernel,
+        this: O,
+        classification: &mut CurveClassification<O>,
+    ) -> Result<()> {
+        // reset the classification
+        classification.reset(k, &ResetOptions::default())?;
+        classification.set_face(None);
+        classification.set_surface1(Some(this));
+        classification.set_surface2(None);
+
+        // UNPORTED(intersect.curve_class_p8): SmCurveClassification::IntersectNaturalBounds
+        // (then the end interval classifications)
         Err(SolidError::unported(
-            "SmCurveClassification::ReSet",
-            "intersect.curve_class_p2",
+            "SmCurveClassification::IntersectNaturalBounds",
+            "intersect.curve_class_p8",
         ))
     }
 

@@ -82,6 +82,14 @@ impl LoopObject for H {
     fn from_loop(l: LoopId) -> Self {
         Self(l)
     }
+
+    fn as_loop(&self) -> Option<LoopId> {
+        Some(self.0)
+    }
+
+    fn as_vertex(&self) -> Option<solidcore::topology::VertexId> {
+        None
+    }
 }
 
 fn harness(msg: impl Into<String>) -> HarnessError {

@@ -19,8 +19,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmFace::ClassifyLoops",
-        "unit": "query.face_p4"
+        "symbol": "sms_FindAndClassifyLoopBisector",
+        "unit": "query.face_p3"
       },
       "max_rel_err": 0.0,
       "name": "stage3",
@@ -5900,8 +5900,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmFace::ClassifyLoops",
-        "unit": "query.face_p4"
+        "symbol": "sms_FindAndClassifyLoopBisector",
+        "unit": "query.face_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0662",
@@ -7260,8 +7260,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmFace::ClassifyLoops",
-        "unit": "query.face_p4"
+        "symbol": "sms_FindAndClassifyLoopBisector",
+        "unit": "query.face_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0821",
@@ -8420,8 +8420,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmFace::ClassifyLoops",
-        "unit": "query.face_p4"
+        "symbol": "sms_FindAndClassifyLoopBisector",
+        "unit": "query.face_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0957",
@@ -13097,7 +13097,7 @@
   "cases_passed": 1314,
   "cases_total": 1528,
   "deferred_by_unit": {
-    "query.face_p4": 4,
+    "query.face_p3": 4,
     "topology.face_p4": 210
   },
   "max_rel_err": 0.0,

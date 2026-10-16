@@ -872,6 +872,14 @@ mod tests {
         fn from_loop(_l: LoopId) -> Self {
             Self
         }
+
+        fn as_loop(&self) -> Option<LoopId> {
+            None
+        }
+
+        fn as_vertex(&self) -> Option<VertexId> {
+            None
+        }
     }
 
     fn ids() -> (Vec<VertexId>, Vec<EdgeId>, Vec<FaceId>) {
