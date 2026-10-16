@@ -31,8 +31,7 @@ jobs:
         env:
           BASE_REF: ${{ github.base_ref }}
         run: |
-          git diff --name-only --diff-filter=A "origin/$BASE_REF...HEAD" -- \
-            'crates/difftest/src/units/*.rs' 'crates/solidcore-ffi/src/units/*.rs' \
+          git diff --name-only --diff-filter=A "origin/$BASE_REF...HEAD" -- 'crates/*/src/units/*.rs' \
             | xargs -r rustfmt --check
 
   clippy:
