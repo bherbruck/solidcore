@@ -201,7 +201,7 @@ fn normalized_evaluate_uv(b: &Brep, eu: EdgeuseId, t: f64) -> Result<Point3> {
 }
 
 /// `SmEdgeuse::EvaluateBinormal(t, bUse3DOnly, ..)` (unit `topology.edgeuse_p3`).
-fn evaluate_binormal(
+pub(crate) fn evaluate_binormal(
     b: &Brep,
     eu: EdgeuseId,
     parameter: f64,

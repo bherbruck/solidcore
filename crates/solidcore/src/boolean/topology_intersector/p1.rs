@@ -89,12 +89,12 @@
 //!   `GlueEdgesGeneral` (`topology.brep_p7`), `DeleteFace` (`topology.brep_p3`),
 //!   `SmFace::GetVertices` / `GetEdges` / `GetBrep` (`topology.face_p4`),
 //!   `SmFace::FaceIntersect` / `SetTolerance` (`topology.face_p3`),
-//!   `SmFace::CalculateBoundingBox` / `Point3DClassify` (`query.face_p1`),
-//!   and the `SmCurveClassification` constructor (`intersect.curve_class_p4`). The
+//!   `SmFace::CalculateBoundingBox` / `Point3DClassify` (`query.face_p1`). The
 //!   code after a stub is ported in full. `SmSurface::GlobalCurveIntersect` /
 //!   `CoincidenceCheck` (`surface.surface_p8`), `SmCurveClassification::Homogenize`
 //!   (`intersect.curve_class_p6`), `InsertTopologyIntersections`
-//!   (`intersect.curve_class_p5`) and `SmFace::CalculateUVDomainFromUVTrimCurves`
+//!   (`intersect.curve_class_p5`), the `SmCurveClassification` constructor
+//!   (`intersect.curve_class_p4`; it defers on `ReSet`, `intersect.curve_class_p2`) and `SmFace::CalculateUVDomainFromUVTrimCurves`
 //!   (`topology.face_p1`, through [`IntersectorBrep`]; its `CreateUVTrimCurves` is
 //!   still `Unported` in `topology.face_p3`) are the ported calls.
 //! - **Undefined behaviour upstream** (a null object dereferenced, a solution without
@@ -135,8 +135,9 @@ use crate::geom::extent2d::Extent2d;
 use crate::geom::extent3d::Extent3d;
 use crate::geom::global_solver::{SolutionRequested, SolverOperation};
 use crate::geom::solution_array::{ObjectKind, SolutionArray, SolutionObject, SolutionType};
-use crate::geom::tol::xsect_tol_3d_from_zones;
+use crate::geom::tol::{xsect_tol_3d_from_zones, zone_tol3d};
 use crate::intersect::curve_class::p1::{src_zone_tol_3d_of, CurveClassification};
+use crate::intersect::curve_class::ClassificationInit;
 use crate::intersect::point_class::{
     ClassObject, ClassObjectKind, PointClassType, PointClassification,
 };
@@ -550,18 +551,32 @@ fn surface_coincidence_check<O: ClassObject + SolutionObject>(
     Ok((c.are_coincident, c.max_distance))
 }
 
-/// `SmCurveClassification(pCurve, interval, NULL, tol)` (`cpUVCurve = NULL`).
-fn new_curve_classification<O>(
-    _curve: O,
-    _interval: &Extent1d,
-    _uv_curve: Option<O>,
-    _tol: f64,
+/// `SmCurveClassification(pCurve, interval, NULL, tol)` (`cpUVCurve = NULL`; the remaining
+/// arguments default: no interval storage, the curve not owned and current, no surfaces),
+/// unit `intersect.curve_class_p4`.
+fn new_curve_classification<O: ClassObject>(
+    k: &Kernel,
+    curve: O,
+    interval: &Extent1d,
+    uv_curve: Option<O>,
+    tol: f64,
 ) -> Result<CurveClassification<O>> {
-    // UNPORTED(intersect.curve_class_p4): SmCurveClassification::SmCurveClassification
-    Err(SolidError::unported(
-        "SmCurveClassification::SmCurveClassification",
-        "intersect.curve_class_p4",
-    ))
+    CurveClassification::with_curve(
+        k,
+        &ClassificationInit {
+            curve: Some(curve),
+            interval: *interval,
+            uv_curve,
+            src_zone_tol_3d: zone_tol3d(k, tol),
+            opt_data_size: 0,
+            is_curve_owned: false,
+            is_curve_current: true,
+            surface1: None,
+            surface2: None,
+            uv_curve2: None,
+            ti: None,
+        },
+    )
 }
 
 /// `SmCurveClassification::InsertTopologyIntersections(solutions, 0)` (unit
@@ -3043,8 +3058,9 @@ pub fn intersect_shell_vertices<O: ClassObject + SolutionObject + Ord>(
 /// # Errors
 ///
 /// `SM_ERR` when a `Homogenize` fails; [`SolidError::Unported`] for
-/// `SmBrep::GetEdges` (`topology.brep_p1`), the `SmCurveClassification`
-/// constructor (`intersect.curve_class_p4`), `InsertTopologyIntersections`
+/// `SmBrep::GetEdges` (`topology.brep_p1`), the deferrals of the
+/// `SmCurveClassification` constructor (`ReSet`, `intersect.curve_class_p2`),
+/// `InsertTopologyIntersections`
 /// (`intersect.curve_class_p5`), `Homogenize` (`intersect.curve_class_p6`) and the
 /// callees of the solver and manager; [`SolidError::InvalidInput`] for null handles
 /// upstream dereferences.
@@ -3119,7 +3135,7 @@ pub fn intersect_wire_lamina_edges<O: ClassObject + SolutionObject + Ord>(
         }
 
         // Construct first CurveClassification for all of pEdge.
-        let mut crv_class1 = new_curve_classification(curve, &interval, None, tolerance)?;
+        let mut crv_class1 = new_curve_classification(k, curve, &interval, None, tolerance)?;
 
         let vertex = geometry.edge_start_vertex(edge)?;
         {
@@ -3135,7 +3151,7 @@ pub fn intersect_wire_lamina_edges<O: ClassObject + SolutionObject + Ord>(
             .set_class_object(PointClassType::Vertex, vertex);
 
         // Construct second CurveClassification for pBrep2 intersections.
-        let mut crv_class2 = new_curve_classification(curve, &interval, None, tolerance)?;
+        let mut crv_class2 = new_curve_classification(k, curve, &interval, None, tolerance)?;
 
         // Add curve/Brep intersections to CrvClass2.
         if ignore_soft(cc_insert_topology_intersections(

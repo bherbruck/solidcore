@@ -1216,6 +1216,15 @@ meantime, whoever merges renumbers the new entry and every reference to it (here
 - **Severity:** crash.
 - **Rust port:** `SolidError::InvalidInput` for the null proto vertex and definition; definitions are ids (no double delete).
 
+#### UB-124. `GetIvlBound_EdgeuseObj` and `GetLoopCrossings` dereference the face, surface and curve before their NULL checks
+- **Location:** `source/SMLib/src/SmCurveClass.cpp:20480-20488`, `SmCurveInterval::GetIvlBound_EdgeuseObj` (def. `:20458`); `:11342-11360`, `SmCurveClassification::GetLoopCrossings` (def. `:11303`).
+- **What happens:** `GetIvlBound_EdgeuseObj` calls `pClassifyFace->GetUpwardFaceuse()` and `GetSurface()` in its locals, then tests `pClassifyFace == NULL` ("no work"); a classification without face reads `m_pFU` of `NULL`. It also needs the interval's back pointer (`GetCurveClassification()->GetCurve()`). `GetLoopCrossings` calls `pSurface->GetNaturalUVDomain()` (and, for a face without surface, `NULL->` through it) before `if(pFace == NULL || pSurface == NULL) return SM_SUCCESS`, and `pClassifyCrv->GetNaturalInterval()` before `if(pClassifyCrv == NULL ...)`; both early returns are dead.
+- **Trigger:** `GetIvlBound_EdgeuseObj` on a classification without `SetFace`; `GetLoopCrossings` over loops of a face without surface, or of a classification without curve.
+- **How found:** read during porting (unit `intersect.curve_class_p4`).
+- **Confirmed:** no (the difftest shim refuses those calls).
+- **Severity:** crash.
+- **Rust port:** `SolidError::InvalidInput` (the dead "no work" returns are not reached).
+
 #### UB-121. `SmSurface::IntersectSurfaceBoundaries` dereferences an optional NULL curve array
 - **Location:** `source/SMLib/src/SmSurface.cpp:21903` `SmSurface::IntersectSurfaceBoundaries` (`pOpt3DCurves->Add( pCrvCopy )` in the segment loop).
 - **What happens:** `pOpt3DCurves` is declared like the other optional outputs (the header calls it `pOpt...`, the comment "required") and is reset only when non-NULL, but a kept boundary segment is added through it unconditionally: a NULL array is dereferenced.
