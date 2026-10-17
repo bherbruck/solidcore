@@ -45,6 +45,7 @@ use solidcore::nurbs::b_spline_curve::{BSplineCurve, BSplineCurveForm, Canonical
 use solidcore::nurbs::nurbs_crv::allocate_nurb_curve;
 use solidcore::topology::database_io::{DatabaseReader, FileType};
 use solidcore::SolidError;
+use solidcore::nurbs::math::NOW;
 use solidcore_ffi::units::curve_composite_curve_p2::{self as ffi, Op};
 
 use crate::case::CaseContext;
@@ -61,7 +62,6 @@ fn harness(msg: impl Into<String>) -> HarnessError {
     HarnessError::new(msg)
 }
 
-const NOW: f64 = -f64::MAX;
 const UNDEF: f64 = 1.23456e-61;
 
 // ---- inputs -----------------------------------------------------------------------

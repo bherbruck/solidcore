@@ -42,6 +42,7 @@ use solidcore::nurbs::srf_basic::Surface as NurbSurface;
 use solidcore::surface::plane::Plane;
 use solidcore::surface::surface::Surface;
 use solidcore::SolidError;
+use solidcore::nurbs::math::NOW;
 use solidcore_ffi::units::intersect_surface_tracer::{self as ffi};
 
 use crate::case::CaseContext;
@@ -50,9 +51,6 @@ use crate::{Case, HarnessError, Output, Rng, UnitDiff};
 
 /// Generated cases per run, whatever `--seeds` says (it can only raise this).
 pub const MIN_GENERATED: usize = 400;
-
-/// `NL_NOW`.
-const NOW: f64 = -f64::MAX;
 
 /// `intersect.surface_tracer` runner.
 pub struct Runner;

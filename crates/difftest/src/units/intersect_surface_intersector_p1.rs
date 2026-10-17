@@ -44,6 +44,7 @@ use solidcore::nurbs::srf_basic::Surface as NurbSurface;
 use solidcore::surface::plane::Plane;
 use solidcore::surface::surface::Surface;
 use solidcore::SolidError;
+use solidcore::nurbs::math::NOW;
 use solidcore_ffi::units::intersect_surface_intersector_p1::{self as ffi};
 
 use crate::case::CaseContext;
@@ -59,8 +60,6 @@ pub struct Runner;
 fn harness(msg: impl Into<String>) -> HarnessError {
     HarnessError::new(msg)
 }
-
-const NOW: f64 = -f64::MAX;
 
 // ---- inputs ---------------------------------------------------------------------------
 

@@ -31,6 +31,7 @@ use solidcore::surface::surface::p2::SurfaceIntersection;
 use solidcore::surface::surface::Surface;
 use solidcore::topology::database_io::{DatabaseReader, FileType};
 use solidcore::SolidError;
+use solidcore::nurbs::math::NOW;
 use solidcore_ffi::units::surface_plane_p2 as ffi;
 
 use crate::case::CaseContext;
@@ -46,8 +47,6 @@ const MIN_GENERATED: usize = 2000;
 fn harness(msg: impl Into<String>) -> HarnessError {
     HarnessError::new(msg.into())
 }
-
-const NOW: f64 = -f64::MAX;
 
 // ---- inputs ---------------------------------------------------------------------------
 

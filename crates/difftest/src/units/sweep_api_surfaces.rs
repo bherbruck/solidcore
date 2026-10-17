@@ -35,6 +35,7 @@ use solidcore::primitive::api_curves;
 use solidcore::sweep::api_surfaces as api;
 use solidcore::topology::Brep;
 use solidcore::SolidError;
+use solidcore::nurbs::math::NOZ;
 use solidcore_ffi::units::sweep_api_surfaces::{self as ffi, Call, CurveSpec};
 
 use crate::case::CaseContext;
@@ -43,9 +44,6 @@ use crate::{Case, HarnessError, Output, Rng, UnitDiff};
 
 /// Generated cases per run, whatever `--seeds` says (it can only raise this).
 pub const MIN_GENERATED: usize = 800;
-
-/// `NL_NOZ`.
-const NOZ: f64 = f64::MAX;
 
 /// `sweep.api_surfaces` runner.
 pub struct Runner;

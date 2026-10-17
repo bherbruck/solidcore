@@ -56,6 +56,7 @@ use solidcore::surface::curve_bounded_surface::CurveBoundedSurface;
 use solidcore::surface::plane::Plane;
 use solidcore::surface::surface::Surface;
 use solidcore::SolidError;
+use solidcore::nurbs::math::NOW;
 use solidcore_ffi::units::intersect_surface_intersector_p4::{self as ffi};
 
 use crate::case::CaseContext;
@@ -67,8 +68,6 @@ pub const MIN_GENERATED: usize = 1500;
 
 /// `intersect.surface_intersector_p4` runner.
 pub struct Runner;
-
-const NOW: f64 = -f64::MAX;
 
 /// No start or end point in the state record.
 const NO_POINT: f64 = -3.0;

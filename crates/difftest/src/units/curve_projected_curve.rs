@@ -38,6 +38,7 @@ use solidcore::nurbs::b_spline_curve_n_lib::TrimMode;
 use solidcore::nurbs::nurbs_crv::allocate_nurb_curve;
 use solidcore::topology::database_io::{DatabaseReader, FileType};
 use solidcore::SolidError;
+use solidcore::nurbs::math::{NOW, NOZ};
 use solidcore_ffi::units::curve_projected_curve::{self as ffi, Op};
 
 use crate::case::CaseContext;
@@ -53,9 +54,6 @@ pub struct Runner;
 fn harness(msg: impl Into<String>) -> HarnessError {
     HarnessError::new(msg)
 }
-
-const NOZ: f64 = f64::MAX;
-const NOW: f64 = -f64::MAX;
 
 /// `SmCurve_TYPE`, `SmProjectedCurve_TYPE`, `SmBSplineCurve_TYPE`,
 /// `SmOffsetCurve_TYPE`, two base types and an unrelated one (`IsKindOf` probes).

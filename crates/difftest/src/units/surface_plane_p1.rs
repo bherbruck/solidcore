@@ -38,6 +38,7 @@ use solidcore::surface::plane::p1::is_grazing_intersection;
 use solidcore::surface::plane::Plane;
 use solidcore::surface::surface::Surface;
 use solidcore::SolidError;
+use solidcore::nurbs::math::NOW;
 use solidcore_ffi::units::surface_plane_p1::{self as ffi};
 
 use crate::case::CaseContext;
@@ -53,9 +54,6 @@ pub struct Runner;
 fn harness(msg: impl Into<String>) -> HarnessError {
     HarnessError::new(msg)
 }
-
-/// `NL_NOW`.
-const NOW: f64 = -f64::MAX;
 
 // ---- inputs -------------------------------------------------------------------------
 

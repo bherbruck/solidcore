@@ -57,6 +57,7 @@ use solidcore::surface::surface_cache::p1::{
     BezierAux2d, BezierPatch, SurfaceCache, SurfaceCacheOptions,
 };
 use solidcore::SolidError;
+use solidcore::nurbs::math::NOW;
 use solidcore_ffi::units::intersect_adv_surface_intersector::{self as ffi};
 use solidcore_ffi::units::intersect_surface_intersector_p1 as p1ffi;
 
@@ -73,9 +74,6 @@ pub struct Runner;
 fn harness(msg: impl Into<String>) -> HarnessError {
     HarnessError::new(msg)
 }
-
-/// `NL_NOW`.
-const NOW: f64 = -f64::MAX;
 
 /// `SM_BIG_DOUBLE`.
 const BIG: f64 = 1.0e20;

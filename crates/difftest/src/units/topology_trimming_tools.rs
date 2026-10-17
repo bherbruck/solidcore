@@ -72,6 +72,7 @@ use solidcore::topology::trimming_tools::curve_loops::{
 use solidcore::topology::trimming_tools as tt;
 use solidcore::topology::{Brep, EdgeuseId, FaceId, LoopId};
 use solidcore::SolidError;
+use solidcore::nurbs::math::{NOW, NOZ};
 use solidcore_ffi::units::topology_trimming_tools::{self as ffi, Op};
 use solidcore_ffi::units::topology_vertexuse as fixture;
 
@@ -89,9 +90,6 @@ pub const MIN_GENERATED: usize = 1200;
 fn harness(msg: impl Into<String>) -> HarnessError {
     HarnessError::new(msg)
 }
-
-const NOZ: f64 = f64::MAX;
-const NOW: f64 = -f64::MAX;
 
 /// "Upstream would dereference null" in an output slot.
 const NULL_DEREF: f64 = -2.0;

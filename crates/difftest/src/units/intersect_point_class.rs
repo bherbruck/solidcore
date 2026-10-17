@@ -48,6 +48,7 @@ use solidcore::surface::plane::Plane;
 use solidcore::surface::surface::Surface;
 use solidcore::surface::volume::Volume;
 use solidcore::SolidError;
+use solidcore::nurbs::math::{NOW, NOZ};
 use solidcore_ffi::units::intersect_point_class::{self as ffi, kind, op};
 
 use crate::case::CaseContext;
@@ -64,8 +65,6 @@ fn harness(msg: impl Into<String>) -> HarnessError {
     HarnessError::new(msg)
 }
 
-const NOZ: f64 = f64::MAX;
-const NOW: f64 = -f64::MAX;
 /// `SM_USE_DEFAULT`.
 const USE_DEFAULT: f64 = 9876543.21;
 /// `SM_BIG_DOUBLE`.

@@ -36,6 +36,7 @@ use solidcore::nurbs::b_spline_curve_n_lib::TrimMode;
 use solidcore::nurbs::nurbs_crv::allocate_nurb_curve;
 use solidcore::topology::database_io::{DatabaseReader, FileType, InputStream};
 use solidcore::SolidError;
+use solidcore::nurbs::math::{NOW, NOZ};
 use solidcore_ffi::units::curve_crv_in_volume::{self as ffi, Op};
 
 use crate::case::CaseContext;
@@ -51,9 +52,6 @@ pub struct Runner;
 fn harness(msg: impl Into<String>) -> HarnessError {
     HarnessError::new(msg)
 }
-
-const NOZ: f64 = f64::MAX;
-const NOW: f64 = -f64::MAX;
 
 // ---- inputs -----------------------------------------------------------------------
 

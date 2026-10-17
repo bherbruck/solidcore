@@ -47,6 +47,7 @@ use solidcore::surface::plane::Plane;
 use solidcore::surface::surface::Surface;
 use solidcore::surface::surface_cache::PatchBoundaryBoundingPlanes;
 use solidcore::SolidError;
+use solidcore::nurbs::math::NOW;
 use solidcore_ffi::units::intersect_surface_intersector_p2::{self as ffi};
 
 use crate::case::CaseContext;
@@ -62,8 +63,6 @@ pub struct Runner;
 fn harness(msg: impl Into<String>) -> HarnessError {
     HarnessError::new(msg)
 }
-
-const NOW: f64 = -f64::MAX;
 
 // ---- inputs ---------------------------------------------------------------------------
 

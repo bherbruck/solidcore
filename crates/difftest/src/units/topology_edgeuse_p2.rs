@@ -33,6 +33,7 @@ use solidcore::topology::edgeuse::p1 as eu1;
 use solidcore::topology::edgeuse::p2 as eu2;
 use solidcore::topology::{Brep, EdgeuseId, ObjectHandle};
 use solidcore::SolidError;
+use solidcore::nurbs::math::NOW;
 use solidcore_ffi::units::topology_edgeuse_p1 as ffi1;
 use solidcore_ffi::units::topology_edgeuse_p2::{self as ffi, Op};
 
@@ -49,8 +50,6 @@ pub struct Runner;
 const NULL_DEREF: f64 = -2.0;
 /// The shim did not run the op (deferred on the Rust side).
 const NOT_RUN: f64 = -3.0;
-
-const NOW: f64 = -f64::MAX;
 
 /// The UV curve given to `CheckAndSetUVTrimCurve`.
 #[derive(Debug, Clone, Serialize, Deserialize)]

@@ -54,6 +54,7 @@ use solidcore::nurbs::b_spline_curve::BSplineCurve;
 use solidcore::nurbs::nurbs_crv::allocate_nurb_curve;
 use solidcore::surface::surface::p2::Surface;
 use solidcore::SolidError;
+use solidcore::nurbs::math::NOW;
 use solidcore_ffi::units::intersect_topology_solver_p1::{self as ffi, Op};
 
 use crate::case::CaseContext;
@@ -70,7 +71,6 @@ fn harness(msg: impl Into<String>) -> HarnessError {
     HarnessError::new(msg)
 }
 
-const NOW: f64 = -f64::MAX;
 const BIG_DOUBLE: f64 = 1.0e20;
 
 // ---- inputs -----------------------------------------------------------------------

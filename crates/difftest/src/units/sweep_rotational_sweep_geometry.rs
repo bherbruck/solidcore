@@ -52,6 +52,7 @@ use solidcore::topology::{
     Vertexuse, VertexuseOwner,
 };
 use solidcore::SolidError;
+use solidcore::nurbs::math::NOW;
 use solidcore_ffi::units::sweep_rotational_sweep_geometry::{self as ffi, Op};
 
 use crate::case::CaseContext;
@@ -927,9 +928,6 @@ fn run_rust(i: &Inputs) -> Result<Output, HarnessError> {
 }
 
 // ---- generation -----------------------------------------------------------------------
-
-/// Non-rational weight marker.
-const NOW: f64 = -f64::MAX;
 
 fn pick<T: Copy>(rng: &mut Rng, items: &[T], default: T) -> T {
     rng.choose(items).copied().unwrap_or(default)

@@ -43,6 +43,7 @@ use solidcore::query::edge as qe;
 use solidcore::topology::edgeuse::p1 as eu1;
 use solidcore::topology::{Brep, EdgeId, EdgeuseId};
 use solidcore::SolidError;
+use solidcore::nurbs::math::NOW;
 use solidcore_ffi::units::query_edge::{self as ffi, Op};
 
 use crate::case::CaseContext;
@@ -58,8 +59,6 @@ pub struct Runner;
 fn harness(msg: impl Into<String>) -> HarnessError {
     HarnessError::new(msg)
 }
-
-const NOW: f64 = -f64::MAX;
 
 /// "Upstream would dereference null" (output of the shim, `InvalidInput` in Rust).
 const NULL_DEREF: i64 = -2;

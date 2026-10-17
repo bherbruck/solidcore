@@ -61,6 +61,7 @@ use solidcore::surface::surface_cache::p1::{
     BezierAux2d, BezierPatch, SurfaceCache, SurfaceCacheOptions,
 };
 use solidcore::SolidError;
+use solidcore::nurbs::math::NOW;
 use solidcore_ffi::units::surface_surface_p10 as ffi;
 
 use crate::case::CaseContext;
@@ -69,9 +70,6 @@ use crate::{Case, HarnessError, Output, Rng, UnitDiff};
 
 /// Generated cases per run, whatever `--seeds` says (it can only raise this).
 pub const MIN_GENERATED: usize = 800;
-
-/// `NL_NOW`: the weight of a non-rational control point.
-const NOW: f64 = -f64::MAX;
 
 /// `surface.surface_p10` runner.
 pub struct Runner;

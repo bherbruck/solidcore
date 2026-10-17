@@ -47,6 +47,7 @@ use solidcore::surface::surface_cache::p1::{
     BezierAux2d, BezierPatch, SurfaceCache, SurfaceCacheOptions,
 };
 use solidcore::SolidError;
+use solidcore::nurbs::math::NOW;
 use solidcore_ffi::units::intersect_surface_silhouette::{self as ffi};
 
 use crate::case::CaseContext;
@@ -55,9 +56,6 @@ use crate::{Case, HarnessError, Output, Rng, UnitDiff};
 
 /// Generated cases per run, whatever `--seeds` says (it can only raise this).
 pub const MIN_GENERATED: usize = 600;
-
-/// `NL_NOW`: the weight of a non-rational control point.
-const NOW: f64 = -f64::MAX;
 
 /// `intersect.surface_silhouette` runner.
 pub struct Runner;

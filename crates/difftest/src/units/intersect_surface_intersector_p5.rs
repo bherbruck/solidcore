@@ -57,6 +57,7 @@ use solidcore::surface::surface_cache::p1::{
     BezierAux2d, BezierPatch, SurfaceCache, SurfaceCacheOptions,
 };
 use solidcore::SolidError;
+use solidcore::nurbs::math::NOW;
 use solidcore_ffi::units::intersect_surface_intersector_p5::{self as ffi};
 
 use crate::case::CaseContext;
@@ -72,9 +73,6 @@ pub struct Runner;
 fn harness(msg: impl Into<String>) -> HarnessError {
     HarnessError::new(msg)
 }
-
-/// `NL_NOW`.
-const NOW: f64 = -f64::MAX;
 
 /// The surface handle type of the caches (`SmSurface*`).
 #[derive(Debug, Clone, Copy, PartialEq, Default)]

@@ -41,6 +41,7 @@ use solidcore::kernel::Kernel;
 use solidcore::nurbs::b_spline_curve::{BSplineCurve, Tessellation};
 use solidcore::nurbs::nurbs_crv::allocate_nurb_curve;
 use solidcore::SolidError;
+use solidcore::nurbs::math::{NOW, NOZ};
 use solidcore_ffi::units::curve_curve_p1::{self as ffi, Op};
 
 use crate::case::CaseContext;
@@ -56,9 +57,6 @@ pub struct Runner;
 fn harness(msg: impl Into<String>) -> HarnessError {
     HarnessError::new(msg)
 }
-
-const NOZ: f64 = f64::MAX;
-const NOW: f64 = -f64::MAX;
 
 // ---- inputs -----------------------------------------------------------------------
 
