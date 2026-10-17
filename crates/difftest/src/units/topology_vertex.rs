@@ -503,7 +503,8 @@ fn import(ex: &[f64]) -> Result<Brep, HarnessError> {
         let surface = read_surface(&mut rd)?;
         // `GetUpwardFaceuse` (`m_pFU`)
         let faceuse = opt(rd.idx()?, FaceuseId::from_index)?;
-        surfaces.push((surface, faceuse));
+        let tolerance = rd.num()?;
+        surfaces.push((surface, faceuse, tolerance));
     }
     let mut loopuses = Vec::new();
     for _ in 0..n_lu {
@@ -673,14 +674,15 @@ fn import(ex: &[f64]) -> Result<Brep, HarnessError> {
             .collect();
         b.add_shell_record(s).map_err(|e| harness(e.to_string()))?;
     }
-    for (f, (surface, faceuse)) in surfaces.into_iter().enumerate() {
+    for (f, (surface, faceuse, tolerance)) in surfaces.into_iter().enumerate() {
         let shell = face_shells.get(f).copied().unwrap_or(ShellId::from_index(0));
-        // The domain, rectangular-trim flag and tolerance are not exported by this shim:
-        // `SmFace()` defaults (`RefreshTolerance` reads the tolerance only to defer at the
-        // unported `SmFace::SetTolerance`).
+        // The domain and rectangular-trim flag are not exported by this shim: `SmFace()`
+        // defaults (no op reads them). The tolerance is: `RefreshTolerance` passes it to
+        // `SmFace::SetTolerance`, which raises the face's edges to it.
         b.add_face_record(Face {
             surface,
             faceuse,
+            tolerance,
             ..Face::new(shell)
         })
         .map_err(|e| harness(e.to_string()))?;

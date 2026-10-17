@@ -5,3 +5,4 @@
 //! Upstream: `source/SMLib/src/SmFace.cpp`, `source/SMLib/inc/SmFace.h`.
 
 pub mod p2;
+pub mod p3;

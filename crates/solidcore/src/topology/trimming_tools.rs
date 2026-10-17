@@ -268,27 +268,20 @@ fn make_faces_with_curves(_b: &mut Brep, _input: TrimInput) -> Result<Vec<FaceId
     ))
 }
 
-/// `SmFace::CreateUVTrimCurves(FALSE, NULL, NULL, ...)` (unit `topology.face_p3`).
-fn face_create_uv_trim_curves(_k: &Kernel, _b: &mut Brep, _f: FaceId) -> Result<()> {
-    // UNPORTED(topology.face_p3): SmFace::CreateUVTrimCurves
-    Err(SolidError::unported(
-        "SmFace::CreateUVTrimCurves",
-        "topology.face_p3",
-    ))
+/// `SmFace::CreateUVTrimCurves(FALSE, NULL, NULL, ...)`.
+fn face_create_uv_trim_curves(k: &Kernel, b: &mut Brep, f: FaceId) -> Result<()> {
+    crate::topology::face::p3::create_uv_trim_curves(k, b, f, false, None).map(|_| ())
 }
 
-/// `SmFace::ComputeLoopOrientation(loop, orientation)` (unit `topology.face_p3`).
+/// `SmFace::ComputeLoopOrientation(loop, orientation)` (default arguments: no UV
+/// bounds, `bDo3DLoopComputation = FALSE`).
 fn face_compute_loop_orientation(
-    _k: &Kernel,
-    _b: &Brep,
-    _f: FaceId,
-    _l: LoopId,
+    k: &Kernel,
+    b: &mut Brep,
+    f: FaceId,
+    l: LoopId,
 ) -> Result<OrientType> {
-    // UNPORTED(topology.face_p3): SmFace::ComputeLoopOrientation
-    Err(SolidError::unported(
-        "SmFace::ComputeLoopOrientation",
-        "topology.face_p3",
-    ))
+    crate::topology::face::p3::compute_loop_orientation(k, b, f, l, None, false)
 }
 
 /// `SmFace::FlipFaceOrientation` (unit `topology.face_p1`).

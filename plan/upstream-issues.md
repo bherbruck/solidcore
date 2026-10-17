@@ -1281,6 +1281,25 @@ meantime, whoever merges renumbers the new entry and every reference to it (here
 - **Severity:** crash/UB.
 - **Rust port:** proto edges are arena ids that are never freed, so the repeat reads a deleted-edge slot and finds no group; nothing is read after free.
 
+#### UB-162. `SmFace::ComputeLoopOrientation` reads an empty array for an edge loop use without edge uses
+- **Location:** `source/SMLib/src/SmFace.cpp:1851` `SmFace::ComputeLoopOrientation` (`sEUs.GetLast()`), `source/SMLib/inc/SmTArray.h:1035`-`1037` (`GetLast` returns `m_pData[m_lSize-1]`).
+- **What happens:** for a loop use of edge type whose edge use array is empty, `GetLast()` reads `m_pData[-1]` (an out-of-bounds read of the array header's neighbour, or of a null array).
+- **Trigger:** an edge-type loop use with no edge uses. Looks unreachable from files: `SmBrepData` sets `SmEdgeuse_TYPE` for a loop use only together with its edge use array (`SmBrepData.cpp:706`-`712`), so a loaded loop use of edge type has edge uses; it needs a B-rep built or edited in memory by calling code.
+- **How found:** read during porting (unit `topology.face_p3`).
+- **Confirmed:** no (the difftest guard rejects such a B-rep on both sides).
+- **Severity:** crash/UB (out-of-bounds read).
+- **Rust port:** `SolidError::InvalidInput` for a loop use without edge uses. (The other `ComputeLoopOrientation` reads that looked undefined, `sVeryFirstUV`, are defined: `SmVector2d` has default member initialisers `SM_UNDEF_DOUBLE`, `SmVector2d.h:56`-`58`; the port starts from `Point2::UNDEF` and computes the closing span with it.)
+
+#### UB-165. `SmFace::FaceIntersect` hands out deleted curves through `pOptCC3DCrvs` when called without classification arrays
+- **Location:** `source/SMLib/src/SmFace.cpp:11669` `SmFace::FaceIntersect` (`pOptCC3DCrvs->Append( s3DCurves )`, `pOptThisCCUVCrvs`, `pOptOtherCCUVCrvs`), init block `:11325`-`11333`.
+- **What happens:** the surface/surface curves are owned by the cleaners `sClean1`..`sClean3`, which are cleared only when `pOptThisCrvClasses` or `pOptOtherCrvClasses` is given. With `pOptCC3DCrvs` (or the UV arrays) but neither classification array, the caller receives pointers the cleaners delete at return; with the classification arrays but without `pOptCC3DCrvs`, the curves the classifications reference leak. In the coincident branch a failing edge curve `Copy` makes the inner `sClean` delete the copies in `s3DCurves`; `SmObjsDelete::Delete` NULLs each slot and resets the array (`SmTArray.h:2107`-`2115`), so there is no double free, but `sUVCurves1`/`sUVCurves2` keep NULL entries and `sCurveTypes` keeps stale `SM_TC_REGION_BOUNDARY` entries when they reach the intersector (a wrong result at most).
+- **Quirk:** the init block resets `pOptThisUVCurves` and `pOptOtherUVCurves` twice and never resets `pOptThisCCUVCrvs` / `pOptOtherCCUVCrvs`, so those outputs append to whatever the caller passed.
+- **Trigger:** `FaceIntersect` with `pOptCC3DCrvs != NULL` and both classification arrays `NULL`. The only upstream caller (`SmFeatureExecutive.cpp:1838`) passes `pOptThisCrvClasses` together with `pOptCC3DCrvs` and `pOptThisCCUVCrvs`, which is safe.
+- **How found:** read during porting (unit `topology.face_p3`).
+- **Confirmed:** no (the difftest shim passes neither array).
+- **Severity:** misuse hazard (use after free for bad caller arguments), no file-reachable path.
+- **Rust port:** `FaceIntersection` owns all curves and returns fresh vectors; the `!have_curves` block of the coincident branch replaces all four vectors (`s3DCurves`, `sUVCurves1`, `sUVCurves2`, `sCurveTypes`) with the intersector's. Outputs are return values, so the append-to-caller quirk has no counterpart: callers append the returned vectors themselves.
+
 #### UB-136. Fillet geometry substitution reads a missing partner interval
 - **Location:** `source/SMLib/src/SmCurveClass.cpp:16830` (`sm_SetDoFilletingGeometry`), called by `SmCurveClassification::MergeInterval`; unchecked indexing in `source/SMLib/inc/SmCurveClass.h:508`.
 - **What happens:** Fillet merging indexes both classifications at the target interval without checking the paired classification's size. An empty partner yields a null read; a shorter partner permits an out-of-range interval read.

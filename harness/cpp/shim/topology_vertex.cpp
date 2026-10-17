@@ -628,6 +628,8 @@ void export_graph(SmBrep* brep, Graph& g, std::vector<double>& o)
     {
         put_surface(o, p->GetSurface());
         o.push_back((double)g.find(2, p->GetUpwardFaceuse()));
+        // m_sZoneTol3d: RefreshTolerance cascades it to the face's edges
+        o.push_back((double)p->GetTolerance());
     }
     for (SmLoopuse* p : g.loopuses)
     {
