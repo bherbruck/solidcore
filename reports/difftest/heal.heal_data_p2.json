@@ -1951,8 +1951,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0050",
@@ -1987,8 +1987,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0053",
@@ -2031,8 +2031,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0057",
@@ -2123,8 +2123,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0066",
@@ -2695,8 +2695,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0121",
@@ -2955,8 +2955,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0147",
@@ -3007,8 +3007,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0152",
@@ -4515,8 +4515,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0307",
@@ -5087,8 +5087,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0363",
@@ -5111,8 +5111,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0365",
@@ -5439,8 +5439,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0397",
@@ -5451,8 +5451,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0398",
@@ -5607,8 +5607,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0414",
@@ -5655,8 +5655,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0419",
@@ -5891,8 +5891,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0443",
@@ -5975,8 +5975,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0451",
@@ -6643,8 +6643,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0517",
@@ -7107,8 +7107,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0564",
@@ -7207,8 +7207,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetThisModelSizeEstimate",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0573",
@@ -7476,7 +7476,7 @@
   "cases_passed": 347,
   "cases_total": 738,
   "deferred_by_unit": {
-    "topology.brep_p1": 19,
+    "topology.brep_p2": 19,
     "topology.edgeuse_p3": 263,
     "topology.face_p2": 100,
     "topology.face_p3": 9

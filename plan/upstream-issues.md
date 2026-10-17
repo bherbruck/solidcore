@@ -673,9 +673,11 @@ meantime, whoever merges renumbers the new entry and every reference to it (here
 - **What happens:** Uninitialised reads, out-of-bounds table reads.
 - **Trigger:** `SmCircle(P0, P1, P2)` with three collinear points.
 - **How found:** read during porting.
-- **Confirmed:** no.
+- **Confirmed:** the circle failed-solve precondition is confirmed by the compiled native preflight in PR #213; the undefined constructor execution and the other subcases have not been run.
 - **Severity:** crash/UB.
 - **Rust port:** Returns `InvalidInput`.
+
+- **PR #213 witness:** `cylindrical_full_span_preflight` in `fixtures/primitive.primitive_creation_p1/primitives.json` (length 2, inner radius 1, outer radius 3, angles 0..360, identity frame). The shim calls the same three-point-circle solve before `CreateCylindricalBox`; a non-success result rejects the fixture before `SmCircle` reads the unset radius. This is a rejected fixture, not a parity pass or a claim that the constructor fails gracefully.
 
 #### UB-58. `SmCompositeCurve::GetKnots` reads past its array, and loops forever with an interval
 - **Location:** `SmCompositeCurve.cpp:524` (`lLastIndex = rKnots.GetSize()`), `:569` (`for(ii=rKnots.GetSize()-1; ii>=0; ii--)` on an unsigned `ULONG`), `SmCompositeCurve::GetKnots` (def. `:505`).
@@ -1316,6 +1318,15 @@ meantime, whoever merges renumbers the new entry and every reference to it (here
 - **Confirmed:** yes, the maintainer reproduced SIGSEGV for all five curve kinds in full and vertices-only modes (13 crashing probes in total), plus the one-interval out-of-range read.
 - **Severity:** crash / out-of-range read.
 - **Rust port:** Kernel topology mutation remains deferred. Both the safe FFI validator and the C++ shim require equally sized partners for op 3 with fillets. Six `rejected_fillets_*` fixtures check rejection; 660 isolated probes independently exercise both guards at first and last indices of 1/2/3/32 intervals. Valid equal-sized pairs and non-fillet calls remain accepted.
+
+#### UB-162. `sm_RedistributeSeamUVTrimCurves` reads a fourth edge use that need not exist
+- **Location:** `source/SMLib/src/SmBrep.cpp:12097`-`12105` (`sm_RedistributeSeamUVTrimCurves`): `SM_PTR_ARRAY(sNewEdgeuses, SmEdgeuse, 16)`, `pNewE->GetEdgeuses(sNewEdgeuses); SM_ASSERT(sNewEdgeuses.GetSize() == 4)`, then `sNewEdgeuses[0]` and `sNewEdgeuses[3]`.
+- **What happens:** The assertion is a no-op in release builds. For a seam edge with fewer than four edge uses the function reads slot 3 of the 16-slot stack array, an uninitialised pointer, and calls `GetCWEdgeuse()` on it.
+- **Trigger:** A UV trim curve given, a seam direction other than `SM_SP_NEITHER`, and an edge with one, two or three edge uses (a wire or lamina seam edge, or an edge whose other face is not attached yet).
+- **How found:** source review while porting `topology.brep_p1` (PR #145); the difftest shim refuses the call for edges with fewer than four edge uses.
+- **Confirmed:** no (source inspection only; the shim never runs it).
+- **Severity:** crash/UB.
+- **Rust port:** `topology::brep::p1::redistribute_seam_uv_trim_curves` returns `InvalidInput` for an edge with fewer than four edge uses.
 
 ### Healer target management
 
@@ -2507,3 +2518,21 @@ meantime, whoever merges renumbers the new entry and every reference to it (here
 - **Confirmed:** yes for the release build: the sweep-only boundary solve returns U `158.85355268828013`; the assertion conflict and sentinel initialization were confirmed by source inspection. Debug builds were not run.
 - **Severity:** docs / debug assertion.
 - **Rust port:** Matches release C++ rather than enforcing the assertion; derivative orders remain bounded to 3.
+
+
+#### `ST_curxcdr` G1 fallback reads a third point of a two-point line (primitive.primitive_creation_p1, PR #213)
+
+- **Location:** `source/SMLib/src/NL_CrvAdv.cpp:999-1006,1077-1084`.
+- **Trigger:** a two-control-point line whose endpoint difference cannot be
+  normalized by `N_VectorNormalize`, then G1 extension at the affected end.
+  Finite coordinates around `1e300` overflow the computed vector magnitude.
+  The fallback reads `Pw[2]` at the start or `Pw[n-2]` (index -1) at the end.
+- **Found by:** the primitive path helper's 1,000-case FFI fuzz run (cases 427,
+  670, 689 and 919), initially reporting history-dependent garbage extension
+  intervals instead of Rust's checked error/unchanged curve.
+- **Confirmation:** the linked native `N_VectorNormalize` fails for those exact
+  two points; source inspection then proves the next read is out of bounds.
+  The revised shim prevents that read by preflighting only extension stages
+  actually selected by the upstream join and closed/periodic decisions. Huge
+  single lines that are not extended remain accepted. Rejected cases are
+  excluded from parity. The Rust NLib port already bounds its fallback lookup.

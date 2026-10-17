@@ -171,8 +171,10 @@ pub fn create_skin_primitive(
     // copies, an approximation tolerance of 0.0, the degree and the cap flag.
     let _ = (curve_copies, cap_ends);
     // UNPORTED(topology.brep_p3): SmBrep::SmBrep
-    // UNPORTED(topology.brep_p1): SmBrep::GetInfiniteRegion
-    // UNPORTED(primitive.primitive_creation_p1): SmPrimitiveCreation::SmPrimitiveCreation
+    // ported (topology.brep_p1): SmBrep::GetInfiniteRegion is Brep::infinite_region, called
+    // on the new B-rep once the constructor above lands
+    // Ported: primitive::primitive_creation::p1::PrimitiveCreation::new;
+    // instantiate with the new B-rep's infinite region when its constructor lands.
     // UNPORTED(primitive.primitive_creation_p2): SmPrimitiveCreation::CreateSkinPrimitive
     Err(SolidError::unported(
         "SmPrimitiveCreation::CreateSkinPrimitive",
@@ -196,8 +198,10 @@ pub fn create_skin_from_faces(
     // approximation tolerance of 0.0 and the degree.
     let _ = (k, brep, faces, degree);
     // UNPORTED(topology.brep_p3): SmBrep::SmBrep
-    // UNPORTED(topology.brep_p1): SmBrep::GetInfiniteRegion
-    // UNPORTED(primitive.primitive_creation_p1): SmPrimitiveCreation::SmPrimitiveCreation
+    // ported (topology.brep_p1): SmBrep::GetInfiniteRegion is Brep::infinite_region, called
+    // on the new B-rep once the constructor above lands
+    // Ported: primitive::primitive_creation::p1::PrimitiveCreation::new;
+    // instantiate with the new B-rep's infinite region when its constructor lands.
     // UNPORTED(primitive.primitive_creation_p3): SmPrimitiveCreation::CreateSkinFromFaces
     Err(SolidError::unported(
         "SmPrimitiveCreation::CreateSkinFromFaces",
@@ -270,10 +274,13 @@ pub fn create_surface_revolution(
     // and no capping.
     let _ = (curves_to_sweep, origin, axis_dir, angle_deg);
     // UNPORTED(topology.brep_p3): SmBrep::SmBrep
-    // UNPORTED(topology.brep_p1): SmBrep::GetInfiniteRegion
-    // UNPORTED(primitive.primitive_creation_p1): SmPrimitiveCreation::SmPrimitiveCreation
+    // ported (topology.brep_p1): SmBrep::GetInfiniteRegion is Brep::infinite_region, called
+    // on the new B-rep once the constructor above lands
+    // Ported: primitive::primitive_creation::p1::PrimitiveCreation::new;
+    // instantiate with the new B-rep's infinite region when its constructor lands.
     // UNPORTED(primitive.primitive_creation_p3): SmPrimitiveCreation::CreateRotationalSweep
-    // UNPORTED(topology.brep_p1): SmBrep::GetSurfaces
+    // ported (topology.brep_p1): SmBrep::GetSurfaces is topology::brep::p1::surfaces, on the
+    // sweep's B-rep after the call above
     Err(SolidError::unported(
         "SmPrimitiveCreation::CreateRotationalSweep",
         "primitive.primitive_creation_p3",

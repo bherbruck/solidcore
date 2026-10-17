@@ -498,21 +498,17 @@
       "values_compared": 0
     },
     {
-      "deferred": {
-        "symbol": "SmBrep::GetVertices",
-        "unit": "topology.brep_p1"
-      },
       "max_rel_err": 0.0,
       "name": "heal_brep_op_none",
-      "outcome": "deferred",
-      "pass": false,
+      "outcome": "pass",
+      "pass": true,
       "source": "fixture:fixtures/heal.heal_data_p1/edge_cases.json#48",
-      "values_compared": 0
+      "values_compared": 4
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetInfiniteRegion",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::IsVoid",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "fix_infinite_region_fresh",
@@ -1199,8 +1195,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::HealBrep",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "api_heal_box_10",
@@ -1255,8 +1251,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetVertices",
-        "unit": "topology.brep_p1"
+        "symbol": "SmFace::GetTolerance",
+        "unit": "topology.face_p2"
       },
       "max_rel_err": 0.0,
       "name": "heal_box_10_healbrep_all_faces_only",
@@ -2135,8 +2131,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::HealBrep",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0026",
@@ -2655,8 +2651,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetInfiniteRegion",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::IsVoid",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "gen0083",
@@ -3251,8 +3247,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::HealBrep",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0147",
@@ -3679,8 +3675,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::HealBrep",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0194",
@@ -3819,8 +3815,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::HealBrep",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0209",
@@ -3831,8 +3827,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetInfiniteRegion",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::IsVoid",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "gen0210",
@@ -4183,8 +4179,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::HealBrep",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0247",
@@ -4683,8 +4679,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::HealBrep",
-        "unit": "topology.brep_p1"
+        "symbol": "SmBrep::SetTolerance",
+        "unit": "topology.brep_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0301",
@@ -4859,17 +4855,18 @@
     }
   ],
   "cases_both_errored": 0,
-  "cases_deferred": 228,
+  "cases_deferred": 227,
   "cases_failed": 0,
-  "cases_passed": 265,
+  "cases_passed": 266,
   "cases_total": 493,
   "deferred_by_unit": {
     "query.face_p4": 62,
-    "topology.brep_p1": 12,
+    "topology.brep_p2": 7,
     "topology.edgeuse_p3": 45,
-    "topology.face_p2": 54,
+    "topology.face_p2": 55,
     "topology.face_p3": 18,
-    "topology.face_p4": 37
+    "topology.face_p4": 37,
+    "topology.shell": 3
   },
   "max_rel_err": 0.0,
   "pass": true,
