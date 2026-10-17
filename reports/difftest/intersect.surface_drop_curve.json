@@ -3259,8 +3259,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmSurface::DropCurve",
-        "unit": "intersect.surface_drop_lib_p3"
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
       },
       "max_rel_err": 0.0,
       "name": "gen0354",
@@ -3795,8 +3795,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmSurface::DropCurve",
-        "unit": "intersect.surface_drop_lib_p3"
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
       },
       "max_rel_err": 0.0,
       "name": "gen0420",
@@ -4415,8 +4415,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmSurface::DropCurve",
-        "unit": "intersect.surface_drop_lib_p3"
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
       },
       "max_rel_err": 0.0,
       "name": "gen0495",
@@ -4465,7 +4465,7 @@
   "cases_total": 547,
   "deferred_by_unit": {
     "intersect.curve_class_p4": 5,
-    "intersect.surface_drop_lib_p3": 3,
+    "surface.offset_surface": 3,
     "surface.surface_cache_p1": 12
   },
   "max_rel_err": 0.0,

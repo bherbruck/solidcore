@@ -753,7 +753,8 @@ fn rust(i: &Inputs) -> Result<Output, HarnessError> {
                 .map(|s| s.as_ref().map(bss_of).transpose())
                 .collect::<Result<Vec<_>, _>>()?;
             let sr: Vec<Option<&BSplineSurface>> = ss.iter().map(Option::as_ref).collect();
-            BSplineSurface::create_corner_blend(&c3, &ors, &uv, &sr, *tol, *ang, *bilinear).map(
+            let kernel = solidcore::kernel::Kernel::default();
+            BSplineSurface::create_corner_blend(&kernel, &c3, &ors, &uv, &sr, *tol, *ang, *bilinear).map(
                 |patches| {
                     o.push(patches.len() as f64);
                     for p in &patches {

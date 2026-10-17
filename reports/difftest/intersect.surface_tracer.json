@@ -827,8 +827,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmSurface::DropCurve",
-        "unit": "intersect.surface_drop_lib_p3"
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
       },
       "max_rel_err": 0.0,
       "name": "gen0075",
@@ -1391,8 +1391,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmSurface::DropCurve",
-        "unit": "intersect.surface_drop_lib_p3"
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
       },
       "max_rel_err": 0.0,
       "name": "gen0144",
@@ -1755,8 +1755,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmSurface::DropCurve",
-        "unit": "intersect.surface_drop_lib_p3"
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
       },
       "max_rel_err": 0.0,
       "name": "gen0189",
@@ -1887,8 +1887,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmSurface::DropCurve",
-        "unit": "intersect.surface_drop_lib_p3"
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
       },
       "max_rel_err": 0.0,
       "name": "gen0205",
@@ -1915,8 +1915,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmSurface::DropCurve",
-        "unit": "intersect.surface_drop_lib_p3"
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
       },
       "max_rel_err": 0.0,
       "name": "gen0208",
@@ -2591,8 +2591,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmSurface::DropCurve",
-        "unit": "intersect.surface_drop_lib_p3"
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
       },
       "max_rel_err": 0.0,
       "name": "gen0292",
@@ -3468,7 +3468,7 @@
   "cases_passed": 416,
   "cases_total": 427,
   "deferred_by_unit": {
-    "intersect.surface_drop_lib_p3": 6,
+    "surface.offset_surface": 6,
     "surface.surface_cache_p1": 5
   },
   "max_rel_err": 0.0,

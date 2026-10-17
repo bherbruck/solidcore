@@ -367,6 +367,7 @@ impl BSplineSurface {
     /// surfaces where upstream dereferences them; [`SolidError::Unported`] where the
     /// tangent fields or surface normals are needed.
     pub fn create_corner_blend(
+        k: &crate::kernel::Kernel,
         curves_3d: &[BSplineCurve],
         curve_orients: &[OrientType],
         uv_curves: &[Option<BSplineCurve>],
@@ -418,7 +419,7 @@ impl BSplineSurface {
             // copy NUBs and their UVTrimCurves, approx NURBs and drop them to make their
             // UVTrimCurves
             let (boundary, ps_curve) =
-                create_non_rational_curve(curve, uv.as_ref(), *srf, approx_tol / 2.0)?;
+                create_non_rational_curve(k, curve, uv.as_ref(), *srf, approx_tol / 2.0)?;
             boundaries.push(boundary); // cleaned up 3d boundary curves
             uv_crvs.push(ps_curve); // associated UVTrimCurves
         }
@@ -1725,7 +1726,16 @@ mod tests {
 
     #[test]
     fn corner_blend_needs_four_curves() {
-        let r = BSplineSurface::create_corner_blend(&[], &[], &[], &[], 1e-3, 0.1, true);
+        let r = BSplineSurface::create_corner_blend(
+            &crate::kernel::Kernel::default(),
+            &[],
+            &[],
+            &[],
+            &[],
+            1e-3,
+            0.1,
+            true,
+        );
         assert!(r.is_err());
     }
 

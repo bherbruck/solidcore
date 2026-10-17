@@ -83,9 +83,8 @@
 //!   `FindInteriorCurves`' reverse trace, `AddStartPoint`), except
 //!   [`SolidError::Unported`], which is always propagated. `GetSurfaceContinuity`
 //!   at most `SM_CT_C0` only signals upstream (`SE`), so the trace goes on.
-//! - **Unported callees.** `SmSurface::DropCurve` for surfaces other than planes
-//!   (`intersect.surface_drop_lib_p3`) returns [`SolidError::Unported`] (see the
-//!   `UNPORTED` markers).
+//! - **Drop curve.** `SmSurface::DropCurve` is the plane override for planes and the
+//!   base body ([`Surface::drop_curve_base`]) for the other kinds.
 //! - **Undefined behaviour.** `ReverseCurveDirection` on an empty curve is
 //!   `SM_ERR_NULL_POINTER` (upstream `NER`); a `TraceCurve` that ends with an empty
 //!   curve and a `TestPoint` closure check on an empty curve (upstream dereferences
@@ -1644,7 +1643,16 @@ fn surface_drop_curve(
 ) -> Result<(f64, f64, Vec<Curve>)> {
     match surface.kind() {
         SurfaceKind::Plane(p) => {
-            let r = p.drop_curve(k, uv_domain, curve, interval, approx_tol, true, false)?;
+            let r = p.drop_curve(
+                k,
+                uv_domain,
+                curve,
+                interval,
+                approx_tol,
+                true,
+                false,
+                surface.owner(),
+            )?;
             Ok((r.max_drop_to_surf, r.max_approx_dev, r.uv_curves))
         }
         SurfaceKind::BSpline(_)
@@ -1652,10 +1660,13 @@ fn surface_drop_curve(
         | SurfaceKind::SurfOfRevolution(_)
         | SurfaceKind::Step(_)
         | SurfaceKind::SrfInVolume(_) => {
-            // UNPORTED(intersect.surface_drop_lib_p3): SmSurface::DropCurve
-            Err(SolidError::unported(
-                "SmSurface::DropCurve",
-                "intersect.surface_drop_lib_p3",
+            let r = surface.drop_curve_base::<crate::surface::surface::p4::NoObject>(
+                k, uv_domain, curve, interval, approx_tol, true, None,
+            )?;
+            Ok((
+                r.max_drop_to_surf,
+                r.max_approx_dev,
+                r.uv_curves.into_iter().map(Curve::from).collect(),
             ))
         }
     }

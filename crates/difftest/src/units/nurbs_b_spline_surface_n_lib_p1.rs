@@ -1092,7 +1092,8 @@ fn rust_static(op: &OpIn) -> Result<Result<Vec<f64>, Fail>, HarnessError> {
                     Ok(BSplineSurface::from_nurb(surface_of(&srf(s)?)?, false))
                 })
                 .transpose()?;
-            match create_non_rational_curve(&c, uv.as_ref(), base.as_ref(), *tol) {
+            let k = solidcore::kernel::Kernel::default();
+            match create_non_rational_curve(&k, &c, uv.as_ref(), base.as_ref(), *tol) {
                 Ok((nc, nuv)) => {
                     o.push(1.0);
                     dump_curve(&mut o, &nc);

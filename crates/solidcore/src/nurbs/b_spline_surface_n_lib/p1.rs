@@ -81,7 +81,8 @@
 //! - **Back-edges.** `CreateExtendedSurface` calls `SmSurface::IsSingularity`
 //!   (`surface.surface_p5`) and `SmSurface::IsClosed` (`surface::surface::p7`);
 //!   `sm_CreateNonRationalCurve` drops its curve with `SmSurface::DropCurve`
-//!   (`intersect.surface_drop_lib_p3`). The unported calls return [`SolidError::Unported`]
+//!   ([`Surface::drop_curve_base`](crate::surface::surface::Surface::drop_curve_base),
+//!   taking the caller's kernel). The unported calls return [`SolidError::Unported`]
 //!   until the units are ported. `sm_CreateNonRationalCurve` takes a
 //!   [`BSplineCurve`] (upstream casts its `SmCurve` with `SM_CAST_PTR`, failing with
 //!   `NER` for other curve types) and a [`BSplineSurface`] base surface (the only
@@ -214,18 +215,31 @@ struct DroppedCurves {
     uv_curves: Vec<BSplineCurve>,
 }
 
-/// `SmSurface::DropCurve(context, domain, curve, interval, tol, ..)`.
+/// `SmSurface::DropCurve(context, domain, curve, interval, tol, ..)` (virtual; the
+/// base surface is a B-spline surface, so the base body
+/// [`crate::intersect::surface_drop_lib::p3`]). A bare [`BSplineSurface`] carries no
+/// owner (upstream's `m_pOwner`), so the surface runs unowned: a face-owned base surface
+/// would make the general drop return `Unported`, which this copy cannot reproduce.
 fn drop_curve(
-    _srf: &BSplineSurface,
-    _domain: &Extent2d,
-    _curve: &BSplineCurve,
-    _interval: &Extent1d,
-    _approx_tol: f64,
+    k: &Kernel,
+    srf: &BSplineSurface,
+    domain: &Extent2d,
+    curve: &BSplineCurve,
+    interval: &Extent1d,
+    approx_tol: f64,
 ) -> Result<DroppedCurves> {
-    // UNPORTED(intersect.surface_drop_lib_p3): SmSurface::DropCurve
-    Err(SolidError::Unported {
-        upstream: "SmSurface::DropCurve",
-        unit: "intersect.surface_drop_lib_p3",
+    let surface = crate::surface::surface::Surface::from(srf.clone_exact());
+    let out = surface.drop_curve_base::<crate::surface::surface::p4::NoObject>(
+        k,
+        domain,
+        &crate::curve::curve::Curve::from(curve.clone()),
+        interval,
+        approx_tol,
+        true,
+        None,
+    )?;
+    Ok(DroppedCurves {
+        uv_curves: out.uv_curves,
     })
 }
 
@@ -927,9 +941,10 @@ pub fn check_zero_surface_derivs(
 /// # Errors
 ///
 /// The errors of the rationality test, the approximation, the reparametrisation and
-/// the drop ([`SolidError::Unported`] for now); `InvalidInput` when the drop gives no
+/// the drop; `InvalidInput` when the drop gives no
 /// curve (upstream asserts exactly one).
 pub fn create_non_rational_curve(
+    k: &Kernel,
     curve: &BSplineCurve,
     opt_uv_trim_curve: Option<&BSplineCurve>,
     opt_base_surface: Option<&BSplineSurface>,
@@ -946,7 +961,7 @@ pub fn create_non_rational_curve(
         if let Some(base) = opt_base_surface {
             let trim_ivl = new_curve.natural_interval();
             let domain = base.natural_uv_domain();
-            let dropped = drop_curve(base, &domain, &new_curve, &trim_ivl, approx_tol)?;
+            let dropped = drop_curve(k, base, &domain, &new_curve, &trim_ivl, approx_tol)?;
             new_uv_trim_curve = Some(
                 dropped
                     .uv_curves

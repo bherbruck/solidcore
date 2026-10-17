@@ -70,8 +70,9 @@
 //!   from a UV point to the x and y of the last 3D sample point when picking the
 //!   seam-side solution, as upstream does.
 //! - **Unported callees** return [`SolidError::Unported`] (see the `UNPORTED`
-//!   markers): `SmSurface::DropCurve` (`intersect.surface_drop_lib_p3`) except the
-//!   plane override. The surface point solves defer inside their own units
+//!   markers). `SmSurface::DropCurve` is the plane override for planes and the base
+//!   body ([`Surface::drop_curve_base`]) otherwise. The surface point solves defer
+//!   inside their own units
 //!   (`LocalPointSolve_1`, `GlobalPointSolve_1`). An
 //!   `SmCrvOnSurf` over a surface that is not a B-spline surface is a dispatch gap
 //!   of `curve.crv_on_surf` (the ported curve holds an `SmBSplineSurface`).
@@ -352,6 +353,7 @@ fn surface_drop_curve(
                 approx_tol,
                 keep_all,
                 creating_uv_trim_curve,
+                surface.owner(),
             )?;
             Ok((r.max_drop_to_surf, r.max_approx_dev, r.uv_curves))
         }
@@ -360,10 +362,13 @@ fn surface_drop_curve(
         | SurfaceKind::SurfOfRevolution(_)
         | SurfaceKind::Step(_)
         | SurfaceKind::SrfInVolume(_) => {
-            // UNPORTED(intersect.surface_drop_lib_p3): SmSurface::DropCurve
-            Err(SolidError::unported(
-                "SmSurface::DropCurve",
-                "intersect.surface_drop_lib_p3",
+            let r = surface.drop_curve_base::<NoObject>(
+                k, uv_domain, curve, interval, approx_tol, keep_all, None,
+            )?;
+            Ok((
+                r.max_drop_to_surf,
+                r.max_approx_dev,
+                r.uv_curves.into_iter().map(Curve::from).collect(),
             ))
         }
     }

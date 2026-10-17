@@ -185,7 +185,16 @@ fn surface_drop_curve(
 ) -> Result<(Vec<Curve>, f64, f64)> {
     match surface.kind() {
         SurfaceKind::Plane(p) => {
-            let d = p.drop_curve(k, domain, curve, interval, tol, keep_all, false)?;
+            let d = p.drop_curve(
+                k,
+                domain,
+                curve,
+                interval,
+                tol,
+                keep_all,
+                false,
+                surface.owner(),
+            )?;
             Ok((d.uv_curves, d.max_drop_to_surf, d.max_approx_dev))
         }
         SurfaceKind::BSpline(_)
@@ -193,10 +202,12 @@ fn surface_drop_curve(
         | SurfaceKind::SrfInVolume(_)
         | SurfaceKind::SurfOfRevolution(_)
         | SurfaceKind::Step(_) => {
-            // UNPORTED(intersect.surface_drop_lib_p3): SmSurface::DropCurve
-            Err(SolidError::unported(
-                "SmSurface::DropCurve",
-                "intersect.surface_drop_lib_p3",
+            let d = surface
+                .drop_curve_base::<NoObject>(k, domain, curve, interval, tol, keep_all, None)?;
+            Ok((
+                d.uv_curves.into_iter().map(Curve::from).collect(),
+                d.max_drop_to_surf,
+                d.max_approx_dev,
             ))
         }
     }
