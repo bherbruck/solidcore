@@ -18,6 +18,14 @@
 // (two B-rep blocks; `path` holds the two file paths separated by a newline). The private
 // m_pProtoTopoMgr of the intersector is reached through a pointer-to-member (the manager is
 // made by IntersectInsertRelate, unit boolean.topology_intersector_p2, not ported yet).
+//
+// harness/cpp/shim/boolean_topology_intersector_p2.cpp includes this file with
+// SC_TI_EXTRA_OPS defined: unknown script ops then go to its run_extra_op, and the entry
+// point is renamed SC_TI_EVAL_NAME (sc_boolean_topology_intersector_p2_eval). Without the
+// macros this file builds exactly as before.
+#ifndef SC_TI_EVAL_NAME
+#define SC_TI_EVAL_NAME sc_boolean_topology_intersector_p1_eval
+#endif
 #include "sc_topology_fixture.h"
 
 #include <SmBrepCache.h>
@@ -1114,6 +1122,12 @@ bool build_two(Rd& rd, const char* path, Two& t, std::vector<double>& o)
     return true;
 }
 
+#ifdef SC_TI_EXTRA_OPS
+// The script ops of the including shim; false for an op it does not know.
+bool run_extra_op(int64_t op, Rd& rd, Two& t, SmTopologyIntersector* ti, SmProtoTopologyManager*& mgr,
+                  int64_t ctor_kind, std::vector<double>& o);
+#endif
+
 void run_script(Rd& rd, Two& t, std::vector<double>& o)
 {
     const SmContext& ctx = the_context();
@@ -1639,7 +1653,13 @@ void run_script(Rd& rd, Two& t, std::vector<double>& o)
             o.push_back((double)mgr->GetProtoEdges().GetSize());
             break;
         }
-        default: o.push_back(-9.0); break;
+        default:
+#ifdef SC_TI_EXTRA_OPS
+            if (run_extra_op(op, rd, t, ti, mgr, ctor_kind, o))
+                break;
+#endif
+            o.push_back(-9.0);
+            break;
         }
     }
     delete ti; // the destructor frees the table (and its curves), maps and subset
@@ -1685,8 +1705,8 @@ void run_ti(int32_t op, Rd& rd, const char* path, std::vector<double>& o)
 }
 } // namespace
 
-SC_EXPORT int32_t sc_boolean_topology_intersector_p1_eval(int32_t op, const char* path, const double* in, int64_t n_in,
-                                                          double* out, int64_t cap, int64_t* out_len)
+SC_EXPORT int32_t SC_TI_EVAL_NAME(int32_t op, const char* path, const double* in, int64_t n_in, double* out,
+                                 int64_t cap, int64_t* out_len)
 {
     if (in == NULL || n_in < 1 || out_len == NULL || path == NULL)
         return SC_ERR_ARG;

@@ -2407,6 +2407,24 @@ meantime, whoever merges renumbers the new entry and every reference to it (here
 - **Severity:** memory leak / wasted work; results unaffected.
 - **Rust port:** Faithful: the re-copies go to the caller's curve store and the earlier handles stay unreferenced; the non-B-spline case reports the `SM_ERR` in `ExistingSsi::status` with the outputs filled so far.
 
+#### UB-169. A failed `RegisterExistingSSI` leaves the intersection table's lists out of step
+- **Location:** `source/SMLib/src/SmTopologyIntersector.cpp:276-315` (`SER(SM_ERR)` at :303), `SmTopologyIntersector::RegisterExistingSSI`; read at :211 by `CheckIfHaveExistingSSI`.
+- **What happens:** `RegisterExistingSSI` adds both surfaces to `m_vBrepSurfaces` / `m_vOtherSurfaces` first and adds the results last. A 3D curve that is not an `SmBSplineCurve` (or a null entry) returns `SM_ERR` from inside the copy loop, so the results list stays one entry shorter (and the copies made so far leak). A later `CheckIfHaveExistingSSI` for that surface pair matches the surface entry and reads `m_vResults[ii]` past the end of the array.
+- **Trigger:** `RegisterExistingSSI(s1, s2, {line or NULL}, ..)` for a non-B-spline 3D curve (an `SmLine`, `SmCompositeCurve`, ...), then `CheckIfHaveExistingSSI(s1, s2)`; also a `crUVCurves1/2` shorter than `cr3DCurves`, which the copy loop indexes in step with the 3D list.
+- **How found:** read during porting (`boolean.topology_intersector_p2`, PR #203).
+- **Confirmed:** no (source inspection; the difftest shim only registers B-spline curves and equal-length lists).
+- **Severity:** undefined behaviour (out-of-bounds read) after an error status.
+- **Rust port:** Faithful on the table (surfaces added, results not); `CheckIfHaveExistingSSI` then fails with `SolidError::InvalidInput` ("intersection table lists differ in length") instead of reading past the end. A UV list shorter than the 3D list is `InvalidInput` in `register_existing_ssi`.
+
+#### WR-170. `IntersectTopology` leaks the copies of registered intersection curves; a failed `IntersectInsertRelate` leaks its manager
+- **Location:** `source/SMLib/src/SmTopologyIntersector.cpp:1781-1792` (and the deleters built only at :1874), `IntersectTopology`; :1161, :1188, :1212, `IntersectInsertRelate`.
+- **What happens:** For a face pair registered in the intersection table, `CheckIfHaveExistingSSI` returns fresh copies of the registered curves and the loop `continue`s before the `SmObjsDelete` guards that would delete them, so every registered pair leaks its copies (once per call). `IntersectInsertRelate` allocates `m_pProtoTopoMgr` and returns through `SER_MSG` when `IntersectTopology` or `ResolveIntersections` fails, leaving the manager allocated and installed; the next call overwrites the pointer.
+- **Trigger:** `RegisterExistingSSI` with curves for a face pair of the two B-reps, then `IntersectInsertRelate`; any failing `IntersectTopology` (e.g. a failing `CoincidenceCheck` or `FaceIntersect`).
+- **How found:** read during porting (`boolean.topology_intersector_p2`, PR #203).
+- **Confirmed:** no (source inspection).
+- **Severity:** memory leak; results unaffected.
+- **Rust port:** Faithful: the copies stay unreferenced in the caller's curve store and are not reported as deleted; after a failure the manager stays installed on the intersector.
+
 ### Healing
 
 #### WR-88. `BuildSampleSet` spaces the `v` samples of non-B-spline surfaces by array index
