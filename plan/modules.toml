@@ -2296,7 +2296,7 @@ tests = ["prog_test:my_test_surface_closest_point", "prog_test:my_test_drop_poin
 status = "todo"
 claimed_by = ""
 claimed_at = ""
-notes = "4 fns; largest: SmCurveClassification::GetLoopCrossings, SmCurveInterval::GetIvlBound_EdgeuseObj, SmCurveClassification::SmCurveClassification, sm_SqueezeOutSmallestInterval; cycle back-edges (call into later units; stub or co-port): topology.edge(4), topology.face_p2(4), topology.edgeuse_p1(3), heal.face_props(2), topology.vertexuse(2), topology.edgeuse_p3(1), topology.loopuse(1), topology.vertex(1); unit-SCC #22 (220 units); 317 upstream test entry points reach this unit"
+notes = "CO-PORTED in blend.hcr (PR #191): SmCurveClassification::SmCurveClassification(cpCurve, crInterval, NULL, tol, n, pData) with its ReSet (new curve) -> blend::hcr::new_curve_classification (on CurveClassification::with_curve_interval, SM_UNINIT_TOL for a non-positive tolerance); 4 fns; largest: SmCurveClassification::GetLoopCrossings, SmCurveInterval::GetIvlBound_EdgeuseObj, SmCurveClassification::SmCurveClassification, sm_SqueezeOutSmallestInterval; cycle back-edges (call into later units; stub or co-port): topology.edge(4), topology.face_p2(4), topology.edgeuse_p1(3), heal.face_props(2), topology.vertexuse(2), topology.edgeuse_p3(1), topology.loopuse(1), topology.vertex(1); unit-SCC #22 (220 units); 317 upstream test entry points reach this unit"
 
 [[unit]]
 id = "intersect.surface_intersector_p3"
@@ -2800,7 +2800,7 @@ tests = ["prog_test:my_test_extent3d", "prog_test:my_test_vector2d", "prog_test:
 status = "todo"
 claimed_by = ""
 claimed_at = ""
-notes = "50 fns; largest: SmBrep::HealBrep, SmBrep::CreateCornerBlend, SmBrep::CreateEdgeEdgeBlend, sm_MakeVertexSplitUVTrimCurve; cycle back-edges (call into later units; stub or co-port): query.brep(3), heal.heal_data_p1(2); unit-SCC #22 (220 units); hazards: ptr-hash; 319 upstream test entry points reach this unit; CO-PORTED in topology.edgeuse_p1 (PR #55): SmBrep::m_bValidateOnly, the region/face use/loop use/edge use/vertex use arenas -> topology::Brep (validate_only, regions(), faceuses(), ..., add_*_record, *_mut); CO-PORTED in topology.edgeuse_p2 (PR #87): SmBrep::m_sThisZoneTol3d, GetTolerance -> topology::Brep::tolerance, set_tolerance; CO-PORTED in heal.heal_data_p3 (PR #164): SmBrep::IsLiveTopologyMember -> heal::heal_data::p3::live (private, arena identity checks)"
+notes = "50 fns; largest: SmBrep::HealBrep, SmBrep::CreateCornerBlend, SmBrep::CreateEdgeEdgeBlend, sm_MakeVertexSplitUVTrimCurve; cycle back-edges (call into later units; stub or co-port): query.brep(3), heal.heal_data_p1(2); unit-SCC #22 (220 units); hazards: ptr-hash; 319 upstream test entry points reach this unit; CO-PORTED in topology.edgeuse_p1 (PR #55): SmBrep::m_bValidateOnly, the region/face use/loop use/edge use/vertex use arenas -> topology::Brep (validate_only, regions(), faceuses(), ..., add_*_record, *_mut); CO-PORTED in topology.edgeuse_p2 (PR #87): SmBrep::m_sThisZoneTol3d, GetTolerance -> topology::Brep::tolerance, set_tolerance; CO-PORTED in heal.heal_data_p3 (PR #164): SmBrep::IsLiveTopologyMember -> heal::heal_data::p3::live (private, arena identity checks); CO-PORTED in blend.hcr (PR #191): SmBrep::m_bEditingEnabled -> topology::Brep::editing_enabled, set_editing_enabled"
 
 [[unit]]
 id = "topology.brep_p6"
@@ -3007,10 +3007,10 @@ soft_depends_on = ["curve.curve_p1", "curve.curve_p5", "curve.curve_p6", "curve.
 est_lines = 1875
 layer = 49
 tests = ["SM_API_test:TestSmCreateSilhouetteCurves", "prog_test:my_test_tsurface_point_extrema", "prog_test:my_test_one_tess", "prog_test:my_test_tsurface_tsurface_solve", "prog_test:my_test_ppu", "prog_test:my_sweep_null_region_counts"]
-status = "todo"
+status = "partial"
 claimed_by = ""
 claimed_at = ""
-notes = "14 fns; largest: SmHCR::ComputeEdgeVisibility, SmHCR::ComputeSilhouettes, SmHCR::IntersectCurveWithSilhouettes, SmHCR::ComputeGlobalVisibility; unit-SCC #22 (220 units); hazards: ptr-hash,ptr-iter; 89 upstream test entry points reach this unit"
+notes = "14 fns; partial (PR #191): 434 cases (34 fixtures: hints 3/-1/big/fractional and fa >= fb / fa == fb, fixtures/blend.hcr), 311 pass, 0 fail, 123 deferred (topology.brep_p1 66, intersect.curve_class_p2 35, topology.edge 18, topology.edgeuse_p3 3, topology.vertex 1); --perturb SENSITIVE 311/311; probe 3000 seeds clean (before the review round). The FFI guard accepts every int64 hint (C++: 0 none, 1 visible, other invisible) and either order of fa/fb (SmExtent1d swaps). The invisible-hint fixtures defer: SetClassObject takes the scene's infinite region (topology.brep_p1). CO-PORTED SmBrep::m_bEditingEnabled -> topology::Brep::editing_enabled. Of the 291 passes, 182 compare 3 or more values (construction state, 1-interval classifications, single-piece ComputeEdgeVisibility, silhouette lists) and 109 compare a status or one flag: 59 status/flag records (wire, lamina and listed early-outs, empty lists, 13 UB-170 skips among them) and 50 both-errored (24 inexact_geometry, 25 rejected UB-169 guard cases, 1 rejected fixture, 0 no_edge). Classifications with 2 or more intervals: 21 generated (crossing wire-loop fixtures), all deferred: InsertPointClass splits through InsertAt / EditIntervalMin / EditIntervalMax (intersect.curve_class_p2, no PR yet); likewise the 13 multi-piece ComputeEdgeVisibility cases. The scene B-rep (SmBrep copy + Transform + FindAndSetInfiniteRegion, units topology.brep_p3/brep_p5) and its box (query.brep) are stubbed in Hcr::with_transform; the runner imports the C++ scene and uses Hcr::from_scene. ComputeSilhouettes / ComputeGlobalVisibility / IsPointVisible start with topology.brep_p1 queries (only IsPointVisible is generated; it defers). SmFace::FindIfRectangularTrim is wired to topology.face_p1 (IsPointVisible's surface set; not reached while IsPointVisible defers on topology.brep_p1). CO-PORTED SmCurveClassification constructor (see intersect.curve_class_p4). Upstream defects UB-169, UB-170. hazards: ptr-hash (GetSilhouetteEdges sorted by id)"
 
 [[unit]]
 id = "heal.heal_data_p1"

@@ -530,6 +530,9 @@ pub struct Brep {
     vertexuses: Arena<VertexuseId, Vertexuse>,
     /// `m_bValidateOnly`.
     validate_only: bool,
+    /// `m_bEditingEnabled` (CO-PORTED by `blend.hcr`): `FALSE` for a new B-rep, copied by
+    /// the copy constructor.
+    editing_enabled: bool,
     /// `m_sThisZoneTol3d` (CO-PORTED by `topology.edgeuse_p2`): the B-rep's tolerance.
     tolerance: f64,
     /// The identity the B-rep is attributed and notified under (`SmBrep*`).
@@ -550,6 +553,7 @@ impl Default for Brep {
             edgeuses: Arena::default(),
             vertexuses: Arena::default(),
             validate_only: false,
+            editing_enabled: false,
             tolerance: ZONE_TOL_3D,
             key: ObjectKey(0),
         }
@@ -779,6 +783,17 @@ impl Brep {
     /// Sets `m_bValidateOnly`.
     pub fn set_validate_only(&mut self, validate_only: bool) {
         self.validate_only = validate_only;
+    }
+
+    /// `m_bEditingEnabled` (CO-PORTED by `blend.hcr`; `SmBrep()` sets `FALSE`).
+    #[must_use]
+    pub const fn editing_enabled(&self) -> bool {
+        self.editing_enabled
+    }
+
+    /// Sets `m_bEditingEnabled` (the raw member write, public state upstream).
+    pub fn set_editing_enabled(&mut self, editing_enabled: bool) {
+        self.editing_enabled = editing_enabled;
     }
 
     /// `SmBrep::GetTolerance` (`SM_USE_OLDTOL`, CO-PORTED by `topology.edgeuse_p2`):
