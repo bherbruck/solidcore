@@ -1,0 +1,4820 @@
+{
+  "abs_floors": [],
+  "cases": [
+    {
+      "max_rel_err": 0.0,
+      "name": "circ_box_edge_r1_approx1_g10",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#0 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmCircularCrossSectionFSG::CreateSurfaceFromCurves (ruled surface branch))",
+      "values_compared": 147
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "circ_box_edge_r1_approx1_g11",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#1 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmCircularCrossSectionFSG::CreateSurfaceFromCurves (ruled surface branch))",
+      "values_compared": 147
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "circ_box_edge_r1_approx0_g10",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#2 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmCircularCrossSectionFSG::CreateSurfaceFromCurves (ruled surface branch))",
+      "values_compared": 110
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "circ_box_edge_r1_approx0_g11",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#3 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmCircularCrossSectionFSG::CreateSurfaceFromCurves (ruled surface branch))",
+      "values_compared": 110
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "circ_box_edge_r1_mirror_complement",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#4 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmCircularCrossSectionFSG m_bMirror / m_bComplement)",
+      "values_compared": 300
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "circ_circular_edge_torus",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#5 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmCircularCrossSectionFSG::CreateSurfaceFromCurves (surface of revolution branch))",
+      "values_compared": 273
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "circ_curved_edge_skin_g10",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#6 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmCircularCrossSectionFSG::CreateSurfaceFromCurves (skinned surface branch))",
+      "values_compared": 301
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "circ_curved_edge_skin_g11",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#7 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmCircularCrossSectionFSG::CreateSurfaceFromCurves (skinned surface branch))",
+      "values_compared": 512
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "blend_box_edge_cont1",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#8 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmBlendCurveCrossSectionFSG::CreateSurfaceFromCurves (G1/G2/G3 blend curves, ruled))",
+      "values_compared": 120
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "blend_box_edge_cont2",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#9 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmBlendCurveCrossSectionFSG::CreateSurfaceFromCurves (G1/G2/G3 blend curves, ruled))",
+      "values_compared": 140
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "blend_box_edge_cont3",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#10 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmBlendCurveCrossSectionFSG::CreateSurfaceFromCurves (G1/G2/G3 blend curves, ruled))",
+      "values_compared": 160
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "blend_curved_edge_skin",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#11 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmBlendCurveCrossSectionFSG::CreateSurfaceFromCurves (skinned surface branch))",
+      "values_compared": 226
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "linear_box_edge_chamfer",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#12 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmLinearCrossSectionFSG::CreateSurface)",
+      "values_compared": 32
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "base_curve_extension_both_ends",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#13 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmCurveBasedFS::EvaluateBaseCurve (snapping, extension, reuse of the extension))",
+      "values_compared": 148
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "base_curve_line_and_hermite",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#14 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmCurveBasedFS::EvaluateBaseCurve (non B-spline curve outside its interval))",
+      "values_compared": 44
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "base_curve_line",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#15 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmCurveBasedFS::EvaluateBaseCurve (SmLine is an SmBSplineCurve))",
+      "values_compared": 82
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "ss_ext_plane",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#16 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmSurfaceSurfaceFS::SetupOffsetExtension)",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "ss_ext_cone_apex",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#17 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmSurfaceSurfaceFS::SetupOffsetExtension (singular boundary))",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "cr_box_faces_setup",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#18 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmConstantRadiusFS::SmConstantRadiusFS (surfaces), SetupOffsetValues)",
+      "values_compared": 47
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "cr_assisted_radii",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#19 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmConstantRadiusFS::SmConstantRadiusFS (surfaces, different radii))",
+      "values_compared": 47
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "cd_setup_half_sqrt2",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#20 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmConstantDistanceFS::SetupOffsetValues)",
+      "values_compared": 44
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "cd_init_distance_only",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#21 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmConstantDistanceFS::LoadInitialValues (rbDoSurf2Calcs = 0))",
+      "values_compared": 29
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "vr_constant_linear_law_circular",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#22 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmVariableRadiusFS::OffsetRadiiCanChange (constant))",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "vr_varying_linear_law_circular",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#23 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmVariableRadiusFS::OffsetRadiiCanChange (varying))",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "vr_constant_linear_law_blend",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_standard_solver_p1/cases.json#24 (upstream source/SMLib/src/SmFilletStandardSolver.cpp SmVariableRadiusFS::OffsetRadiiCanChange (not circular))",
+      "values_compared": 33
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0000",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694042",
+      "values_compared": 0
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0001",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694043",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0002",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694044",
+      "values_compared": 452
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0003",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694045",
+      "values_compared": 311
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0004",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694046",
+      "values_compared": 107
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0005",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694047",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0006",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694048",
+      "values_compared": 145
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0007",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694049",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0008",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694050",
+      "values_compared": 126
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0009",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694051",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0010",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694052",
+      "values_compared": 210
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0011",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694053",
+      "values_compared": 105
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0012",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694054",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0013",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694055",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0014",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694056",
+      "values_compared": 123
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0015",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694057",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0016",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694058",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0017",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694059",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0018",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694060",
+      "values_compared": 51
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0019",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694061",
+      "values_compared": 210
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0020",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694062",
+      "values_compared": 45
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0021",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694063",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0022",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694064",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0023",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694065",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0024",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694066",
+      "values_compared": 110
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::EvaluatePoint",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0025",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694067",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0026",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694068",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0027",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694069",
+      "values_compared": 284
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0028",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694070",
+      "values_compared": 41
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0029",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694071",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0030",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694072",
+      "values_compared": 231
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0031",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694073",
+      "values_compared": 210
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0032",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694074",
+      "values_compared": 33
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0033",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694075",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0034",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694076",
+      "values_compared": 470
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0035",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694077",
+      "values_compared": 125
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0036",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694078",
+      "values_compared": 433
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0037",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694079",
+      "values_compared": 102
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0038",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694080",
+      "values_compared": 210
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0039",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694081",
+      "values_compared": 105
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0040",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694082",
+      "values_compared": 259
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0041",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694083",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0042",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694084",
+      "values_compared": 413
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0043",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694085",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0044",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694086",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0045",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694087",
+      "values_compared": 60
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0046",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694088",
+      "values_compared": 125
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0047",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694089",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0048",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694090",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0049",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694091",
+      "values_compared": 269
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0050",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694092",
+      "values_compared": 112
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0051",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694093",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0052",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694094",
+      "values_compared": 74
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0053",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694095",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0054",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694096",
+      "values_compared": 172
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0055",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694097",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0056",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694098",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0057",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694099",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0058",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694100",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0059",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694101",
+      "values_compared": 50
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0060",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694102",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0061",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694103",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0062",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694104",
+      "values_compared": 114
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0063",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694105",
+      "values_compared": 341
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0064",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694106",
+      "values_compared": 476
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0065",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694107",
+      "values_compared": 125
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0066",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694108",
+      "values_compared": 129
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0067",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694109",
+      "values_compared": 87
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0068",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694110",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0069",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694111",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0070",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694112",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0071",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694113",
+      "values_compared": 138
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0072",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694114",
+      "values_compared": 70
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0073",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694115",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0074",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694116",
+      "values_compared": 45
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0075",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694117",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0076",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694118",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0077",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694119",
+      "values_compared": 226
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0078",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694120",
+      "values_compared": 48
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0079",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694121",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0080",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694122",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0081",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694123",
+      "values_compared": 232
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0082",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694124",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0083",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694125",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0084",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694126",
+      "values_compared": 296
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0085",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694127",
+      "values_compared": 298
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0086",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694128",
+      "values_compared": 117
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0087",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694129",
+      "values_compared": 31
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0088",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694130",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0089",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694131",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0090",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694132",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0091",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694133",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0092",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694134",
+      "values_compared": 351
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0093",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694135",
+      "values_compared": 379
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0094",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694136",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0095",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694137",
+      "values_compared": 96
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0096",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694138",
+      "values_compared": 51
+    },
+    {
+      "inputs": {
+        "center": {
+          "cpts": [
+            [0.0, 0.0, 0.0, -1.7976931348623157e+308],
+            [1.330543665121969, 0.0, 0.0, -1.7976931348623157e+308],
+            [2.661087330243938, 0.0, 0.0, -1.7976931348623157e+308],
+            [3.9916309953659077, 0.0, 0.0, -1.7976931348623157e+308]
+          ],
+          "p": 3,
+          "u": [0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0]
+        },
+        "cont": 2,
+        "g1": true,
+        "op": "blend",
+        "rail1": {
+          "cpts": [
+            [0.0, 0.004446083864916181, -1.2089701530578616, -1.7976931348623157e+308],
+            [1.330543665121969, 0.004446083864916181, -1.2089701530578616, -1.7976931348623157e+308],
+            [2.661087330243938, 0.004446083864916181, -1.2089701530578616, -1.7976931348623157e+308],
+            [3.9916309953659077, 0.004446083864916181, -1.2089701530578616, -1.7976931348623157e+308]
+          ],
+          "p": 3,
+          "u": [0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0]
+        },
+        "rail2": {
+          "cpts": [
+            [0.0, 1.1717386921034005, 0.5300182452347931, -1.7976931348623157e+308],
+            [1.330543665121969, 1.1717386921034005, 0.5300182452347931, -1.7976931348623157e+308],
+            [2.661087330243938, 1.1717386921034005, 0.5300182452347931, -1.7976931348623157e+308],
+            [3.9916309953659077, 1.1717386921034005, 0.5300182452347931, -1.7976931348623157e+308]
+          ],
+          "p": 3,
+          "u": [0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0]
+        },
+        "scale": 1.0,
+        "sides": {
+          "s1": {
+            "domain": [0.0, 0.0, 0.6221786898304498, 0.7186041839979151],
+            "kind": "plane",
+            "o": [0.13825501719179378, 1.1342810950526663, 0.380648081725675],
+            "scale": [1.382801852183703, 0.616347716327647],
+            "x": [-0.3422776201288625, -0.3615619009383559, 0.8672479590917265],
+            "y": [0.2991889903771687, 0.8330158022792628, 0.4653714872981871]
+          },
+          "s2": {
+            "domain": [0.0, 0.0, 0.8358783865769179, 1.3326202194647072],
+            "kind": "plane",
+            "o": [-1.164218664093212, 0.09406652593264031, 0.6483642010887256],
+            "scale": [1.1102027301463286, 0.7669076683082022],
+            "x": [0.5378646021179713, -0.7946131951730242, 0.281587534960967],
+            "y": [0.7810267544251904, 0.5954155241529261, 0.18835488437985787]
+          },
+          "uv1": {
+            "cpts": [
+              [0.8460861770236285, 0.17538740533725772, 0.0, -1.7976931348623157e+308],
+              [0.36442752904676545, 0.8290730894389685, 0.0, -1.7976931348623157e+308],
+              [0.8552390849108585, 0.22249185477944888, 0.0, -1.7976931348623157e+308],
+              [0.5243283538408906, 0.20842877322642314, 0.0, -1.7976931348623157e+308],
+              [0.6341996667007328, 0.14410494579066901, 0.0, -1.7976931348623157e+308]
+            ],
+            "p": 3,
+            "u": [0.0, 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 1.0, 1.0]
+          },
+          "uv2": {
+            "cpts": [
+              [0.20281975610822844, 0.7466136798597617, 0.0, -1.7976931348623157e+308],
+              [0.5106800748691354, 0.8651762373700199, 0.0, -1.7976931348623157e+308],
+              [0.7295284606832392, 0.1772734721209644, 0.0, -1.7976931348623157e+308],
+              [0.8902065967988397, 0.1939469214162303, 0.0, -1.7976931348623157e+308]
+            ],
+            "p": 3,
+            "u": [0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0]
+          }
+        },
+        "tol": 1e-6
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0097",
+      "outcome": "rejected",
+      "pass": false,
+      "rejected": "the shim's dry run: upstream would read out of bounds (ruled/revolved circular sections with a second pass, or a blend-curve skin through a point section) or loop forever",
+      "source": "generated:seed=7089734759426694139",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0098",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694140",
+      "values_compared": 150
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0099",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694141",
+      "values_compared": 78
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0100",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694142",
+      "values_compared": 129
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0101",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694143",
+      "values_compared": 290
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0102",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694144",
+      "values_compared": 236
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0103",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694145",
+      "values_compared": 0
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0104",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694146",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0105",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694147",
+      "values_compared": 32
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0106",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694148",
+      "values_compared": 1313
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0107",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694149",
+      "values_compared": 97
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0108",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694150",
+      "values_compared": 0
+    },
+    {
+      "inputs": {
+        "center": {
+          "cpts": [
+            [0.0, 0.51816980159284, -0.11268019771450288, -1.7976931348623157e+308],
+            [0.7325872397388263, 0.38729545198155835, -0.08290102033433722, -1.7976931348623157e+308],
+            [2.197761719216479, -0.4507551007662187, -0.7085766284416102, -1.7976931348623157e+308],
+            [3.662936198694132, -0.7619179062203323, 0.23645577461816503, -1.7976931348623157e+308],
+            [4.395523438432958, -0.030669637832114405, 0.2932790883647438, -1.7976931348623157e+308]
+          ],
+          "p": 3,
+          "u": [0.0, 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 1.0, 1.0]
+        },
+        "cont": 2,
+        "g1": true,
+        "op": "blend",
+        "rail1": {
+          "cpts": [
+            [0.0, 1.3076226816471495, -1.613305391727087, -1.7976931348623157e+308],
+            [0.7325872397388263, 1.1767483320358678, -1.5835262143469213, -1.7976931348623157e+308],
+            [2.197761719216479, 0.33869777928809075, -2.2092018224541943, -1.7976931348623157e+308],
+            [3.662936198694132, 0.027534973833977183, -1.264169419394419, -1.7976931348623157e+308],
+            [4.395523438432958, 0.7587832422221951, -1.2073461056478403, -1.7976931348623157e+308]
+          ],
+          "p": 3,
+          "u": [0.0, 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 1.0, 1.0]
+        },
+        "rail2": {
+          "cpts": [
+            [0.0, 2.032591701930892, 0.6502900727978724, -1.7976931348623157e+308],
+            [0.7325872397388263, 1.9017173523196105, 0.6800692501780381, -1.7976931348623157e+308],
+            [2.197761719216479, 1.0636667995718334, 0.054393642070765136, -1.7976931348623157e+308],
+            [3.662936198694132, 0.7525039941177198, 0.9994260451305403, -1.7976931348623157e+308],
+            [4.395523438432958, 1.4837522625059378, 1.0562493588771191, -1.7976931348623157e+308]
+          ],
+          "p": 3,
+          "u": [0.0, 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 1.0, 1.0]
+        },
+        "scale": 0.5,
+        "tol": 1e-6
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0109",
+      "outcome": "rejected",
+      "pass": false,
+      "rejected": "the shim's dry run: upstream would read out of bounds (ruled/revolved circular sections with a second pass, or a blend-curve skin through a point section) or loop forever",
+      "source": "generated:seed=7089734759426694151",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0110",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694152",
+      "values_compared": 60
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0111",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694153",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0112",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694154",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0113",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694155",
+      "values_compared": 80
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0114",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694156",
+      "values_compared": 236
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0115",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694157",
+      "values_compared": 578
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0116",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694158",
+      "values_compared": 60
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0117",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694159",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0118",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694160",
+      "values_compared": 26
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0119",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694161",
+      "values_compared": 104
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0120",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694162",
+      "values_compared": 91
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0121",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694163",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0122",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694164",
+      "values_compared": 69
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0123",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694165",
+      "values_compared": 4270
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0124",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694166",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0125",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694167",
+      "values_compared": 24
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0126",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694168",
+      "values_compared": 115
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0127",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694169",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0128",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694170",
+      "values_compared": 23
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0129",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694171",
+      "values_compared": 190
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0130",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694172",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0131",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694173",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0132",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694174",
+      "values_compared": 212
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0133",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694175",
+      "values_compared": 112
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0134",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694176",
+      "values_compared": 98
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0135",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694177",
+      "values_compared": 69
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0136",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694178",
+      "values_compared": 232
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0137",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694179",
+      "values_compared": 25
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0138",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694180",
+      "values_compared": 210
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0139",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694181",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0140",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694182",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0141",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694183",
+      "values_compared": 26
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0142",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694184",
+      "values_compared": 31
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0143",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694185",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0144",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694186",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0145",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694187",
+      "values_compared": 257
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0146",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694188",
+      "values_compared": 104
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0147",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694189",
+      "values_compared": 266
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0148",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694190",
+      "values_compared": 87
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0149",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694191",
+      "values_compared": 212
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0150",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694192",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0151",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694193",
+      "values_compared": 130
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0152",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694194",
+      "values_compared": 130
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0153",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694195",
+      "values_compared": 115
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0154",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694196",
+      "values_compared": 253
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0155",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694197",
+      "values_compared": 116
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0156",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694198",
+      "values_compared": 212
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0157",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694199",
+      "values_compared": 356
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0158",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694200",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0159",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694201",
+      "values_compared": 125
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0160",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694202",
+      "values_compared": 112
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0161",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694203",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0162",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694204",
+      "values_compared": 241
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0163",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694205",
+      "values_compared": 294
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0164",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694206",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0165",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694207",
+      "values_compared": 143
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0166",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694208",
+      "values_compared": 125
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0167",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694209",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0168",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694210",
+      "values_compared": 137
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0169",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694211",
+      "values_compared": 28
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0170",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694212",
+      "values_compared": 28
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0171",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694213",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0172",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694214",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0173",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694215",
+      "values_compared": 31
+    },
+    {
+      "inputs": {
+        "center": {
+          "cpts": [
+            [0.0, -412285.2176460601, -238578.69244601935, -1.7976931348623157e+308],
+            [2116316.929385412, 200364.28692588682, 51871.14470428633, -1.7976931348623157e+308],
+            [4232633.858770824, -567894.5137195792, -62397.24136400038, -1.7976931348623157e+308],
+            [6348950.788156235, -154820.0853473489, -119438.55415334937, -1.7976931348623157e+308]
+          ],
+          "p": 3,
+          "u": [0.0, 0.0, 0.0, 0.0, 6.348950788156236, 6.348950788156236, 6.348950788156236, 6.348950788156236]
+        },
+        "cont": 2,
+        "g1": true,
+        "op": "blend",
+        "rail1": {
+          "cpts": [
+            [0.0, -272893.3600311072, -1583296.885854995, -1.7976931348623157e+308],
+            [2116316.929385412, 339756.1445408397, -1292847.0487046894, -1.7976931348623157e+308],
+            [4232633.858770824, -428502.65610462637, -1407115.4347729762, -1.7976931348623157e+308],
+            [6348950.788156235, -15428.227732396077, -1464156.747562325, -1.7976931348623157e+308]
+          ],
+          "p": 3,
+          "u": [0.0, 0.0, 0.0, 0.0, 6.348950788156236, 6.348950788156236, 6.348950788156236, 6.348950788156236]
+        },
+        "rail2": {
+          "cpts": [
+            [0.0, 855216.8165913183, 231671.98842382742, -1.7976931348623157e+308],
+            [2116316.929385412, 1467866.3211632653, 522121.82557413314, -1.7976931348623157e+308],
+            [4232633.858770824, 699607.5205177992, 407853.4395058464, -1.7976931348623157e+308],
+            [6348950.788156235, 1112681.9488900295, 350812.1267164974, -1.7976931348623157e+308]
+          ],
+          "p": 3,
+          "u": [0.0, 0.0, 0.0, 0.0, 6.348950788156236, 6.348950788156236, 6.348950788156236, 6.348950788156236]
+        },
+        "scale": 0.5,
+        "tol": 1.0
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0174",
+      "outcome": "rejected",
+      "pass": false,
+      "rejected": "the shim's dry run: upstream would read out of bounds (ruled/revolved circular sections with a second pass, or a blend-curve skin through a point section) or loop forever",
+      "source": "generated:seed=7089734759426694216",
+      "values_compared": 0
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0175",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694217",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0176",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694218",
+      "values_compared": 28
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0177",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694219",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0178",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694220",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0179",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694221",
+      "values_compared": 67
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0180",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694222",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0181",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694223",
+      "values_compared": 33
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0182",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694224",
+      "values_compared": 0
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0183",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694225",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0184",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694226",
+      "values_compared": 102
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0185",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694227",
+      "values_compared": 364
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0186",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694228",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0187",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694229",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0188",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694230",
+      "values_compared": 31
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0189",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694231",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0190",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694232",
+      "values_compared": 103
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0191",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694233",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0192",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694234",
+      "values_compared": 386
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0193",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694235",
+      "values_compared": 31
+    },
+    {
+      "inputs": {
+        "center": {
+          "cpts": [
+            [0.0, 4.7009201972068413e-7, -3.8856116365257024e-7, -1.7976931348623157e+308],
+            [5.699281905699096e-7, 1.5796788163780982e-7, -4.846721840654409e-7, -1.7976931348623157e+308],
+            [1.7097845717097289e-6, -7.298449225252365e-7, 5.601888592227775e-7, -1.7976931348623157e+308],
+            [2.849640952849548e-6, -4.122747963196964e-7, -1.635896642091149e-7, -1.7976931348623157e+308],
+            [3.4195691434194577e-6, -7.281343339331303e-8, 5.363240492173553e-7, -1.7976931348623157e+308]
+          ],
+          "p": 2,
+          "u": [0.0, 0.0, 0.0, 1.1398563811398192, 2.2797127622796385, 3.4195691434194577, 3.4195691434194577, 3.4195691434194577]
+        },
+        "cont": 3,
+        "g1": true,
+        "op": "blend",
+        "rail1": {
+          "cpts": [
+            [0.0, 2.204840283256967e-6, -8.374232210850352e-7, -1.7976931348623157e+308],
+            [5.699281905699096e-7, 1.8927161451740925e-6, -9.335342414979057e-7, -1.7976931348623157e+308],
+            [1.7097845717097289e-6, 1.0049033410110462e-6, 1.1132680179031262e-7, -1.7976931348623157e+308],
+            [2.849640952849548e-6, 1.3224734672165864e-6, -6.124517216415798e-7, -1.7976931348623157e+308],
+            [3.4195691434194577e-6, 1.6619348301429697e-6, 8.746199178489044e-8, -1.7976931348623157e+308]
+          ],
+          "p": 2,
+          "u": [0.0, 0.0, 0.0, 1.1398563811398192, 2.2797127622796385, 3.4195691434194577, 3.4195691434194577, 3.4195691434194577]
+        },
+        "rail2": {
+          "cpts": [
+            [0.0, 2.0328657530558155e-6, 6.976014069909426e-7, -1.7976931348623157e+308],
+            [5.699281905699096e-7, 1.7207416149729413e-6, 6.014903865780721e-7, -1.7976931348623157e+308],
+            [1.7097845717097289e-6, 8.329288108098949e-7, 1.6463514298662904e-6, -1.7976931348623157e+308],
+            [2.849640952849548e-6, 1.150498937015435e-6, 9.22572906434398e-7, -1.7976931348623157e+308],
+            [3.4195691434194577e-6, 1.8483360069558209e-6, 1.6224866198608682e-6, -1.7976931348623157e+308]
+          ],
+          "p": 2,
+          "u": [0.0, 0.0, 0.0, 1.1398563811398192, 2.2797127622796385, 3.4195691434194577, 3.4195691434194577, 3.4195691434194577]
+        },
+        "scale": 2.5,
+        "tol": 1e-12
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0194",
+      "outcome": "rejected",
+      "pass": false,
+      "rejected": "the shim's dry run: upstream would read out of bounds (ruled/revolved circular sections with a second pass, or a blend-curve skin through a point section) or loop forever",
+      "source": "generated:seed=7089734759426694236",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0195",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694237",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0196",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694238",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0197",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694239",
+      "values_compared": 217
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0198",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694240",
+      "values_compared": 138
+    },
+    {
+      "inputs": {
+        "center": {
+          "cpts": [
+            [0.0, -174961.58789580286, 253483.91449188723, -1.7976931348623157e+308],
+            [1829465.8027108302, -375211.9158508881, -81215.69115224703, -1.7976931348623157e+308],
+            [3658931.6054216605, 50076.135649091746, 116553.49346849564, -1.7976931348623157e+308]
+          ],
+          "p": 2,
+          "u": [0.0, 0.0, 0.0, 1.0, 1.0, 1.0]
+        },
+        "cont": 2,
+        "g1": true,
+        "op": "blend",
+        "rail1": {
+          "cpts": [
+            [0.0, -1445389.0933234682, 776265.2564618418, -1.7976931348623157e+308],
+            [1829465.8027108302, -1645639.4212785538, 441565.6508177075, -1.7976931348623157e+308],
+            [3658931.6054216605, -1220351.3697785737, 639334.8354384501, -1.7976931348623157e+308]
+          ],
+          "p": 2,
+          "u": [0.0, 0.0, 0.0, 1.0, 1.0, 1.0]
+        },
+        "rail2": {
+          "cpts": [
+            [0.0, -1380630.1690433077, -405036.8904131898, -1.7976931348623157e+308],
+            [1829465.8027108302, -1580880.496998393, -739736.4960573241, -1.7976931348623157e+308],
+            [3658931.6054216605, -1155592.445498413, -541967.3114365814, -1.7976931348623157e+308]
+          ],
+          "p": 2,
+          "u": [0.0, 0.0, 0.0, 1.0, 1.0, 1.0]
+        },
+        "scale": 1.0,
+        "tol": 1.0
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0199",
+      "outcome": "rejected",
+      "pass": false,
+      "rejected": "the shim's dry run: upstream would read out of bounds (ruled/revolved circular sections with a second pass, or a blend-curve skin through a point section) or loop forever",
+      "source": "generated:seed=7089734759426694241",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0200",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694242",
+      "values_compared": 261
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0201",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694243",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0202",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694244",
+      "values_compared": 313
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0203",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694245",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0204",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694246",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0205",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694247",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0206",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694248",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0207",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694249",
+      "values_compared": 130
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0208",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694250",
+      "values_compared": 130
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0209",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694251",
+      "values_compared": 130
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0210",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694252",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0211",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694253",
+      "values_compared": 292
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0212",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694254",
+      "values_compared": 2844
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0213",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694255",
+      "values_compared": 153
+    },
+    {
+      "inputs": {
+        "center": {
+          "cpts": [
+            [0.0, -3.6651535048305246e-7, -1.0856331834694988e-7, -1.7976931348623157e+308],
+            [1.2844812309578903e-6, 7.599581008391713e-7, -2.4222747249637587e-7, -1.7976931348623157e+308],
+            [3.853443692873671e-6, -4.258216251476359e-7, 5.64277739690074e-7, -1.7976931348623157e+308],
+            [6.4224061547894514e-6, -3.0601101808693884e-7, -8.222296340368495e-8, -1.7976931348623157e+308],
+            [7.706887385747342e-6, -4.711232922792364e-7, -4.655015471044097e-7, -1.7976931348623157e+308]
+          ],
+          "p": 2,
+          "u": [0.0, 0.0, 0.0, 0.3333333333333333, 0.6666666666666666, 1.0, 1.0, 1.0]
+        },
+        "cont": 2,
+        "g1": true,
+        "op": "blend",
+        "rail1": {
+          "cpts": [
+            [0.0, -4.59140452795268e-8, 6.780814607144505e-8, -1.7976931348623157e+308],
+            [1.2844812309578903e-6, 1.080559406042697e-6, -6.585600807798094e-8, -1.7976931348623157e+308],
+            [3.853443692873671e-6, -1.0522031994411023e-7, 7.406492041084688e-7, -1.7976931348623157e+308],
+            [6.4224061547894514e-6, 1.4590287116586775e-8, 9.414850101470998e-8, -1.7976931348623157e+308],
+            [7.706887385747342e-6, -1.5052198707571078e-7, -2.891300826860148e-7, -1.7976931348623157e+308]
+          ],
+          "p": 2,
+          "u": [0.0, 0.0, 0.0, 0.3333333333333333, 0.6666666666666666, 1.0, 1.0, 1.0]
+        },
+        "rail2": {
+          "cpts": [
+            [0.0, -7.262460158280215e-7, -4.158616724480774e-8, -1.7976931348623157e+308],
+            [1.2844812309578903e-6, 4.002274354942023e-7, -1.7525032139423373e-7, -1.7976931348623157e+308],
+            [3.853443692873671e-6, -7.855522904926048e-7, 6.312548907922162e-7, -1.7976931348623157e+308],
+            [6.4224061547894514e-6, -6.657416834319079e-7, -1.5245812301542815e-8, -1.7976931348623157e+308],
+            [7.706887385747342e-6, -8.308539576242055e-7, -3.9852439600226757e-7, -1.7976931348623157e+308]
+          ],
+          "p": 2,
+          "u": [0.0, 0.0, 0.0, 0.3333333333333333, 0.6666666666666666, 1.0, 1.0, 1.0]
+        },
+        "scale": 1.5,
+        "sides": {
+          "s1": {
+            "kind": "bspline",
+            "net": [
+              [
+                [0.0, 0.0, -0.27791615411230464, -1.7976931348623157e+308],
+                [0.0, 1.0, -0.062203688769133764, -1.7976931348623157e+308],
+                [0.0, 2.0, 0.2617815370127404, -1.7976931348623157e+308],
+                [0.0, 3.0, -0.12175406144374623, -1.7976931348623157e+308],
+                [0.0, 4.0, -0.07579845880473271, -1.7976931348623157e+308]
+              ],
+              [
+                [2.0, 0.0, 0.16613499881047789, -1.7976931348623157e+308],
+                [2.0, 1.0, 0.13572132180881152, -1.7976931348623157e+308],
+                [2.0, 2.0, 0.16968518295413604, -1.7976931348623157e+308],
+                [2.0, 3.0, 0.016175649946443327, -1.7976931348623157e+308],
+                [2.0, 4.0, -0.055258281444200585, -1.7976931348623157e+308]
+              ],
+              [
+                [4.0, 0.0, 0.06480249996997728, -1.7976931348623157e+308],
+                [4.0, 1.0, 0.011856362293967748, -1.7976931348623157e+308],
+                [4.0, 2.0, 0.09947713109983125, -1.7976931348623157e+308],
+                [4.0, 3.0, -0.15145825790412829, -1.7976931348623157e+308],
+                [4.0, 4.0, -0.004927627732499162, -1.7976931348623157e+308]
+              ]
+            ],
+            "p": 2,
+            "q": 3,
+            "u": [0.0, 0.0, 0.0, 1.0, 1.0, 1.0],
+            "v": [0.0, 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 1.0, 1.0]
+          },
+          "s2": {
+            "kind": "bspline",
+            "net": [
+              [
+                [0.0, 0.0, 1.274913580335677, -1.7976931348623157e+308],
+                [0.0, 4.0, 1.1929138103436254, -1.7976931348623157e+308]
+              ],
+              [
+                [1.0, 0.0, 1.2756394485272269, -1.7976931348623157e+308],
+                [1.0, 4.0, 1.273175758158907, -1.7976931348623157e+308]
+              ],
+              [
+                [2.0, 0.0, 0.7251950843090755, -1.7976931348623157e+308],
+                [2.0, 4.0, 0.7337688119517634, -1.7976931348623157e+308]
+              ],
+              [
+                [3.0, 0.0, 0.755522484542031, -1.7976931348623157e+308],
+                [3.0, 4.0, 0.8606970936815541, -1.7976931348623157e+308]
+              ],
+              [
+                [4.0, 0.0, 0.8234848689945404, -1.7976931348623157e+308],
+                [4.0, 4.0, 0.9292810001214901, -1.7976931348623157e+308]
+              ]
+            ],
+            "p": 3,
+            "q": 1,
+            "u": [0.0, 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 1.0, 1.0],
+            "v": [0.0, 0.0, 1.0, 1.0]
+          },
+          "uv1": {
+            "cpts": [
+              [0.7427610033182309, 0.638638448397804, 0.0, -1.7976931348623157e+308],
+              [0.2982199235578179, 0.8277409537423176, 0.0, -1.7976931348623157e+308],
+              [0.27474673958030565, 0.5316163364950109, 0.0, -1.7976931348623157e+308],
+              [0.861073314872922, 0.8274480691460487, 0.0, -1.7976931348623157e+308]
+            ],
+            "p": 2,
+            "u": [0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 1.0]
+          },
+          "uv2": {
+            "cpts": [
+              [0.6154549694533943, 0.12857667069066991, 0.0, -1.7976931348623157e+308],
+              [0.33475399473345624, 0.5051533794303255, 0.0, -1.7976931348623157e+308],
+              [0.8015428532570832, 0.868285616258721, 0.0, -1.7976931348623157e+308],
+              [0.2892939607333707, 0.5672578383205228, 0.0, -1.7976931348623157e+308]
+            ],
+            "p": 3,
+            "u": [0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0]
+          }
+        },
+        "tol": 1e-12
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0214",
+      "outcome": "rejected",
+      "pass": false,
+      "rejected": "the shim's dry run: upstream would read out of bounds (ruled/revolved circular sections with a second pass, or a blend-curve skin through a point section) or loop forever",
+      "source": "generated:seed=7089734759426694256",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0215",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694257",
+      "values_compared": 251
+    },
+    {
+      "inputs": {
+        "approx": true,
+        "center": {
+          "cpts": [
+            [0.0, 0.0, 0.0, -1.7976931348623157e+308],
+            [2974086.7031685337, 0.0, 0.0, -1.7976931348623157e+308],
+            [5948173.4063370675, 0.0, 0.0, -1.7976931348623157e+308]
+          ],
+          "p": 1,
+          "u": [0.0, 0.0, 0.5, 1.0, 1.0]
+        },
+        "complement": true,
+        "g1": false,
+        "mirror": false,
+        "op": "circ",
+        "rail1": {
+          "cpts": [
+            [0.0, -1656668.8848757779, -277558.77034050215, -1.7976931348623157e+308],
+            [2974086.7031685337, -1656668.8848757779, -277558.77034050215, -1.7976931348623157e+308],
+            [5948173.4063370675, -1656668.8848757779, -277558.77034050215, -1.7976931348623157e+308]
+          ],
+          "p": 1,
+          "u": [0.0, 0.0, 0.5, 1.0, 1.0]
+        },
+        "rail2": {
+          "cpts": [
+            [0.0, -1656668.8848757779, -277558.77034050215, -1.7976931348623157e+308],
+            [2974086.7031685337, -1246513.5674036, -1125963.8499468956, -1.7976931348623157e+308],
+            [5948173.4063370675, -1246513.5674036, -1125963.8499468956, -1.7976931348623157e+308]
+          ],
+          "p": 1,
+          "u": [0.0, 0.0, 0.5, 1.0, 1.0]
+        },
+        "tol": 0.001,
+        "tolpct": 0.05
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0216",
+      "outcome": "rejected",
+      "pass": false,
+      "rejected": "the shim's dry run: upstream would read out of bounds (ruled/revolved circular sections with a second pass, or a blend-curve skin through a point section) or loop forever",
+      "source": "generated:seed=7089734759426694258",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0217",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694259",
+      "values_compared": 30
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0218",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694260",
+      "values_compared": 25
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::EvaluatePoint",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0219",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694261",
+      "values_compared": 0
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0220",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694262",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0221",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694263",
+      "values_compared": 156
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0222",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694264",
+      "values_compared": 93
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0223",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694265",
+      "values_compared": 396
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0224",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694266",
+      "values_compared": 264
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0225",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694267",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0226",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694268",
+      "values_compared": 212
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0227",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694269",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0228",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694270",
+      "values_compared": 149
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0229",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694271",
+      "values_compared": 369
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0230",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694272",
+      "values_compared": 24
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0231",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694273",
+      "values_compared": 132
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0232",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694274",
+      "values_compared": 128
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0233",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694275",
+      "values_compared": 44
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0234",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694276",
+      "values_compared": 90
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0235",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694277",
+      "values_compared": 140
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0236",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694278",
+      "values_compared": 264
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0237",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694279",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0238",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694280",
+      "values_compared": 215
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0239",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694281",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0240",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694282",
+      "values_compared": 481
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0241",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694283",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0242",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694284",
+      "values_compared": 156
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0243",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694285",
+      "values_compared": 22
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0244",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694286",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0245",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694287",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0246",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694288",
+      "values_compared": 253
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0247",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694289",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0248",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694290",
+      "values_compared": 145
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0249",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694291",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0250",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694292",
+      "values_compared": 190
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0251",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694293",
+      "values_compared": 128
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0252",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694294",
+      "values_compared": 100
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0253",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694295",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0254",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694296",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0255",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694297",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0256",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694298",
+      "values_compared": 75
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0257",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694299",
+      "values_compared": 0
+    },
+    {
+      "inputs": {
+        "approx": true,
+        "center": {
+          "cpts": [
+            [0.0, 0.0, 0.0, -1.7976931348623157e+308],
+            [3.1151355588345773, 0.0, 0.0, -1.7976931348623157e+308],
+            [6.2302711176691545, 0.0, 0.0, -1.7976931348623157e+308]
+          ],
+          "p": 1,
+          "u": [-0.3841425583271958, -0.3841425583271958, 1.0812673545984235, 2.5466772675240428, 2.5466772675240428]
+        },
+        "complement": true,
+        "g1": false,
+        "mirror": false,
+        "op": "circ",
+        "rail1": {
+          "cpts": [
+            [0.0, 0.7539475651453833, 0.6184070905113976, -1.7976931348623157e+308],
+            [3.1151355588345773, 0.7539475651453833, 0.6184070905113976, -1.7976931348623157e+308],
+            [6.2302711176691545, 0.7539475651453833, 0.6184070905113976, -1.7976931348623157e+308]
+          ],
+          "p": 1,
+          "u": [-0.3841425583271958, -0.3841425583271958, 1.0812673545984235, 2.5466772675240428, 2.5466772675240428]
+        },
+        "rail2": {
+          "cpts": [
+            [0.0, -1.214572827160197, 0.4217837725617712, -1.7976931348623157e+308],
+            [3.1151355588345773, -1.214572827160197, 0.4217837725617712, -1.7976931348623157e+308],
+            [6.2302711176691545, -1.214572827160197, 0.4217837725617712, -1.7976931348623157e+308]
+          ],
+          "p": 1,
+          "u": [-0.3841425583271958, -0.3841425583271958, 1.0812673545984235, 2.5466772675240428, 2.5466772675240428]
+        },
+        "tol": 1e-9,
+        "tolpct": 0.01
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0258",
+      "outcome": "rejected",
+      "pass": false,
+      "rejected": "the shim's dry run: upstream would read out of bounds (ruled/revolved circular sections with a second pass, or a blend-curve skin through a point section) or loop forever",
+      "source": "generated:seed=7089734759426694300",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0259",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694301",
+      "values_compared": 27
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::EvaluatePoint",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0260",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694302",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0261",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694303",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0262",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694304",
+      "values_compared": 148
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0263",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694305",
+      "values_compared": 105
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0264",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694306",
+      "values_compared": 205
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0265",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694307",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0266",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694308",
+      "values_compared": 210
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0267",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694309",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0268",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694310",
+      "values_compared": 237
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0269",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694311",
+      "values_compared": 231
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0270",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694312",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0271",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694313",
+      "values_compared": 236
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0272",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694314",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0273",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694315",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0274",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694316",
+      "values_compared": 125
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0275",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694317",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0276",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694318",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0277",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694319",
+      "values_compared": 264
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0278",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694320",
+      "values_compared": 322
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0279",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694321",
+      "values_compared": 226
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0280",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694322",
+      "values_compared": 97
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0281",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694323",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0282",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694324",
+      "values_compared": 83
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0283",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694325",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0284",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694326",
+      "values_compared": 226
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0285",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694327",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0286",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694328",
+      "values_compared": 30
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0287",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694329",
+      "values_compared": 113
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0288",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694330",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0289",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694331",
+      "values_compared": 33
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0290",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694332",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0291",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694333",
+      "values_compared": 231
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0292",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694334",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0293",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694335",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0294",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694336",
+      "values_compared": 92
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0295",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694337",
+      "values_compared": 41
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0296",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694338",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0297",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694339",
+      "values_compared": 146
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0298",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694340",
+      "values_compared": 87
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0299",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694341",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0300",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694342",
+      "values_compared": 293
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0301",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694343",
+      "values_compared": 60
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0302",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694344",
+      "values_compared": 231
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0303",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694345",
+      "values_compared": 360
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0304",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694346",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0305",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694347",
+      "values_compared": 78
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0306",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694348",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0307",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694349",
+      "values_compared": 105
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0308",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694350",
+      "values_compared": 256
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0309",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694351",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0310",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694352",
+      "values_compared": 264
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0311",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694353",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0312",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694354",
+      "values_compared": 60
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0313",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694355",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0314",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694356",
+      "values_compared": 278
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0315",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694357",
+      "values_compared": 118
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0316",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694358",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0317",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694359",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0318",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694360",
+      "values_compared": 69
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0319",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694361",
+      "values_compared": 41
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0320",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694362",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0321",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694363",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0322",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694364",
+      "values_compared": 342
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0323",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694365",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0324",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694366",
+      "values_compared": 156
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0325",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694367",
+      "values_compared": 267
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0326",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694368",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0327",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694369",
+      "values_compared": 130
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0328",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694370",
+      "values_compared": 130
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0329",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694371",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0330",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694372",
+      "values_compared": 657
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0331",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694373",
+      "values_compared": 130
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0332",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694374",
+      "values_compared": 328
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0333",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694375",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0334",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694376",
+      "values_compared": 160
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0335",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694377",
+      "values_compared": 231
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0336",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694378",
+      "values_compared": 210
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0337",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694379",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0338",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694380",
+      "values_compared": 22
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0339",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694381",
+      "values_compared": 87
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0340",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694382",
+      "values_compared": 120
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0341",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694383",
+      "values_compared": 414
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0342",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694384",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0343",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694385",
+      "values_compared": 44
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0344",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694386",
+      "values_compared": 266
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0345",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694387",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0346",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694388",
+      "values_compared": 72
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0347",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694389",
+      "values_compared": 0
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0348",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694390",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0349",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694391",
+      "values_compared": 130
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0350",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694392",
+      "values_compared": 200
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0351",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694393",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0352",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694394",
+      "values_compared": 104
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0353",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694395",
+      "values_compared": 257
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0354",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694396",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0355",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694397",
+      "values_compared": 69
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0356",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694398",
+      "values_compared": 149
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0357",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694399",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0358",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694400",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0359",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694401",
+      "values_compared": 102
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0360",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694402",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0361",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694403",
+      "values_compared": 273
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0362",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694404",
+      "values_compared": 135
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0363",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694405",
+      "values_compared": 156
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0364",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694406",
+      "values_compared": 57
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0365",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694407",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0366",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694408",
+      "values_compared": 97
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0367",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694409",
+      "values_compared": 72
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0368",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694410",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0369",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694411",
+      "values_compared": 69
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0370",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694412",
+      "values_compared": 212
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0371",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694413",
+      "values_compared": 50
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0372",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694414",
+      "values_compared": 231
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0373",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694415",
+      "values_compared": 266
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0374",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694416",
+      "values_compared": 166
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0375",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694417",
+      "values_compared": 45
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0376",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694418",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0377",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694419",
+      "values_compared": 690
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0378",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694420",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0379",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694421",
+      "values_compared": 120
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0380",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694422",
+      "values_compared": 231
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0381",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694423",
+      "values_compared": 80
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0382",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694424",
+      "values_compared": 1963
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0383",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694425",
+      "values_compared": 125
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0384",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694426",
+      "values_compared": 137
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0385",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694427",
+      "values_compared": 130
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0386",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694428",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0387",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694429",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0388",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694430",
+      "values_compared": 125
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0389",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694431",
+      "values_compared": 69
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0390",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694432",
+      "values_compared": 33
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0391",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694433",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0392",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694434",
+      "values_compared": 33
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0393",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694435",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0394",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694436",
+      "values_compared": 60
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0395",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694437",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0396",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694438",
+      "values_compared": 456
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0397",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694439",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0398",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694440",
+      "values_compared": 281
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0399",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694441",
+      "values_compared": 491
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0400",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694442",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0401",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694443",
+      "values_compared": 102
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0402",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694444",
+      "values_compared": 125
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0403",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694445",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0404",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694446",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0405",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694447",
+      "values_compared": 110
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0406",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694448",
+      "values_compared": 128
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0407",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694449",
+      "values_compared": 47
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0408",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694450",
+      "values_compared": 161
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0409",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694451",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0410",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694452",
+      "values_compared": 130
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0411",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694453",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0412",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694454",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0413",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694455",
+      "values_compared": 135
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0414",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694456",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0415",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694457",
+      "values_compared": 200
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0416",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694458",
+      "values_compared": 83
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0417",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694459",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0418",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694460",
+      "values_compared": 1892
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0419",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694461",
+      "values_compared": 160
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0420",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694462",
+      "values_compared": 120
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0421",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694463",
+      "values_compared": 45
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0422",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694464",
+      "values_compared": 0
+    },
+    {
+      "inputs": {
+        "center": {
+          "cpts": [
+            [0.0, 329.39696947764617, -271.75110423152427, -1.7976931348623157e+308],
+            [340.81602568224605, -285.1400956100252, -280.6965432045215, -1.7976931348623157e+308],
+            [1022.4480770467386, 460.33170129463554, -382.4179822977612, -1.7976931348623157e+308],
+            [2044.8961540934772, 402.8224721589044, 649.6134403466258, -1.7976931348623157e+308],
+            [3067.344231140216, 137.27616711048861, -697.6697437955295, -1.7976931348623157e+308],
+            [3748.9762825047083, -728.4760046194991, -46.83767827871432, -1.7976931348623157e+308],
+            [4089.7923081869544, -561.1214662875175, 192.4059267378133, -1.7976931348623157e+308]
+          ],
+          "p": 3,
+          "u": [-1.007171765587251, -1.007171765587251, -1.007171765587251, -1.007171765587251, -0.14973924295061347, 0.707693279686024, 1.5651258023226617, 2.422558324959299, 2.422558324959299, 2.422558324959299, 2.422558324959299]
+        },
+        "cont": 1,
+        "g1": true,
+        "op": "blend",
+        "rail1": {
+          "cpts": [
+            [0.0, -414.6900055702857, 6.436413004261842, -1.7976931348623157e+308],
+            [340.81602568224605, -1029.227070657957, -2.5090259687354233, -1.7976931348623157e+308],
+            [1022.4480770467386, -283.75527375329636, -104.23046506197514, -1.7976931348623157e+308],
+            [2044.8961540934772, -341.2645028890274, 927.800957582412, -1.7976931348623157e+308],
+            [3067.344231140216, -606.8108079374432, -419.48222655974337, -1.7976931348623157e+308],
+            [3748.9762825047083, -1472.5629796674311, 231.3498389570718, -1.7976931348623157e+308],
+            [4089.7923081869544, -1305.2084413354494, 470.59344397359945, -1.7976931348623157e+308]
+          ],
+          "p": 3,
+          "u": [-1.007171765587251, -1.007171765587251, -1.007171765587251, -1.007171765587251, -0.14973924295061347, 0.707693279686024, 1.5651258023226617, 2.422558324959299, 2.422558324959299, 2.422558324959299, 2.422558324959299]
+        },
+        "rail2": {
+          "cpts": [
+            [0.0, 251.9620531538458, -1062.3569193604787, -1.7976931348623157e+308],
+            [340.81602568224605, -362.5750119338256, -1071.302358333476, -1.7976931348623157e+308],
+            [1022.4480770467386, 382.89678497083514, -1173.0237974267159, -1.7976931348623157e+308],
+            [2044.8961540934772, 325.387555835104, -140.99237478232874, -1.7976931348623157e+308],
+            [3067.344231140216, 59.84125078668823, -1488.2755589244841, -1.7976931348623157e+308],
+            [3748.9762825047083, -805.9109209432995, -837.4434934076689, -1.7976931348623157e+308],
+            [4089.7923081869544, -638.5563826113179, -598.1998883911413, -1.7976931348623157e+308]
+          ],
+          "p": 3,
+          "u": [-1.007171765587251, -1.007171765587251, -1.007171765587251, -1.007171765587251, -0.14973924295061347, 0.707693279686024, 1.5651258023226617, 2.422558324959299, 2.422558324959299, 2.422558324959299, 2.422558324959299]
+        },
+        "scale": 2.5,
+        "sides": {
+          "s1": {
+            "domain": [0.0, 0.0, 1.6011373098887582, 0.7941157662721956],
+            "kind": "plane",
+            "o": [1.024797007095628, 1.3284382626307507, 1.5014101884758766],
+            "scale": [1.2598100505339227, 1.3980642326872976],
+            "x": [-0.1979650084766782, -0.36145899748891935, 0.9111296551825838],
+            "y": [-0.9661382387295079, 0.22888562236746277, -0.11911454797002642]
+          },
+          "s2": {
+            "kind": "bspline",
+            "net": [
+              [
+                [0.0, 0.0, 1.0511017877955753, -1.7976931348623157e+308],
+                [0.0, 2.0, 1.0028569102330624, -1.7976931348623157e+308],
+                [0.0, 4.0, 1.0320956151978664, -1.7976931348623157e+308]
+              ],
+              [
+                [1.3333333333333333, 0.0, 1.1943590688321961, -1.7976931348623157e+308],
+                [1.3333333333333333, 2.0, 1.033129662682822, -1.7976931348623157e+308],
+                [1.3333333333333333, 4.0, 0.7217666295127757, -1.7976931348623157e+308]
+              ],
+              [
+                [2.6666666666666665, 0.0, 1.1341183256035752, -1.7976931348623157e+308],
+                [2.6666666666666665, 2.0, 0.7093729052171659, -1.7976931348623157e+308],
+                [2.6666666666666665, 4.0, 1.1477886814989322, -1.7976931348623157e+308]
+              ],
+              [
+                [4.0, 0.0, 1.0258811706510025, -1.7976931348623157e+308],
+                [4.0, 2.0, 0.9099231409694695, -1.7976931348623157e+308],
+                [4.0, 4.0, 1.1360801563750251, -1.7976931348623157e+308]
+              ]
+            ],
+            "p": 3,
+            "q": 2,
+            "u": [0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0],
+            "v": [0.0, 0.0, 0.0, 1.0, 1.0, 1.0]
+          },
+          "uv1": {
+            "cpts": [
+              [0.6477000969027914, 0.8281420683493897, 0.0, -1.7976931348623157e+308],
+              [0.776216087180067, 0.8270676130038573, 0.0, -1.7976931348623157e+308],
+              [0.8155770250782379, 0.22210373451608476, 0.0, -1.7976931348623157e+308],
+              [0.43517385179283485, 0.5592505526097427, 0.0, -1.7976931348623157e+308]
+            ],
+            "p": 2,
+            "u": [-1.007171765587251, -1.007171765587251, -1.007171765587251, 0.707693279686024, 2.422558324959299, 2.422558324959299, 2.422558324959299]
+          },
+          "uv2": {
+            "cpts": [
+              [0.5979256259799791, 0.10911777440952096, 0.0, -1.7976931348623157e+308],
+              [0.43440014453211884, 0.5682715007176282, 0.0, -1.7976931348623157e+308],
+              [0.10495315904497966, 0.6114847489957098, 0.0, -1.7976931348623157e+308],
+              [0.6716384861484421, 0.7412599079372778, 0.0, -1.7976931348623157e+308],
+              [0.30959450919100384, 0.5059262710081545, 0.0, -1.7976931348623157e+308]
+            ],
+            "p": 3,
+            "u": [-1.007171765587251, -1.007171765587251, -1.007171765587251, -1.007171765587251, 0.707693279686024, 2.422558324959299, 2.422558324959299, 2.422558324959299, 2.422558324959299]
+          }
+        },
+        "tol": 0.001
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0423",
+      "outcome": "rejected",
+      "pass": false,
+      "rejected": "the shim's dry run: upstream would read out of bounds (ruled/revolved circular sections with a second pass, or a blend-curve skin through a point section) or loop forever",
+      "source": "generated:seed=7089734759426694465",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0424",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694466",
+      "values_compared": 38
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0425",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694467",
+      "values_compared": 57
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0426",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694468",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0427",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694469",
+      "values_compared": 84
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0428",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694470",
+      "values_compared": 58
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0429",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694471",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0430",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694472",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0431",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694473",
+      "values_compared": 188
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0432",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694474",
+      "values_compared": 53
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0433",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694475",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0434",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694476",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0435",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694477",
+      "values_compared": 269
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0436",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694478",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0437",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694479",
+      "values_compared": 51
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0438",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694480",
+      "values_compared": 256
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0439",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694481",
+      "values_compared": 212
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0440",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694482",
+      "values_compared": 31
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0441",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694483",
+      "values_compared": 0
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::Evaluate",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0442",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694484",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0443",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694485",
+      "values_compared": 95
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0444",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694486",
+      "values_compared": 133
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0445",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694487",
+      "values_compared": 79
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0446",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694488",
+      "values_compared": 322
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0447",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694489",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0448",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694490",
+      "values_compared": 293
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0449",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694491",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0450",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694492",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0451",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694493",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0452",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694494",
+      "values_compared": 380
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0453",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694495",
+      "values_compared": 299
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0454",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694496",
+      "values_compared": 33
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0455",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694497",
+      "values_compared": 190
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0456",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694498",
+      "values_compared": 48
+    },
+    {
+      "deferred": {
+        "symbol": "SmOffsetSurface::EvaluatePoint",
+        "unit": "surface.offset_surface"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0457",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694499",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0458",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694500",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0459",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694501",
+      "values_compared": 29
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0460",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694502",
+      "values_compared": 266
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0461",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694503",
+      "values_compared": 84
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0462",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694504",
+      "values_compared": 356
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0463",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694505",
+      "values_compared": 31
+    },
+    {
+      "deferred": {
+        "symbol": "SmFilletLaw::Evaluate",
+        "unit": "blend.fillet_executive_p1"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0464",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=7089734759426694506",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0465",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694507",
+      "values_compared": 264
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0466",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694508",
+      "values_compared": 231
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0467",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694509",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0468",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694510",
+      "values_compared": 657
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0469",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694511",
+      "values_compared": 143
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0470",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694512",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0471",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694513",
+      "values_compared": 48
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0472",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694514",
+      "values_compared": 42
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0473",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694515",
+      "values_compared": 31
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0474",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694516",
+      "values_compared": 328
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0475",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694517",
+      "values_compared": 128
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0476",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694518",
+      "values_compared": 45
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0477",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694519",
+      "values_compared": 115
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0478",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694520",
+      "values_compared": 238
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0479",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=7089734759426694521",
+      "values_compared": 45
+    }
+  ],
+  "cases_both_errored": 0,
+  "cases_deferred": 56,
+  "cases_failed": 0,
+  "cases_passed": 440,
+  "cases_rejected": 9,
+  "cases_total": 505,
+  "deferred_by_unit": {
+    "blend.fillet_executive_p1": 19,
+    "surface.offset_surface": 37
+  },
+  "max_rel_err": 0.0,
+  "pass": true,
+  "rel_tol": 1e-9,
+  "seeds": 16,
+  "status": "partial",
+  "unit": "blend.fillet_standard_solver_p1"
+}

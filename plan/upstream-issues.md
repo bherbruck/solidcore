@@ -918,6 +918,24 @@ meantime, whoever merges renumbers the new entry and every reference to it (here
 - **Severity:** crash/UB (null dereference).
 - **Rust port:** Represents optional tolerances with `Option`; coincident-boundary calls currently defer to the missing Cone/Cylinder adapter in `surface.surface_p2` (#76/#133); the boundary algorithm itself merged in #120. The FFI adapter rejects exactly the native undefined path before its boundary calls.
 
+#### UB-158. `SmCircularCrossSectionFSG::CreateSurfaceFromCurves` indexes past its cross sections in the second pass of a ruled or revolved surface
+- **Location:** `source/SMLib/src/SmFilletStandardSolver.cpp:3233` (`SmCircularCrossSectionFSG::CreateSurfaceFromCurves`): the first pass skips to the last knot for sweeps and revolves (`:3435`), so it stores three cross sections; the second pass (`m_bApproximateArcs` with differing unique knot counts) indexes `sCrossSections[lKnotIndex]` with `lKnotIndex` the knot index (`:3504`, `:3613`, `:3636`, `:3756`), which is at least 3 for the last knot.
+- **What happens:** `SmTArray::operator[]` reads (and on the replacement / mirror paths writes) past the array's size: an uninitialised or stale pointer is used as a cross section and deleted.
+- **Trigger:** A degree-1 straight centre line with a curved rail (the ruled-surface test only rejects rails that are lines in another direction), approximated arcs (the default) whose sections at the first, second and last knots get different unique knot counts (different arc angles, or a point section where the rails meet).
+- **How found:** read during porting.
+- **Confirmed:** no. The `blend.fillet_standard_solver_p1` shim detects these inputs with a dry run of the first pass and does not run them.
+- **Severity:** crash/UB (out-of-bounds read and write).
+- **Rust port:** `SolidError::InvalidInput` at the out-of-range index.
+
+#### UB-159. `SmBlendCurveCrossSectionFSG::CreateSurfaceFromCurves` skins incompatible data as synchronised
+- **Location:** `source/SMLib/src/SmFilletStandardSolver.cpp:4458` (`SmBlendCurveCrossSectionFSG::CreateSurfaceFromCurves`: `CreateSkinnedSurface(..., bSyncronized = TRUE, ...)`), through `SmBSplineSurfaceNLib.cpp` `SmBSplineSurface::CreateSkinnedSurface` into `NL_SrfAdv.cpp:13262` `N_CreateSkinSrfBoundaryContinuity` with `cmp = NL_YES`, which reads the cross sections' and the derivative curves' control points with the first cross section's count.
+- **What happens:** Two inputs are not compatible although the call says so: (a) a point cross section (`CreatePointCurve` where the rails meet within the tolerance, `:4132`) among the blend curves; (b) with `bNeedG1Continuity`, the cross-boundary derivative surfaces: the strips are ruled surfaces linear in u, `N_AdjustDerivSrf` (`NL_SrfAdv.cpp:13316`) swaps and extends them successfully (the blend curves are Bezier), and the first skinning attempt takes the 2-point derivative curve along the ruling as the cross-boundary data of a degree 3, 5 or 7 section. The skinning then reads past the derivative / point curve's control points.
+- **Trigger:** (b) every `G1` blend-curve fillet that is skinned (not ruled or revolved), for example the `blend.fillet_standard_solver_p1` difftest case `gen2400` of a 6000-seed run (seed `7089734759426696442`: continuity 3, blend scale 2.5, `tol = 0.05`, straight non-parallel rails): the C++ surface holds denormals (`1.344e-321`, `3.686e-310`) and `6.8e61`.
+- **How found:** generated difftest case.
+- **Confirmed:** yes for (b) (the case above); no for (a).
+- **Severity:** crash/UB (out-of-bounds read).
+- **Rust port:** The bounds-checked skinning fails the first attempt (`InvalidInput`) and `CreateSkinnedSurface` retries as upstream does after a failure. The shim rejects both inputs (a dry run of the knot insertion and the ruled / revolved tests).
+
 ### Intersection
 
 #### UB-89. `SmVolume::ReadFromDB` fills NULL volumes and uses unread map types [PSIRT]
@@ -1463,6 +1481,15 @@ meantime, whoever merges renumbers the new entry and every reference to it (here
 - **Confirmed:** source path only; no native hang reproduction was run.
 - **Severity:** hang.
 - **Rust port:** Ordinary squeeze statuses are ignored through `ignore_status`, preserving `Unported` propagation; a documented no-progress check returns an error if the interval count did not decrease.
+
+#### HANG-16. `SmBlendCurveCrossSectionFSG::CreateSurfaceFromCurves` loops forever when a knot insertion adds no knot
+- **Location:** `source/SMLib/src/SmFilletStandardSolver.cpp:4090` (`while (sKnots.GetSize() < 4)`: the mid-span knot is inserted into both rails and the knots are re-read). `SmCircularCrossSectionFSG::CreateSurfaceFromCurves` has the same loop with a bail-out (`:3336`).
+- **What happens:** When `InsertOneKnot` fails or the mid-span value equals an existing knot (spans below the knot resolution), the knot count never reaches 4.
+- **Trigger:** Rails whose largest knot span is too small to split.
+- **How found:** read during porting.
+- **Confirmed:** no. The `blend.fillet_standard_solver_p1` shim's dry run rejects such inputs.
+- **Severity:** hang.
+- **Rust port:** `SolidError::InvalidInput` when an insertion adds no knot.
 
 ## Nondeterminism
 

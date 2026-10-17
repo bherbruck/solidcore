@@ -6296,6 +6296,50 @@ renumber the parallel claim in #148. No bundled numerical results certify this
 independent tree. The maintainer confirmed all review items resolved before the
 independent p6 integration.
 
+## blend.fillet_standard_solver_p1 (`SmFilletStandardSolver.cpp` part 1, 2026-10-16; partial, no disagreements)
+
+- **Corpus.** 505 cases (25 fixture, 480 generated): no failure at max_rel_err 0; the
+  Jacobians, `SmConstantDistanceFS::LoadInitialValues` with `rbDoSurf2Calcs` and the
+  variable-radius `SetupOffsetValues` are deferred (surface.offset_surface,
+  blend.fillet_executive_p1); a few inputs the shim's dry run rejects are excluded
+  (below). A 20,000-seed run is clean.
+- **Fixed in nlib.srf_adv_p5 (Rust only).** `N_AdjustDerivSrf` adjusts the derivative
+  strips of `N_CreateSkinSrfBoundaryContinuity` in place. For the swap-then-extend cases
+  (`cst`/`usg` Left/Top, Bottom/Right, Right/Bottom, Top/Left) it swaps u and v before
+  `N_BezSrfExtend4D`, whose input check (`p != n`: the strip is not Bezier in the swapped
+  direction) can fail; the strip then stays swapped, and `SmBSplineSurface::
+  CreateSkinnedSurface`'s retry without the knot vector adjusts the swapped strip (swap
+  back, extend the Bezier direction: success). The port returned the error without the
+  swap, so its retry failed again and skinned without derivative surfaces. Hit by every
+  `G1` circular-section skin with approximated (multi-span cubic) arcs: the C++ result
+  equalled `CreateSkinnedSurface` run in C++ on the Rust-built inputs, the Rust skin
+  differed. `srf_adv::p5` now leaves the strip swapped on that failure;
+  nlib.srf_adv_p5, nurbs.b_spline_surface_n_lib_p2 and blend.fillet_custom_solver
+  difftests unchanged (3073 / 654 / 448 cases, max_rel_err 0).
+- **Shim dry runs (rejected cases).** Two inputs read out of bounds upstream only after
+  work the FFI validator cannot predict; the shim repeats the steps leading there on
+  copies (same upstream calls) and returns `-1`, which the runner records as rejected:
+  ruled / revolved circular sections whose first-pass unique knot counts differ (UB-158)
+  and blend-curve skins through a point section or with `G1` derivative surfaces
+  (UB-159), plus a blend knot insertion that adds no knot (HANG-16). The `G1` blend skin
+  is always undefined upstream (the first `cmp = NL_YES` attempt pairs a 2-point
+  derivative curve with degree 3-7 sections); the port's bounds-checked skinning fails
+  that attempt and retries as upstream does after a failure.
+- **Defaults kept.** `SmBSplineCurve::Evaluate` from the generators (static type
+  `SmBSplineCurve`) uses `bNonZeroTangents = FALSE`; `SmCurveBasedFS::EvaluateBaseCurve`
+  calls `SmCurve::Evaluate` (`TRUE`). `IsArc` of a B-spline curve is the `SmCurve` base
+  (`IsDegenerate(tol)` first). `ContainsValue` is inclusive with tolerance 0.
+  `CreateSurfaceFromCurves` keeps rail 1's knots from before the three-curve
+  synchronisation; the circular `G1` derivative strips use the rail 2 tangent, the blend
+  ones the centre line tangent; blend skins pass `bSyncronized = TRUE`, circular ones
+  `FALSE`. `GetSingularities(NULL, NULL, &lSing)` reads the approximate singular sides.
+- **Not compared.** The `SmConstantRadiusFS` edge-use constructor stops at
+  `SmEdgeuse::EvaluateBinormal` (topology.edgeuse_p3) and needs a B-rep on the Rust
+  side; `SmVariableRadiusFS::SetExtensionFlags` starts with
+  `SmFilletSolver::SetExtensionFlags`, which dereferences the fillet executive
+  (blend.fillet_solver_p1). Both are unit tested only. The Jacobians and the edge-use
+  branch of `LoadInitialValues` run in C++ with cleared edge uses (as
+  blend.fillet_custom_solver).
 
 ## heal.heal_data_p3 (healer sequencing, target refresh and repair stages; PR #164, 2026-10-16; partial, no disagreements)
 

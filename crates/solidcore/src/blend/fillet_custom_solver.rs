@@ -30,8 +30,9 @@
 //!   missing surface or an out-of-range rail index (upstream dereferences `NULL` or
 //!   indexes past the two-element arrays) is [`SolidError::InvalidInput`]. The
 //!   base-class constructor from an edge use ([`ConstantRadiusAssistedFs::from_edgeuse`])
-//!   belongs to `blend.fillet_standard_solver_p1` and returns
-//!   [`SolidError::Unported`]; [`ConstantRadiusAssistedFs::from_parts`] builds the
+//!   is `blend.fillet_standard_solver_p1`'s `constant_radius_from_edgeuse` (it needs
+//!   `SmEdgeuse::EvaluateBinormal`, unit `topology.edgeuse_p3`, still
+//!   [`SolidError::Unported`]); [`ConstantRadiusAssistedFs::from_parts`] builds the
 //!   members directly with the base-class defaults.
 //! - **Offset surfaces.** [`OffsetSurface`] co-ports only the `SmOffsetSurface` data
 //!   these methods touch (base surface, offset distance, extension flag). Its base is
@@ -157,7 +158,7 @@ impl OffsetSurface {
 }
 
 /// `SmOffsetSurface::EvaluatePoint`.
-fn offset_evaluate_point(_s: &OffsetSurface, _uv: Point2) -> Result<Point3> {
+pub(crate) fn offset_evaluate_point(_s: &OffsetSurface, _uv: Point2) -> Result<Point3> {
     // UNPORTED(surface.offset_surface): SmOffsetSurface::EvaluatePoint
     Err(SolidError::Unported {
         upstream: "SmOffsetSurface::EvaluatePoint",
@@ -166,7 +167,7 @@ fn offset_evaluate_point(_s: &OffsetSurface, _uv: Point2) -> Result<Point3> {
 }
 
 /// `SmOffsetSurface::GetNaturalUVDomain`.
-fn offset_natural_uv_domain(_s: &OffsetSurface) -> Result<Extent2d> {
+pub(crate) fn offset_natural_uv_domain(_s: &OffsetSurface) -> Result<Extent2d> {
     // UNPORTED(surface.offset_surface): SmOffsetSurface::GetNaturalUVDomain
     Err(SolidError::Unported {
         upstream: "SmOffsetSurface::GetNaturalUVDomain",
@@ -176,7 +177,7 @@ fn offset_natural_uv_domain(_s: &OffsetSurface) -> Result<Extent2d> {
 
 /// `Evaluate1stDerivatives(uv, TRUE, TRUE, ..)` of an offset surface:
 /// `(P, S_u, S_v)`.
-fn offset_evaluate_1st(_s: &OffsetSurface, _uv: Point2) -> Result<(Point3, Vec3, Vec3)> {
+pub(crate) fn offset_evaluate_1st(_s: &OffsetSurface, _uv: Point2) -> Result<(Point3, Vec3, Vec3)> {
     // UNPORTED(surface.offset_surface): SmOffsetSurface::Evaluate
     Err(SolidError::Unported {
         upstream: "SmOffsetSurface::Evaluate",
@@ -186,7 +187,7 @@ fn offset_evaluate_1st(_s: &OffsetSurface, _uv: Point2) -> Result<(Point3, Vec3,
 
 /// `Evaluate2ndDerivatives(uv, TRUE, TRUE, ..)` of an offset surface:
 /// `(P, S_u, S_v, S_uv, S_uu, S_vv)`.
-fn offset_evaluate_2nd(_s: &OffsetSurface, _uv: Point2) -> Result<[Vec3; 6]> {
+pub(crate) fn offset_evaluate_2nd(_s: &OffsetSurface, _uv: Point2) -> Result<[Vec3; 6]> {
     // UNPORTED(surface.offset_surface): SmOffsetSurface::Evaluate
     Err(SolidError::Unported {
         upstream: "SmOffsetSurface::Evaluate",
@@ -198,7 +199,7 @@ fn offset_evaluate_2nd(_s: &OffsetSurface, _uv: Point2) -> Result<[Vec3; 6]> {
 /// surface). `ComputeInwardVector` itself is ported (`surface::surface::p7::
 /// compute_inward_vector`); only the offset surface's evaluation is missing, so the
 /// porter of `surface.offset_surface` wires this through that function.
-fn offset_compute_inward_vector(_s: &OffsetSurface, _uv: Point2) -> Result<Vec3> {
+pub(crate) fn offset_compute_inward_vector(_s: &OffsetSurface, _uv: Point2) -> Result<Vec3> {
     // UNPORTED(surface.offset_surface): SmOffsetSurface::Evaluate (from SmSurface::ComputeInwardVector)
     Err(SolidError::Unported {
         upstream: "SmOffsetSurface::Evaluate",
@@ -208,7 +209,7 @@ fn offset_compute_inward_vector(_s: &OffsetSurface, _uv: Point2) -> Result<Vec3>
 
 /// `LocalPointSolve(domain, SM_SO_MINIMIZE, point, guess, bFound, sSol)` of an offset
 /// surface: the found UV point and its distance.
-fn offset_local_point_solve(
+pub(crate) fn offset_local_point_solve(
     _s: &OffsetSurface,
     _domain: &Extent2d,
     _point: Point3,
@@ -310,22 +311,28 @@ impl ConstantRadiusAssistedFs {
     ///
     /// # Errors
     ///
-    /// [`SolidError::Unported`] (`SmConstantRadiusFS::SmConstantRadiusFS`, unit
-    /// `blend.fillet_standard_solver_p1`).
+    /// Those of `SmConstantRadiusFS::SmConstantRadiusFS`
+    /// ([`crate::blend::fillet_standard_solver::p1::constant_radius_from_edgeuse`]):
+    /// `SM_ERR` for tangent surfaces, [`SolidError::Unported`] for
+    /// `SmEdgeuse::EvaluateBinormal` (unit `topology.edgeuse_p3`).
     pub fn from_edgeuse(
-        _brep: &Brep,
-        _approx_tol_3d: f64,
-        _ang_tol_rad: f64,
-        _tangency_tolerance: f64,
-        _fillet_radius1: f64,
-        _fillet_radius2: f64,
-        _edgeuse: EdgeuseId,
+        brep: &Brep,
+        approx_tol_3d: f64,
+        ang_tol_rad: f64,
+        tangency_tolerance: f64,
+        fillet_radius1: f64,
+        fillet_radius2: f64,
+        edgeuse: EdgeuseId,
     ) -> Result<Self> {
-        // UNPORTED(blend.fillet_standard_solver_p1): SmConstantRadiusFS::SmConstantRadiusFS
-        Err(SolidError::Unported {
-            upstream: "SmConstantRadiusFS::SmConstantRadiusFS",
-            unit: "blend.fillet_standard_solver_p1",
-        })
+        crate::blend::fillet_standard_solver::p1::constant_radius_from_edgeuse(
+            brep,
+            approx_tol_3d,
+            ang_tol_rad,
+            tangency_tolerance,
+            fillet_radius1,
+            edgeuse,
+            Some(fillet_radius2),
+        )
     }
 
     /// `GetSurface(lRailIndex)`.
