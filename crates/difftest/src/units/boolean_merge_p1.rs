@@ -108,7 +108,7 @@ fn obj(k: u64, t: i64) -> ObjectRef {
 fn id<I: ArenaId>(v: Option<I>) -> i64 {
     v.map_or(-1, |v| i64::from(v.index()))
 }
-fn graph(b: &Brep, record: Vec<f64>) -> Output {
+pub(crate) fn graph(b: &Brep, record: Vec<f64>) -> Output {
     let mut ints = vec![
         b.regions().len() as i64,
         b.shells().len() as i64,

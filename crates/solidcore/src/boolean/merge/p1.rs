@@ -338,9 +338,8 @@ fn make_shell_vertex(
     if let Some(region) = region {
         brep.region(region)?;
     }
-    other.vertex(source)?;
-    // UNPORTED(topology.brep_p9): SmBrep::MakeShellVertex
-    unavailable("SmBrep::MakeShellVertex", "topology.brep_p9")
+    let point = other.vertex(source)?.point;
+    crate::topology::brep::p9::make_shell_vertex(brep, region, point).map(|(_, vertex)| vertex)
 }
 
 /// The intersection lists and live primary-to-other mate lookups used by cleanup.
