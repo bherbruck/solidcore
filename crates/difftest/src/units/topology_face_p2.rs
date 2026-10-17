@@ -542,7 +542,10 @@ pub(crate) fn import(ex: &[f64]) -> Result<(Brep, Exact), HarnessError> {
     for _ in 0..n_r {
         let in_brep = rd.num()? != 0.0;
         rd.list()?;
-        regions.push(Region { in_brep });
+        regions.push(Region {
+            in_brep,
+            ..Region::default()
+        });
     }
     let mut shells = Vec::new();
     for _ in 0..n_s {
@@ -552,6 +555,7 @@ pub(crate) fn import(ex: &[f64]) -> Result<(Brep, Exact), HarnessError> {
         shells.push(Shell {
             faces: Vec::new(),
             region,
+            ..Shell::default()
         });
     }
     let mut faceuses = Vec::new();

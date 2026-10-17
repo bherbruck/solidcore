@@ -7,8 +7,9 @@
 //! | Rust                        | Upstream                                              |
 //! |-----------------------------|-------------------------------------------------------|
 //! | [`Brep`]                    | `SmBrep` (face/edge/vertex lists `m_p*ListHead`, `m_bValidateOnly`) |
-//! | [`Region`] / [`RegionId`]   | `SmRegion` (minimal: its list owner)                  |
-//! | [`Shell`] / [`ShellId`]     | `SmShell`                                             |
+//! | [`Region`] / [`RegionId`]   | `SmRegion` (minimal: list owner, shell list, void flag) |
+//! | [`Shell`] / [`ShellId`]     | `SmShell` (faces, region, type and list head)         |
+//! | [`Brep::new_with_infinite_region`] | `SmBrep::SmBrep()` (topology part, CO-PORTED) |
 //! | [`Faceuse`] / [`FaceuseId`] | `SmFaceuse` (unit `topology.edgeuse_p1`)              |
 //! | [`Face`] / [`FaceId`]       | `SmFace` (unit `topology.face_p2`)                    |
 //! | [`Loopuse`] / [`LoopuseId`] | `SmLoopuse` (unit `topology.loopuse`)                 |
@@ -36,6 +37,7 @@
 //! friend writes of `SmBrepConstructor`: they link records without validation (a
 //! B-rep graph is cyclic, so a record may name ids added later).
 
+pub mod brep;
 pub mod brep_cache;
 pub mod brep_data;
 pub mod database_io;
@@ -44,6 +46,7 @@ pub mod edgeuse;
 pub mod face;
 pub mod loopuse;
 pub mod proto_topology;
+pub mod shell;
 #[allow(clippy::module_inception)]
 pub mod topology;
 pub mod topology_traverser;
@@ -356,14 +359,25 @@ pub struct Shell {
     pub faces: Vec<FaceId>,
     /// `m_pListOwner` (CO-PORTED): the region owning the shell (`GetRegion`).
     pub region: Option<RegionId>,
+    /// `m_tShellType` (CO-PORTED by `topology.brep_p10`): what the shell's list holds.
+    pub shell_type: shell::ShellType,
+    /// `m_pList` (CO-PORTED by `topology.brep_p10`): the shell's members from the
+    /// list head.
+    pub members: shell::ShellMembers,
 }
 
 /// A region (`SmRegion`, CO-PORTED minimal record).
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+#[derive(Debug, Clone, PartialEq, Eq, Default)]
 pub struct Region {
     /// `m_pListOwner != NULL`: the region is on the B-rep's region list, so
     /// `GetBrep` reaches the B-rep.
     pub in_brep: bool,
+    /// `m_pList` (CO-PORTED by `topology.brep_p10`): the region's shells in list
+    /// order from the head (`GetShells`).
+    pub shells: Vec<ShellId>,
+    /// `m_bIsVoidFlag` (CO-PORTED by `topology.brep_p10`): an `SmBoolean` (`0` at
+    /// construction; `IsVoid`, `SetIsVoid`).
+    pub is_void: i32,
 }
 
 /// One use of a face (`SmFaceuse`): the face seen from one side.
@@ -530,6 +544,10 @@ pub struct Brep {
     vertexuses: Arena<VertexuseId, Vertexuse>,
     /// `m_bValidateOnly`.
     validate_only: bool,
+    /// `m_pInfiniteRegion` (CO-PORTED by `topology.brep_p10`).
+    infinite_region: Option<RegionId>,
+    /// `m_bEditingEnabled` (CO-PORTED by `topology.brep_p10`).
+    editing_enabled: bool,
     /// `m_sThisZoneTol3d` (CO-PORTED by `topology.edgeuse_p2`): the B-rep's tolerance.
     tolerance: f64,
     /// The identity the B-rep is attributed and notified under (`SmBrep*`).
@@ -550,6 +568,8 @@ impl Default for Brep {
             edgeuses: Arena::default(),
             vertexuses: Arena::default(),
             validate_only: false,
+            infinite_region: None,
+            editing_enabled: false,
             tolerance: ZONE_TOL_3D,
             key: ObjectKey(0),
         }
@@ -568,6 +588,48 @@ impl Brep {
     #[must_use]
     pub fn new() -> Self {
         Self::default()
+    }
+
+    /// `SmBrep()` (CO-PORTED by `topology.brep_p10` from unit `topology.brep_p3`, the
+    /// topology part only): an empty B-rep whose region list holds the infinite region,
+    /// a void region (`SetIsVoid(TRUE)`); editing disabled, tolerance
+    /// [`ZONE_TOL_3D`].
+    ///
+    /// # Errors
+    ///
+    /// None in practice (the region arena is empty).
+    pub fn new_with_infinite_region() -> Result<Self> {
+        let mut b = Self::default();
+        // Create infinite region and put into brep's region list
+        let r = b.regions.insert(Region {
+            in_brep: true,
+            shells: Vec::new(),
+            is_void: 1,
+        })?;
+        b.infinite_region = Some(r);
+        Ok(b)
+    }
+
+    /// `m_pInfiniteRegion` (`GetInfiniteRegion`).
+    #[must_use]
+    pub const fn infinite_region(&self) -> Option<RegionId> {
+        self.infinite_region
+    }
+
+    /// Sets `m_pInfiniteRegion` (a raw member write, no validation).
+    pub fn set_infinite_region_record(&mut self, region: Option<RegionId>) {
+        self.infinite_region = region;
+    }
+
+    /// `m_bEditingEnabled`.
+    #[must_use]
+    pub const fn editing_enabled(&self) -> bool {
+        self.editing_enabled
+    }
+
+    /// Sets `m_bEditingEnabled`.
+    pub fn set_editing_enabled(&mut self, enabled: bool) {
+        self.editing_enabled = enabled;
     }
 
     /// All shells.

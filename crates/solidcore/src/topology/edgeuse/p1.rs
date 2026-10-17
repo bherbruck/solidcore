@@ -1604,10 +1604,15 @@ mod tests {
     fn square() -> Brep {
         let mut b = Brep::new();
         let id = |i: u32| EdgeuseId::from_index(i);
-        b.add_region_record(Region { in_brep: true }).unwrap();
+        b.add_region_record(Region {
+            in_brep: true,
+            ..Region::default()
+        })
+        .unwrap();
         b.add_shell_record(Shell {
             faces: vec![FaceId::from_index(0)],
             region: Some(RegionId::from_index(0)),
+            ..Shell::default()
         })
         .unwrap();
         b.add_face_record(Face {

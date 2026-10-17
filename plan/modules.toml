@@ -2436,7 +2436,7 @@ tests = ["prog_test:my_test_extent3d", "prog_test:my_test_vector2d", "prog_test:
 status = "todo"
 claimed_by = ""
 claimed_at = ""
-notes = "37 fns; largest: SmShell::RayFire, SmShell::TransferChildrenTo, SmShell::GetWireEdges, SmRegion::OrderShells; cycle back-edges (call into later units; stub or co-port): topology.edge(5), query.face_p1(2), topology.brep_p1(2), query.brep(1), topology.brep_p2(1), topology.topology_traverser(1), topology.vertex(1), topology.vertexuse(1); unit-SCC #22 (220 units); 319 upstream test entry points reach this unit; CO-PORTED in topology.edgeuse_p1 (PR #55): SmRegion (m_pListOwner != NULL only) -> topology::Region, SmShell::m_pListOwner -> topology::Shell::region; SmShell::GetRegion, GetBrep -> topology::edgeuse::p1::{shell_region, shell_brep}"
+notes = "CO-PORTED in topology.brep_p10 (PR #130): SmShell::m_tShellType, m_pList -> topology::Shell::{shell_type, members} (topology::shell::{ShellType, ShellMembers}, same shape as PR #80); SmRegion::m_pList, m_bIsVoidFlag (GetShells, IsVoid, SetIsVoid as field access) -> topology::Region::{shells, is_void}; 37 fns; largest: SmShell::RayFire, SmShell::TransferChildrenTo, SmShell::GetWireEdges, SmRegion::OrderShells; cycle back-edges (call into later units; stub or co-port): topology.edge(5), query.face_p1(2), topology.brep_p1(2), query.brep(1), topology.brep_p2(1), topology.topology_traverser(1), topology.vertex(1), topology.vertexuse(1); unit-SCC #22 (220 units); 319 upstream test entry points reach this unit; CO-PORTED in topology.edgeuse_p1 (PR #55): SmRegion (m_pListOwner != NULL only) -> topology::Region, SmShell::m_pListOwner -> topology::Shell::region; SmShell::GetRegion, GetBrep -> topology::edgeuse::p1::{shell_region, shell_brep}"
 
 [[unit]]
 id = "intersect.curve_class_p8"
@@ -2657,10 +2657,10 @@ soft_depends_on = ["geom.context", "geom.extent2d", "geom.geom_utility_p1", "int
 est_lines = 1890
 layer = 43
 tests = ["prog_test:my_test_single_periodic_vertexuse", "SM_API_test:TestSmAdvancedStitch", "SM_API_test:TestSmEdgeCurveOwnership", "SM_API_test:TestSmGetClosestPoint", "SM_API_test:TestSmGetEdges", "SM_API_test:TestSmGetFaces"]
-status = "todo"
+status = "partial"
 claimed_by = ""
 claimed_at = ""
-notes = "4 fns; largest: SmBrep::MakeTopologyFromData, SmBrep::ProjectAndTrim, SmBrep::TestClosureSplitRegion, SmBrep::RemoveAllTopology; cycle back-edges (call into later units; stub or co-port): topology.brep_p1(10), topology.brep_p2(4), topology.brep_p5(4), topology.brep_p4(2), query.brep(1), topology.brep_p6(1), topology.face_p1(1); unit-SCC #22 (220 units); 179 upstream test entry points reach this unit"
+notes = "partial: cases=1084 passed=576 failed=0 deferred=508 (surface.cone_p2 346: SmCone::IsNurbSurfaceCone in CopyAndAddAnalytics; surface.cone_p1 41, surface.offset_surface 24, surface.surf_of_extrusion_p2 10: Rust read of the file; topology.brep_p1 71: HealBrep, GetFaces (RemoveAllTopology), CreateParallelProjectionCurves (ProjectAndTrim); topology.brep_p2 14: IsManifoldSolid; topology.brep_p6 2: face use TestClosureSplitRegion). ProjectAndTrim and RemoveAllTopology (editing enabled) are always deferred. 4 fns; cycle back-edges stubbed: topology.brep_p1 (sm_AddAttributes, HealBrep, GetFaces, GetWireEdges, CreateParallelProjectionCurves, sm_FindSideOfCurve), topology.brep_p2 (IsManifoldSolid, MergeCurvesOnSurface, GetShellVertices, sm_GetPointFromSol), topology.brep_p4 (DeleteEdge, DeleteVertex), topology.brep_p5 (RemoveFaces, FindAndSetInfiniteRegion), topology.brep_p6 (TestClosureSplitRegion face use version), topology.face_p4 (GetVertices, GetEdges), query.brep (CalculateBoundingBox)"
 
 [[unit]]
 id = "topology.face_p3"
@@ -2800,7 +2800,7 @@ tests = ["prog_test:my_test_extent3d", "prog_test:my_test_vector2d", "prog_test:
 status = "todo"
 claimed_by = ""
 claimed_at = ""
-notes = "50 fns; largest: SmBrep::HealBrep, SmBrep::CreateCornerBlend, SmBrep::CreateEdgeEdgeBlend, sm_MakeVertexSplitUVTrimCurve; cycle back-edges (call into later units; stub or co-port): query.brep(3), heal.heal_data_p1(2); unit-SCC #22 (220 units); hazards: ptr-hash; 319 upstream test entry points reach this unit; CO-PORTED in topology.edgeuse_p1 (PR #55): SmBrep::m_bValidateOnly, the region/face use/loop use/edge use/vertex use arenas -> topology::Brep (validate_only, regions(), faceuses(), ..., add_*_record, *_mut); CO-PORTED in topology.edgeuse_p2 (PR #87): SmBrep::m_sThisZoneTol3d, GetTolerance -> topology::Brep::tolerance, set_tolerance"
+notes = "CO-PORTED in topology.brep_p10 (PR #130): SmBrep::GetRegions read as the region arena in order (regions are only appended); 50 fns; largest: SmBrep::HealBrep, SmBrep::CreateCornerBlend, SmBrep::CreateEdgeEdgeBlend, sm_MakeVertexSplitUVTrimCurve; cycle back-edges (call into later units; stub or co-port): query.brep(3), heal.heal_data_p1(2); unit-SCC #22 (220 units); hazards: ptr-hash; 319 upstream test entry points reach this unit; CO-PORTED in topology.edgeuse_p1 (PR #55): SmBrep::m_bValidateOnly, the region/face use/loop use/edge use/vertex use arenas -> topology::Brep (validate_only, regions(), faceuses(), ..., add_*_record, *_mut); CO-PORTED in topology.edgeuse_p2 (PR #87): SmBrep::m_sThisZoneTol3d, GetTolerance -> topology::Brep::tolerance, set_tolerance"
 
 [[unit]]
 id = "topology.brep_p6"
@@ -2968,7 +2968,7 @@ tests = ["prog_test:my_test_tsurf_cyl_creation_2d", "prog_test:my_test_tsurf_cyl
 status = "todo"
 claimed_by = ""
 claimed_at = ""
-notes = "11 fns; largest: SmBrep::MergeBrep, SmBrep::OrientTrimmedSurfaces, SmBrep::DeleteFace, SmBrep::SqueezeEdge; entry points: SmApiBrepCopy; cycle back-edges (call into later units; stub or co-port): blend.fillet_geom_p1(2), query.brep(1); unit-SCC #22 (220 units); hazards: ptr-hash; 200 upstream test entry points reach this unit"
+notes = "CO-PORTED in topology.brep_p10 (PR #130): SmBrep::SmBrep (infinite region, m_pInfiniteRegion, m_bEditingEnabled) -> topology::Brep::new_with_infinite_region / infinite_region / editing_enabled; 11 fns; largest: SmBrep::MergeBrep, SmBrep::OrientTrimmedSurfaces, SmBrep::DeleteFace, SmBrep::SqueezeEdge; entry points: SmApiBrepCopy; cycle back-edges (call into later units; stub or co-port): blend.fillet_geom_p1(2), query.brep(1); unit-SCC #22 (220 units); hazards: ptr-hash; 200 upstream test entry points reach this unit"
 
 [[unit]]
 id = "topology.proto_topology_p2"

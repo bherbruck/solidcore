@@ -584,7 +584,10 @@ mod tests {
     fn one_region_fast_path_does_not_inspect_other_faceuse() {
         let mut b = Brep::new();
         let r = b
-            .add_region_record(crate::topology::Region { in_brep: true })
+            .add_region_record(crate::topology::Region {
+                in_brep: true,
+                ..crate::topology::Region::default()
+            })
             .unwrap();
         assert_eq!(
             find_brep_region_of_other_face(

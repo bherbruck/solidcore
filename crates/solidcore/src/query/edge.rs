@@ -1054,11 +1054,17 @@ mod tests {
     /// running with the curve).
     fn wire(a: Point3, b: Point3, with_curve: bool) -> (Brep, EdgeId) {
         let mut br = Brep::new();
-        let r = br.add_region_record(Region { in_brep: true }).unwrap();
+        let r = br
+            .add_region_record(Region {
+                in_brep: true,
+                ..Region::default()
+            })
+            .unwrap();
         let s = br
             .add_shell_record(Shell {
                 faces: Vec::new(),
                 region: Some(r),
+                ..Shell::default()
             })
             .unwrap();
         let v0 = br

@@ -467,7 +467,10 @@ fn import(ex: &[f64]) -> Result<Brep, HarnessError> {
     for _ in 0..n_r {
         let in_brep = rd.num()? != 0.0;
         rd.list()?;
-        regions.push(Region { in_brep });
+        regions.push(Region {
+            in_brep,
+            ..Region::default()
+        });
     }
     let mut shells = Vec::new();
     for _ in 0..n_s {
@@ -477,6 +480,7 @@ fn import(ex: &[f64]) -> Result<Brep, HarnessError> {
         shells.push(Shell {
             faces: Vec::new(),
             region,
+            ..Shell::default()
         });
     }
     let mut faceuses = Vec::new();
