@@ -8,7 +8,9 @@
 //! free functions).
 
 pub mod p1;
+pub mod p2;
 pub mod p3;
+pub mod p4;
 pub mod p5;
 pub mod p6;
 pub mod p7;
@@ -24,11 +26,12 @@ pub use p1::{
     CciSurfaceGaps, CrvDirOnFaceType, CurveClassification, CurveInterval, IntervalPosition,
     TouchData, XSectThroughPoint, CURVE_CLASSIFICATION_TYPE_STRING, MAX_INTERVALS,
 };
-
+pub use p2::{refine_cci_to_surfaces, RefineCci, ResetOptions};
 pub use p3::{
     change_edge_point_class_to_near_vertex, curve_is_degenerate, fix_problems_by_squeezing,
     FoundInterval, NO_INTERVAL,
 };
+pub use p4::{squeeze_out_smallest_interval, ClassificationInit, LoopCrossings};
 pub use p7::{
     set_do_filleting_geometry, CoincidentMaybe, PartialCoincidence, VertexObjects, UNDEF_LOOP_INDEX,
 };

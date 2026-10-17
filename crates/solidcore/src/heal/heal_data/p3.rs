@@ -758,13 +758,14 @@ impl<O: LoopObject> HealData<O> {
                     p.crv_class_v.as_mut()
                 }
                 .ok_or_else(|| invalid("crossed seam without classification"))?;
-                let (merged, success) = match class.merge_intervals_with_partial(true) {
-                    Ok(merged) => (merged, true),
-                    Err(failure) => {
-                        ignore_soft::<()>(Err(failure.error))?;
-                        (*failure.merged, false)
-                    }
-                };
+                let (merged, success) =
+                    match class.merge_intervals_with_partial(k, &NoGeometry, true) {
+                        Ok(merged) => (merged, true),
+                        Err(failure) => {
+                            ignore_soft::<()>(Err(failure.error))?;
+                            (*failure.merged, false)
+                        }
+                    };
                 if let Some(status) = merge_ok.get_mut(usize::from(!u)) {
                     *status = success;
                 }

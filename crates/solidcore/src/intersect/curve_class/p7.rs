@@ -68,14 +68,17 @@ use std::borrow::Cow;
 
 use crate::curve::crv_on_surf::CrvOnSurf;
 use crate::curve::curve::p2::{Curve, CurveKind};
-use crate::error::{ignored, Result, SolidError};
+use crate::error::{ignored, EntityRef, Result, SolidError};
 use crate::geom::extent1d::Extent1d;
 use crate::geom::global_solver::SolverOperation;
 use crate::geom::solution_array::{ObjectKind, Solution, SolutionObject, SolutionType};
-use crate::geom::tol::{eff_zero_ang_rad, scaled_zero, xsect_tol_3d_from_zones, ScaledZero};
+use crate::geom::tol::{
+    eff_zero_ang_rad, scaled_zero, xsect_tol3d, xsect_tol_3d_from_zones, ScaledZero,
+};
 use crate::intersect::curve_class::p3::curve_is_degenerate;
 use crate::intersect::point_class::{
-    ClassGeometry, ClassObject, ClassObjectKind, PointClassType, PointClassification, Precedence,
+    object_zone_tol_3d, ClassGeometry, ClassObject, ClassObjectKind, PointClassType,
+    PointClassification, Precedence,
 };
 use crate::kernel::Kernel;
 use crate::math::{max2, min2, Point2, Point3, Vec3, EFF_ZERO, EFF_ZERO_SQRT};
@@ -96,6 +99,7 @@ const OP_FACE: &str = "intersect::curve_class::p7::classify_face_interval";
 const OP_PARTIAL: &str = "intersect::curve_class::p7::test_for_partial_coincident_edges";
 const OP_FILLET: &str = "intersect::curve_class::p7::set_do_filleting_geometry";
 const OP_GEOM: &str = "intersect::curve_class::p7";
+const OP_EDGE: &str = "intersect::curve_class::p7::edge";
 
 /// `SM_UNDEF_ULONG`: the loop index of a touch found without a target list.
 pub const UNDEF_LOOP_INDEX: u64 = 123_456_789;
@@ -750,7 +754,7 @@ impl<O: ClassObject> CurveClassification<O> {
                 let edge_param = tgt_beg.t_param();
 
                 let edge_curve = edge_curve(geometry, edge_obj)?;
-                let edge_ivl = edge_interval(Some(edge_obj))?;
+                let edge_ivl = edge_interval_of(geometry, Some(edge_obj))?;
                 let tgt_curve: Cow<'_, Curve> = if on_surface {
                     Cow::Owned(crv_on_surf(
                         k,
@@ -1000,7 +1004,7 @@ impl<O: ClassObject> CurveClassification<O> {
     }
 
     /// The resolved surface 1, if any.
-    fn surface1_geometry<'g>(
+    pub(super) fn surface1_geometry<'g>(
         &self,
         geometry: &'g impl ClassGeometry<O>,
     ) -> Result<Option<&'g Surface>> {
@@ -1103,7 +1107,7 @@ pub fn set_do_filleting_geometry<O: ClassObject>(
             .edge_object()
             .ok_or(SolidError::null_pointer(OP_FILLET))?;
         let this_edge_curve = edge_curve(geometry, this_edge)?;
-        let this_edge_ivl = edge_interval(Some(this_edge))?;
+        let this_edge_ivl = edge_interval_of(geometry, Some(this_edge))?;
 
         // other mid edge
         let other_edge = other_ivl
@@ -1111,12 +1115,12 @@ pub fn set_do_filleting_geometry<O: ClassObject>(
             .edge_object()
             .ok_or(SolidError::null_pointer(OP_FILLET))?;
         let other_edge_curve = edge_curve(geometry, other_edge)?;
-        let other_edge_ivl = edge_interval(Some(other_edge))?;
+        let other_edge_ivl = edge_interval_of(geometry, Some(other_edge))?;
 
         // DropPoint locals
         let other_start_guess = other_edge_ivl.min();
         let other_end_guess = other_edge_ivl.max();
-        let xsect_tol_3d = edge_pair_xsect_tol_3d(k, this_edge, other_edge)?;
+        let xsect_tol_3d = edge_pair_xsect_tol_3d(k, geometry, this_edge, other_edge)?;
 
         // this and other edge end point samples (statuses ignored)
         let sample = |c: &Curve, t: f64| -> Result<[Vec3; 2]> {
@@ -1481,9 +1485,9 @@ fn partial_coincidence<O: ClassObject>(
     let o_edge = o_mid.object().ok_or(SolidError::null_pointer(OP_PARTIAL))?;
     let curve = edge_curve(geometry, edge)?;
     let o_curve = edge_curve(geometry, o_edge)?;
-    let edge_ivl = edge_interval(Some(edge))?;
-    let o_edge_ivl = edge_interval(Some(o_edge))?;
-    let xsect_tol_3d = edge_pair_xsect_tol_3d(k, edge, o_edge)?;
+    let edge_ivl = edge_interval_of(geometry, Some(edge))?;
+    let o_edge_ivl = edge_interval_of(geometry, Some(o_edge))?;
+    let xsect_tol_3d = edge_pair_xsect_tol_3d(k, geometry, edge, o_edge)?;
 
     let coincide = |tol: f64| -> Result<Vec<Solution<NoObject>>> {
         Ok(curve
@@ -1618,14 +1622,42 @@ fn crv_on_surf(k: &Kernel, uv_curve: &Curve, surface: Option<&Surface>) -> Resul
 
 // ---- callees in units not ported yet ---------------------------------------------------
 
-/// `SmEdge::GetCurve`.
-fn edge_curve<O: ClassObject>(geometry: &impl ClassGeometry<O>, edge: O) -> Result<&Curve> {
-    let _ = (geometry, edge);
-    // UNPORTED(topology.edge): SmEdge::GetCurve
-    Err(SolidError::unported("SmEdge::GetCurve", "topology.edge"))
+/// The B-rep edge record behind an edge handle, through
+/// [`ClassGeometry::topology_entity`]. An adapter that cannot resolve the handle (no
+/// topology hooks, or a stand-in edge without a B-rep) keeps the deferral these calls had
+/// before they were wired: [`SolidError::Unported`] naming `symbol` (`topology.edge`).
+fn edge_record<'g, O: ClassObject>(
+    geometry: &'g impl ClassGeometry<O>,
+    edge: O,
+    symbol: &'static str,
+) -> Result<&'g crate::topology::Edge> {
+    let Some((b, EntityRef::Edge(e))) = geometry.topology_entity(edge) else {
+        // UNPORTED(topology.edge): an edge the adapter cannot resolve (see above)
+        return Err(SolidError::unported(symbol, "topology.edge"));
+    };
+    b.edge(e)
 }
 
-/// `SmEdge::GetInterval` (of the edge object of a classification).
+/// `SmEdge::GetCurve` (`topology.edge`, through the topology hook).
+fn edge_curve<O: ClassObject>(geometry: &impl ClassGeometry<O>, edge: O) -> Result<&Curve> {
+    edge_record(geometry, edge, "SmEdge::GetCurve")?
+        .curve
+        .as_ref()
+        .ok_or_else(|| SolidError::invalid_input(OP_EDGE, "edge without curve"))
+}
+
+/// `SmEdge::GetInterval` (`topology.edge`, through the topology hook) of the edge object
+/// of a classification.
+fn edge_interval_of<O: ClassObject>(
+    geometry: &impl ClassGeometry<O>,
+    edge: Option<O>,
+) -> Result<Extent1d> {
+    let edge = edge.ok_or_else(|| SolidError::invalid_input(OP_EDGE, "no edge"))?;
+    Ok(edge_record(geometry, edge, "SmEdge::GetInterval")?.interval)
+}
+
+/// `SmEdge::GetInterval` where the caller has no classification geometry to resolve the
+/// edge through (`IsCrossedByEdge`).
 fn edge_interval<O: ClassObject>(edge: Option<O>) -> Result<Extent1d> {
     let _ = edge;
     // UNPORTED(topology.edge): SmEdge::GetInterval
@@ -1679,15 +1711,17 @@ fn edge_set_curve<O: ClassObject>(edge: O, curve: Curve) -> Result<()> {
     Err(SolidError::unported("SmEdge::SetCurve", "topology.edge"))
 }
 
-/// `SmTol::GetXSectTol3d(const SmObject*, const SmObject*)` of two edges (their
-/// `GetTolerance`).
-fn edge_pair_xsect_tol_3d<O: ClassObject>(k: &Kernel, edge: O, other: O) -> Result<f64> {
-    let _ = (k, edge, other);
-    // UNPORTED(topology.edge): SmEdge::GetTolerance (SmTol::GetXSectTol3d of two edges)
-    Err(SolidError::unported(
-        "SmEdge::GetTolerance",
-        "topology.edge",
-    ))
+/// `SmTol::GetXSectTol3d(const SmObject*, const SmObject*)` of two edges: the sum of
+/// their zone tolerances (`GetZoneTol3d`, the edges' tolerances).
+fn edge_pair_xsect_tol_3d<O: ClassObject>(
+    k: &Kernel,
+    geometry: &impl ClassGeometry<O>,
+    edge: O,
+    other: O,
+) -> Result<f64> {
+    let t1 = object_zone_tol_3d(k, geometry, Some(edge))?;
+    let t2 = object_zone_tol_3d(k, geometry, Some(other))?;
+    Ok(xsect_tol3d(k, t1 + t2))
 }
 
 /// `SmFace::FindVertexSector`: inside when a vertexuse sector of `face` at `vertex`

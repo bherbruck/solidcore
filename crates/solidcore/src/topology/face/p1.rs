@@ -281,16 +281,38 @@ fn has_near_misses<O: LoopObject>(
     }
 }
 
+/// Classification geometry that resolves nothing, for `SplitAtSeam`'s merges: its
+/// callers pass no geometry, and `MergeInterval` defers (`Unported`) on a topology
+/// tolerance it cannot resolve.
+struct NoClassGeometry;
+
+impl<O> ClassGeometry<O> for NoClassGeometry {
+    fn curve(&self, _: O) -> Option<&Curve> {
+        None
+    }
+    fn surface(&self, _: O) -> Option<&Surface> {
+        None
+    }
+    fn volume(&self, _: O) -> Option<&crate::surface::volume::Volume> {
+        None
+    }
+    fn point(&self, _: O) -> Option<Point3> {
+        None
+    }
+}
+
 /// `pCrvClass->MergeIntervals(&faces, &edges, &vertices, this)` (unit
 /// `intersect.curve_class_p5`; the original face is a debug-only argument there): the
 /// faces, edges and vertices the merge made, resolved to ids by `resolve`.
 fn merge_intervals<O: LoopObject>(
+    k: &Kernel,
     c: &mut CurveClassification<O>,
+    geometry: &impl ClassGeometry<O>,
     resolve: &dyn Fn(O) -> Option<EntityRef>,
 ) -> Result<SeamSplit> {
     // (the merge's status is ignored, as upstream; an output the caller cannot resolve
     // is caller error and propagates)
-    let Some(merged) = ignored(c.merge_intervals(false))? else {
+    let Some(merged) = ignored(c.merge_intervals(k, geometry, false))? else {
         return Ok(SeamSplit::default());
     };
     let mut out = SeamSplit::default();
@@ -1826,7 +1848,7 @@ fn split_at_seam_depth<O: LoopObject>(
         // (upstream sets pBrep->m_bEditingEnabled and the context's DoingBoolean flag
         // around the merges with SmTemporaryChangeValue; neither is set here: the B-rep
         // flag is unit topology.brep_p1's and the context flag needs a mutable kernel)
-        this_new = merge_intervals(crv_class_u, resolve)?;
+        this_new = merge_intervals(k, crv_class_u, &NoClassGeometry, resolve)?;
         if !merge_v {
             out.faces.extend_from_slice(&this_new.faces);
             out.edges.extend_from_slice(&this_new.edges);
@@ -1883,7 +1905,7 @@ fn split_at_seam_depth<O: LoopObject>(
             Some(EntityRef::Vertex(v)) => Some(v),
             _ => None,
         })?;
-        this_new = merge_intervals(crv_class_v, resolve)?;
+        this_new = merge_intervals(k, crv_class_v, &NoClassGeometry, resolve)?;
         out.faces.extend_from_slice(&this_new.faces);
         out.edges.extend_from_slice(&this_new.edges);
         out.vertices.extend_from_slice(&this_new.vertices);

@@ -1177,7 +1177,7 @@ fn rust_run(s: &Script) -> Result<Vec<f64>, Fail> {
                         o.extend([0.0, b(cc.is_referenced(pool.handle(*obj)?))]);
                     }
                     OpIn::MakeConsistent { .. } => {
-                        let r = cc_mod::make_consistent_classifications(cc);
+                        let r = cc_mod::make_consistent_classifications(&k, &pool, cc);
                         o.push(st(r)?.err().unwrap_or(0.0));
                     }
                     OpIn::Type { types, .. } => {

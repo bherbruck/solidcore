@@ -27,10 +27,10 @@
 //!   each tagged `UNPORTED(<unit>)`: `SmBrep::Point3DClassify` (`query.brep`),
 //!   `SmBrep::GlueVertices` /
 //!   `SqueezeEdge` / `DeleteEdge` (`topology.brep_p5` / `_p3` / `_p4`),
-//!   `SmTopologyIntersector::RemoveRelationship` (`boolean.topology_intersector_p2`;
-//!   `GetOtherMate` is the `other_mate` closure the caller passes to
-//!   [`ProtoTopologyManager::glue_coincident_brep_vertices`]) and the `SmCurveClassification`
-//!   constructor (`intersect.curve_class_p4`). `ExtractGeometry` calls part 5 and
+//!   and the intersector's `GetOtherMate` / `RemoveRelationship`, reached through
+//!   [`Mates`] (ported in `boolean.topology_intersector_p1` / `_p2`; [`NoMates`] for no
+//!   intersector maps). The `SmCurveClassification` constructor is part 4's
+//!   ([`CurveClassification::with_curve`]). `ExtractGeometry` calls part 5 and
 //!   currently reaches part 6's `Homogenize` dependency. The code
 //!   after a stub is ported in full. The callees of `topology.proto_topology_p2` are
 //!   its methods on [`ProtoTopologyManager`].
@@ -57,7 +57,7 @@ use crate::geom::extent1d::Extent1d;
 use crate::geom::solution_array::{ObjectKind, SolutionObject, SolutionType};
 use crate::geom::tol::{xsect_tol3d, zone_tol3d, USE_DEFAULT};
 use crate::intersect::curve_class::p5::ExtractOptions;
-use crate::intersect::curve_class::{CurveClassification, CurveInterval};
+use crate::intersect::curve_class::{ClassificationInit, CurveClassification, CurveInterval};
 use crate::intersect::point_class::{
     ClassGeometry, ClassObject, ClassObjectKind, PointClassification,
 };
@@ -152,17 +152,30 @@ fn brep_point3d_classify<O>(
     ))
 }
 
-/// `SmCurveClassification(pCurve, interval, NULL, tol)`.
+/// `SmCurveClassification(pCurve, interval, NULL, tol)` (the remaining arguments default:
+/// no interval storage, the curve not owned and current, no surfaces).
 fn new_curve_classification<O: ClassObject>(
-    _curve: O,
-    _interval: Extent1d,
-    _tol: f64,
+    k: &Kernel,
+    curve: O,
+    interval: Extent1d,
+    tol: f64,
 ) -> Result<CurveClassification<O>> {
-    // UNPORTED(intersect.curve_class_p4): SmCurveClassification::SmCurveClassification
-    Err(SolidError::unported(
-        "SmCurveClassification::SmCurveClassification",
-        "intersect.curve_class_p4",
-    ))
+    CurveClassification::with_curve(
+        k,
+        &ClassificationInit {
+            curve: Some(curve),
+            interval,
+            uv_curve: None,
+            src_zone_tol_3d: zone_tol3d(k, tol),
+            opt_data_size: 0,
+            is_curve_owned: false,
+            is_curve_current: true,
+            surface1: None,
+            surface2: None,
+            uv_curve2: None,
+            ti: None,
+        },
+    )
 }
 
 /// `SmBrep::GlueVertices` of B-rep `which`.
@@ -192,13 +205,35 @@ fn brep_delete_edge<O>(_which: i32, _edge: O) -> Result<()> {
     ))
 }
 
-/// `SmTopologyIntersector::RemoveRelationship`.
-fn ti_remove_relationship<O>(_a: O, _b: O) -> Result<()> {
-    // UNPORTED(boolean.topology_intersector_p2): SmTopologyIntersector::RemoveRelationship
-    Err(SolidError::unported(
-        "SmTopologyIntersector::RemoveRelationship",
-        "boolean.topology_intersector_p2",
-    ))
+/// What the manager's topology intersector (`m_pTI`) provides to
+/// [`ProtoTopologyManager::glue_coincident_brep_vertices`]: `GetOtherMate` and
+/// `RemoveRelationship` (implemented by
+/// `boolean::topology_intersector::p2::MapMates` over the intersector's maps).
+pub trait Mates<O> {
+    /// `SmTopologyIntersector::GetOtherMate(pBrepEntity)`.
+    fn other_mate(&self, brep_entity: O) -> Option<O>;
+    /// `SmTopologyIntersector::RemoveRelationship(pBrepEntity, pOtherEntity)`.
+    ///
+    /// # Errors
+    ///
+    /// `SM_ERR` when the two are not a mated pair.
+    fn remove_relationship(&mut self, brep_entity: O, other_entity: O) -> Result<()>;
+}
+
+/// An intersector without relationships: no object has a mate.
+#[derive(Debug, Clone, Copy, Default)]
+pub struct NoMates;
+
+impl<O> Mates<O> for NoMates {
+    fn other_mate(&self, _brep_entity: O) -> Option<O> {
+        None
+    }
+
+    fn remove_relationship(&mut self, _brep_entity: O, _other_entity: O) -> Result<()> {
+        Err(SolidError::sm_err(
+            "topology::proto_topology::p3::remove_relationship",
+        ))
+    }
 }
 
 // ---- the manager's members ------------------------------------------------------------
@@ -898,8 +933,9 @@ impl<O: ClassObject> ProtoTopologyManager<O> {
     /// `SmProtoTopologyManager::GlueCoincidentBrepVertices()`: glues the final
     /// vertices of the vertex definitions of each proto vertex, squeezing or deleting
     /// the short edges between them, and drops the definitions that referred to what
-    /// was deleted. Returns the curves deleted. `other_mate` is the intersector's
-    /// `GetOtherMate` (`m_pTI`), used to drop the relationship of deleted topology.
+    /// was deleted. Returns the curves deleted. `mates` is the intersector (`m_pTI`):
+    /// its `GetOtherMate` and `RemoveRelationship` drop the relationships of deleted
+    /// topology ([`Mates`]).
     ///
     /// # Errors
     ///
@@ -910,7 +946,7 @@ impl<O: ClassObject> ProtoTopologyManager<O> {
         &mut self,
         k: &Kernel,
         brep: &impl ProtoBrep<O>,
-        other_mate: &dyn Fn(O) -> Option<O>,
+        mates: &mut dyn Mates<O>,
     ) -> Result<Vec<O>> {
         let mut deleted_curves: Vec<O> = Vec::new();
         let pvs: Vec<ProtoVertexId> = self.proto_vertices().to_vec();
@@ -1065,9 +1101,11 @@ impl<O: ClassObject> ProtoTopologyManager<O> {
                             if len < xs {
                                 // If any to-be-deleted topology is mated, remove the
                                 // relationship when done.
-                                let edge_mate = other_mate(edge)
+                                let edge_mate = mates
+                                    .other_mate(edge)
                                     .filter(|m| m.class_kind() == ClassObjectKind::Edge);
-                                let vertex_mate = other_mate(v2)
+                                let vertex_mate = mates
+                                    .other_mate(v2)
                                     .filter(|m| m.class_kind() == ClassObjectKind::Vertex);
                                 let other_vtx = brep.edge_other_vertex(edge, Some(v1))?;
                                 let stat = if other_vtx == Some(v1) {
@@ -1083,12 +1121,12 @@ impl<O: ClassObject> ProtoTopologyManager<O> {
                                     Ok(()) => {
                                         *flag = true;
                                         if let Some(m) = edge_mate {
-                                            ignore_soft(ti_remove_relationship(edge, m))?;
+                                            ignore_soft(mates.remove_relationship(edge, m))?;
                                         }
                                         if let Some(m) = vertex_mate {
                                             // (upstream uses the Brep 2 vertex in both
                                             // B-reps)
-                                            ignore_soft(ti_remove_relationship(b2v2, m))?;
+                                            ignore_soft(mates.remove_relationship(b2v2, m))?;
                                         }
                                         let found =
                                             self.find_edge_definition_from_edge(Some(edge), which)?;
@@ -1457,8 +1495,8 @@ impl<O: ClassObject> ProtoTopologyManager<O> {
                         // PEs expect the same curve classified against each face
                         let ivl = Extent1d::from_min_max(sol.start.param(0)?, sol.end.param(0)?);
                         let c1h = h1.ok_or(dangling("edge has no curve"))?;
-                        let mut cc1 = new_curve_classification(c1h, ivl, tol)?;
-                        let mut cc2 = new_curve_classification(c1h, ivl, tol)?;
+                        let mut cc1 = new_curve_classification(k, c1h, ivl, tol)?;
+                        let mut cc2 = new_curve_classification(k, c1h, ivl, tol)?;
 
                         // Classify the coincident curves against their faces
                         let face1 = f1.ok_or(dangling("face is null"))?;
@@ -1492,8 +1530,8 @@ impl<O: ClassObject> ProtoTopologyManager<O> {
                 let ivl = geometry
                     .edge_interval(edge)
                     .ok_or(dangling("edge is unknown"))?;
-                let mut cc1 = new_curve_classification(handle, ivl, tol)?;
-                let mut cc2 = new_curve_classification(handle, ivl, tol)?;
+                let mut cc1 = new_curve_classification(k, handle, ivl, tol)?;
+                let mut cc2 = new_curve_classification(k, handle, ivl, tol)?;
 
                 // Pick a SrcFace object for the SrcEdge object
                 let faces = geometry.edge_faces(edge)?;

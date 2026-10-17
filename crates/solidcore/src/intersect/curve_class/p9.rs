@@ -600,6 +600,8 @@ mod tests {
         cc.intersect_edges(&k, &geometry, &[edge], &surface, options)
             .unwrap();
         assert_eq!(cc.intervals(), original);
+        // a larger face gap makes the edge intersect: inserting the solution reaches the
+        // edge branch of part 5's `sm_InsertSolutions` (after part 2's ReSet)
         edge.face_gap = Some(2.01e-6);
         let error = cc
             .intersect_edges(&k, &geometry, &[edge], &surface, options)
@@ -607,7 +609,7 @@ mod tests {
         assert!(matches!(
             error,
             SolidError::Unported {
-                unit: "intersect.curve_class_p2",
+                unit: "topology.edge",
                 ..
             }
         ));
