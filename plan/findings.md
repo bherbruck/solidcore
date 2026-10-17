@@ -6490,3 +6490,59 @@ independent p6 integration.
   (`ignore_soft`), so that `InvalidInput` is swallowed there and the split reports no new
   faces. It is unreachable today (`MergeInterval` makes no topology until
   `intersect.curve_class_p2`); that unit's porter must give the healer a typed resolver.
+
+## topology.brep_p7 (`SmBrep.cpp` part 7: `ReadFromFile`, `MakeFace`, `MakeFaceWithCurves`, `GlueEdgesGeneral`, `CopyFaces`, `MergeSelfIntersectionCurves`; PR #155, 2026-10-16; partial, no disagreements)
+
+- **Mostly deferred by design.** Every path that builds topology reaches an unported
+  `SmBrep` part first: `MakeTopologyFromData` (`topology.brep_p10`) for every read past
+  `SmBrepData::ReadFromFile`, `MakeShellVertex` / `MakeFaceTopology` / `GetInfiniteRegion`
+  (`topology.brep_p9` / `_p6` / `_p1`) for every face made, `SmBrep::Notify`
+  (`topology.brep_p2`) for every glue past its early returns, `SmBrep::SetTolerance`
+  (`topology.brep_p2`) for every copy. The passing cases are 12 read errors of damaged
+  streams the brep_data guard accepts (pinned by a deterministic search: an overwritten
+  digit of an integer token), the face makers' input errors, `MakeFace`'s null-surface
+  status, the glue no-ops (compared as the B-rep's counts after the op) and
+  `MergeSelfIntersectionCurves` without curves. Of the 198 passes, 175 compare B-rep values
+  (111 glue B-rep counts after the op, 64 `MergeSelfIntersectionCurves` records) and 23 a
+  status only (`with_values` counts both: 198, `no_values=0`); the shim's `-2` guards are deferrals, not passes. Before the pre-review of
+  PR #155 no `ReadFromFile` case compared anything.
+- **C++ guards.** A damaged `.smb` stream goes through `topology.brep_data`'s stream guard
+  on both sides (rejected streams are not generated). A damaged stream whose C++
+  `SmBrepData` read still succeeds is not run in C++: `MakeTopologyFromData` uses its
+  cross-reference indices unchecked (`plan/upstream-issues.md` UB-164). Both sides decide
+  this with the C++ reader; the Rust side defers to `cpp-guard:unvalidated-topology`. The
+  guard is needed: with it disabled, single-byte overwrites that `SmBrepData` accepts crashed C++ (SIGSEGV) in 11 of 600 streams (100 each of `Endcap`, `Mouse`, `box_with_large_fillet`, `cone`, `disk`, `ellips_ts2`), and a batch of 100 such streams per file crashed in 13 of the 15 files (pre-review of PR #155: 2 of 80 random streams). It also skips the safe streams, and no
+  input predicate short of running the C++ separates them; it costs nothing today, since
+  the Rust read defers at `MakeTopologyFromData` (`topology.brep_p10`) anyway. **Revisit
+  when `topology.brep_p10` lands** (e.g. run the C++ read out of process). The built-in
+  overwrites of the leading `//Brep Starts` comment were dropped: C++ reads them exactly as
+  the plain file. The other shim guards answer `-2` (upstream would dereference null) and
+  are deferred, not compared: `cpp-guard:ub-165` (`MakeFaceWithCurves`, below),
+  `cpp-guard:null-curve` (`GlueEdgesGeneral` with `SM_OT_SAME`, equal intervals and one
+  edge without curve, `CurveMaxDistanceBetween`; no fixture edge lacks a curve), `cpp-guard:null-surface` (`MergeSelfIntersectionCurves` on a
+  face without surface). `GlueEdgesGeneral` of distinct edges sharing both vertices runs in
+  C++ (the pre-review of PR #155 ran all 36 such calls of the fixture files to status 0); the
+  Rust side defers those at `SmBrep::Notify` (`topology.brep_p2`).
+- **Gaps in other units' ports:** the port of `SmCurve::DeformToEndPointTargets`
+  (`curve.curve_p6`, green; its own "NOT PORTED" note) has no `pOptSurfCrvOnSurf`.
+  `MakeFaceWithCurves` with `pbOptCrvOnSurf` passes the surface there, and for a curve on
+  surface with a gap target upstream edits its UV curve in place. The port defers exactly
+  that call (`UNPORTED(curve.curve_p6)`, a curve on surface with a target); other curve
+  kinds dispatch before the argument is read upstream, and without targets upstream
+  returns at once, so those call the port. One built-in case reaches the deferral
+  (`face_curves_cos_open_loop`: three UV sides with `crv_on_surf` TRUE; C++ builds it,
+  status 0 in the round-3 review run). The gap is also recorded in `curve.curve_p6`'s notes. The port's `CrvOnSurf` holds only
+  `SmBSplineSurface` kinds (`curve.crv_on_surf`, partial): a curve on surface of another
+  surface kind defers to `curve.crv_on_surf`, with the same tag and label as that gap's
+  other sites.
+- **MakeFace with a square loop** (`kind 1`): the shim builds the loop with
+  `MakeShellVertex`, `MakeWireEdgeVertex` and `MakeWireEdge`. The Rust side mirrors its
+  `-3` when `CreateLineSegment` fails for the side, and otherwise defers at
+  `MakeShellVertex` (`topology.brep_p9`; `MakeWireEdge*` are `topology.brep_p3`) until the
+  same loop can be built in Rust.
+- **Back-edge wired:** `trimming_tools::trim_surface_with_model_space_curves` calls
+  `make_face_with_curves` (its new face owns the surface as `(SmFace_TYPE, 1 + index)`).
+- **UB-165.** `MakeFaceWithCurves` with `pbOptCrvOnSurf` TRUE, 3D curves and no UV curves
+  dereferences the null UV array once `MakeFace` succeeds; the shim returns `-2` for such
+  calls and the Rust side defers them (`cpp-guard:ub-165`; the port itself returns
+  `InvalidInput`).
