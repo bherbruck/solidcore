@@ -8,9 +8,13 @@ on:
 
 # Pushes to main and pull requests from a branch of this repository (people with write
 # access) run on the org's self-hosted runners (`self-hosted-fast`): everything but cargo-deny,
-# which is a container action. Fork pull requests and Run workflow use GitHub's runners. The
-# self-hosted runners keep their Cargo build directory and the C++ reference build between jobs
-# (scripts/ci/warm-target.sh) instead of using actions/cache, and refuse any other job.
+# which is a container action. The trusted self-hosted runners keep their Cargo build directory
+# and the C++ reference build between jobs (scripts/ci/warm-target.sh) instead of using
+# actions/cache, and refuse any other job. Fork pull requests run on the untrusted pool
+# (`self-hosted-untrusted`: one job per runner in a gVisor sandbox with an empty disk, Ubuntu
+# 24.04 with the build tools preinstalled); like GitHub's runners they restore rust-cache and the
+# C++ cache, and never use the trusted runners' warm directories. Run workflow uses GitHub's
+# runners.
 # The org shares 20 concurrent runners across all its repositories. A new push to a
 # PR supersedes the run on its previous head, so cancel it. Runs on main are keyed
 # by commit, so they never queue behind or cancel each other: every merge is checked.
@@ -27,46 +31,46 @@ env:
 
 jobs:
   fmt:
-    runs-on: ${{ (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)) && 'self-hosted-fast' || 'ubuntu-latest' }}
+    runs-on: ${{ (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)) && 'self-hosted-fast' || ((github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository) && 'self-hosted-untrusted' || 'ubuntu-latest') }}
     steps:
       - uses: actions/checkout@v4
       - run: rustup show active-toolchain || rustup toolchain install
       - run: cargo fmt --all --check
 
   clippy:
-    runs-on: ${{ (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)) && 'self-hosted-fast' || 'ubuntu-latest' }}
+    runs-on: ${{ (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)) && 'self-hosted-fast' || ((github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository) && 'self-hosted-untrusted' || 'ubuntu-latest') }}
     steps:
       - uses: actions/checkout@v4
       - name: Warm build directory (self-hosted runner)
-        if: runner.environment == 'self-hosted'
+        if: runner.environment == 'self-hosted' && !(github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository)
         run: scripts/ci/warm-target.sh
-      - if: runner.environment == 'github-hosted'
+      - if: (runner.environment == 'github-hosted' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository))
         uses: Swatinem/rust-cache@v2
         with:
           workspaces: ". -> bin"
       - run: cargo clippy --workspace --all-targets -- -D warnings
 
   test:
-    runs-on: ${{ (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)) && 'self-hosted-fast' || 'ubuntu-latest' }}
+    runs-on: ${{ (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)) && 'self-hosted-fast' || ((github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository) && 'self-hosted-untrusted' || 'ubuntu-latest') }}
     steps:
       - uses: actions/checkout@v4
       - name: Warm build directory (self-hosted runner)
-        if: runner.environment == 'self-hosted'
+        if: runner.environment == 'self-hosted' && !(github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository)
         run: scripts/ci/warm-target.sh
-      - if: runner.environment == 'github-hosted'
+      - if: (runner.environment == 'github-hosted' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository))
         uses: Swatinem/rust-cache@v2
         with:
           workspaces: ". -> bin"
       - run: cargo test --workspace
 
   wasm:
-    runs-on: ${{ (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)) && 'self-hosted-fast' || 'ubuntu-latest' }}
+    runs-on: ${{ (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)) && 'self-hosted-fast' || ((github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository) && 'self-hosted-untrusted' || 'ubuntu-latest') }}
     steps:
       - uses: actions/checkout@v4
       - name: Warm build directory (self-hosted runner)
-        if: runner.environment == 'self-hosted'
+        if: runner.environment == 'self-hosted' && !(github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository)
         run: scripts/ci/warm-target.sh
-      - if: runner.environment == 'github-hosted'
+      - if: (runner.environment == 'github-hosted' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository))
         uses: Swatinem/rust-cache@v2
         with:
           workspaces: ". -> bin"
@@ -75,13 +79,13 @@ jobs:
 
   # Same packaging check the release workflow runs before publishing (no secrets).
   publish-dry-run:
-    runs-on: ${{ (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)) && 'self-hosted-fast' || 'ubuntu-latest' }}
+    runs-on: ${{ (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)) && 'self-hosted-fast' || ((github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository) && 'self-hosted-untrusted' || 'ubuntu-latest') }}
     steps:
       - uses: actions/checkout@v4
       - name: Warm build directory (self-hosted runner)
-        if: runner.environment == 'self-hosted'
+        if: runner.environment == 'self-hosted' && !(github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository)
         run: scripts/ci/warm-target.sh
-      - if: runner.environment == 'github-hosted'
+      - if: (runner.environment == 'github-hosted' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository))
         uses: Swatinem/rust-cache@v2
         with:
           workspaces: ". -> bin"
@@ -96,7 +100,7 @@ jobs:
           command: check licenses bans sources
 
   difftest:
-    runs-on: ${{ (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)) && 'self-hosted-fast' || 'ubuntu-latest' }}
+    runs-on: ${{ (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)) && 'self-hosted-fast' || ((github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository) && 'self-hosted-untrusted' || 'ubuntu-latest') }}
     needs: [test]
     env:
       SOLIDCORE_CPP_DIR: ${{ github.workspace }}/.cpp
@@ -132,7 +136,7 @@ jobs:
       # The self-hosted runners keep their C++ build in their home instead: their newer
       # compiler and glibc must never reach GitHub's runners through this cache.
       - name: Keep the C++ reference build (self-hosted runner)
-        if: steps.green.outputs.any == 'true' && runner.environment == 'self-hosted'
+        if: steps.green.outputs.any == 'true' && runner.environment == 'self-hosted' && !(github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository)
         env:
           KEY: ${{ env.UPSTREAM_COMMIT }}-${{ hashFiles('harness/cpp/CMakeLists.txt', 'harness/cpp/build.sh', 'harness/cpp/stubs/**', 'harness/cpp/patches/**') }}
         run: |
@@ -142,7 +146,7 @@ jobs:
           mkdir -p "$dir"
           echo "SOLIDCORE_CPP_DIR=$dir" >> "$GITHUB_ENV"
       - name: Cache C++ reference build
-        if: steps.green.outputs.any == 'true' && runner.environment == 'github-hosted'
+        if: steps.green.outputs.any == 'true' && (runner.environment == 'github-hosted' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository))
         uses: actions/cache@v4
         with:
           path: .cpp
@@ -160,10 +164,10 @@ jobs:
           fi
 
       - name: Warm build directory (self-hosted runner)
-        if: steps.green.outputs.any == 'true' && runner.environment == 'self-hosted'
+        if: steps.green.outputs.any == 'true' && runner.environment == 'self-hosted' && !(github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository)
         run: scripts/ci/warm-target.sh
       - uses: Swatinem/rust-cache@v2
-        if: steps.green.outputs.any == 'true' && runner.environment == 'github-hosted'
+        if: steps.green.outputs.any == 'true' && (runner.environment == 'github-hosted' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository))
         with:
           workspaces: ". -> bin"
           key: difftest
