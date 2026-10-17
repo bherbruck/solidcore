@@ -6745,3 +6745,13 @@ independent p6 integration.
   (`ignore_soft`), so that `InvalidInput` is swallowed there and the split reports no new
   faces. It is unreachable today (`MergeInterval` makes no topology until
   `intersect.curve_class_p2`); that unit's porter must give the healer a typed resolver.
+- **`CalculateUVDomainFromUVTrimCurves` early clip restored** (follow-up to #148, found
+  by the #146 review): upstream first sets the output to
+  `sThisDomain.Intersect(sSurfDomain, rNewFaceDomain)` (status ignored; disjoint domains
+  give an `Init()`-ed extent, `SmExtent2d.cpp:406-428`) and returns it as `SM_SUCCESS`
+  when `CreateUVTrimCurves` fails (`SmFace.cpp:1301-1315`). The port had dropped it as
+  "unused" and returned the unclipped face domain on that path; it now computes it. No
+  case reaches the path: `CreateUVTrimCurves` is an `UNPORTED(topology.face_p3)` stub
+  that always defers. **For the topology.face_p3 porter:** once it is wired, a failed
+  `CreateUVTrimCurves` must still return this clipped domain (callers in
+  `boolean.topology_intersector_p1` keep it on success).
