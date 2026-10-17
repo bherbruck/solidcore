@@ -324,7 +324,7 @@ fn uv(rd: &mut Reader<'_>, dom: Domain) -> Result<(), FfiError> {
 
 /// A B-rep block.
 pub(crate) fn brep_block(rd: &mut Reader<'_>, path: &str) -> Result<(), FfiError> {
-    match rd.index(3)? {
+    match rd.index(4)? {
         0 => {
             let p = Path::new(path);
             if p.extension().and_then(|e| e.to_str()) != Some("smb") || !p.is_file() {
@@ -340,8 +340,12 @@ pub(crate) fn brep_block(rd: &mut Reader<'_>, path: &str) -> Result<(), FfiError
                 return Err(bad("wire edge interval outside the curve's"));
             }
         }
-        2 => {
+        kind @ (2 | 4) => {
             let dom = surface(rd)?;
+            // kind 4 (edges as `SmCrvOnSurf`) needs an `SmBSplineSurface` base
+            if kind == 4 && dom.is_none() {
+                return Err(bad("CrvOnSurf face: the base must be a B-spline surface"));
+            }
             let d = rd.finites(4)?;
             let (Some(&a), Some(&b2), Some(&c), Some(&e)) = (d.first(), d.get(1), d.get(2), d.get(3))
             else {

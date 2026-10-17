@@ -465,7 +465,7 @@ fn run_rust(i: &Inputs, b: &mut Brep, other: &Brep) -> Result<Vec<f64>, SolidErr
                         edge,
                         i.parameter,
                         sec,
-                        other,
+                        Some(&mut *other),
                         cls,
                     )?
                     .code(),
@@ -475,7 +475,7 @@ fn run_rust(i: &Inputs, b: &mut Brep, other: &Brep) -> Result<Vec<f64>, SolidErr
                     &k,
                     b,
                     edge,
-                    other,
+                    Some(&mut *other),
                     cls,
                     None,
                     solidcore::nurbs::b_spline_surface_n_lib::p2::OrientType::Same,
