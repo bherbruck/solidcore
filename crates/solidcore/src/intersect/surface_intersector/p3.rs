@@ -482,7 +482,7 @@ impl SurfaceIntersector<'_> {
                                 continue;
                             }
 
-                            self.add_boundary_curve(k, tgt, &sol, l_side, out, &mut work)?;
+                            self.add_boundary_curve(k, caches, tgt, &sol, l_side, out, &mut work)?;
                         } else {
                             // Small intersection - just use as start points
                             let mut t = par(&sol.start, 0);
@@ -658,9 +658,11 @@ impl SurfaceIntersector<'_> {
 
     /// A long range solution of a boundary curve: the curve trimmed to it, dropped
     /// onto both surfaces, becomes an output curve when close to both.
-    fn add_boundary_curve(
+    #[allow(clippy::too_many_arguments)]
+    fn add_boundary_curve<O: Copy + PartialEq>(
         &mut self,
         k: &Kernel,
+        caches: &[SurfaceCache<O>],
         tgt: &BSplineCurve,
         sol: &Solution<()>,
         l_side: usize,
@@ -682,6 +684,7 @@ impl SurfaceIntersector<'_> {
             surface_drop_and_trim_curve(
                 k,
                 self.surface(SrfIndex::First),
+                caches.first(),
                 &self.uv_domains[0],
                 c,
                 &ivl,
@@ -714,6 +717,7 @@ impl SurfaceIntersector<'_> {
             surface_drop_and_trim_curve(
                 k,
                 self.surface(SrfIndex::Second),
+                caches.get(1.min(caches.len().saturating_sub(1))),
                 &self.uv_domains[1],
                 c,
                 &ivl,
@@ -1448,20 +1452,42 @@ struct DropAndTrim {
 }
 
 /// `surface.DropAndTrimCurve(ctx, domain, curve, interval, tol, dist, deviation,
-/// uv_curves, TRUE, TRUE)`.
-fn surface_drop_and_trim_curve(
+/// uv_curves, TRUE, TRUE)`. Its trace (`smsurf_GetSurfaceCache` inside `DoTrace`)
+/// runs on a copy of `cache`, the surface's cache the intersector holds, as
+/// [`surface_global_curve_intersect`] does; with no cache, or one that does not name
+/// its surface, the trace builds its own.
+fn surface_drop_and_trim_curve<O: Copy + PartialEq>(
     k: &Kernel,
     surface: &Surface,
+    cache: Option<&SurfaceCache<O>>,
     domain: &Extent2d,
     curve: &Curve,
     interval: &Extent1d,
     tol: f64,
 ) -> Result<DropAndTrim> {
-    let r = surface
-        .drop_and_trim_curve::<ObjectHandle>(k, domain, curve, interval, tol, true, true, None)?;
+    let r = match cache {
+        Some(c) if c.surface_handle().is_some() => {
+            let surface_object = SolveObject::Surface(surface.natural_uv_domain());
+            let mut trace_cache = c.map_handles(|_| Ok(surface_object))?;
+            surface.drop_and_trim_curve_in::<ObjectHandle, SolveObject>(
+                k,
+                Some(&mut trace_cache),
+                domain,
+                curve,
+                interval,
+                tol,
+                true,
+                true,
+                None,
+            )?
+        }
+        _ => surface.drop_and_trim_curve::<ObjectHandle>(
+            k, domain, curve, interval, tol, true, true, None,
+        )?,
+    };
     Ok(DropAndTrim {
         dist_to_surf: r.max_drop_to_surf,
-        uv_curves: r.uv_curves.into_iter().map(Curve::from).collect(),
+        uv_curves: r.uv_curves,
     })
 }
 

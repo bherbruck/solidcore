@@ -26,7 +26,10 @@
 //!   (`StepBackFromSingularity` steps off the current point).
 //! - **Virtuals.** `ComputePointValues`, `FlushCurve`, `ComputeSingularityPoint` and
 //!   `ComputePointValuesDelta` are virtual upstream; the `SmSurfaceIntersector` bodies
-//!   are ported (the derived intersectors are other units). The recursive call of
+//!   are ported (the derived intersectors are other units), except that
+//!   `ComputePointValues` calls the `SmAdvSurfaceIntersector` override of
+//!   `ComputeSingularityPoint` on an intersector made by
+//!   `AdvSurfaceIntersector::new` (its `advanced` flag). The recursive call of
 //!   `ComputePointValues` passes no previous point, so it recurses at most once.
 //! - **Loop bound.** The gap-function walk of
 //!   `ClassifyBoundaryStartPointIntersection` grows its step by 5 per sample and
@@ -601,7 +604,21 @@ impl SurfaceIntersector<'_> {
                 } else {
                     // probably on an intersection singularity: its type and curve
                     // direction (tangent and coincident points are not traced)
-                    compute_singularity_point_base(uv_values, point, previous)?;
+                    // (virtual: the SmAdvSurfaceIntersector override on an advanced
+                    // intersector; any failure is SM_ERR)
+                    if self.advanced {
+                        match self.adv_compute_singularity_point(
+                            uv_values,
+                            point,
+                            previous.map(TsectPnt::crv_deriv),
+                        ) {
+                            Ok(()) => {}
+                            Err(e) if e.is_unported() => return Err(e),
+                            Err(_) => return Err(SolidError::sm_err(OP_SING)),
+                        }
+                    } else {
+                        compute_singularity_point_base(uv_values, point, previous)?;
+                    }
                     if point.point_type == IntersectionPointType::TangentPoint
                         || point.point_type == IntersectionPointType::Coincidence
                     {
