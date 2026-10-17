@@ -219,7 +219,9 @@ fn check_knots(knots: &[f64], p: usize, what: &str) -> Result<(f64, f64), FfiErr
     for w in inner.windows(2) {
         run = if w.first() == w.last() { run + 1 } else { 1 };
         if run > p {
-            return Err(bad(format!("{what}: interior multiplicity above the degree")));
+            return Err(bad(format!(
+                "{what}: interior multiplicity above the degree"
+            )));
         }
     }
     Ok((a, b))
@@ -245,7 +247,10 @@ fn check_points(rd: &mut Reader<'_>, k: usize, planar: bool, what: &str) -> Resu
             return Err(bad(format!("{what}: weight out of range")));
         }
         let z = if z == NOZ { 0.0 } else { z };
-        if [x, y, z].iter().any(|c| !c.is_finite() || c.abs() > MAX_COORD) {
+        if [x, y, z]
+            .iter()
+            .any(|c| !c.is_finite() || c.abs() > MAX_COORD)
+        {
             return Err(bad(format!("{what}: point out of range")));
         }
     }
@@ -313,11 +318,40 @@ fn uv(rd: &mut Reader<'_>, dom: Domain) -> Result<(), FfiError> {
     let v = rd.finite()?;
     if let Some([u0, v0, u1, v1]) = dom {
         let (du, dv) = (u1 - u0, v1 - v0);
-        if u < u0 - 100.0 * du || u > u1 + 100.0 * du || v < v0 - 100.0 * dv || v > v1 + 100.0 * dv {
+        if u < u0 - 100.0 * du || u > u1 + 100.0 * du || v < v0 - 100.0 * dv || v > v1 + 100.0 * dv
+        {
             return Err(bad("uv too far outside the domain"));
         }
     } else if u.abs() > 1e6 || v.abs() > 1e6 {
         return Err(bad("plane uv too large"));
+    }
+    Ok(())
+}
+
+/// The face part of a face B-rep block (`surface u0 v0 u1 v1`): the domain must be
+/// ordered and inside the surface's (bounded for a plane). Shared with unit
+/// `heal.stitch_p1`.
+pub(crate) fn face_block(rd: &mut Reader<'_>) -> Result<(), FfiError> {
+    let dom = surface(rd)?;
+    let d = rd.finites(4)?;
+    let (Some(&a), Some(&b2), Some(&c), Some(&e)) = (d.first(), d.get(1), d.get(2), d.get(3))
+    else {
+        return Err(bad("domain too short"));
+    };
+    if a >= c || b2 >= e {
+        return Err(bad("face domain not ordered"));
+    }
+    match dom {
+        Some([u0, v0, u1, v1]) => {
+            if a < u0 || c > u1 || b2 < v0 || e > v1 {
+                return Err(bad("face domain outside the surface's"));
+            }
+        }
+        None => {
+            if d.iter().any(|x| x.abs() > 1e4) {
+                return Err(bad("plane face domain too large"));
+            }
+        }
     }
     Ok(())
 }
@@ -340,29 +374,7 @@ pub(crate) fn brep_block(rd: &mut Reader<'_>, path: &str) -> Result<(), FfiError
                 return Err(bad("wire edge interval outside the curve's"));
             }
         }
-        2 => {
-            let dom = surface(rd)?;
-            let d = rd.finites(4)?;
-            let (Some(&a), Some(&b2), Some(&c), Some(&e)) = (d.first(), d.get(1), d.get(2), d.get(3))
-            else {
-                return Err(bad("domain too short"));
-            };
-            if a >= c || b2 >= e {
-                return Err(bad("face domain not ordered"));
-            }
-            match dom {
-                Some([u0, v0, u1, v1]) => {
-                    if a < u0 || c > u1 || b2 < v0 || e > v1 {
-                        return Err(bad("face domain outside the surface's"));
-                    }
-                }
-                None => {
-                    if d.iter().any(|x| x.abs() > 1e4) {
-                        return Err(bad("plane face domain too large"));
-                    }
-                }
-            }
-        }
+        2 => face_block(rd)?,
         _ => {}
     }
     rd.flag()?;

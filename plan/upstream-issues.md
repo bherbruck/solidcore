@@ -1317,6 +1317,15 @@ meantime, whoever merges renumbers the new entry and every reference to it (here
 - **Severity:** crash / out-of-range read.
 - **Rust port:** Kernel topology mutation remains deferred. Both the safe FFI validator and the C++ shim require equally sized partners for op 3 with fillets. Six `rejected_fillets_*` fixtures check rejection; 660 isolated probes independently exercise both guards at first and last indices of 1/2/3/32 intervals. Valid equal-sized pairs and non-fillet calls remain accepted.
 
+#### UB-162. `sm_RedistributeSeamUVTrimCurves` reads a fourth edge use that need not exist
+- **Location:** `source/SMLib/src/SmBrep.cpp:12097`-`12105` (`sm_RedistributeSeamUVTrimCurves`): `SM_PTR_ARRAY(sNewEdgeuses, SmEdgeuse, 16)`, `pNewE->GetEdgeuses(sNewEdgeuses); SM_ASSERT(sNewEdgeuses.GetSize() == 4)`, then `sNewEdgeuses[0]` and `sNewEdgeuses[3]`.
+- **What happens:** The assertion is a no-op in release builds. For a seam edge with fewer than four edge uses the function reads slot 3 of the 16-slot stack array, an uninitialised pointer, and calls `GetCWEdgeuse()` on it.
+- **Trigger:** A UV trim curve given, a seam direction other than `SM_SP_NEITHER`, and an edge with one, two or three edge uses (a wire or lamina seam edge, or an edge whose other face is not attached yet).
+- **How found:** source review while porting `topology.brep_p1` (PR #145); the difftest shim refuses the call for edges with fewer than four edge uses.
+- **Confirmed:** no (source inspection only; the shim never runs it).
+- **Severity:** crash/UB.
+- **Rust port:** `topology::brep::p1::redistribute_seam_uv_trim_curves` returns `InvalidInput` for an edge with fewer than four edge uses.
+
 ### Healer target management
 
 #### UB-163. Uncached healer props removal leaves targets that resize into NULL props holes
@@ -1326,6 +1335,24 @@ meantime, whoever merges renumbers the new entry and every reference to it (here
 - **How found:** crash in the C++ reference run during the maintainer's step-33 sequence fuzzing ([PR #164, round 2](https://github.com/tangency-labs/solidcore/pull/164#pullrequestreview-5554396459)); source inspection confirmed the mismatched list sizes and resize boundary.
 - **Confirmed:** yes by that reference run: 31 crashing scripts (7 coincidence-cache, 21 harness reads of NULL props, 3 degeneracy-cache). Requires inconsistent caller-controlled healer state; ordinary end-to-end healing was not the trigger.
 - **Severity:** crash/UB.
+
+#### UB-171. One-list `SmStitch::StitchVertexPairs` glues a repeated vertex after freeing it
+- **Location:** `source/SMLib/src/SmStitch.cpp:3016`-`3047` (coincidence scan), `:3060`-`3190` (glue loop), one-list `StitchVertexPairs`.
+- **What happens:** The coincidence scan adds every later list entry within tolerance of `pV` to `sCoinVertices`, so a vertex listed twice lands there twice. Gluing the first copy (`GlueVertices(pV, copy)` or `SqueezeEdge`) deletes it; the second copy is then read (`IsLaminaVertex`, `GetPoint`) and glued after it was freed. Only `pV == sCoinVertices[jj]` (a repeat of `pV` itself) is caught.
+- **Trigger:** A vertex repeated in `rVertexList` and coincident with an earlier, different vertex that keeps it as the vertex to delete.
+- **How found:** read during porting (`heal.stitch_p2`).
+- **Confirmed:** no (source inspection). The difftest FFI refuses repeated vertices.
+- **Severity:** crash / use after free.
+- **Rust port:** Reproduces the order; a deleted vertex id makes the later query return `NotFound` instead of reading freed memory.
+
+#### UB-172. `SmStitch::DoStitching` keeps using an edge its failed glue deleted
+- **Location:** `source/SMLib/src/SmStitch.cpp:2182`-`2213` (`DoStitching`, keep-`pTestE` branch of the edge gluing).
+- **What happens:** With `m_bIgnoreProblems`, a failing `GlueEdgesGeneral(pTestE, .., pE)` that nevertheless deleted `pE` sets `sVEdges[jj]` to `NULL`, but the local `pE` is not reset: it is added to `sCandidateEdges` and compared with the remaining `sVEdges[kk]` (`GetOtherVertex`, `GetCurve`, `GetInterval`), all through a stale pointer.
+- **Trigger:** `m_bIgnoreProblems` (e.g. `StitchIntoShell` with `bShellIsWellFormed == FALSE`), a coincident edge pair keeping the second edge, and a glue that fails after deleting the first.
+- **How found:** read during porting (`heal.stitch_p2`).
+- **Confirmed:** no (source inspection; `GlueEdgesGeneral` is unported, so no difftest case reaches it).
+- **Severity:** crash / use after free.
+- **Rust port:** Reproduces the control flow; queries on the deleted edge id return `NotFound`.
 
 ## Hang
 
@@ -1463,6 +1490,24 @@ meantime, whoever merges renumbers the new entry and every reference to it (here
 - **Confirmed:** source path only; no native hang reproduction was run.
 - **Severity:** hang.
 - **Rust port:** Ordinary squeeze statuses are ignored through `ignore_status`, preserving `Unported` propagation; a documented no-progress check returns an error if the interval count did not decrease.
+
+#### HANG-23. `SmStitch::StitchIntoShell` never returns when `dMaxStitchTol3d / 100` underflows
+- **Location:** `source/SMLib/src/SmStitch.cpp:2756`-`2791` (`StitchIntoShell`).
+- **What happens:** The loop starts at `dStitchTol3d = dMaxStitchTol3d / 100` and doubles it until it reaches `dMaxStitchTol3d` or no lamina edge is left. When the division underflows to `0`, doubling keeps it `0`, so `0 < dMaxStitchTol3d` holds forever and `DoStitching` runs again and again.
+- **Trigger:** `0 < dMaxStitchTol3d` below about `5e-322` (e.g. `1e-323`) on a B-rep that keeps a lamina edge.
+- **How found:** read during porting (`heal.stitch_p2`).
+- **Confirmed:** yes (C++ difftest run with the shim guard disabled: `1e-323` on two sheets 0.05 apart was still running at 120 s; `1e-300` returns at once).
+- **Severity:** hang.
+- **Rust port:** Stops after `MAX_TOL_DOUBLINGS` (2200) doublings with `SolidError::InvalidInput`; the shim refuses the input (`-3`) and the runner applies the same test.
+
+#### HANG-24. `SmStitch::StitchIntoSolid` never returns from a zero B-rep tolerance
+- **Location:** `source/SMLib/src/SmStitch.cpp:2676`-`2711` (`StitchIntoSolid`).
+- **What happens:** The loop starts at `GetTolerance() / 10` and doubles it while it is below `1/200` of the bounding box diagonal and lamina edges remain. A tolerance of `0` stays `0`, and a non-finite diagonal is never reached, so `DoStitching` runs forever.
+- **Trigger:** A B-rep tolerance of `0`, or a bounding box whose diagonal overflows to infinity, with a lamina edge that is never stitched.
+- **How found:** read during porting (`heal.stitch_p2`).
+- **Confirmed:** no (source inspection; the shim refuses these inputs, `-3`).
+- **Severity:** hang.
+- **Rust port:** Stops after `MAX_TOL_DOUBLINGS` (2200) doublings with `SolidError::InvalidInput`.
 
 ## Nondeterminism
 
@@ -2469,6 +2514,24 @@ meantime, whoever merges renumbers the new entry and every reference to it (here
 - **Confirmed:** no (the split needs `topology.proto_topology_p2`, so the difftest cases that reach it are deferred).
 - **Severity:** wrong result.
 - **Rust port:** Reproduces it (`ProtoTopologyManager::proto_edge_split`).
+
+#### WR-173. `SmStitch::DoStitching` never resets its candidate flags while splitting edges
+- **Location:** `source/SMLib/src/SmStitch.cpp:1423`-`1500` (`DoStitching`, edge splitting at vertices).
+- **What happens:** `bCandidateVtx` and `bCandidateEdge` start `TRUE` before the vertex loop and are set `FALSE` for the first vertex (edge) not on the candidate list, but never set back. Every later vertex and edge of the pass is treated as a non-candidate: pairs where both are later are skipped although they may be candidates, and the split vertex and edge are re-added to the candidate lists.
+- **Trigger:** `DoStitching` with a candidate vertex or edge list and `m_bSplitEdgesWithVertices`.
+- **How found:** read during porting (`heal.stitch_p2`).
+- **Confirmed:** no (source inspection; every `DoStitching` case defers at `SmBrep::Notify`).
+- **Severity:** wrong result.
+- **Rust port:** Reproduces it.
+
+#### WR-174. One-list `SmStitch::StitchVertexPairs` reports a cancelled squeeze as done
+- **Location:** `source/SMLib/src/SmStitch.cpp:3127`-`3194` (one-list `StitchVertexPairs`).
+- **What happens:** A second short common edge cancels the squeeze (`bDoSqueeze = bDoGlue = FALSE`), but `pSqueezeEdge` keeps the first short lamina edge. Nothing is glued or squeezed, yet the pair's vertex is added to `rDeletedVerts`, `pSqueezeEdge` to `rDeletedEdges`, the list entry is cleared and, keeping the second vertex, `pV` moves to it. The same happens when the short common edge is manifold (no edge reported).
+- **Trigger:** Two coincident vertices joined by two short edges, or by one short manifold edge.
+- **How found:** read during porting (`heal.stitch_p2`).
+- **Confirmed:** no (source inspection).
+- **Severity:** wrong result.
+- **Rust port:** Reproduces it.
 
 ## Docs
 
