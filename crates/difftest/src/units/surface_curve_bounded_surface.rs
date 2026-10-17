@@ -841,7 +841,7 @@ fn rust_surface_op(op: &OpIn, this: &CbsIn) -> Result<Run, HarnessError> {
                 o.push(flag(s.is_parallel_to_vector(v)?));
                 push_dom(&mut o, &s.max_analytic_domain()?);
                 o.push(st(s.copy())?);
-                o.push(st(s.copy_and_add_analytics())?);
+                o.push(st(s.copy_and_add_analytics(&Kernel::default()))?);
                 o.push(st(s.split_at(0.5, SurfParamType::U))?);
                 o.push(st(s.reverse(&Kernel::default(), SurfParamType::U))?);
                 o.push(st(s.swap_uv(&Kernel::default()))?);
