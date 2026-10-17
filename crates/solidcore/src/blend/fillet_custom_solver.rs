@@ -274,6 +274,9 @@ pub struct ConstantRadiusAssistedFs {
     pub conversion_tol: f64,
     /// `m_dFilletRadii`: the offset radius of each surface.
     pub fillet_radii: [f64; 2],
+    /// `m_dSavedOffsets`: the offsets `SetSurfacesToZeroOffset` saved (uninitialised
+    /// upstream until then; `0` here). CO-PORTED in `blend.fillet_intersector`.
+    pub saved_offsets: [f64; 2],
 }
 
 impl ConstantRadiusAssistedFs {
@@ -301,6 +304,7 @@ impl ConstantRadiusAssistedFs {
             surface_extension_factor: 0.5,
             conversion_tol: EFF_ZERO / 10.0,
             fillet_radii,
+            saved_offsets: [0.0; 2],
         }
     }
 
