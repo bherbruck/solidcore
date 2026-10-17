@@ -23,10 +23,10 @@
 //! borrowed explicitly; edge/vertex mate storage is co-ported in
 //! `boolean::topology_intersector::p1` and shared mutably with `merge_p5`. B-rep
 //! edge/shell traversal waits for `topology.brep_p1`; arena allocation order does
-//! not substitute for native owning-list order. Region propagation takes refs and
-//! their `IsVoid` results and source-list callback handles, because arena regions
-//! do not yet carry shell state.
-//! Missing topology mutations, region `IsVoid` and point classification return
+//! not substitute for native owning-list order. Region propagation takes refs,
+//! their `IsVoid` results, source-list callback handles and a borrowed lookup of
+//! the actual region state for attribute handlers.
+//! Missing topology mutations and point classification return
 //! Unported at the first call reached. The temporary transform waits on B-rep
 //! bounding boxes before any mutation; no translation is faked. Destruction is
 //! Rust ownership. There is no input-dependent recursion.
@@ -42,6 +42,7 @@ use crate::geom::object::{NotifyOperation, ObjectRef};
 use crate::kernel::Kernel;
 use crate::nurbs::b_spline_surface_n_lib::p2::OrientType;
 use crate::topology::edgeuse::p1 as eu;
+use crate::topology::shell;
 use crate::topology::topology::{self as topo, Topology};
 use crate::topology::topology_traverser::face_edges;
 use crate::topology::{edge, vertex, Brep, EdgeId, FaceId, FaceuseId, RegionId, ShellId, VertexId};
@@ -252,9 +253,8 @@ pub fn find_brep_region_of_other_face(
     Ok(None)
 }
 
-fn region_is_void(_b: &Brep, _r: RegionId) -> Result<bool> {
-    // UNPORTED(topology.shell): SmRegion::IsVoid
-    unavailable("SmRegion::IsVoid", "topology.shell")
+fn region_is_void(b: &Brep, r: RegionId) -> Result<bool> {
+    Ok(b.region(r)?.is_void() != 0)
 }
 
 /// The first shell reached by this edge that belongs to a solid region.
@@ -475,9 +475,24 @@ pub fn boolean_post_process(
             ))?;
         }
     }
-    if brep_shells(brep)?.len() == 2 {
-        // UNPORTED(topology.shell): SmShell::IsWireShell
-        return unavailable("SmShell::IsWireShell", "topology.shell");
+    let shells = brep_shells(brep)?;
+    if let [first, second] = shells.as_slice() {
+        let first = brep.shell(*first)?;
+        let second = brep.shell(*second)?;
+        let pair = if first.is_wire_shell() {
+            second.is_faceuse_shell()
+        } else if second.is_wire_shell() {
+            first.is_faceuse_shell()
+        } else {
+            false
+        };
+        if pair {
+            // UNPORTED(boolean.topology_intersector_p1): SmTopologyIntersector::GetCommonVertices
+            return unavailable(
+                "SmTopologyIntersector::GetCommonVertices",
+                "boolean.topology_intersector_p1",
+            );
+        }
     }
     Ok(())
 }
@@ -500,11 +515,15 @@ pub struct RegionPropagation {
 /// source-list identities for the context callbacks.
 /// Void regions lose propagating attributes; solid regions with bookkeeping
 /// notify once, then every processed region loses its temporary merge attribute.
+/// `region_lookup` resolves the actual caller-owned topology for region attribute
+/// handlers, including color propagation; it must be provided when a handler
+/// queries a region. No region flags are inferred from attributes.
 pub fn propagate_other_src_region_attribs(
     regions: &[RegionPropagation],
     attributes: &mut AttributeStore,
     mut context: Option<&mut Context>,
     operation: BooleanOperation,
+    region_lookup: Option<&dyn shell::RegionLookup>,
 ) -> Result<()> {
     for &RegionPropagation {
         region,
@@ -533,7 +552,7 @@ pub fn propagate_other_src_region_attribs(
                 })?;
             data.operation = operation as i32;
             let [this_sources, other_sources] = source_lists;
-            a_object::notify(
+            a_object::notify_with_regions(
                 attributes,
                 context.as_deref_mut(),
                 NotifyOperation::RegPropagation,
@@ -541,6 +560,7 @@ pub fn propagate_other_src_region_attribs(
                 Some(this_sources),
                 Some(other_sources),
                 Some(region),
+                region_lookup,
             )?;
         }
         if let Some(h) = merge {
@@ -584,7 +604,10 @@ mod tests {
     fn one_region_fast_path_does_not_inspect_other_faceuse() {
         let mut b = Brep::new();
         let r = b
-            .add_region_record(crate::topology::Region { in_brep: true })
+            .add_region_record(crate::topology::Region {
+                in_brep: true,
+                ..crate::topology::Region::default()
+            })
             .unwrap();
         assert_eq!(
             find_brep_region_of_other_face(
@@ -640,6 +663,7 @@ mod tests {
             &mut attrs,
             None,
             BooleanOperation::Union,
+            None,
         )
         .unwrap();
         assert_eq!(attrs.attributes(r.key), vec![long]);

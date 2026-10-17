@@ -45,7 +45,7 @@
 //! | [`primary_edgeuse`], [`edge_is_lamina`], [`edge_brep`] | `SmEdge::GetPrimaryEdgeuse`, `IsLamina`, `GetBrep` (CO-PORTED, `topology.edge`) |
 //! | [`loopuse_edgeuses`], [`loopuse_shell`] | `SmLoopuse::GetEdgeuses`, `GetShell` (unit `topology.loopuse`) |
 //! | [`vertexuse_edgeuse`]                  | `SmVertexuse::GetEdgeuse` (CO-PORTED, `topology.vertexuse`) |
-//! | [`shell_region`], [`shell_brep`]       | `SmShell::GetRegion`, `GetBrep` (CO-PORTED, `topology.shell`) |
+//! | [`shell_region`], [`shell_brep`]       | `SmShell::GetRegion`, `GetBrep` (unit `topology.shell`) |
 //! | [`owning_topology_is_kind_of`]         | `SmOwningTopology::IsKindOf` (unit `topology.proto_topology_p1`) |
 //!
 //! Deviations:
@@ -273,26 +273,23 @@ pub fn vertexuse_edgeuse(brep: &Brep, vu: VertexuseId) -> Result<Option<EdgeuseI
     })
 }
 
-/// `SmShell::GetRegion` (CO-PORTED from unit `topology.shell`).
+/// `SmShell::GetRegion`: delegates to unit `topology.shell`.
 ///
 /// # Errors
 ///
 /// [`SolidError::NotFound`] for a dangling id.
 pub fn shell_region(brep: &Brep, s: ShellId) -> Result<Option<RegionId>> {
-    Ok(brep.shell(s)?.region)
+    crate::topology::shell::shell_region(brep, s)
 }
 
-/// `SmShell::GetBrep` (CO-PORTED from unit `topology.shell`): the B-rep of the owning
+/// `SmShell::GetBrep` (delegates to unit `topology.shell`): the B-rep of the owning
 /// region.
 ///
 /// # Errors
 ///
 /// [`SolidError::NotFound`] for a dangling id.
 pub fn shell_brep(brep: &Brep, s: ShellId) -> Result<Option<&Brep>> {
-    match shell_region(brep, s)? {
-        None => Ok(None),
-        Some(r) => Ok(brep.region(r)?.in_brep.then_some(brep)),
-    }
+    crate::topology::shell::shell_brep(brep, s)
 }
 
 // ---- simple edge use access ---------------------------------------------------------------
@@ -1604,10 +1601,15 @@ mod tests {
     fn square() -> Brep {
         let mut b = Brep::new();
         let id = |i: u32| EdgeuseId::from_index(i);
-        b.add_region_record(Region { in_brep: true }).unwrap();
+        b.add_region_record(Region {
+            in_brep: true,
+            ..Region::default()
+        })
+        .unwrap();
         b.add_shell_record(Shell {
             faces: vec![FaceId::from_index(0)],
             region: Some(RegionId::from_index(0)),
+            ..Shell::default()
         })
         .unwrap();
         b.add_face_record(Face {
@@ -1633,6 +1635,7 @@ mod tests {
                 mate: Some(FaceuseId::from_index(1 - k)),
                 orientation: o,
                 loopuses: vec![LoopuseId::from_index(k)],
+                sibling_links: None,
             })
             .unwrap();
             b.add_loopuse_record(Loopuse {

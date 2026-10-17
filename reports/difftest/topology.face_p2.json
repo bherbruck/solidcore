@@ -10393,7 +10393,7 @@
       "outcome": "pass",
       "pass": true,
       "source": "fixture:fixtures/topology.face_p2/upstream.json#1169 (upstream sm_RemoveSuspectSplitAtSeamUVTrimCurves on the my_test_topology wire network)",
-      "values_compared": 2
+      "values_compared": 10
     },
     {
       "max_rel_err": 0.0,
@@ -11247,7 +11247,7 @@
       "outcome": "pass",
       "pass": true,
       "source": "generated:seed=4207804418",
-      "values_compared": 2
+      "values_compared": 10
     },
     {
       "both_errored": true,
@@ -15248,7 +15248,7 @@
       "outcome": "pass",
       "pass": true,
       "source": "generated:seed=4207804418",
-      "values_compared": 2
+      "values_compared": 10
     },
     {
       "deferred": {
@@ -20502,7 +20502,7 @@
       "outcome": "pass",
       "pass": true,
       "source": "generated:seed=4207804418",
-      "values_compared": 2
+      "values_compared": 10
     },
     {
       "both_errored": true,
@@ -20757,7 +20757,7 @@
       "outcome": "pass",
       "pass": true,
       "source": "generated:seed=4207804418",
-      "values_compared": 2
+      "values_compared": 10
     },
     {
       "both_errored": true,
@@ -21119,7 +21119,7 @@
       "outcome": "pass",
       "pass": true,
       "source": "generated:seed=4207804418",
-      "values_compared": 2
+      "values_compared": 10
     },
     {
       "both_errored": true,
@@ -22832,7 +22832,7 @@
       "outcome": "pass",
       "pass": true,
       "source": "generated:seed=4207804418",
-      "values_compared": 2
+      "values_compared": 10
     },
     {
       "both_errored": true,

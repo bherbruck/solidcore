@@ -23,9 +23,11 @@
 // the harness code of harness/cpp/shim/sc_edgeuse_graph.h, so the export has that
 // unit's layout and traversal order (the Rust side imports it with that unit's
 // importer), except that an edge curve which is not an SmBSplineCurve is exported as
-// none and the curve type of every edge follows the graph. They read raw members
+// none and the curve type of every edge follows the graph. Version 3 shell state
+// is emitted by the shared topology_fixture helper. They read raw members
 // (protected ones through pointer-to-member access), never the functions under test.
 #include "sc_shim.h"
+#include "support/topology_fixture.h"
 
 #include "StdAfx.h"
 #include <SmBSplineCurve.h>
@@ -341,7 +343,7 @@ void walk(SmBrep* brep, Graph& g)
     brep->GetRegions(regs);
     for (ULONG i = 0; i < regs.GetSize(); i++)
         g.region(regs[i]);
-    size_t r = 0, s = 0, fu = 0, lu = 0, eu = 0, vu = 0, l = 0, e = 0, f = 0;
+    size_t r = 0, s = 0, fu = 0, lu = 0, eu = 0, vu = 0, v = 0, l = 0, e = 0, f = 0;
     bool more = true;
     while (more)
     {
@@ -406,6 +408,10 @@ void walk(SmBrep* brep, Graph& g)
             g.vertex((SmVertex*)p->GetOwner());
             g.typed(p->GetVertexuseType(), p->*VuPeek::owner());
         }
+        // Close through the real vertex-use lists before exporting version 3.
+        for (; v < g.vertices.size(); v++, more = true)
+            for (SmTopology* t : list_of(g.vertices[v]->GetList()))
+                g.vertexuse((SmVertexuse*)t);
         for (; l < g.loops.size(); l++, more = true)
             g.loopuse(g.loops[l]->GetLoopuse());
         for (; f < g.faces.size(); f++)
@@ -528,16 +534,11 @@ void export_graph(SmBrep* brep, Graph& g, std::vector<double>& o)
             v.push_back(g.find(4, t));
         put_list(o, v);
     }
-    for (SmFace* p : g.faces)
-    {
+    for (SmFace* p : g.faces) {
         put_surface(o, p->GetSurface());
-        SmExtent2d d = p->GetUVDomain();
-        o.push_back(d.GetMin().x);
-        o.push_back(d.GetMin().y);
-        o.push_back(d.GetMax().x);
-        o.push_back(d.GetMax().y);
-        o.push_back((double)p->GetTolerance());
-        o.push_back(p->GetSurface() ? (double)p->GetSurface()->GetType() : -1.0);
+        const SmExtent2d domain=p->GetUVDomain();
+        o.insert(o.end(), {domain.GetMin().x,domain.GetMin().y,domain.GetMax().x,domain.GetMax().y,
+            (double)p->GetTolerance(),p->GetSurface() ? (double)p->GetSurface()->GetType() : -1.0});
     }
     for (SmLoopuse* p : g.loopuses)
     {
@@ -605,6 +606,9 @@ void export_graph(SmBrep* brep, Graph& g, std::vector<double>& o)
         put_vec(o, p->GetPoint());
         o.push_back((double)p->GetTolerance());
     }
+    sc_topology_fixture::append_shell_state(
+        {*brep,g.regions,g.shells,g.faceuses,g.faces,g.loopuses,g.loops,
+         g.edgeuses,g.edges,g.vertexuses,g.vertices},o);
     o.push_back((double)brep->GetTolerance());
     // the curve type of every edge (-1 none), after the graph
     for (SmEdge* p : g.edges)
