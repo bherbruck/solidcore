@@ -36,6 +36,7 @@
 //! friend writes of `SmBrepConstructor`: they link records without validation (a
 //! B-rep graph is cyclic, so a record may name ids added later).
 
+pub mod brep;
 pub mod brep_cache;
 pub mod brep_data;
 pub mod database_io;
@@ -158,10 +159,14 @@ typed_id!(
     VertexuseId => Vertexuse
 );
 
-/// A dense, append-only store of `T` addressed by typed id `I`.
+/// A dense store of `T` addressed by typed id `I`. Items are appended; an item can
+/// be removed (upstream's `delete` of a topology object, unit `topology.brep_p4`),
+/// which empties its slot for good: ids are never reused, so the ids of the other
+/// items do not change, and iteration skips the empty slots.
 #[derive(Debug, Clone, PartialEq)]
 pub struct Arena<I, T> {
-    items: Vec<T>,
+    items: Vec<Option<T>>,
+    live: usize,
     _id: PhantomData<fn() -> I>,
 }
 
@@ -169,6 +174,7 @@ impl<I, T> Default for Arena<I, T> {
     fn default() -> Self {
         Self {
             items: Vec::new(),
+            live: 0,
             _id: PhantomData,
         }
     }
@@ -178,55 +184,106 @@ impl<I: ArenaId, T> Arena<I, T> {
     /// Appends an item and returns its id.
     ///
     /// Fails with [`SolidError::InvalidInput`] if the arena already holds `u32::MAX`
-    /// items.
+    /// slots.
     pub fn insert(&mut self, item: T) -> Result<I> {
         let index = u32::try_from(self.items.len()).map_err(|_| SolidError::InvalidInput {
             operation: "topology::Arena::insert",
             reason: "arena is full",
         })?;
-        self.items.push(item);
+        self.items.push(Some(item));
+        self.live = self.live.saturating_add(1);
         Ok(I::from_index(index))
     }
 
-    /// The item with id `id`, or `None` if the id is out of range.
+    /// Removes the item with id `id` (upstream `delete`) and returns it; `None` if the
+    /// id is out of range or already removed. The slot stays empty.
+    pub fn remove(&mut self, id: I) -> Option<T> {
+        let item = self.items.get_mut(id.index() as usize)?.take()?;
+        self.live = self.live.saturating_sub(1);
+        Some(item)
+    }
+
+    /// The item with id `id`, or `None` if the id is out of range or removed.
     #[must_use]
     pub fn get(&self, id: I) -> Option<&T> {
-        self.items.get(id.index() as usize)
+        self.items.get(id.index() as usize)?.as_ref()
     }
 
     /// Mutable access to the item with id `id`.
     #[must_use]
     pub fn get_mut(&mut self, id: I) -> Option<&mut T> {
-        self.items.get_mut(id.index() as usize)
+        self.items.get_mut(id.index() as usize)?.as_mut()
     }
 
-    /// Number of items.
+    /// Number of items (removed ones not counted).
     #[must_use]
     pub fn len(&self) -> usize {
-        self.items.len()
+        self.live
     }
 
-    /// True when the arena is empty.
+    /// True when the arena holds no item.
     #[must_use]
     pub fn is_empty(&self) -> bool {
-        self.items.is_empty()
+        self.live == 0
     }
 
-    /// Iterates `(id, item)` in insertion order.
-    pub fn iter(&self) -> impl ExactSizeIterator<Item = (I, &T)> + '_ {
-        // Arena length never exceeds u32::MAX (checked in `insert`), so the cast is
-        // lossless.
-        self.items
-            .iter()
-            .enumerate()
-            .map(|(i, t)| (I::from_index(i as u32), t))
+    /// Iterates `(id, item)` in insertion order, skipping removed items.
+    pub fn iter(&self) -> impl ExactSizeIterator<Item = (I, &T)> + DoubleEndedIterator + '_ {
+        ArenaIter {
+            inner: self.items.iter().enumerate(),
+            remaining: self.live,
+            _id: PhantomData,
+        }
     }
 
-    /// Iterates ids in insertion order.
-    pub fn ids(&self) -> impl ExactSizeIterator<Item = I> + '_ {
-        (0..self.items.len()).map(|i| I::from_index(i as u32))
+    /// Iterates ids in insertion order, skipping removed items.
+    pub fn ids(&self) -> impl ExactSizeIterator<Item = I> + DoubleEndedIterator + '_ {
+        self.iter().map(|(id, _)| id)
     }
 }
+
+/// The iterator behind [`Arena::iter`]: `(id, item)` in insertion order, skipping
+/// removed items.
+#[derive(Debug, Clone)]
+struct ArenaIter<'a, I, T> {
+    inner: core::iter::Enumerate<core::slice::Iter<'a, Option<T>>>,
+    remaining: usize,
+    _id: PhantomData<fn() -> I>,
+}
+
+impl<'a, I: ArenaId, T> Iterator for ArenaIter<'a, I, T> {
+    type Item = (I, &'a T);
+
+    fn next(&mut self) -> Option<Self::Item> {
+        // Arena length never exceeds u32::MAX (checked in `insert`), so the cast is
+        // lossless.
+        for (i, slot) in self.inner.by_ref() {
+            if let Some(t) = slot {
+                self.remaining = self.remaining.saturating_sub(1);
+                return Some((I::from_index(i as u32), t));
+            }
+        }
+        None
+    }
+
+    fn size_hint(&self) -> (usize, Option<usize>) {
+        (self.remaining, Some(self.remaining))
+    }
+}
+
+impl<I: ArenaId, T> DoubleEndedIterator for ArenaIter<'_, I, T> {
+    fn next_back(&mut self) -> Option<Self::Item> {
+        while let Some((i, slot)) = self.inner.next_back() {
+            if let Some(t) = slot {
+                self.remaining = self.remaining.saturating_sub(1);
+                return Some((I::from_index(i as u32), t));
+            }
+        }
+        None
+    }
+}
+
+impl<I: ArenaId, T> ExactSizeIterator for ArenaIter<'_, I, T> {}
 
 /// An `SmObject*` a topology record keeps but never dereferences (the surface,
 /// curve and B-rep pointers of an `SmDropCurveFail`): the object's kind and the
@@ -534,6 +591,9 @@ pub struct Brep {
     tolerance: f64,
     /// The identity the B-rep is attributed and notified under (`SmBrep*`).
     key: ObjectKey,
+    /// `m_bEditingEnabled` (CO-PORTED by `topology.brep_p4` from unit
+    /// `topology.brep_p1`): the B-rep may be edited (`DeleteEdge`, `DeleteVertex`).
+    editing_enabled: bool,
 }
 
 impl Default for Brep {
@@ -552,6 +612,7 @@ impl Default for Brep {
             validate_only: false,
             tolerance: ZONE_TOL_3D,
             key: ObjectKey(0),
+            editing_enabled: false,
         }
     }
 }
@@ -568,6 +629,17 @@ impl Brep {
     #[must_use]
     pub fn new() -> Self {
         Self::default()
+    }
+
+    /// `m_bEditingEnabled`.
+    #[must_use]
+    pub const fn editing_enabled(&self) -> bool {
+        self.editing_enabled
+    }
+
+    /// Sets `m_bEditingEnabled`.
+    pub fn set_editing_enabled(&mut self, enabled: bool) {
+        self.editing_enabled = enabled;
     }
 
     /// All shells.
@@ -856,6 +928,70 @@ impl Brep {
     /// Appends a vertex use record as is (no validation).
     pub fn add_vertexuse_record(&mut self, vertexuse: Vertexuse) -> Result<VertexuseId> {
         self.vertexuses.insert(vertexuse)
+    }
+
+    /// Deletes a shell record (upstream `delete`; no unlinking: the caller has
+    /// removed it from its lists first, as the friend code does upstream).
+    pub fn remove_shell_record(&mut self, id: ShellId) -> Result<Shell> {
+        self.shells
+            .remove(id)
+            .ok_or_else(|| not_found("topology::Brep::remove_shell_record", id))
+    }
+
+    /// Deletes a face record (upstream `delete`; no unlinking).
+    pub fn remove_face_record(&mut self, id: FaceId) -> Result<Face> {
+        self.faces
+            .remove(id)
+            .ok_or_else(|| not_found("topology::Brep::remove_face_record", id))
+    }
+
+    /// Deletes a loop record (upstream `delete`; no unlinking).
+    pub fn remove_loop_record(&mut self, id: LoopId) -> Result<Loop> {
+        self.loops
+            .remove(id)
+            .ok_or_else(|| not_found("topology::Brep::remove_loop_record", id))
+    }
+
+    /// Deletes an edge record (upstream `delete`; no unlinking).
+    pub fn remove_edge_record(&mut self, id: EdgeId) -> Result<Edge> {
+        self.edges
+            .remove(id)
+            .ok_or_else(|| not_found("topology::Brep::remove_edge_record", id))
+    }
+
+    /// Deletes a vertex record (upstream `delete`; no unlinking).
+    pub fn remove_vertex_record(&mut self, id: VertexId) -> Result<Vertex> {
+        self.vertices
+            .remove(id)
+            .ok_or_else(|| not_found("topology::Brep::remove_vertex_record", id))
+    }
+
+    /// Deletes a face use record (upstream `delete`; no unlinking).
+    pub fn remove_faceuse_record(&mut self, id: FaceuseId) -> Result<Faceuse> {
+        self.faceuses
+            .remove(id)
+            .ok_or_else(|| not_found("topology::Brep::remove_faceuse_record", id))
+    }
+
+    /// Deletes a loop use record (upstream `delete`; no unlinking).
+    pub fn remove_loopuse_record(&mut self, id: LoopuseId) -> Result<Loopuse> {
+        self.loopuses
+            .remove(id)
+            .ok_or_else(|| not_found("topology::Brep::remove_loopuse_record", id))
+    }
+
+    /// Deletes an edge use record (upstream `delete`; no unlinking).
+    pub fn remove_edgeuse_record(&mut self, id: EdgeuseId) -> Result<Edgeuse> {
+        self.edgeuses
+            .remove(id)
+            .ok_or_else(|| not_found("topology::Brep::remove_edgeuse_record", id))
+    }
+
+    /// Deletes a vertex use record (upstream `delete`; no unlinking).
+    pub fn remove_vertexuse_record(&mut self, id: VertexuseId) -> Result<Vertexuse> {
+        self.vertexuses
+            .remove(id)
+            .ok_or_else(|| not_found("topology::Brep::remove_vertexuse_record", id))
     }
 
     /// Adds an empty shell.

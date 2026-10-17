@@ -1110,6 +1110,15 @@ meantime, whoever merges renumbers the new entry and every reference to it (here
 - **Confirmed:** no (the difftest wrapper never passes NULL curves).
 - **Severity:** crash.
 - **Rust port:** takes a slice of curves (no NULL entries).
+
+#### UB-164. `SmBrep::DeleteEdge` with a surface to keep dereferences a NULL surviving face on a strut edge
+- **Location:** `source/SMLib/src/SmBrep.cpp:6024` (`pOptSurfaceToKeep != pSurvF->GetSurface()`) in `SmBrep::DeleteEdge` (def. `:5752`); `pSurvF`/`pDelF` are set only when `bMergeFace` (`:5910`).
+- **What happens:** The surface-swap block runs for any manifold edge with different loops on its two sides that are not both inner loops, but `bMergeFace` is also false when either end of the edge is a strut end. Then `pSurvF` is still `NULL` and a non-NULL `pOptSurfaceToKeep` makes it dereference `NULL` (and `pDelF` after it).
+- **Trigger:** `DeleteEdge(pStrutManifoldEdge, pSomeSurface)` on a manifold edge with a strut end between two faces.
+- **How found:** read during porting (unit `topology.brep_p4`).
+- **Confirmed:** no (every DeleteEdge success path is deferred in the difftest until `SmBrep::Notify` is ported).
+- **Severity:** crash.
+- **Rust port:** `topology::brep::p4::delete_edge` returns `SolidError::InvalidInput` there.
 #### UB-157. `CreateBlendSurface` with rails of different natural intervals writes past `sIntParams`
 - **Location:** `SmBSplineSurfaceNLib.cpp:5305`-`5378` (`SmBSplineSurface::CreateSkinnedSurface`, reads `sIntParams[lNumSections+ii]` at `:5366` and writes it at `:5378`); reached from `SmSurface::CreateBlendSurface` (`SmSurface.cpp:15375`, via `SmDerivSurfDefinition::SkinDerivSurface`, `:3503`), which passes only one parameter per cross section (`sParams`, 101 values). `CreateBlendSurface` also ignores the statuses of both `GetSampleValues` calls (`SmSurface.cpp:15443`, `:15452`) and goes on with partly filled sample arrays.
 - **What happens:** With two rails, `CreateSkinnedSurface` expects `2 * lNumSections` intersection parameters. When `SyncronizeKnotsOfCurves` changes the natural interval of rail 2, the loop reads and writes past the end of the `SmTArray` copy: heap corruption.
