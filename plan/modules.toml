@@ -3469,10 +3469,10 @@ soft_depends_on = ["curve.line", "geom.axis2_placement", "geom.context", "geom.e
 est_lines = 885
 layer = 59
 tests = ["SM_API_test:TestSmCreatePlanarCircle", "SM_API_test:TestSmCreatePlane", "SM_API_test:TestSmCreateSwungPrimitive", "SM_API_test:TestSmAdvancedStitch", "SM_API_test:TestSmEdgeCurveOwnership", "SM_API_test:TestSmGetClosestPoint"]
-status = "todo"
+status = "partial"
 claimed_by = ""
 claimed_at = ""
-notes = "24 fns; largest: SmApiCreatePyramid, SmApiCreateCone, SmApiCreateCylinder, SmApiCreateCylindricalBox; entry points: SmApiCreateBlendPrimitive, SmApiCreateBox, SmApiCreateCone, SmApiCreateConeEllipticEnds, SmApiCreateCylinder, SmApiCreateCylindricalBox, SmApiCreatePartialCone, SmApiCreatePartialCylinder, SmApiCreatePartialSphere, SmApiCreatePartialTorus, SmApiCreatePlanarCircle, SmApiCreatePlane, SmApiCreatePyramid, SmApiCreateSphere, SmApiCreateSphereNoPole, SmApiCreateSwungPrimitive, SmApiCreateTorus; 84 upstream test entry points reach this unit"
+notes = "PARTIAL (PR #160): difftest 1765 cases (265 fixture: 54 from SM_API_test TestSmPrimitives/TestSmBrep/TestSmSurfaces/TestSmIntersectors/TestSmBrepCopy/TestSmErrorCodes, 211 edge cases; 1500 generated): 1253 pass bit-identical (738 compare full surface records of the plane/cylinder/cone/torus surface overloads, the rest B-rep input validation and pyramid base edges), 512 deferred (primitive.primitive_creation_p1 137, primitive.primitive_creation_p2 282, primitive.primitive_creation_p3 31, topology.brep_p8 62), max_rel_err 0, perturb 1253/1253 detected; SmApiCreateBlendPrimitive not difftested (needs a B-rep with faces); C++ crash/hang inputs fenced off by the ffi guard (UB-158..161, HANG-16); 24 fns; largest: SmApiCreatePyramid, SmApiCreateCone, SmApiCreateCylinder, SmApiCreateCylindricalBox; entry points: SmApiCreateBlendPrimitive, SmApiCreateBox, SmApiCreateCone, SmApiCreateConeEllipticEnds, SmApiCreateCylinder, SmApiCreateCylindricalBox, SmApiCreatePartialCone, SmApiCreatePartialCylinder, SmApiCreatePartialSphere, SmApiCreatePartialTorus, SmApiCreatePlanarCircle, SmApiCreatePlane, SmApiCreatePyramid, SmApiCreateSphere, SmApiCreateSphereNoPole, SmApiCreateSwungPrimitive, SmApiCreateTorus; 84 upstream test entry points reach this unit"
 
 [[unit]]
 id = "sweep.api_brep"
