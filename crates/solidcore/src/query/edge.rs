@@ -13,7 +13,7 @@
 //! | [`radial_sector_of_curve_classify`], [`CurveSectorClass`] | `SmEdge::RadialSectorOfCurveClassify` |
 //! | [`edge_vertices`]                     | `SmEdge::GetVertices(SmTArray&, ULONG*)` (CO-PORTED, `topology.edge`) |
 //! | [`edge_faces`]                        | `SmEdge::GetFaces` (CO-PORTED, `topology.edge`) |
-//! | `evaluate_binormal_step_off` (private)| `SmEdgeuse::EvaluateBinormalStepOff` (unit `topology.edgeuse_p2`, not ported) |
+//! | `evaluate_binormal_step_off` (private)| `SmEdgeuse::EvaluateBinormalStepOff` (via [`crate::topology::edgeuse::p2::evaluate_binormal_step_off_into`]) |
 //!
 //! Deviations:
 //! - **Object model.** The methods are free functions taking the [`Brep`] and the
@@ -33,11 +33,13 @@
 //!   two calls as `SM_ERR`, as upstream ([`SolidError::Unported`] propagates).
 //! - **Same curve.** `RadialSectorClassify` compares the two edges' curve pointers; the
 //!   port compares the edges (an edge owns its curve, so only an edge shares its own).
-//! - **Step-offs.** `SmEdgeuse::EvaluateBinormalStepOff` (unit `topology.edgeuse_p2`)
-//!   is not ported: both radial classifications return [`SolidError::Unported`] when
-//!   they reach it. Its out-params keep the values a failing call leaves, as the
-//!   classification reads them after a failed step-off; the step-off vectors start at
-//!   zero (upstream: uninitialised `SmVector3d`s).
+//! - **Step-offs.** `SmEdgeuse::EvaluateBinormalStepOff` goes through
+//!   [`crate::topology::edgeuse::p2::evaluate_binormal_step_off_into`], whose
+//!   `EvaluateBinormal` (unit `topology.edgeuse_p3`) is not ported yet: both radial
+//!   classifications return [`SolidError::Unported`] when they reach it. Its out-params
+//!   keep the values a failing call leaves, as the classification reads them after a
+//!   failed step-off; the step-off vectors start at zero (upstream: uninitialised
+//!   `SmVector3d`s).
 //! - `pInsideFaceuses` of `RadialSectorClassify` is unused upstream and dropped; the
 //!   optional attribute filters of the co-ported `GetVertices` / `GetFaces` are not
 //!   ported (no caller here passes one).
@@ -55,11 +57,12 @@ use crate::geom::polar_box::PolarBox;
 use crate::geom::pseudo_box::PseudoBox;
 use crate::geom::solution_array::{ObjectKind, SolutionObject};
 use crate::kernel::Kernel;
-use crate::math::{Point3, Vec3, EFF_ZERO, EFF_ZERO_SQ, EFF_ZERO_SQRT, PI};
+use crate::math::{Point2, Point3, Vec3, EFF_ZERO, EFF_ZERO_SQ, EFF_ZERO_SQRT, PI};
 use crate::nurbs::b_spline_curve::{BoundingBoxRequest, BoundingBoxes};
 use crate::nurbs::b_spline_surface_n_lib::p2::OrientType;
 use crate::surface::surface::p2::PLANE_TYPE;
 use crate::topology::edgeuse::p1 as eu1;
+use crate::topology::edgeuse::p2 as eu2;
 use crate::topology::{Brep, EdgeId, EdgeuseId, FaceId, VertexId};
 
 const OP_BBOX: &str = "query::edge::calculate_bounding_box";
@@ -431,22 +434,42 @@ struct StepOffVectors {
 
 /// `SmEdgeuse::EvaluateBinormalStepOff(param, dist, point, binormal, &tangent, NULL,
 /// center, plane_normal)`: writes the out-params in place (a failing call leaves what it
-/// wrote) and returns its status.
+/// wrote) and returns its status. `bOKToMakeUVTrimCurve` takes its default, `TRUE`.
 fn evaluate_binormal_step_off(
-    _k: &Kernel,
-    _brep: &Brep,
-    _eu: EdgeuseId,
-    _param: f64,
-    _step_off_distance: f64,
-    _out: &mut StepOffVectors,
-    _center: Option<Point3>,
-    _plane_normal: Option<Vec3>,
+    k: &Kernel,
+    brep: &Brep,
+    eu: EdgeuseId,
+    param: f64,
+    step_off_distance: f64,
+    out: &mut StepOffVectors,
+    center: Option<Point3>,
+    plane_normal: Option<Vec3>,
 ) -> Result<()> {
-    // UNPORTED(topology.edgeuse_p2): SmEdgeuse::EvaluateBinormalStepOff
-    Err(SolidError::unported(
-        "SmEdgeuse::EvaluateBinormalStepOff",
-        "topology.edgeuse_p2",
-    ))
+    let options = eu2::StepOffOptions {
+        center_point: center,
+        plane_normal,
+        ..eu2::StepOffOptions::default()
+    };
+    let mut eval = eu2::BinormalEval {
+        point: out.point,
+        binormal: out.binormal,
+        tangent: out.tangent,
+        face_normal: Vec3::UNDEF,
+        uv: Point2::UNDEF,
+    };
+    let r = eu2::evaluate_binormal_step_off_into(
+        k,
+        brep,
+        eu,
+        param,
+        step_off_distance,
+        &options,
+        &mut eval,
+    );
+    out.point = eval.point;
+    out.binormal = eval.binormal;
+    out.tangent = eval.tangent;
+    r
 }
 
 /// Runs a step-off whose failure upstream records instead of returning: `Ok(true)` when
@@ -488,8 +511,8 @@ fn on_plane(brep: &Brep, eu: EdgeuseId) -> Result<bool> {
 /// `SM_ERR` when the point cannot be dropped onto the other edge or the first step-off
 /// leaves a face; [`SolidError::InvalidInput`] where upstream dereferences a null
 /// pointer; `SM_ERR_NULL_POINTER` for an edge use without edge or an edge without
-/// curve to classify; those of the evaluations; [`SolidError::Unported`] for the
-/// step-offs (`SmEdgeuse::EvaluateBinormalStepOff`, unit `topology.edgeuse_p2`).
+/// curve to classify; those of the evaluations; [`SolidError::Unported`] from the
+/// step-offs (`SmEdgeuse::EvaluateBinormal`, unit `topology.edgeuse_p3`).
 pub fn radial_sector_classify(
     k: &Kernel,
     brep: &Brep,
@@ -858,8 +881,8 @@ pub fn radial_sector_classify_between(
 ///
 /// `SM_ERR` when the curve's projected direction vanishes; [`SolidError::InvalidInput`]
 /// for a sector edge use without radial partner; those of the step-offs and
-/// evaluations; [`SolidError::Unported`] for the step-offs
-/// (`SmEdgeuse::EvaluateBinormalStepOff`, unit `topology.edgeuse_p2`).
+/// evaluations; [`SolidError::Unported`] from the step-offs
+/// (`SmEdgeuse::EvaluateBinormal`, unit `topology.edgeuse_p3`).
 pub fn radial_sector_of_curve_classify(
     k: &Kernel,
     brep: &Brep,

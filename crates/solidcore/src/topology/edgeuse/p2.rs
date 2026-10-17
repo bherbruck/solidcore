@@ -10,6 +10,7 @@
 //! | [`crate::topology::Edgeuse`] (`Default`, `Drop`) | `SmEdgeuse::SmEdgeuse`, `SmEdgeuse::~SmEdgeuse` |
 //! | [`is_tangent_sector`]                  | `SmEdgeuse::IsTangentSector`                     |
 //! | [`evaluate_binormal_step_off`], [`StepOffOptions`], [`BinormalEval`] | `SmEdgeuse::EvaluateBinormalStepOff` |
+//! | [`evaluate_binormal_step_off_into`]   | `SmEdgeuse::EvaluateBinormalStepOff` (out-params in place) |
 //! | [`is_convex_radial_sector`]            | `SmEdgeuse::IsConvexRadialSector`                |
 //! | [`rebuild_uv_trim_curve`]              | `SmEdgeuse::RebuildUVTrimCurve`                  |
 //! | [`check_and_set_uv_trim_curve`], [`CheckAndSetUvTrimCurve`] | `SmEdgeuse::CheckAndSetUVTrimCurve` |
@@ -26,6 +27,8 @@
 //!   [`SolidError::InvalidInput`]; `NER` is [`SolidError::null_pointer`].
 //! - **Out-params.** `EvaluateBinormalStepOff` returns all its outputs in a
 //!   [`BinormalEval`]; its optional inputs are a [`StepOffOptions`].
+//!   [`evaluate_binormal_step_off_into`] writes them in place for callers that read
+//!   them after a failed call, as upstream's out-params.
 //!   `CheckAndSetUVTrimCurve` takes the curve by value (upstream deletes it on every
 //!   path except an error return before the restore: either it stays attached, or the
 //!   restoring `SetUVTrimCurve(old, 0.0, TRUE)` deletes it, although the header says
@@ -300,14 +303,45 @@ pub fn evaluate_binormal_step_off(
     step_off_distance: f64,
     options: &StepOffOptions,
 ) -> Result<BinormalEval> {
+    let mut out = BinormalEval {
+        point: Point3::UNDEF,
+        binormal: Vec3::UNDEF,
+        tangent: Vec3::UNDEF,
+        face_normal: Vec3::UNDEF,
+        uv: Point2::UNDEF,
+    };
+    evaluate_binormal_step_off_into(k, b, eu, parameter, step_off_distance, options, &mut out)?;
+    Ok(out)
+}
+
+/// [`evaluate_binormal_step_off`] writing its outputs in place as upstream's
+/// out-params: a failing call leaves what it wrote before the failure (the outputs at
+/// the edge once `EvaluateBinormal` succeeded; the binormal unitized, or `(0, 0, 1)` when
+/// that fails; the step-off binormal when the final point evaluation fails). Nothing is
+/// written when `EvaluateBinormal` itself fails (deferred to `topology.edgeuse_p3`,
+/// whose port decides which outputs upstream's partial evaluation leaves).
+///
+/// # Errors
+///
+/// As [`evaluate_binormal_step_off`].
+pub fn evaluate_binormal_step_off_into(
+    k: &Kernel,
+    b: &Brep,
+    eu: EdgeuseId,
+    parameter: f64,
+    step_off_distance: f64,
+    options: &StepOffOptions,
+    out: &mut BinormalEval,
+) -> Result<()> {
     // evaluate binormal at the edge - set outputs for stepOffDistance = 0.0
     let at_edge = evaluate_binormal(b, eu, parameter, !options.ok_to_make_uv_trim_curve)?;
+    *out = at_edge;
     let uv = at_edge.uv;
     let tangent = at_edge.tangent;
 
     // low work - StepOffDistance = 0.0
     if step_off_distance < EFF_ZERO {
-        return Ok(at_edge);
+        return Ok(());
     }
 
     // edgeuse locals
@@ -323,7 +357,11 @@ pub fn evaluate_binormal_step_off(
     let mut surf_point = surface.evaluate_point(uv)?;
 
     // set startpoint = stepoffdistance from surfPoint in binormal direction
-    let binormal = at_edge.binormal.unitize()?;
+    // (Unitize works in place: a zero binormal is left as (0, 0, 1))
+    let unitized = out.binormal.unitize();
+    out.binormal = out.binormal.unitize_or_z();
+    unitized?;
+    let binormal = out.binormal;
     let start_point = surf_point + step_off_distance * binormal;
 
     // drop start point to surface to get a guess point
@@ -407,13 +445,12 @@ pub fn evaluate_binormal_step_off(
     }
 
     // set output
-    Ok(BinormalEval {
-        point: surface.evaluate_point(uv_found)?,
-        binormal: normal.cross(tangent),
-        tangent,
-        face_normal: normal,
-        uv: uv_found,
-    })
+    out.binormal = normal.cross(tangent);
+    out.point = surface.evaluate_point(uv_found)?;
+    out.face_normal = normal;
+    // tangent value already set
+    out.uv = uv_found;
+    Ok(())
 }
 
 /// `IsConvexRadialSector`: true when, at `num_samples` evenly spaced interior samples

@@ -83,6 +83,7 @@ use solidcore::query::face::p2::{
 use solidcore::surface::surface::p2::TsectCurveType;
 use solidcore::surface::surface::Surface;
 use solidcore::surface::volume::Volume;
+use solidcore::topology::brep::p3 as bp3;
 use solidcore::topology::edge as ed;
 use solidcore::topology::edgeuse::p1 as eu1;
 use solidcore::topology::face::p2 as fp2;
@@ -888,6 +889,19 @@ impl CurveOnClassifyObjects<H> for Objs<'_> {
 }
 
 impl ProtoBrep<H> for Two {
+    fn brep_squeeze_edge(
+        &mut self,
+        k: &mut Kernel,
+        brep: H,
+        edge: H,
+        survivor: H,
+    ) -> solidcore::Result<()> {
+        if brep.kind != K_BREP || edge.b != brep.b || survivor.b != brep.b {
+            return Err(invalid("edge or vertex is not in the B-rep"));
+        }
+        let b = self.brep_m(brep)?;
+        with_edit_env(|env| bp3::squeeze_edge(k, b, env, eid(edge), vid(survivor)))
+    }
     fn edge_interval(&self, edge: H) -> Option<Extent1d> {
         ed::interval(self.brep(edge)?, eid(edge)).ok()
     }
@@ -1184,6 +1198,48 @@ impl IntersectorBrep<H> for Two {
     fn topology_objects(&self) -> &dyn TopologyObjects<H> {
         self
     }
+    fn brep_delete_face(&mut self, k: &mut Kernel, brep: H, face: H) -> solidcore::Result<()> {
+        if brep.kind != K_BREP || face.b != brep.b {
+            return Err(invalid("face is not in the B-rep"));
+        }
+        let slot = usize::try_from(brep.b).map_err(|_| invalid("bad B-rep"))?;
+        let editing = self.editing.get(slot).copied().unwrap_or(false);
+        let b = self.brep_m(brep)?;
+        with_edit_env(|env| {
+            // the adapter keeps `m_bEditingEnabled` beside the B-rep
+            let old = b.editing_enabled();
+            b.set_editing_enabled(editing);
+            let mut marks = solidcore::topology::topology_traverser::Marks::default();
+            let r = bp3::delete_face(
+                k,
+                b,
+                env,
+                &mut marks,
+                fid(face),
+                bp3::DeleteFaceOptions::default(),
+            );
+            b.set_editing_enabled(old);
+            r.map(drop)
+        })
+    }
+}
+
+/// A notification environment for the B-rep edits of the hooks (no attributes or
+/// context: the intersector cases compare no attributes).
+fn with_edit_env<R>(f: impl FnOnce(&mut solidcore::topology::edge::NotifyEnv<'_>) -> R) -> R {
+    let mut records = BTreeMap::new();
+    let mut attributes = AttributeStore::default();
+    let key_of = |e: EntityRef| ObjectRef {
+        type_code: 0,
+        key: ObjectKey(solidcore::topology::trimming_tools::topo_key(e).0),
+    };
+    let mut env = solidcore::topology::edge::NotifyEnv {
+        records: &mut records,
+        attributes: &mut attributes,
+        context: None,
+        key_of: &key_of,
+    };
+    f(&mut env)
 }
 
 impl TopologyObjects<H> for Two {
@@ -2484,7 +2540,7 @@ fn run_rust_script(i: &Inputs, p: Prepared) -> Result<Vec<f64>, Fail> {
                     o.push(NULL_DEREF);
                     continue;
                 }
-                let r = ti.face_face_coincidence(&k, &mut two, &es, &fs, *ignore, *nesting);
+                let r = ti.face_face_coincidence(&mut k, &mut two, &es, &fs, *ignore, *nesting);
                 let Some(r) = status(r, &mut o)? else {
                     continue;
                 };
@@ -2498,9 +2554,16 @@ fn run_rust_script(i: &Inputs, p: Prepared) -> Result<Vec<f64>, Fail> {
                 override_tol,
             } => {
                 o.push(33.0);
+                // (brep_p2 #149: the constructor reads both B-reps when the tolerance is
+                // below SM_EFF_ZERO; a missing second B-rep is only read there, where
+                // upstream dereferences the null pointer)
+                let empty = Brep::new();
+                let b0 = two.breps[0].as_ref().unwrap_or(&empty);
+                let b1 = two.breps[1].as_ref().unwrap_or(&empty);
                 let mgr = ProtoTopologyManager::new(
-                    brep_h(0),
-                    brep_h(1),
+                    &k,
+                    (brep_h(0), b0),
+                    (brep_h(1), b1),
                     TI_HANDLE,
                     ti.this_approx_tol_3d(),
                     *capture,

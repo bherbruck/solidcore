@@ -92,8 +92,8 @@
 //!   `CreateUVTrimCurves` (`topology.face_p3`); `SmFace::GetUpwardLoopuses`,
 //!   `GetUpwardVertexuses`, `GetEdges`, `GetBrep` and `HasSeamProblem`
 //!   (`topology.face_p4`); `SmEdgeuse::NormalizedEvaluate` and
-//!   `GetOrCreateUVTrimCurve` (`topology.edgeuse_p3`); `SmBrep::ReplaceSurface`
-//!   (`topology.brep_p2`).
+//!   `GetOrCreateUVTrimCurve` (`topology.edgeuse_p3`). `SmBrep::ReplaceSurface` is
+//!   [`brep_p2::replace_surface`], which reaches `SmFace::Notify`.
 //! - **Bounds.** `SplitAtSeam` recurses into the faces its U merge made, once per face
 //!   (upstream asserts the recursion only fixes V seams); the port carries a depth and
 //!   returns [`SolidError::InvalidInput`] past [`MAX_SPLIT_AT_SEAM_DEPTH`]. Every other
@@ -129,6 +129,7 @@ use crate::surface::surface::p4::NoObject;
 use crate::surface::surface::p5::DropPointOptions;
 use crate::surface::surface::p7::drop_vectors_at;
 use crate::surface::surface::{Surface, SurfaceKind};
+use crate::topology::brep::p2::{self as brep_p2, OldSurface};
 use crate::topology::edgeuse::p1 as eu1;
 use crate::topology::face::p2 as fp2;
 use crate::topology::loopuse as lu1;
@@ -323,22 +324,20 @@ fn merge_intervals<O: LoopObject>(
     Ok(out)
 }
 
-/// `pBrep->ReplaceSurface(this, pNewSurface, bAddToDeleteSurfaceList, rOptModifiedFaces,
-/// bOptCreateUVTrimCurves)`; `MoveSeam` passes `FALSE` (delete the old surface here),
-/// `NULL` (no modified-face list) and `FALSE` (no new UV trim curves).
+/// `pBrep->ReplaceSurface(this, pNewSurface, FALSE, NULL, FALSE)` of `MoveSeam`:
+/// delete the old surface here ([`OldSurface::Delete`]), no modified-face list, no new
+/// UV trim curves. Upstream ignores the status, which is always `SM_SUCCESS` without
+/// new UV trim curves; only [`SolidError::Unported`] and the port's null-dereference
+/// [`SolidError::InvalidInput`] can come back, and both propagate.
 fn replace_surface(
-    _b: &mut Brep,
-    _f: FaceId,
-    _new_surface: Surface,
-    _add_to_delete_surface_list: bool,
-    _want_modified_faces: bool,
-    _create_uv_trim_curves: bool,
+    k: &Kernel,
+    b: &mut Brep,
+    f: FaceId,
+    this: ObjectRef,
+    new_surface: Surface,
 ) -> Result<()> {
-    // UNPORTED(topology.brep_p2): SmBrep::ReplaceSurface
-    Err(SolidError::unported(
-        "SmBrep::ReplaceSurface",
-        "topology.brep_p2",
-    ))
+    brep_p2::replace_surface(k, b, f, new_surface, this, OldSurface::Delete, false)?;
+    Ok(())
 }
 
 // ---- helpers ------------------------------------------------------------------------------
@@ -1261,7 +1260,7 @@ fn vertexuse_uv(k: &Kernel, b: &mut Brep, vu: VertexuseId, prev: Point2) -> Resu
 /// surface cannot be split; [`SolidError::InvalidInput`] as in the module docs; those
 /// of the surface join, the knot query and the classification state;
 /// [`SolidError::Unported`] (`GetUpwardLoopuses`, `IsCrossedByEdge`, `HasNearMisses`,
-/// `GetUpwardVertexuses`, `GetBrep`, `ReplaceSurface`, `SmFace::Notify`,
+/// `GetUpwardVertexuses`, `GetBrep`, `SmFace::Notify` (also through `ReplaceSurface`),
 /// `HasSeamProblem`, the split).
 #[allow(clippy::too_many_arguments, clippy::too_many_lines)] // one upstream routine
 pub fn move_seam<O: LoopObject>(
@@ -1649,7 +1648,7 @@ pub fn move_seam<O: LoopObject>(
             // replace the face surface
             surface = joined.clone();
             if has_brep(b, f)? {
-                replace_surface(b, f, joined, false, false, false)?;
+                replace_surface(k, b, f, this, joined)?;
             } else {
                 set_surface(b, f, this, joined, true)?;
             }

@@ -82,11 +82,14 @@
 //! - **The proto topology manager** (`m_pProtoTopoMgr`) is created by
 //!   `IntersectInsertRelate` (unit `boolean.topology_intersector_p2`); until that is
 //!   ported it is set with [`TopologyIntersector::set_proto_topology_manager`].
+//! - **B-rep edits** go through the adapter: `SmBrep::DeleteFace` is
+//!   [`IntersectorBrep::brep_delete_face`] (the owner of the B-reps calls
+//!   `topology::brep::p3::delete_face`), so `face_face_coincidence` takes `&mut Kernel`.
 //! - **Callees not ported yet** are private stubs returning [`SolidError::Unported`],
 //!   each tagged `UNPORTED(<unit>)`: `SmBrep::GetEdges` / `GetVertices`
 //!   (`topology.brep_p1`), `SmBrep::MakeVertexLoop` / `MakeVertexSplitEdge`
 //!   (`topology.brep_p9`), `GlueVertices` / `MakeEdgeInFace` (`topology.brep_p5`),
-//!   `GlueEdgesGeneral` (`topology.brep_p7`), `DeleteFace` (`topology.brep_p3`),
+//!   `GlueEdgesGeneral` (`topology.brep_p7`),
 //!   `SmFace::GetVertices` / `GetEdges` / `GetBrep` (`topology.face_p4`),
 //!   `SmFace::FaceIntersect` / `SetTolerance` (`topology.face_p3`),
 //!   `SmFace::CalculateBoundingBox` / `Point3DClassify` (`query.face_p1`),
@@ -336,6 +339,15 @@ pub trait IntersectorBrep<O>: ProtoBrep<O> {
     /// The adapter the topology solver reads the B-reps' cache trees and geometry
     /// through (`SmTopologySolver::BrepPointSolve` / `BrepCurveSolve`).
     fn topology_objects(&self) -> &dyn TopologyObjects<O>;
+    /// `SmBrep::DeleteFace(pFace)` with upstream's default arguments (`FALSE, TRUE,
+    /// NULL, NULL`) on the B-rep `brep`: the owner of a real B-rep implements it with
+    /// `topology::brep::p3::delete_face`.
+    ///
+    /// # Errors
+    ///
+    /// Those of the edit; an owner with no B-rep behind its handles returns
+    /// [`SolidError::Unported`] under a `harness:` label.
+    fn brep_delete_face(&mut self, k: &mut Kernel, brep: O, face: O) -> Result<()>;
 }
 
 // ---- unported callees -----------------------------------------------------------------------
@@ -418,15 +430,6 @@ fn brep_glue_edges_general<O>(
     Err(SolidError::unported(
         "SmBrep::GlueEdgesGeneral",
         "topology.brep_p7",
-    ))
-}
-
-/// `SmBrep::DeleteFace(pFace)`.
-fn brep_delete_face<O>(_brep: O, _face: O) -> Result<()> {
-    // UNPORTED(topology.brep_p3): SmBrep::DeleteFace
-    Err(SolidError::unported(
-        "SmBrep::DeleteFace",
-        "topology.brep_p3",
     ))
 }
 
@@ -1515,7 +1518,7 @@ impl<O: ClassObject + SolutionObject + Ord> TopologyIntersector<O> {
     /// changes.
     fn imprint_body(
         &mut self,
-        k: &Kernel,
+        k: &mut Kernel,
         brep: &mut impl IntersectorBrep<O>,
         ret: &mut Result<()>,
         deleted: &mut Vec<O>,
@@ -2663,13 +2666,13 @@ impl<O: ClassObject + SolutionObject + Ord> TopologyIntersector<O> {
     /// Unless `ignore_problems`, `SM_ERR` for a face to delete without B-rep;
     /// [`SolidError::Unported`] for `SmFace::GetEdges` / `GetBrep`
     /// (`topology.face_p4`), `SmFace::CalculateUVDomainFromUVTrimCurves`'s
-    /// `CreateUVTrimCurves` and
-    /// `SmBrep::DeleteFace`; [`SolidError::InvalidInput`] for null handles upstream
+    /// `CreateUVTrimCurves`; those of
+    /// [`IntersectorBrep::brep_delete_face`]; [`SolidError::InvalidInput`] for null handles upstream
     /// dereferences; those of the surface evaluations.
     #[allow(clippy::too_many_lines)]
     pub fn face_face_coincidence(
         &mut self,
-        k: &Kernel,
+        k: &mut Kernel,
         brep: &mut impl IntersectorBrep<O>,
         input_edges: &[Option<O>],
         faces_to_delete: &[O],
@@ -2819,7 +2822,7 @@ impl<O: ClassObject + SolutionObject + Ord> TopologyIntersector<O> {
                         let old_tol = brep
                             .topology_tolerance(del_face)
                             .ok_or(dangling("face handle is unknown"))?;
-                        ignore_soft(brep_delete_face(f_brep, del_face))?;
+                        ignore_soft(brep.brep_delete_face(k, f_brep, del_face))?;
 
                         // Add to the output lists.
                         // In the case of three or more faces all coincident (or

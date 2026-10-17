@@ -1771,8 +1771,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "face_radial",
@@ -1783,8 +1783,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "face_radial_curve",
@@ -1939,8 +1939,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "Mouse_radial",
@@ -1951,8 +1951,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "Mouse_radial_self",
@@ -1963,8 +1963,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "Mouse_radial_curve",
@@ -1975,8 +1975,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "Mouse_radial_curve_rev",
@@ -2131,8 +2131,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "Endcap_radial",
@@ -2143,8 +2143,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "Endcap_radial_self",
@@ -2155,8 +2155,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "Endcap_radial_curve",
@@ -2167,8 +2167,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "Endcap_radial_curve_rev",
@@ -2323,8 +2323,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "box_with_large_fillet_radial",
@@ -2335,8 +2335,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "box_with_large_fillet_radial_self",
@@ -2347,8 +2347,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "box_with_large_fillet_radial_curve",
@@ -2359,8 +2359,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "box_with_large_fillet_radial_curve_rev",
@@ -2515,8 +2515,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "cone_radial",
@@ -2527,8 +2527,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "cone_radial_self",
@@ -2539,8 +2539,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "cone_radial_curve",
@@ -2551,8 +2551,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "cone_radial_curve_rev",
@@ -2707,8 +2707,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "disk_radial",
@@ -2719,8 +2719,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "disk_radial_self",
@@ -2731,8 +2731,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "disk_radial_curve",
@@ -2743,8 +2743,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "disk_radial_curve_rev",
@@ -2899,8 +2899,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "ellips_ts2_radial",
@@ -2911,8 +2911,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "ellips_ts2_radial_self",
@@ -2923,8 +2923,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "ellips_ts2_radial_curve",
@@ -2935,8 +2935,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "ellips_ts2_radial_curve_rev",
@@ -3091,8 +3091,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "plane_circ_radial",
@@ -3103,8 +3103,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "plane_circ_radial_self",
@@ -3115,8 +3115,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "plane_circ_radial_curve",
@@ -3127,8 +3127,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "plane_circ_radial_curve_rev",
@@ -3283,8 +3283,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "plane_square_radial",
@@ -3295,8 +3295,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "plane_square_radial_self",
@@ -3307,8 +3307,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "plane_square_radial_curve",
@@ -3319,8 +3319,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "plane_square_radial_curve_rev",
@@ -3475,8 +3475,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "sphere_radial",
@@ -3487,8 +3487,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "sphere_radial_self",
@@ -3499,8 +3499,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "sphere_radial_curve",
@@ -3511,8 +3511,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "sphere_radial_curve_rev",
@@ -3667,8 +3667,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "surf_extrude_radial",
@@ -3679,8 +3679,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "surf_extrude_radial_self",
@@ -3691,8 +3691,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "surf_extrude_radial_curve",
@@ -3703,8 +3703,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "surf_extrude_radial_curve_rev",
@@ -3859,8 +3859,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "surf_rev_radial",
@@ -3871,8 +3871,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "surf_rev_radial_self",
@@ -3883,8 +3883,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "surf_rev_radial_curve",
@@ -3895,8 +3895,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "surf_rev_radial_curve_rev",
@@ -4051,8 +4051,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "surf_sphere150_radial",
@@ -4063,8 +4063,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "surf_sphere150_radial_self",
@@ -4075,8 +4075,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "surf_sphere150_radial_curve",
@@ -4087,8 +4087,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "surf_sphere150_radial_curve_rev",
@@ -4243,8 +4243,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "torus_radial",
@@ -4255,8 +4255,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "torus_radial_self",
@@ -4267,8 +4267,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "torus_radial_curve",
@@ -4279,8 +4279,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "torus_radial_curve_rev",
@@ -4435,8 +4435,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "toruswvy_radial",
@@ -4447,8 +4447,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "toruswvy_radial_self",
@@ -4459,8 +4459,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "toruswvy_radial_curve",
@@ -4471,8 +4471,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "toruswvy_radial_curve_rev",
@@ -4627,8 +4627,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "vase_rev_radial",
@@ -4639,8 +4639,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "vase_rev_radial_self",
@@ -4651,8 +4651,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "vase_rev_radial_curve",
@@ -4663,8 +4663,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "vase_rev_radial_curve_rev",
@@ -6411,8 +6411,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0002",
@@ -6447,8 +6447,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0006",
@@ -6547,8 +6547,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0018",
@@ -6583,8 +6583,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0022",
@@ -6611,8 +6611,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0025",
@@ -6623,8 +6623,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0026",
@@ -6651,8 +6651,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0029",
@@ -6791,8 +6791,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0046",
@@ -6907,8 +6907,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0060",
@@ -6919,8 +6919,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0061",
@@ -6931,8 +6931,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0062",
@@ -6959,8 +6959,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0065",
@@ -7059,8 +7059,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0077",
@@ -7095,8 +7095,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0081",
@@ -7131,8 +7131,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0085",
@@ -7159,8 +7159,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0088",
@@ -7179,8 +7179,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0090",
@@ -7191,8 +7191,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0091",
@@ -7235,8 +7235,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0096",
@@ -7279,8 +7279,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0101",
@@ -7307,8 +7307,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0104",
@@ -7391,8 +7391,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0114",
@@ -7435,8 +7435,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0119",
@@ -7559,8 +7559,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0134",
@@ -7731,8 +7731,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0155",
@@ -7775,8 +7775,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0160",
@@ -7867,8 +7867,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0171",
@@ -7879,8 +7879,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0172",
@@ -7891,8 +7891,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0173",
@@ -7967,8 +7967,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0182",
@@ -8067,8 +8067,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0194",
@@ -8103,8 +8103,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0198",
@@ -8155,8 +8155,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0204",
@@ -8215,8 +8215,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0211",
@@ -8243,8 +8243,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0214",
@@ -8255,8 +8255,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0215",
@@ -8331,8 +8331,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0224",
@@ -8351,8 +8351,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0226",
@@ -8395,8 +8395,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0231",
@@ -8439,8 +8439,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0236",
@@ -8483,8 +8483,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0241",
@@ -8495,8 +8495,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0242",
@@ -8643,8 +8643,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0260",
@@ -8655,8 +8655,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0261",
@@ -8667,8 +8667,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0262",
@@ -8719,8 +8719,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0268",
@@ -8747,8 +8747,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0271",
@@ -8767,8 +8767,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0273",
@@ -8827,8 +8827,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0280",
@@ -8855,8 +8855,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0283",
@@ -8899,8 +8899,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0288",
@@ -8911,8 +8911,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0289",
@@ -8955,8 +8955,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0294",
@@ -9111,8 +9111,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0313",
@@ -9131,8 +9131,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0315",
@@ -9191,8 +9191,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0322",
@@ -9339,8 +9339,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0340",
@@ -9359,8 +9359,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0342",
@@ -9379,8 +9379,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0344",
@@ -9431,8 +9431,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0350",
@@ -9507,8 +9507,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0359",
@@ -9559,8 +9559,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0365",
@@ -9667,8 +9667,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0378",
@@ -9679,8 +9679,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0379",
@@ -9747,8 +9747,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0387",
@@ -9767,8 +9767,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0389",
@@ -9779,8 +9779,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0390",
@@ -9799,8 +9799,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0392",
@@ -9827,8 +9827,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0395",
@@ -9863,8 +9863,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0399",
@@ -9931,8 +9931,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0407",
@@ -9943,8 +9943,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0408",
@@ -9963,8 +9963,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0410",
@@ -9999,8 +9999,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0414",
@@ -10035,8 +10035,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0418",
@@ -10087,8 +10087,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0424",
@@ -10123,8 +10123,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0428",
@@ -10159,8 +10159,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0432",
@@ -10203,8 +10203,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0437",
@@ -10215,8 +10215,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0438",
@@ -10235,8 +10235,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0440",
@@ -10247,8 +10247,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0441",
@@ -10291,8 +10291,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0446",
@@ -10311,8 +10311,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0448",
@@ -10347,8 +10347,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0452",
@@ -10367,8 +10367,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0454",
@@ -10411,8 +10411,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0459",
@@ -10431,8 +10431,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0461",
@@ -10443,8 +10443,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0462",
@@ -10527,8 +10527,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0472",
@@ -10563,8 +10563,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0476",
@@ -10599,8 +10599,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0480",
@@ -10643,8 +10643,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0485",
@@ -10671,8 +10671,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0488",
@@ -10755,8 +10755,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0498",
@@ -10783,8 +10783,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0501",
@@ -10899,8 +10899,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0515",
@@ -10943,8 +10943,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0520",
@@ -10979,8 +10979,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0524",
@@ -11007,8 +11007,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0527",
@@ -11027,8 +11027,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0529",
@@ -11119,8 +11119,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0540",
@@ -11155,8 +11155,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0544",
@@ -11167,8 +11167,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0545",
@@ -11251,8 +11251,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0555",
@@ -11295,8 +11295,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0560",
@@ -11339,8 +11339,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0565",
@@ -11391,8 +11391,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0571",
@@ -11411,8 +11411,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0573",
@@ -11471,8 +11471,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0580",
@@ -11515,8 +11515,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0585",
@@ -11559,8 +11559,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0590",
@@ -11579,8 +11579,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0592",
@@ -11623,8 +11623,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0597",
@@ -11635,8 +11635,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0598",
@@ -11647,8 +11647,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmEdgeuse::EvaluateBinormalStepOff",
-        "unit": "topology.edgeuse_p2"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0599",
@@ -11664,7 +11664,7 @@
   "cases_passed": 1190,
   "cases_total": 1368,
   "deferred_by_unit": {
-    "topology.edgeuse_p2": 178
+    "topology.edgeuse_p3": 178
   },
   "max_rel_err": 0.0,
   "pass": true,

@@ -142,6 +142,15 @@ pub trait ProtoBrep<O>: ProtoGeometry<O> + ProtoTopology<O> {
     ///
     /// Those of the implementation's topology walk.
     fn vertex_common_edges(&self, v1: O, v2: O) -> Result<Vec<O>>;
+    /// `SmBrep::SqueezeEdge(pEdge, pSurvivingVertex)` on the B-rep `brep` (called by
+    /// `topology.proto_topology_p3` on `GetWhichBrep`): the owner of a real B-rep
+    /// implements it with `topology::brep::p3::squeeze_edge`.
+    ///
+    /// # Errors
+    ///
+    /// Those of the edit; an owner with no B-rep behind its handles returns
+    /// [`SolidError::Unported`] under a `harness:` label.
+    fn brep_squeeze_edge(&mut self, k: &mut Kernel, brep: O, edge: O, survivor: O) -> Result<()>;
     /// `SmFace::CurveOnClassify(bDoPointClassify, cc)` with upstream's other arguments at
     /// their defaults (`FALSE`), read by `topology.proto_topology_p3`: the B-rep owner
     /// implements it with `query::face::p2::curve_on_classify`. Returns
@@ -2051,6 +2060,7 @@ mod tests {
     use crate::intersect::point_class::{ClassGeometry, ClassObjectKind};
     use crate::surface::surface::Surface;
     use crate::surface::volume::Volume;
+    use crate::topology::Brep;
 
     /// Pool handles: an index and a kind.
     #[derive(Debug, Clone, Copy, PartialEq)]
@@ -2120,6 +2130,12 @@ mod tests {
     }
 
     impl ProtoBrep<H> for Geo {
+        fn brep_squeeze_edge(&mut self, _k: &mut Kernel, _b: H, _e: H, _v: H) -> Result<()> {
+            Err(SolidError::unported(
+                "SmBrep::SqueezeEdge (no B-rep behind the test handles)",
+                "harness:proto-test-brep-edit",
+            ))
+        }
         fn edge_interval(&self, edge: H) -> Option<Extent1d> {
             self.edge_ivl.iter().find(|e| e.0 == edge.0).map(|e| e.1)
         }
@@ -2182,7 +2198,9 @@ mod tests {
 
     fn manager() -> ProtoTopologyManager<H> {
         let b = H(100, ClassObjectKind::Other);
-        ProtoTopologyManager::new(b, b, b, 1e-5, 1e-3, -1.0).unwrap()
+        let e = Brep::new();
+        ProtoTopologyManager::new(&Kernel::default(), (b, &e), (b, &e), b, 1e-5, 1e-3, -1.0)
+            .unwrap()
     }
 
     fn region_pc(o: H) -> PointClassification<H> {

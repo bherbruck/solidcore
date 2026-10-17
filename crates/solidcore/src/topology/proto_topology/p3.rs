@@ -23,10 +23,14 @@
 //!   those of its supertrait [`ProtoTopology`](super::p1::proto::ProtoTopology)), which the owner of the B-reps implements. `SmTol::GetZoneTol3d` of a vertex is
 //!   [`ProtoBrep::topology_tolerance`]; `SmTol::GetXSectTol3d(v1, v2)` is the
 //!   sum of the two.
+//! - **B-rep edits**: `SmBrep::SqueezeEdge` of `GetWhichBrep(which)` is
+//!   [`ProtoBrep::brep_squeeze_edge`] (the owner of the B-reps calls
+//!   `topology::brep::p3::squeeze_edge`), so
+//!   [`ProtoTopologyManager::glue_coincident_brep_vertices`] takes `&mut Kernel` and
+//!   `&mut impl ProtoBrep`.
 //! - **Callees not ported yet** are private stubs returning [`SolidError::Unported`],
 //!   each tagged `UNPORTED(<unit>)`: `SmBrep::Point3DClassify` (`query.brep`),
-//!   `SmBrep::GlueVertices` /
-//!   `SqueezeEdge` / `DeleteEdge` (`topology.brep_p5` / `_p3` / `_p4`),
+//!   `SmBrep::GlueVertices` / `DeleteEdge` (`topology.brep_p5` / `_p4`),
 //!   `SmTopologyIntersector::RemoveRelationship` (`boolean.topology_intersector_p2`;
 //!   `GetOtherMate` is the `other_mate` closure the caller passes to
 //!   [`ProtoTopologyManager::glue_coincident_brep_vertices`]) and the `SmCurveClassification`
@@ -171,15 +175,6 @@ fn brep_glue_vertices<O>(_which: i32, _v1: O, _v2: O) -> Result<()> {
     Err(SolidError::unported(
         "SmBrep::GlueVertices",
         "topology.brep_p5",
-    ))
-}
-
-/// `SmBrep::SqueezeEdge` of B-rep `which`.
-fn brep_squeeze_edge<O>(_which: i32, _edge: O, _vertex: O) -> Result<()> {
-    // UNPORTED(topology.brep_p3): SmBrep::SqueezeEdge
-    Err(SolidError::unported(
-        "SmBrep::SqueezeEdge",
-        "topology.brep_p3",
     ))
 }
 
@@ -908,8 +903,8 @@ impl<O: ClassObject> ProtoTopologyManager<O> {
     /// in the module header.
     pub fn glue_coincident_brep_vertices(
         &mut self,
-        k: &Kernel,
-        brep: &impl ProtoBrep<O>,
+        k: &mut Kernel,
+        brep: &mut impl ProtoBrep<O>,
         other_mate: &dyn Fn(O) -> Option<O>,
     ) -> Result<Vec<O>> {
         let mut deleted_curves: Vec<O> = Vec::new();
@@ -1074,7 +1069,8 @@ impl<O: ClassObject> ProtoTopologyManager<O> {
                                     // Can't call SqueezeEdge() in this case.
                                     brep_delete_edge(which, edge)
                                 } else {
-                                    let r = brep_squeeze_edge(which, edge, v1); // deletes v2
+                                    let r =
+                                        brep.brep_squeeze_edge(k, self.which_brep(which), edge, v1); // deletes v2
                                     set_slot(deleted_v, jj, v2);
                                     r
                                 };

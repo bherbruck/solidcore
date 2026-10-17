@@ -58,6 +58,7 @@ use crate::nurbs::b_spline_surface::p1::SurfParamType;
 use crate::surface::surface::Surface;
 use crate::surface::volume::Volume;
 use crate::topology::brep_cache::{arena_identity, CacheObject};
+use crate::topology::edge::NotifyEnv;
 use crate::topology::face::p1::{self as fp1, SeamProblem};
 use crate::topology::face::p2 as face;
 use crate::topology::{loopuse, vertex, RegionId};
@@ -438,7 +439,12 @@ impl<O: LoopObject> HealData<O> {
             let edits = if a == d {
                 delete_edge(b, e)?
             } else {
-                squeeze_edge(b, e, a.ok_or_else(|| invalid("edge without start vertex"))?)?
+                squeeze_edge(
+                    k,
+                    b,
+                    e,
+                    a.ok_or_else(|| invalid("edge without start vertex"))?,
+                )?
             };
             changes.append(edits);
         }
@@ -459,12 +465,30 @@ fn combine_vertices(_b: &mut Brep, _a: VertexId, _d: VertexId) -> Result<Changes
         "topology.brep_p5",
     ))
 }
-fn squeeze_edge(_b: &mut Brep, _e: EdgeId, _survivor: VertexId) -> Result<Changes> {
-    // UNPORTED(topology.brep_p3): SmBrep::SqueezeEdge
-    Err(SolidError::unported(
-        "SmBrep::SqueezeEdge",
-        "topology.brep_p3",
-    ))
+/// A notification environment for the B-rep edits (no attributes, no context).
+fn edit_env<R>(f: impl FnOnce(&mut NotifyEnv<'_>) -> R) -> R {
+    let mut records = std::collections::BTreeMap::new();
+    let mut attributes = crate::geom::attribute::AttributeStore::default();
+    let key_of = |e: EntityRef| ObjectRef {
+        type_code: 0,
+        key: ObjectKey(crate::topology::trimming_tools::topo_key(e).0),
+    };
+    let mut env = NotifyEnv {
+        records: &mut records,
+        attributes: &mut attributes,
+        context: None,
+        key_of: &key_of,
+    };
+    f(&mut env)
+}
+/// The `Changes` the healer's topology tracker records for a completed B-rep edit.
+fn tracked_changes(symbol: &'static str) -> Result<Changes> {
+    // UNPORTED(heal.heal_data_p3): SmTrackTopologyChanges callback lists of a B-rep edit
+    Err(SolidError::unported(symbol, "heal.heal_data_p3"))
+}
+fn squeeze_edge(k: &mut Kernel, b: &mut Brep, e: EdgeId, survivor: VertexId) -> Result<Changes> {
+    edit_env(|env| crate::topology::brep::p3::squeeze_edge(k, b, env, e, survivor))?;
+    tracked_changes("SmTrackTopologyChanges (SmBrep::SqueezeEdge)")
 }
 fn delete_edge(_b: &mut Brep, _e: EdgeId) -> Result<Changes> {
     // UNPORTED(topology.brep_p4): SmBrep::DeleteEdge
@@ -535,8 +559,8 @@ impl<O: LoopObject> HealData<O> {
                         .vertex
                         .ok_or_else(|| invalid("vertex loop without vertex"))?;
                     let new_surface = ignore_soft(surface.copy_and_add_analytics())?;
-                    let deleted =
-                        ignore_soft(delete_face(b, f, true, Some(old_region)))?.unwrap_or_default();
+                    let deleted = ignore_soft(delete_face(k, b, f, true, Some(old_region)))?
+                        .unwrap_or_default();
                     let vertex_deleted = deleted.removed.contains(&EntityRef::Vertex(old_vertex));
                     changes.append(deleted);
                     // A failed copy/create has no returned face to dereference.
@@ -567,8 +591,9 @@ impl<O: LoopObject> HealData<O> {
                         }
                     }
                 } else {
-                    changes
-                        .append(ignore_soft(delete_face(b, f, false, None))?.unwrap_or_default());
+                    changes.append(
+                        ignore_soft(delete_face(k, b, f, false, None))?.unwrap_or_default(),
+                    );
                 }
             } else {
                 let (new_edges, deleted_edges, edits) =
@@ -944,17 +969,22 @@ fn face_region(b: &Brep, f: FaceId) -> Result<RegionId> {
         .region
         .ok_or_else(|| invalid("shell without region"))
 }
+/// `DeleteFace(f, TRUE, nest_regions, &deleted, keep)`.
 fn delete_face(
-    _b: &mut Brep,
-    _f: FaceId,
-    _nest_regions: bool,
-    _keep: Option<RegionId>,
+    k: &mut Kernel,
+    b: &mut Brep,
+    f: FaceId,
+    nest_regions: bool,
+    keep: Option<RegionId>,
 ) -> Result<Changes> {
-    // UNPORTED(topology.brep_p3): SmBrep::DeleteFace
-    Err(SolidError::unported(
-        "SmBrep::DeleteFace",
-        "topology.brep_p3",
-    ))
+    let opts = crate::topology::brep::p3::DeleteFaceOptions {
+        delete_edges_vertices: true,
+        do_region_nesting: nest_regions,
+        region_to_keep: keep,
+    };
+    let mut marks = Marks::default();
+    edit_env(|env| crate::topology::brep::p3::delete_face(k, b, env, &mut marks, f, opts))?;
+    tracked_changes("SmTrackTopologyChanges (SmBrep::DeleteFace)")
 }
 fn create_face_from_surface(_b: &mut Brep, _r: RegionId, _s: Surface) -> Result<(FaceId, Changes)> {
     // UNPORTED(topology.brep_p8): SmBrep::CreateFaceInRegionFromSurface
@@ -1172,6 +1202,15 @@ mod tests {
     fn catch_up_restores_state_after_unported_callee() {
         let mut k = Kernel::default();
         let mut b = Brep::default();
+        // a face whose tolerance SmBrep::SetTolerance raises (SmFace::SetTolerance,
+        // topology.face_p3): B-rep and face tolerances below the estimate
+        let f = b
+            .add_face_record(crate::topology::Face::new(
+                crate::topology::ShellId::from_index(0),
+            ))
+            .unwrap();
+        b.face_mut(f).unwrap().tolerance = 0.0;
+        b.set_tolerance(0.0);
         let mut h = HealData::<L>::new();
         h.old_face_cnt = 7;
         h.old_edge_cnt = 8;
@@ -1179,8 +1218,8 @@ mod tests {
         h.stop_heal_op = HealerOpType::All;
         h.done_heal_op = HealerOpType::FixTolsizes;
         h.recursion_count = 3;
-        // Even a null add entry enters native catch-up. Fix_TolSizes still asks
-        // the B-rep for its model-size estimate, despite empty target arrays.
+        // Even a null add entry enters native catch-up. Fix_TolSizes still sets the
+        // B-rep tolerance, despite empty target arrays.
         let e = h
             .update_target_lists(&mut k, &mut b, &[], &[None], HealerOpType::All)
             .unwrap_err();

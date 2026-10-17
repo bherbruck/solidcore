@@ -1317,6 +1317,15 @@ meantime, whoever merges renumbers the new entry and every reference to it (here
 - **Severity:** crash / out-of-range read.
 - **Rust port:** Kernel topology mutation remains deferred. Both the safe FFI validator and the C++ shim require equally sized partners for op 3 with fillets. Six `rejected_fillets_*` fixtures check rejection; 660 isolated probes independently exercise both guards at first and last indices of 1/2/3/32 intervals. Valid equal-sized pairs and non-fillet calls remain accepted.
 
+#### UB-162. `sm_RedistributeSeamUVTrimCurves` reads a fourth edge use that need not exist
+- **Location:** `source/SMLib/src/SmBrep.cpp:12097`-`12105` (`sm_RedistributeSeamUVTrimCurves`): `SM_PTR_ARRAY(sNewEdgeuses, SmEdgeuse, 16)`, `pNewE->GetEdgeuses(sNewEdgeuses); SM_ASSERT(sNewEdgeuses.GetSize() == 4)`, then `sNewEdgeuses[0]` and `sNewEdgeuses[3]`.
+- **What happens:** The assertion is a no-op in release builds. For a seam edge with fewer than four edge uses the function reads slot 3 of the 16-slot stack array, an uninitialised pointer, and calls `GetCWEdgeuse()` on it.
+- **Trigger:** A UV trim curve given, a seam direction other than `SM_SP_NEITHER`, and an edge with one, two or three edge uses (a wire or lamina seam edge, or an edge whose other face is not attached yet).
+- **How found:** source review while porting `topology.brep_p1` (PR #145); the difftest shim refuses the call for edges with fewer than four edge uses.
+- **Confirmed:** no (source inspection only; the shim never runs it).
+- **Severity:** crash/UB.
+- **Rust port:** `topology::brep::p1::redistribute_seam_uv_trim_curves` returns `InvalidInput` for an edge with fewer than four edge uses.
+
 ### Healer target management
 
 #### UB-163. Uncached healer props removal leaves targets that resize into NULL props holes
@@ -1445,6 +1454,15 @@ meantime, whoever merges renumbers the new entry and every reference to it (here
 - **Confirmed:** yes (C++ 15.4 s, Rust 121.5 s for the one case).
 - **Severity:** hang (minutes per call; bounded by the minimum side ratio).
 - **Rust port:** Same bound (`MAX_SUBDIVISION_DEPTH` does not limit the node count). The generator uses scale `1e-3` instead of `1e-4`.
+
+#### HANG-18. `MateLaminaEdgeToSurface` with a negative extension factor never returns
+- **Location:** `NL_CrvAdv.cpp:640` `ST_curxcdr` (the G2 mirror-segment searches, `while( NL_YES )` at `:748` and `:839`), through `N_CrvExtendByDist` <- `ST_surxsdr` <- `N_SrfExtendByDist` <- `SmBSplineSurface::CreateExtendedSurface` <- `SmBrep::MateLaminaEdgeToSurface` (`SmBrep.cpp:22248`, `CreateExtendedSurface(ctx, dMaxDist*dSurfaceExtensionFactor, SM_CT_G1R, ..)`).
+- **What happens:** Nothing rejects a negative distance. With `ldst < 0` the parameter step `du = (U[m]-U[0])*(ldst/d1)` is negative, so the search walks the parameter off the knot range (only one side is clamped) and its exits compare arc lengths against the negative `ldst` (`fabs(ldst - dr) < ldst * 0.05` is never true). Distinct from the long positive extensions of the offset hang (swarm registry HANG-17), which split and recurse.
+- **Trigger:** `MateLaminaEdgeToSurface` with `dSurfaceExtensionFactor = -1` on a lamina edge whose points are off the mating surface: `Endcap.smb` edge 0, and edges 0 and 1 of a `10 x 10` plane face, mating plane `z = 0.5`, `dUVExtensionFactor = 10`, editing enabled. Factors `0`, `1.5` (the only upstream use) and `1e6` return normally.
+- **How found:** `topology.brep_p2` pre-review guard fuzz (PR #149).
+- **Confirmed:** yes (gdb backtrace inside `ST_curxcdr` <- `N_CrvExtendByDist` after 90 s; killed after 40 min in the sweep). The loop mechanism is from source inspection.
+- **Severity:** hang.
+- **Rust port:** `topology::brep::p2::mate_lamina_edge_to_surface` returns `InvalidInput` for a negative extension distance before `create_extended_surface`; the difftest FFI rejects a negative factor (`topology.brep_p2` runner test `mate_rejects_a_negative_extension_factor`).
 
 #### HANG-13. `SmApiCreateLinearSweep` of a full circle over a negative distance never returns
 - **Location:** `source/SM_API/src/SmApiBrep.cpp:1196` `SmApiCreateLinearSweep` (and `SmApiCreateLinearSweepWithRepetitions`, `:1685`) -> `source/SMLib/src/SmPrimitiveCreation.cpp:1795` `SmPrimitiveCreation::CreateLinearSweep` -> (one repetition) `:1150` `CreateLinearSweep`, which builds the analytic domain `SmExtent2d(0, 0, 1, dSweepDist)` without ordering it.
@@ -1800,6 +1818,15 @@ meantime, whoever merges renumbers the new entry and every reference to it (here
 - **Confirmed:** no.
 - **Severity:** wrong result (validation gap).
 - **Rust port:** Accepts them too (faithful).
+
+#### WR-168. `MakeWireEdge` / `MakeWireEdgeVertex` give the new edge a sliced copy of an edge-owned curve
+- **Location:** `source/SMLib/src/SmBrep.cpp:21676`-`21678` (`SmBrep::MakeWireEdge`) and `:21801`-`21803` (`SmBrep::MakeWireEdgeVertex`).
+- **What happens:** When the curve passed in already belongs to an edge (`pCurve->GetEdge() != NULL`), the new wire edge gets `new (pCurve->GetContext()) SmCurve(*pCurve)`: the `SmCurve` base-class copy constructor, which copies none of the derived class's geometry (an `SmBSplineCurve`'s NURB, a line's point and vector). The new edge's curve is a plain `SmCurve` whose evaluation falls back to the base class (`SM_ERR`). The vertex tolerance checks right after still evaluate the original curve, so the calls succeed.
+- **Trigger:** `MakeWireEdge(NULL, v1, v2, pOtherEdge->GetCurve(), ...)` (or `MakeWireEdgeVertex`) with the curve of an existing edge.
+- **How found:** read during porting (`topology.brep_p3`, PR #204).
+- **Confirmed:** no (not run: the port and its difftest stop at `topology.shell` inside `MakeEdgeTopology` first).
+- **Severity:** wrong result (an edge without usable geometry).
+- **Rust port:** Deviation: the port clones the curve with its geometry (`Curve`'s `Clone`, the copy constructor of each curve kind); a geometry-less base curve cannot be represented.
 
 ### Curves
 

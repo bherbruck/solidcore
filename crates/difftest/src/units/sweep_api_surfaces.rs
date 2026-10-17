@@ -444,7 +444,10 @@ fn status(e: &SolidError) -> f64 {
 }
 
 /// Pushes the status then, on success, the surface.
-fn surface_result(o: &mut Vec<f64>, r: solidcore::Result<BSplineSurface>) -> Result<(), SolidError> {
+fn surface_result(
+    o: &mut Vec<f64>,
+    r: solidcore::Result<BSplineSurface>,
+) -> Result<(), SolidError> {
     match r {
         Ok(s) => {
             o.push(0.0);
@@ -460,7 +463,7 @@ fn surface_result(o: &mut Vec<f64>, r: solidcore::Result<BSplineSurface>) -> Res
 }
 
 fn rust(i: &Inputs) -> Result<Output, HarnessError> {
-    let k = Kernel::default();
+    let mut k = Kernel::default();
     let mut o = Vec::new();
     let res: Result<(), SolidError> = match i {
         Inputs::Extrude { curve, vector } => {
@@ -496,6 +499,7 @@ fn rust(i: &Inputs) -> Result<Output, HarnessError> {
         } => {
             let c = bspline(curve)?;
             match api::create_surface_revolution(
+                &mut k,
                 c.as_ref(),
                 pt(origin),
                 Vec3::new(axis[0], axis[1], axis[2]),
@@ -532,7 +536,7 @@ fn rust(i: &Inputs) -> Result<Output, HarnessError> {
                 .map(|&c| usize::try_from(c).map_err(|_| harness("count too large")))
                 .collect::<Result<Vec<_>, _>>()?;
             let degree = usize::try_from(*degree).map_err(|_| harness("degree too large"))?;
-            match api::create_skin_primitive(&k, &counts, &refs, degree, *cap_ends) {
+            match api::create_skin_primitive(&mut k, &counts, &refs, degree, *cap_ends) {
                 Ok(r) => {
                     o.extend([
                         0.0,
@@ -554,7 +558,7 @@ fn rust(i: &Inputs) -> Result<Output, HarnessError> {
             // The planar circle breps (`SmApiCreatePlanarCircle`) cannot be built in
             // Rust yet; the entry point is unported whatever its faces.
             let degree = usize::try_from(*degree).map_err(|_| harness("degree too large"))?;
-            match api::create_skin_from_faces(&k, &Brep::default(), &[], degree) {
+            match api::create_skin_from_faces(&mut k, &Brep::default(), &[], degree) {
                 Ok(r) => {
                     o.extend([0.0, 1.0, r.new_faces.len() as f64]);
                     Ok(())
@@ -823,7 +827,11 @@ fn gen_revolution(rng: &mut Rng) -> Inputs {
     };
     Inputs::Revolution {
         curve,
-        origin: if null { rng.point3(-5.0, 5.0) } else { [0.0; 3] },
+        origin: if null {
+            rng.point3(-5.0, 5.0)
+        } else {
+            [0.0; 3]
+        },
         axis,
         angle_deg: rng.uniform(-360.0, 360.0),
     }
