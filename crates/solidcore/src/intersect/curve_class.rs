@@ -22,7 +22,7 @@ pub use p1::{
     set_xsect_curve_through_point, set_xsect_edge_through_point, src_zone_tol_3d_of,
     xsect_tol_2d_or_3d_for_classify_pair, ApplyPointSolution, ApplyPointSolutionInput, CciGeometry,
     CciSurfaceGaps, CrvDirOnFaceType, CurveClassification, CurveInterval, IntervalPosition,
-    TouchData, XSectThroughPoint, CURVE_CLASSIFICATION_TYPE_STRING, MAX_INTERVALS,
+    TopologyHandles, TouchData, XSectThroughPoint, CURVE_CLASSIFICATION_TYPE_STRING, MAX_INTERVALS,
 };
 
 pub use p3::{

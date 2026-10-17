@@ -21,7 +21,7 @@
 //! | [`BSplineCurve::degree_reduction`]                     | `SmBSplineCurve::DegreeReduction`              |
 //! | [`BSplineCurve::insert_one_knot`]                      | `SmBSplineCurve::InsertOneKnot`                |
 //! | [`control_point_spacing`]                              | `sm_GetControlPointSpacing` (static)           |
-//! | [`BSplineCurve::set_intersection_curve_through_point`] | `SmBSplineCurve::SetIntersectionCurveThroughPoint` |
+//! | [`BSplineCurve::set_intersection_curve_through_point`], [`BSplineCurve::set_intersection_curve_through_point_flagged`] | `SmBSplineCurve::SetIntersectionCurveThroughPoint` |
 //! | [`BSplineCurve::equally_spaced_points`]                | `SmBSplineCurve::EquallySpacedPoints`          |
 //! | [`BSplineCurve::insert_knots`]                         | `SmBSplineCurve::InsertKnots(SmTArray<double>&)` |
 //! | [`BSplineCurve::interpolate_points`]                   | `SmBSplineCurve::InterpolatePoints`            |
@@ -918,6 +918,63 @@ impl BSplineCurve {
         uv_points: &[Option<Vec2>],
         min_span_percent: f64,
     ) -> Result<bool> {
+        let mut modified = false;
+        self.intersection_curve_through_point(
+            k,
+            new_knot,
+            through,
+            tangent,
+            uv_curves,
+            surfaces,
+            uv_points,
+            min_span_percent,
+            &mut modified,
+        )
+    }
+
+    /// [`BSplineCurve::set_intersection_curve_through_point`] that also returns
+    /// upstream's `bModifiedCurve` out-param, which stays `TRUE` when the edit fails
+    /// after it was set (a failed knot insertion; the curves are then unchanged).
+    pub fn set_intersection_curve_through_point_flagged<S: SurfaceEvaluate>(
+        &mut self,
+        k: &Kernel,
+        new_knot: &mut f64,
+        through: Point3,
+        tangent: Option<Vec3>,
+        uv_curves: &mut [Self],
+        surfaces: &[S],
+        uv_points: &[Option<Vec2>],
+        min_span_percent: f64,
+    ) -> (Result<bool>, bool) {
+        let mut modified = false;
+        let r = self.intersection_curve_through_point(
+            k,
+            new_knot,
+            through,
+            tangent,
+            uv_curves,
+            surfaces,
+            uv_points,
+            min_span_percent,
+            &mut modified,
+        );
+        (r, modified)
+    }
+
+    /// The body of [`BSplineCurve::set_intersection_curve_through_point`];
+    /// `modified_out` is upstream's `bModifiedCurve`.
+    fn intersection_curve_through_point<S: SurfaceEvaluate>(
+        &mut self,
+        k: &Kernel,
+        new_knot: &mut f64,
+        through: Point3,
+        tangent: Option<Vec3>,
+        uv_curves: &mut [Self],
+        surfaces: &[S],
+        uv_points: &[Option<Vec2>],
+        min_span_percent: f64,
+        modified_out: &mut bool,
+    ) -> Result<bool> {
         const OP: &str = OP_THROUGH;
 
         // check state - Quit if the curve is not a piecewise C0, degree 3 curve
@@ -1257,6 +1314,7 @@ impl BSplineCurve {
 
         // modify the knot vector so that dNewKnot is the interpolating parameter
         let modified_curve = true;
+        *modified_out = true;
 
         // new curves for cases 1, 4, 8 (the control points are edited there)
         let mut new_crv: Option<Curve> = None;

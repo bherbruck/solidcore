@@ -3915,6 +3915,27 @@ cases, 169 deferred; `SmSurface::EvaluateNormal` and `DropVectors` now call the
 - **Not compared.** The shim never builds an `SmSurfOfRevolution` or `SmSurfOfExtrusion`,
   so the `SurfOfRevolution` arm of `out_of_bounds()` (the base-flag-only
   `SmTemporaryChangeValue`) is ported but not difftested; planes and B-spline surfaces are.
+- **PR #178 review (2026-10-17).** (1) The edge path of `sm_ApplyPointSolution` was
+  still `UNPORTED(topology.edge)` and the shim rejected every edge, although it only
+  needs `SmEdge::GetCurve`/`GetInterval` and `sm_SetXSectEdgeThroughPoint`, which the
+  stand-ins support. Now ported: `ApplyPointSolutionInput` takes `EdgeId`s and
+  `apply_point_solution` an `Option<&mut Brep>`; `dTDeviation` keeps its previous value
+  when the callee does not write it, and the mate guess uses `SmExtent1d::Inversion`'s
+  `SM_UNDEF_DOUBLE` on a zero-length interval, as upstream. The shim now rejects only a
+  null edge or mate curve, or a curve shared with the classification curve (the port
+  edits them as separate objects). 200 fixed-seed `apply_edge_*` scripts compare it.
+  (2) The stand-in edges have no edge uses, so `sm_GetCCIGeometry`'s edge-face loop
+  (unique face surfaces, edge uses, UV trim curves, the shared surface's second entry,
+  `lEdgeSurfaceCount`) was never compared. Shim op 51 `cci_face` runs it on a boundary
+  edge of a real `SmBrep::CreateFaceFromSurface` face, mirrored in the Rust B-rep as one
+  face / faceuse / loopuse / edge use with no UV trim curve; 120 `cci_face_*` scripts.
+  The reviewer's earlier 1,859 edge-through / face-point-class scripts are now the
+  fixture `review178_edge_face.json`. All pass (4,704 cases, 68 deferred, 0 failed).
+  Still not compared: non-default edge/face tolerances (the stand-ins carry the system
+  zone tol), face-boundary hits in `sm_ComputeFacePointClass` (stand-in faces have no
+  loops), the UV-trim-curve removal of `sm_SetXSectEdgeThroughPoint` (no edge uses on
+  edited edges), and the vertex repair of `sm_MakeConsistentClassifications` (still
+  `UNPORTED(topology.edge)`; needs connected edge/vertex topology in the shim).
 
 ## query.poly (`SmPolyBrep` and its poly objects, 2026-10-14)
 
