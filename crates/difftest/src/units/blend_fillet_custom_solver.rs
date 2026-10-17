@@ -506,7 +506,7 @@ fn base_of(s: &SolverIn) -> Result<ConstantRadiusAssistedFs, HarnessError> {
         s.o,
         [None, None],
     );
-    fs.surface_extension_factor = s.ext;
+    fs.solver.surface_extension_factor = s.ext;
     Ok(fs)
 }
 
@@ -601,7 +601,7 @@ fn rust_jac(
     jac: Option<[usize; 2]>,
 ) -> Result<Output, HarnessError> {
     let base = base_of(solver)?;
-    let load = JacobianLoad {
+    let mut load = JacobianLoad {
         rail_index: rail,
         surface1: selector_id(sel[0].0, solver),
         surf1_offset: sel[0].1,
@@ -615,12 +615,12 @@ fn rust_jac(
     let (res, offsets) = match kind {
         Kind::Eiffel => {
             let mut fs = EiffelTowerFs::new(base, solver.angle);
-            let r = fs.load_jacobian(&mut ne, &mut np, &load, &mut f, j.as_mut());
+            let r = fs.load_jacobian(&mut ne, &mut np, &mut load, &mut f, j.as_mut());
             (r, offsets_of(&fs.base))
         }
         Kind::Secant => {
             let mut fs = SecantConstantRadiusFs::new(base, solver.angle);
-            let r = fs.load_jacobian(&mut ne, &mut np, &load, &mut f, j.as_mut());
+            let r = fs.load_jacobian(&mut ne, &mut np, &mut load, &mut f, j.as_mut());
             (r, offsets_of(&fs.base))
         }
     };

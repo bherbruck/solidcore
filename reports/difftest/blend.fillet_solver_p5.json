@@ -1,0 +1,779 @@
+{
+  "abs_floors": [],
+  "cases": [
+    {
+      "max_rel_err": 0.0,
+      "name": "blend_missing_classifications",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#0 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "blend_bypasses_recovery",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#1 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "missing_first_class_kind_0",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#2 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 2
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "missing_second_class_kind_0",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#3 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 2
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "missing_first_class_kind_2",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#4 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 2
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "missing_second_class_kind_2",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#5 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 2
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "missing_first_class_kind_3",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#6 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 2
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "missing_second_class_kind_3",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#7 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 2
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "missing_first_class_kind_4",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#8 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 2
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "missing_second_class_kind_4",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#9 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 2
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "missing_first_class_kind_5",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#10 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 2
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "missing_second_class_kind_5",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#11 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 2
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "missing_first_class_kind_6",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#12 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 2
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "missing_second_class_kind_6",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#13 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 2
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "single_interval_class_101",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#14 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "single_interval_class_102",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#15 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "single_interval_class_103",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#16 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "single_interval_class_104",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#17 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "single_interval_class_109",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#18 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_0_no_corner",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#19 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_0_unsupported_corner_0",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#20 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_0_unsupported_corner_1",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#21 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_0_unsupported_corner_2",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#22 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_0_unsupported_corner_4",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#23 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_0_unsupported_corner_5",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#24 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_0_unsupported_corner_6",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#25 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_0_unsupported_corner_8",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#26 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_0_unsupported_corner_9",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#27 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_0_unsupported_corner_10",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#28 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_0_unsupported_corner_11",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#29 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_0_unsupported_corner_12",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#30 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_1_no_corner",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#31 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_1_unsupported_corner_0",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#32 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_1_unsupported_corner_1",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#33 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_1_unsupported_corner_2",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#34 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_1_unsupported_corner_4",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#35 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_1_unsupported_corner_5",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#36 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_1_unsupported_corner_6",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#37 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_1_unsupported_corner_8",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#38 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_1_unsupported_corner_9",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#39 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_1_unsupported_corner_10",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#40 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_1_unsupported_corner_11",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#41 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_1_unsupported_corner_12",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#42 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_2_no_corner",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#43 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_2_unsupported_corner_0",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#44 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_2_unsupported_corner_1",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#45 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_2_unsupported_corner_2",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#46 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_2_unsupported_corner_4",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#47 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_2_unsupported_corner_5",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#48 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_2_unsupported_corner_6",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#49 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_2_unsupported_corner_8",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#50 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_2_unsupported_corner_9",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#51 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_2_unsupported_corner_10",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#52 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_2_unsupported_corner_11",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#53 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "unknown_rail_2_unsupported_corner_12",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#54 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "single_interval_scale_1e-200",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#55 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "single_interval_scale_1e-10",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#56 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "single_interval_scale_1.0",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#57 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "single_interval_scale_10000000000.0",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#58 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "single_interval_scale_1e+200",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#59 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "empty_test_preserves_duplicates",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#60 (upstream source/SMLib/src/SmFilletSolver.cpp:5714)",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "empty_test_empty_output",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#61 (upstream source/SMLib/src/SmFilletSolver.cpp:5714)",
+      "values_compared": 4
+    },
+    {
+      "deferred": {
+        "symbol": "SmCurveClassification::ReSet",
+        "unit": "intersect.curve_class_p2"
+      },
+      "max_rel_err": 0.0,
+      "name": "two_real_rails_classified_on_rectangle",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#62 (upstream source/SMLib/src/SmFilletSolver.cpp:5714)",
+      "values_compared": 0
+    },
+    {
+      "deferred": {
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
+      },
+      "max_rel_err": 0.0,
+      "name": "multi_or_empty_intervals_0_0",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#63 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 0
+    },
+    {
+      "deferred": {
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
+      },
+      "max_rel_err": 0.0,
+      "name": "multi_or_empty_intervals_2_1",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#64 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 0
+    },
+    {
+      "deferred": {
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
+      },
+      "max_rel_err": 0.0,
+      "name": "multi_or_empty_intervals_1_2",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#65 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 0
+    },
+    {
+      "deferred": {
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
+      },
+      "max_rel_err": 0.0,
+      "name": "multi_or_empty_intervals_2_2",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#66 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 0
+    },
+    {
+      "inputs": {
+        "adjusted": [1, 0, 1],
+        "corner": 3,
+        "kind": 0,
+        "op": 0,
+        "rails": [
+          [
+            {
+              "class": 100,
+              "max": 1.0,
+              "min": 0.0
+            }
+          ],
+          [
+            {
+              "class": 102,
+              "max": 1.0,
+              "min": 0.0
+            }
+          ]
+        ]
+      },
+      "max_rel_err": 0.0,
+      "name": "rejected_incomplete_full_rollover_corner_3",
+      "outcome": "rejected",
+      "pass": false,
+      "rejected": "incomplete recovery fixture",
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#67 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 0
+    },
+    {
+      "inputs": {
+        "adjusted": [1, 0, 1],
+        "corner": 7,
+        "kind": 0,
+        "op": 0,
+        "rails": [
+          [
+            {
+              "class": 100,
+              "max": 1.0,
+              "min": 0.0
+            }
+          ],
+          [
+            {
+              "class": 102,
+              "max": 1.0,
+              "min": 0.0
+            }
+          ]
+        ]
+      },
+      "max_rel_err": 0.0,
+      "name": "rejected_incomplete_full_rollover_corner_7",
+      "outcome": "rejected",
+      "pass": false,
+      "rejected": "incomplete recovery fixture",
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#68 (upstream source/SMLib/src/SmFilletSolver.cpp:7161)",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "reversed_interval_preserves_initial_extent",
+      "outcome": "pass",
+      "pass": true,
+      "source": "fixture:fixtures/blend.fillet_solver_p5/cases.json#69 (upstream source/SMLib/src/SmExtent1d.cpp:239)",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0000",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=2561853986542367058",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0001",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=2561853986542367059",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0002",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=2561853986542367060",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0003",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=2561853986542367061",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0004",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=2561853986542367062",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0005",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=2561853986542367063",
+      "values_compared": 2
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0006",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=2561853986542367064",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0007",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=2561853986542367065",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0008",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=2561853986542367066",
+      "values_compared": 2
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0009",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=2561853986542367067",
+      "values_compared": 4
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0010",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=2561853986542367068",
+      "values_compared": 2
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0011",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=2561853986542367069",
+      "values_compared": 2
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0012",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=2561853986542367070",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0013",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=2561853986542367071",
+      "values_compared": 2
+    },
+    {
+      "deferred": {
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
+      },
+      "max_rel_err": 0.0,
+      "name": "gen0014",
+      "outcome": "deferred",
+      "pass": false,
+      "source": "generated:seed=2561853986542367072",
+      "values_compared": 0
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "gen0015",
+      "outcome": "pass",
+      "pass": true,
+      "source": "generated:seed=2561853986542367073",
+      "values_compared": 4
+    }
+  ],
+  "cases_both_errored": 0,
+  "cases_deferred": 6,
+  "cases_failed": 0,
+  "cases_passed": 78,
+  "cases_rejected": 2,
+  "cases_total": 86,
+  "deferred_by_unit": {
+    "intersect.curve_class_p2": 1,
+    "topology.edgeuse_p3": 5
+  },
+  "max_rel_err": 0.0,
+  "pass": true,
+  "rel_tol": 1e-9,
+  "seeds": 16,
+  "status": "partial",
+  "unit": "blend.fillet_solver_p5"
+}

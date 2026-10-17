@@ -1348,10 +1348,11 @@ impl Surface {
                     // NOTE for the face_p2 porter: upstream callers disable the surface
                     // cache's point test (`m_bPointTestEnabled`, SmTemporaryChangeValue)
                     // around GlobalPointSolve so every solution is kept unclassified:
-                    // SmCurveClass.cpp:1040, SmTopologySolver.cpp:1665 and
-                    // SmVertexUse.cpp:471-480 (Rust: `intersect::curve_class::p1`,
-                    // `intersect::topology_solver::p2`, `topology::vertexuse`). The Rust
-                    // cache has no such switch yet; add it when this stub is wired.
+                    // SmCurveClass.cpp:1040, SmTopologySolver.cpp:1665,
+                    // SmVertexUse.cpp:471-480 and SmFilletGeom.cpp:149-150, 446-447
+                    // (Rust: `intersect::curve_class::p1`, `intersect::topology_solver::p2`,
+                    // `topology::vertexuse`, `blend::fillet_geom::p1`). The Rust cache has
+                    // no such switch yet; add it when this stub is wired.
                     return Err(SolidError::unported(
                         "SmFace::PointClassify",
                         "query.face_p2",
