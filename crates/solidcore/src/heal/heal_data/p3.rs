@@ -1172,6 +1172,15 @@ mod tests {
     fn catch_up_restores_state_after_unported_callee() {
         let mut k = Kernel::default();
         let mut b = Brep::default();
+        // a face whose tolerance SmBrep::SetTolerance raises (SmFace::SetTolerance,
+        // topology.face_p3): B-rep and face tolerances below the estimate
+        let f = b
+            .add_face_record(crate::topology::Face::new(
+                crate::topology::ShellId::from_index(0),
+            ))
+            .unwrap();
+        b.face_mut(f).unwrap().tolerance = 0.0;
+        b.set_tolerance(0.0);
         let mut h = HealData::<L>::new();
         h.old_face_cnt = 7;
         h.old_edge_cnt = 8;
@@ -1179,8 +1188,8 @@ mod tests {
         h.stop_heal_op = HealerOpType::All;
         h.done_heal_op = HealerOpType::FixTolsizes;
         h.recursion_count = 3;
-        // Even a null add entry enters native catch-up. Fix_TolSizes still asks
-        // the B-rep for its model-size estimate, despite empty target arrays.
+        // Even a null add entry enters native catch-up. Fix_TolSizes still sets the
+        // B-rep tolerance, despite empty target arrays.
         let e = h
             .update_target_lists(&mut k, &mut b, &[], &[None], HealerOpType::All)
             .unwrap_err();

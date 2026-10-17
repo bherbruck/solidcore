@@ -14291,6 +14291,46 @@
     },
     {
       "max_rel_err": 0.0,
+      "name": "edge_proto_fallback_tol_zero",
+      "outcome": "pass",
+      "pass": true,
+      "source": "inline",
+      "values_compared": 49
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "edge_proto_fallback_tol_negative",
+      "outcome": "pass",
+      "pass": true,
+      "source": "inline",
+      "values_compared": 49
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "edge_proto_fallback_tol_minus_one",
+      "outcome": "pass",
+      "pass": true,
+      "source": "inline",
+      "values_compared": 49
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "edge_proto_fallback_tol_tiny",
+      "outcome": "pass",
+      "pass": true,
+      "source": "inline",
+      "values_compared": 49
+    },
+    {
+      "max_rel_err": 0.0,
+      "name": "edge_proto_fallback_tol_eff_zero",
+      "outcome": "pass",
+      "pass": true,
+      "source": "inline",
+      "values_compared": 49
+    },
+    {
+      "max_rel_err": 0.0,
       "name": "edge_transform_line_transform",
       "outcome": "pass",
       "pass": true,
@@ -15229,8 +15269,8 @@
   "cases_both_errored": 0,
   "cases_deferred": 92,
   "cases_failed": 0,
-  "cases_passed": 1765,
-  "cases_total": 1857,
+  "cases_passed": 1770,
+  "cases_total": 1862,
   "deferred_by_unit": {
     "topology.brep_p5": 10,
     "topology.edge": 28,

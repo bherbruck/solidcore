@@ -1130,16 +1130,12 @@
       "values_compared": 44
     },
     {
-      "deferred": {
-        "symbol": "SmBrep::Notify",
-        "unit": "topology.brep_p2"
-      },
       "max_rel_err": 0.0,
       "name": "net_set_curve_delete_notify_e0",
-      "outcome": "deferred",
-      "pass": false,
+      "outcome": "pass",
+      "pass": true,
       "source": "fixture:fixtures/topology.edge/network.json#1 (upstream tests/prog_test/src/smTopoTest.cpp:my_test_topology)",
-      "values_compared": 0
+      "values_compared": 49
     },
     {
       "max_rel_err": 0.0,
@@ -1498,16 +1494,12 @@
       "values_compared": 44
     },
     {
-      "deferred": {
-        "symbol": "SmBrep::Notify",
-        "unit": "topology.brep_p2"
-      },
       "max_rel_err": 0.0,
       "name": "net_set_curve_delete_notify_e1",
-      "outcome": "deferred",
-      "pass": false,
+      "outcome": "pass",
+      "pass": true,
       "source": "fixture:fixtures/topology.edge/network.json#46 (upstream tests/prog_test/src/smTopoTest.cpp:my_test_topology)",
-      "values_compared": 0
+      "values_compared": 49
     },
     {
       "max_rel_err": 0.0,
@@ -1866,16 +1858,12 @@
       "values_compared": 44
     },
     {
-      "deferred": {
-        "symbol": "SmBrep::Notify",
-        "unit": "topology.brep_p2"
-      },
       "max_rel_err": 0.0,
       "name": "net_set_curve_delete_notify_e2",
-      "outcome": "deferred",
-      "pass": false,
+      "outcome": "pass",
+      "pass": true,
       "source": "fixture:fixtures/topology.edge/network.json#91 (upstream tests/prog_test/src/smTopoTest.cpp:my_test_topology)",
-      "values_compared": 0
+      "values_compared": 49
     },
     {
       "max_rel_err": 0.0,
@@ -2234,16 +2222,12 @@
       "values_compared": 44
     },
     {
-      "deferred": {
-        "symbol": "SmBrep::Notify",
-        "unit": "topology.brep_p2"
-      },
       "max_rel_err": 0.0,
       "name": "net_set_curve_delete_notify_e3",
-      "outcome": "deferred",
-      "pass": false,
+      "outcome": "pass",
+      "pass": true,
       "source": "fixture:fixtures/topology.edge/network.json#136 (upstream tests/prog_test/src/smTopoTest.cpp:my_test_topology)",
-      "values_compared": 0
+      "values_compared": 49
     },
     {
       "max_rel_err": 0.0,
@@ -2602,16 +2586,12 @@
       "values_compared": 44
     },
     {
-      "deferred": {
-        "symbol": "SmBrep::Notify",
-        "unit": "topology.brep_p2"
-      },
       "max_rel_err": 0.0,
       "name": "net_set_curve_delete_notify_e4",
-      "outcome": "deferred",
-      "pass": false,
+      "outcome": "pass",
+      "pass": true,
       "source": "fixture:fixtures/topology.edge/network.json#181 (upstream tests/prog_test/src/smTopoTest.cpp:my_test_topology)",
-      "values_compared": 0
+      "values_compared": 49
     },
     {
       "max_rel_err": 0.0,
@@ -4411,8 +4391,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetInfiniteRegion",
-        "unit": "topology.brep_p1"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "box_with_large_fillet_e0_blend",
@@ -4699,8 +4679,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetInfiniteRegion",
-        "unit": "topology.brep_p1"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "box_with_large_fillet_e2_blend",
@@ -4903,8 +4883,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetInfiniteRegion",
-        "unit": "topology.brep_p1"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "box_with_large_fillet_e5_blend",
@@ -5313,8 +5293,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetInfiniteRegion",
-        "unit": "topology.brep_p1"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "box_with_large_fillet_e11_blend",
@@ -5521,8 +5501,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetInfiniteRegion",
-        "unit": "topology.brep_p1"
+        "symbol": "SmEdgeuse::EvaluateBinormal",
+        "unit": "topology.edgeuse_p3"
       },
       "max_rel_err": 0.0,
       "name": "box_with_large_fillet_rb_e0_blend",
@@ -14793,14 +14773,12 @@
     }
   ],
   "cases_both_errored": 186,
-  "cases_deferred": 77,
+  "cases_deferred": 72,
   "cases_failed": 0,
-  "cases_passed": 1710,
+  "cases_passed": 1715,
   "cases_total": 1787,
   "deferred_by_unit": {
-    "topology.brep_p1": 5,
-    "topology.brep_p2": 5,
-    "topology.edgeuse_p3": 67
+    "topology.edgeuse_p3": 72
   },
   "max_rel_err": 0.0,
   "pass": true,

@@ -515,8 +515,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetShells",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_plane_0_0",
@@ -539,8 +539,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetShells",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_plane_0_2",
@@ -551,8 +551,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetEdges",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_plane_1_0",
@@ -563,8 +563,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetEdges",
-        "unit": "topology.brep_p1"
+        "symbol": "SmFace::GetTolerance",
+        "unit": "topology.face_p2"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_plane_1_1",
@@ -575,8 +575,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetEdges",
-        "unit": "topology.brep_p1"
+        "symbol": "SmFace::GetTolerance",
+        "unit": "topology.face_p2"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_plane_1_2",
@@ -587,8 +587,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetShells",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_wire_0_0",
@@ -599,8 +599,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetShells",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_wire_0_1",
@@ -611,8 +611,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetShells",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_wire_0_2",
@@ -623,8 +623,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetEdges",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_wire_1_0",
@@ -635,8 +635,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetEdges",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_wire_1_1",
@@ -647,8 +647,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetEdges",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_wire_1_2",
@@ -659,8 +659,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetShells",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_network_0_0",
@@ -671,8 +671,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetShells",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_network_0_1",
@@ -683,8 +683,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetShells",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_network_0_2",
@@ -695,8 +695,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetEdges",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_network_1_0",
@@ -707,8 +707,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetEdges",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_network_1_1",
@@ -719,8 +719,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetEdges",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_network_1_2",
@@ -731,8 +731,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetEdges",
-        "unit": "topology.brep_p1"
+        "symbol": "SmTopologyIntersector::MergeCoincidentSurfaces",
+        "unit": "boolean.topology_intersector_p3"
       },
       "max_rel_err": 0.0,
       "name": "coincident_rectangle_mates_0",
@@ -751,8 +751,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetEdges",
-        "unit": "topology.brep_p1"
+        "symbol": "SmTopologyIntersector::MergeCoincidentSurfaces",
+        "unit": "boolean.topology_intersector_p3"
       },
       "max_rel_err": 0.0,
       "name": "coincident_rectangle_mates_2",
@@ -935,8 +935,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetShells",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_file_plane_square.smb",
@@ -963,8 +963,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetShells",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_file_plane_circ.smb",
@@ -991,8 +991,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetShells",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "cleanup_file_sphere.smb",
@@ -1527,8 +1527,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetEdges",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "gen0012",
@@ -1583,8 +1583,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetEdges",
-        "unit": "topology.brep_p1"
+        "symbol": "SmTopologyIntersector::MergeCoincidentSurfaces",
+        "unit": "boolean.topology_intersector_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0018",
@@ -1727,8 +1727,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetShells",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "gen0032",
@@ -1751,8 +1751,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetShells",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "gen0034",
@@ -1771,8 +1771,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetShells",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "gen0036",
@@ -1827,8 +1827,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetEdges",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "gen0041",
@@ -1867,8 +1867,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetShells",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "gen0045",
@@ -1955,8 +1955,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetEdges",
-        "unit": "topology.brep_p1"
+        "symbol": "SmTopologyIntersector::MergeCoincidentSurfaces",
+        "unit": "boolean.topology_intersector_p3"
       },
       "max_rel_err": 0.0,
       "name": "gen0054",
@@ -2067,8 +2067,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetShells",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "gen0066",
@@ -2203,8 +2203,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetShells",
-        "unit": "topology.brep_p1"
+        "symbol": "SmRegion::GetShells",
+        "unit": "topology.shell"
       },
       "max_rel_err": 0.0,
       "name": "gen0080",
@@ -2251,8 +2251,8 @@
     },
     {
       "deferred": {
-        "symbol": "SmBrep::GetEdges",
-        "unit": "topology.brep_p1"
+        "symbol": "SmFace::GetTolerance",
+        "unit": "topology.face_p2"
       },
       "max_rel_err": 0.0,
       "name": "gen0084",
@@ -2372,12 +2372,12 @@
   "cases_passed": 153,
   "cases_total": 248,
   "deferred_by_unit": {
+    "boolean.topology_intersector_p3": 4,
     "query.brep": 14,
-    "topology.brep_p1": 33,
     "topology.brep_p9": 3,
     "topology.edgeuse_p2": 20,
-    "topology.face_p2": 3,
-    "topology.shell": 22
+    "topology.face_p2": 6,
+    "topology.shell": 48
   },
   "max_rel_err": 0.0,
   "pass": true,
