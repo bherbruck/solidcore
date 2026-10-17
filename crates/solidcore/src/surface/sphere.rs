@@ -868,7 +868,8 @@ impl Sphere {
             SurfaceKind::BSpline(_)
             | SurfaceKind::CurveBounded(_)
             | SurfaceKind::Step(_)
-            | SurfaceKind::SrfInVolume(_) => {}
+            | SurfaceKind::SrfInVolume(_)
+            | SurfaceKind::OffsetSurface(_) => {}
         }
 
         // arrive here with bNeedNurbIntersection == TRUE, then analytic intersections
@@ -2598,6 +2599,37 @@ mod tests {
 
     fn canonical(k: &Kernel, radius: f64) -> Sphere {
         Sphere::create_canonical(k, &frame(), radius).expect("sphere")
+    }
+
+    #[test]
+    fn offset_surface_intersection_reaches_the_generic_dispatch_boundary() {
+        let k = Kernel::default();
+        let sphere = canonical(&k, 2.0);
+        let domain = sphere.base.base.natural_uv_domain();
+        let offset = crate::surface::offset_surface::OffsetSurface::new(
+            &k,
+            0.25,
+            Surface::from(sphere.base.clone()),
+            false,
+            0,
+        )
+        .unwrap();
+        let other = Surface::from(offset);
+        assert!(matches!(
+            sphere.global_surface_intersect(
+                &k,
+                &domain,
+                &other,
+                &other.natural_uv_domain(),
+                [true, true],
+                None,
+                None,
+            ),
+            Err(SolidError::Unported {
+                upstream: "SmSurface::GlobalSurfaceIntersect",
+                unit: "surface.sphere",
+            })
+        ));
     }
 
     #[test]

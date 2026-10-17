@@ -3455,10 +3455,10 @@ soft_depends_on = ["boolean.merge_p2", "boolean.merge_p3", "boolean.topology_int
 est_lines = 2107
 layer = 59
 tests = ["SM_API_test:TestSmOffsetBrepFull", "SM_API_test:TestSmShellBrepFull", "prog_test:airfoil_offset", "prog_test:my_local_op", "prog_test:my_local_op_regression", "prog_test:my_test_offset", "pt_TestFiles/Fillet/nurb_box.smb", "pt_TestFiles/Solids/box.smb", "pt_TestFiles/Solids/cylinder.smb", "pt_TestFiles/offset_nurb.sms"]
-status = "todo"
+status = "partial"
 claimed_by = ""
 claimed_at = ""
-notes = "29 fns; largest: SmOffsetExecutive::BuildOffsetOfFaceuse, SmOffsetExecutive::BuildOffsetOfEdgeuses, SmOffsetExecutive::PiecewiseMerge, SmOffsetExecutive::BuildOffsetOfVertex; unit-SCC #26 (2 units); hazards: ptr-hash; 11 upstream test entry points reach this unit"
+notes = "29 fns; largest: SmOffsetExecutive::BuildOffsetOfFaceuse, SmOffsetExecutive::BuildOffsetOfEdgeuses, SmOffsetExecutive::PiecewiseMerge, SmOffsetExecutive::BuildOffsetOfVertex; unit-SCC #26 (2 units); hazards: ptr-hash; 11 upstream test entry points reach this unit; PR #175 partial after non-blocking review follow-ups: 693 cases (93 fixtures + 600 generated), 675 passed, 17 deferred, 1 explicit native analytic-line constructor rejection, 0 failures; max_rel_err=2.9158035700250084e-14, no absolute floors; 675/675 perturbations detected. Extension fixtures use the nonnegative magnitude supplied by real callers; the FFI guards negative internal distances. Only exactly equal-minimum groups are normalized under the established SmRelation convention. GetEdges arena-order traversal is tagged UNPORTED(topology.brep_p1) and remains uncertified; ordinary UV conversion/bbox failures are ignored without swallowing Unported, and absent strut mates yield empty relations. Real closed cubic support makes zero-trim/constant-spline measurements comparable; measured geometry and traversal are unchanged. Deferrals: topology.brep_p9(12), heal.stitch_p2(1), offset.offset_geometry_creation(1), topology.brep_p4(1), topology.brep_p5(1), topology.edgeuse_p3(1)."
 
 [[unit]]
 id = "primitive.api_primitives"
@@ -3567,10 +3567,10 @@ soft_depends_on = ["boolean.merge_p2", "boolean.merge_p4", "geom.extent2d", "geo
 est_lines = 1846
 layer = 60
 tests = ["SM_API_test:TestSmOffsetBrepFull", "SM_API_test:TestSmShellBrepFull", "prog_test:airfoil_offset", "prog_test:my_local_op", "prog_test:my_local_op_regression", "prog_test:my_test_offset", "pt_TestFiles/Fillet/nurb_box.smb", "pt_TestFiles/Solids/box.smb", "pt_TestFiles/Solids/cylinder.smb", "pt_TestFiles/offset_nurb.sms"]
-status = "todo"
+status = "partial"
 claimed_by = ""
 claimed_at = ""
-notes = "6 fns; largest: SmOffsetExecutive::DoExtendedOffset, SmOffsetExecutive::DoSolidOffset, SmOffsetExecutive::ShellBrep, SmApiShellBrepFull; entry points: SmApiOffsetBrepFull, SmApiShellBrepFull; 11 upstream test entry points reach this unit"
+notes = "6 fns; largest: SmOffsetExecutive::DoExtendedOffset, SmOffsetExecutive::DoSolidOffset, SmOffsetExecutive::ShellBrep, SmApiShellBrepFull; entry points: SmApiOffsetBrepFull, SmApiShellBrepFull; 11 upstream test entry points reach this unit. PR #201, stacked on #175: six dispatchers/executable prefixes, not completed offset/shell construction. Default native run: 294 cases (54 fixtures + 240 fixed-seed generated), 118 passed with values, 0 failed, 0 rejected, 176 deferred; max_rel_err=0, rel_tol=1e-9, no absolute floors; sensitivity 118/118. Certified parity is member/API null errors and invalid API-shell selections, executive state, selector provenance/order, ownership/presence, and documented input-geometry/purity projections; box adjacency/returned-shape equivalence is not certified. Deferred: heal.stitch_p2(6), topology.brep_p1(23), topology.brep_p2(58), topology.brep_p3(32), topology.brep_p4(3), topology.brep_p5(6), topology.edgeuse_p3(4), topology.shell(44). Completing those dependencies also requires the documented P2 continuations and fail-closed output adapter; no topology copy or empty geometric success is fabricated. Shared native-call serialization protects the scoped allocation observer across wrappers; see plan/findings.md and reports/difftest/offset.offset_executive_p2.json."
 
 [[unit]]
 id = "blend.fillet_corner_p3"
