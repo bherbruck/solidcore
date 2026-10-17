@@ -2517,10 +2517,10 @@ soft_depends_on = ["curve.curve_p4", "curve.curve_p8", "curve.line", "intersect.
 est_lines = 1768
 layer = 40
 tests = ["SM_API_test:TestSmCreatePlanarCircle", "SM_API_test:TestIntersectionOutputStatus", "SM_API_test:TestSmCreatePlane", "SM_API_test:TestSmCreateSwungPrimitive", "SM_API_test:TestSmCreatePlanarFaces", "prog_test:my_test_tracks_nested_geometry_and_resets"]
-status = "todo"
+status = "blocked"
 claimed_by = ""
 claimed_at = ""
-notes = "7 fns; largest: SmBrep::MakeFacesWithCurves, SmBrep::CreateFaceInRegionFromSurface, SmBrep::CreateFacesWithCurves, SmBrep::CreateFacesFromSurface; cycle back-edges (call into later units; stub or co-port): topology.trimming_tools(13), topology.brep_p1(11), topology.brep_p7(3), topology.brep_p3(2), topology.brep_p4(2), topology.brep_p5(2), topology.brep_p9(2), query.face_p1(1), topology.brep_p6(1), topology.face_p3(1); unit-SCC #22 (220 units); 186 upstream test entry points reach this unit"
+notes = "BLOCKED (PR #72, see plan/findings.md): every success path of all 7 fns ends in unported builders topology.brep_p1/p5/p6/p7/p9; hard dep topology.loopuse and surface_p8 now partial but re-checked 2026-10-16 (main 2bdd9f66): brep_p1/p3/p4/p5/p6/p7/p9 still todo; only input-validation errors would be comparable, so no faithful difftest yet. 7 fns; largest: SmBrep::MakeFacesWithCurves, SmBrep::CreateFaceInRegionFromSurface, SmBrep::CreateFacesWithCurves, SmBrep::CreateFacesFromSurface; cycle back-edges (call into later units; stub or co-port): topology.trimming_tools(13), topology.brep_p1(11), topology.brep_p7(3), topology.brep_p3(2), topology.brep_p4(2), topology.brep_p5(2), topology.brep_p9(2), query.face_p1(1), topology.brep_p6(1), topology.face_p3(1); unit-SCC #22 (220 units); 186 upstream test entry points reach this unit"
 
 [[unit]]
 id = "topology.edge"

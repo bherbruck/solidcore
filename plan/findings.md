@@ -5272,6 +5272,54 @@ mutated scales and accepted/reduced step counts are compared.
   deleted definitions in the two `Resolve`s), WR-95 (`CombineProtoEdge` moves every other
   definition; confirmed by `edge_pe_combine_every_other_*`).
 
+## topology.brep_p8 (`SmBrep` face builders, blocked, 2026-10-14)
+
+Blocked: no output of this unit can be compared with the C++ yet. Checked against
+`bin/callgraph/graph.json` and `plan/modules.toml` on `main` at `8190c302`.
+
+- **Every success path ends in an unported topology builder.** The 7 owned functions
+  (`CreateFacesWithCurves`, `CreatePlanarFacesWith3DCurves`, `CreatePlanarFaceWith3DCurves`,
+  `CreateFaceInRegionFromSurface`, `CreateFaceFromSurface`, `CreateFacesFromSurface`,
+  `MakeFacesWithCurves`) only orchestrate. The B-rep they return is built by
+  `MakeFaceWithCurves` (`topology.brep_p7`), `MakeFaceTopology` (`brep_p6`),
+  `MakeEdgeInFace` (`brep_p5`), `MakeVertexLoop` (`brep_p9`), `DeleteFace` (`brep_p3`),
+  `DeleteEdge`/`DeleteVertex` (`brep_p4`) and `GetInfiniteRegion`/`GetTolerance`
+  (`brep_p1`). All of these are `todo` and none has an open PR. Before the builders run,
+  the inputs pass through more unported code: `CreateNaturalUVTrimCurves`
+  (`surface.surface_p6`), `FindKnotsByMaxContinuity` (`surface.surface_p8`),
+  `CreateIsoParametricCurve`/`DropPoint` (`surface.surface_p5`) and `SmCurveLoops` /
+  `SmTrimmingTools::FindOuterLoops` (`topology.trimming_tools`, 13 calls).
+- **Consequence for difftest.** Every case would be deferred, apart from input-validation
+  errors (a null surface, or a UV domain that `CreateFaceInRegionFromSurface` finds not
+  contained in the natural domain). The plane fit in `CreatePlanarFace(s)With3DCurves` is
+  `Surface::create_plane_with_3d_curves`, which `surface.surface_p2` already compares, so it
+  doesn't test this unit. A runner whose only non-deferred comparisons are error statuses
+  would pass the gate without checking anything this unit computes (AGENTS.md section 4,
+  item 5.7).
+- **Re-checked 2026-10-16** (`main` at `19adf830`): `topology.loopuse`, `edgeuse_p1`,
+  `surface_p5`, `surface_p6` and `trimming_tools` are now `partial` and the data model from
+  #55 has merged, but `brep_p1`, `brep_p3`, `brep_p4`, `brep_p5`, `brep_p6`, `brep_p7`,
+  `brep_p9` and `surface_p8` are still `todo`. `MakeFacesWithCurves` still reaches
+  `GetInfiniteRegion` (`brep_p1`) and `MakeFaceWithCurves` (`brep_p7`) on every success
+  path, and `CreateFaceFromSurface` goes through `GetInfiniteRegion` before anything else,
+  so the conclusion above is unchanged. Two `UNPORTED(topology.brep_p8)` stubs now exist
+  (`topology/trimming_tools.rs` `make_faces_with_curves`, difftest
+  `surface_trim_srf_cache.rs` on `CreateFaceFromSurface`); wire them when this unit lands.
+- **Unblock when** `brep_p1`, `brep_p5`, `brep_p6`, `brep_p7` and `brep_p9` are green or
+  partial. Then `CreateFaceInRegionFromSurface`
+  (for planes, B-spline surfaces and cylinders: natural, sub-domain and closed-seam
+  domains) and `CreateFacesFromSurface` (C0-split B-splines, once `surface_p8` lands) can be
+  compared as traversal-order topology plus vertex and edge geometry. `MakeFacesWithCurves`
+  also needs `topology.trimming_tools`.
+- **Re-checked again 2026-10-16** (`main` at `f31e73a6`): `brep_p3`, `brep_p4`, `brep_p5`,
+  `brep_p6`, `brep_p7` and `brep_p9` are still `todo` with no open PR. `brep_p1` (#145) is a
+  draft and `surface_p8` (#118) is open, neither merged. Still blocked.
+- **Re-checked a third time 2026-10-16** (`main` at `2bdd9f66`): `surface_p8` has merged
+  (`partial`), but `brep_p1`, `brep_p3`, `brep_p4`, `brep_p5`, `brep_p6`, `brep_p7` and
+  `brep_p9` are all still `todo` on `main`. Open PRs: `brep_p1` #145 (draft), `brep_p4`
+  #173 (draft), `brep_p6` #169 (ready, unmerged), `brep_p7` #155 (draft); `brep_p3`,
+  `brep_p5` and `brep_p9` have no PR. Still blocked.
+
 ## intersect.curve_class_p6 (partial; PR #138)
 
 - **Certified scope.** 4438 default cases: 3927 bit-identical kernel comparisons,
