@@ -27,6 +27,9 @@
 // pointer-to-member access), never the functions under test. The B-rep construction and
 // export helpers are shared with unit `topology.edgeuse_p2` (sc_edgeuse_graph.h).
 #include "sc_shim.h"
+#include <algorithm>
+#include "support/topology_fixture.h"
+#include <memory>
 
 #include "StdAfx.h"
 #include <SmBSplineCurve.h>
@@ -617,6 +620,52 @@ void run_geom_op(int32_t op, Rd& rd, std::vector<double>& o)
     }
 }
 } // namespace
+
+namespace sc_topology_fixture {
+void append_shell_state(const View& view,std::vector<double>& output)
+{
+    const auto identity=[](const auto& values,const void* pointer)->int64_t {
+        if (!pointer) return -1;
+        auto found=std::find(values.begin(),values.end(),pointer);
+        if(found==values.end()) throw 1;
+        return (int64_t)(found-values.begin());
+    };
+    output.push_back(3.0);
+    output.push_back((double)identity(view.regions,view.brep.GetInfiniteRegion()));
+    for(SmRegion* region:view.regions)
+        output.push_back((double)(region->*RegionPeek::is_void()));
+    for(SmShell* shell:view.shells) {
+        SM_TYPE type=shell->*ShPeek::type();
+        output.push_back((double)(type==SmEdgeuse_TYPE ? identity(view.edgeuses,shell->GetList())
+            : type==SmVertexuse_TYPE ? identity(view.vertexuses,shell->GetList()) : -1));
+    }
+    for(SmVertex* vertex:view.vertices) {
+        std::vector<int64_t> uses;
+        for(SmTopology* use:list_of(vertex->GetList())) uses.push_back(identity(view.vertexuses,use));
+        put_list(output,uses);
+    }
+    for(SmFaceuse* faceuse:view.faceuses) {
+        output.push_back((double)identity(view.faceuses,faceuse->GetNext()));
+        output.push_back((double)identity(view.faceuses,faceuse->GetLast()));
+    }
+}
+
+int32_t apply(const char* path, const double* input, int64_t count,
+              const std::function<int32_t(const View&)>& operation)
+{
+    if (!path || !input || count < 1) return SC_ERR_ARG;
+    Rd reader{input, 0};
+    SmStatus status = SM_SUCCESS;
+    std::unique_ptr<SmBrep> brep(build(reader, path, status));
+    if (!brep || status != SM_SUCCESS) return SC_ERR_ARG;
+    Graph graph;
+    walk(brep.get(), graph);
+    const View view{*brep, graph.regions, graph.shells, graph.faceuses,
+                    graph.faces, graph.loopuses, graph.loops, graph.edgeuses,
+                    graph.edges, graph.vertexuses, graph.vertices};
+    return operation(view);
+}
+} // namespace sc_topology_fixture
 
 SC_EXPORT int32_t sc_topology_edgeuse_p1_eval(int32_t op, const char* path, const double* in, int64_t n_in,
                                               double* out, int64_t cap, int64_t* out_len)

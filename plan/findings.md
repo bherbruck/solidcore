@@ -4249,6 +4249,78 @@ default 3,093-case set (which the gate and CI run) is clean, and the previous ge
   `review_final_vertex.json` (4 scripts at scales 1, 1e8, 1e-8, 1e3: GetFinalVertex,
   every non-crashing AreConnected pair and every CanCombine pair); all bit-identical.
 
+
+## topology.shell WIP: complete native topology snapshots (PR #80)
+
+Adding the actual vertex-use list order exposed an incomplete fixture graph:
+the old export followed a wire shell's initial radial edge-use head but did not
+follow each vertex's complete vertex-use list. The upstream `my_test_topology`
+network therefore had live list members missing from the identity map. Export
+emitted its explicit unregistered-pointer sentinel (-3), and Rust import failed.
+The expanded run reported 8 shell harness failures and 133 edge-use harness
+failures; these are setup failures, not comparable operation results or deferrals.
+
+The snapshot now registers every B-rep edge in the actual global edge-list order
+and closes the graph through every vertex-use list. This also retains the edge
+order needed by the non-wire branch of GetWireEdges, instead of guessing that a
+region-first traversal matches the B-rep edge list. A direct native probe confirms
+the network contains 5 edges, 10 edge uses, 10 vertex uses and 4 vertices, with no
+unregistered pointer in its snapshot. Native GetWireEdges returns traversal IDs
+`0, 2, 4, 1, 3`; the order is intentionally neither sorted nor forced by the
+initial edge. No cases, tolerances or pointer checks were removed or weakened.
+
+The complete rerun passes all 144 shell comparisons and restores edge-use p1 to
+2,449 passes with 273 genuine deferrals out of 2,722 cases, zero failures. Strict
+C++ Clippy, formatting and the three existing kernel regressions pass.
+Perturbation detects every compared case in both units. The unit remains
+todo/draft while the remaining owned operations and backedges are implemented. Issue #86 coordinates
+the actual region lookup context needed by attribute operations; it is separate
+from this fixture correction and from the excluded SSI work.
+
+
+## topology.shell WIP: child transfers and literal sibling links (PR #80)
+
+A native probe of self-transfer on a real plane-face B-rep returns SM_SUCCESS,
+clears the shell head/count/type to NULL/0/unknown, and leaves each face use's
+owner and next/previous cycle intact. Faceuse now retains literal sibling links
+independently of the owner's head; a canonical construction vector remains the
+fallback before literal links are supplied. TransferChildrenTo preserves this
+observed behavior rather than treating self-transfer as a no-op or excluding it.
+
+The transfer adapter snapshots every affected shell head/count/type, face-use
+owner/sibling link, edge-use/vertex-use owner and region list, then exercises
+GetWireEdges on the post-transfer topology. A scope guard restores the native
+links before B-rep destruction; this does not alter the observed result. Native
+probes confirm partial/duplicate wire lists, nullable entries ignored by early
+vertex branches, rejection before unsafe NULL dereferences, and real plane-face
+domains at 1e-7/1/1e6. Graph export alone accepts plane domains through the native-
+verified 1e6 bound; the existing edge-use-operation bound stays at 1e4. Comparison
+tolerances are unchanged.
+
+The first 234-case run exposed four fixture precondition errors: Endcap.smb has
+one face-use shell with two members, whereas Mouse and box_with_large_fillet have
+two nonempty face-use shells (4/4 and 7/7 members). The Endcap setup now uses native
+base Remove/PostInsert operations to form two nonempty shells, independently of
+TransferChildrenTo. All four cases and the nonempty-recipient coverage assertion
+are retained. The corrected run passes all 234 shell cases, with zero failures,
+zero deferrals and exact integer/topology agreement; perturbation detects all 234.
+Edge-use p1 retains 2449 passes/273 deferrals out of 2722, zero failures, and all
+2449 comparisons are detected under perturbation. Strict C++ Clippy, formatting
+and the three kernel regressions pass.
+
+Subsequent source audit found that SM_CAST_PTR explicitly returns NULL for a
+head-class mismatch. GetVertex, GetWireEdge and GetFirstFaceuse now preserve that
+defined NULL result rather than returning an incompatible-class error. All 52
+dedicated comparisons pass for empty, vertex, wire and face-use heads, including
+signed 64-bit extrema and values beyond exact double precision. The setter and
+checked getters use an integer C ABI; the raw physical head and count are compared
+too, so an unrelated type code cannot mask a lost head. The complete rerun passes
+all 286 cases, with exact integer/topology agreement, zero failures/deferrals and
+all 286 perturbations detected. Edge-use p1 remains 2449/2722 with 273 genuine
+deferrals, zero failures and all 2449 comparisons detected.
+The unit is still todo/draft: remaining owned operations, backedges, final gates
+and the region-context coordination in #86 are not claimed complete.
+
 ## boolean.api_brep (`SmApiBrep.cpp` boolean entry points, PR #81, 2026-10-14)
 
 - **Scope.** Thin wrappers over `SmMerge`; everything past input validation is deferred
@@ -4421,6 +4493,43 @@ default 3,093-case set (which the gate and CI run) is clean, and the previous ge
   (`intersect.surface_intersector_p5`), 24 on spheres (`surface.sphere`), 21 on cones and
   cylinders (`surface.cone_p3`), 9 on tori (`SmTorus` is ported but has no `SurfaceKind`
   variant yet; deferred on `surface.surface_p2`, which owns the enum).
+
+## topology.shell: borrowed region context for attribute backedges (PR #80, issue #86)
+
+RegionLookup resolves an opaque attribute ObjectKey to a RegionRef containing the
+actual borrowed Brep, its caller-supplied typed identity, and the scoped RegionId.
+RegionRef invokes the implemented region getters. NULL owners remain None and
+are distinct from valid B-rep identity zero. Void state remains the raw native
+integer; boolean attribute consumers use nonzero truth, including UNSURE (2).
+The attribute store retains only attributes and their object lists, not a second
+copy of region flags or a global topology registry.
+
+merge_with_regions, notify_with_regions, sag_notify_with_regions and topology's
+notify_with_regions pass that borrowed context through existing handlers. Topology
+mark propagation and notification callback order are unchanged. Legacy entry
+points remain usable for generic attributes; a region handler without lookup
+returns an explicit missing-context error rather than an owned-unit UNPORTED
+marker or inferred metadata. Future callers that carry opaque region keys must
+supply the actual mapping. This is an additive API proposal for review in #86.
+
+The existing native attribute fixtures construct real detached SmRegion objects.
+Their Rust counterparts now allocate actual detached Region records in typed
+arena storage and map only object identities; default flags match SmRegion().
+They do not derive region state from merge-region attribute classifications.
+The new kernel regression also distinguishes equal scoped indices in two B-reps,
+NULL versus owner identity zero, infinite-region membership and raw void state 2.
+Owned/multiple-Brep identity is tested there; the existing native attribute scripts
+exercise their actual detached-region constructor domain.
+
+Validation: strict CPP workspace Clippy and 27 targeted kernel tests pass.
+geom.attribute compares 2029/2029 exactly (38 former deferrals removed) and its
+explicit --status-of result is green. geom.a_object compares 1909/2040 exactly
+(37 former deferrals removed), leaving only topology.brep_cache's 131 deferrals.
+The other six affected units retain zero failures; all compared cases across all
+eight units are sensitive. Shell coverage remains 557/571, with 14 genuine callee
+deferrals. Full final shell gates and remaining native coverage are still pending.
+Only stale ownership comments change in geom.tol and intersect.point_class;
+there is no new SSI implementation or external corpus use.
 
 ## surface.offset_surface (`SmOffsetSurface`, PR #62, 2026-10-14)
 
@@ -4645,6 +4754,114 @@ default 3,093-case set (which the gate and CI run) is clean, and the previous ge
 - **Not wired**, still `UNPORTED(topology.vertexuse)`: `surface::trim_srf_cache`
   (`ComputeUVPoint`, `GetVertex`) and `intersect::point_class` (`IsConnectedTo`). Those
   callers hold opaque object handles without a `Brep` (as for `topology.edgeuse_p1`).
+
+## topology.shell: native region ordering and filtering (PR #80)
+
+46 ordering cases compare real circular shell lists after inserting actual empty
+shells at the head. Gathering complete face-use shells with native owner-list
+operations covers the multiple-shell branch without splitting their geometry.
+Four closed-shell cases reach SmTopologyTraverser::IsInnerShell; they deferred on
+topology.topology_traverser in PR #80 and, since PR #154, on topology.face_p1 (see
+"integration with main" below); native reference setup and calls still run.
+
+168 filtering cases use real SmLongAttribute objects and AttributeStore entries,
+testing no/even/all tags, NULL versus present filters, and ids 0, 9999, 2^53+1 and
+u64::MAX through a uint64_t C ABI. Ordering outputs compare actual integer lists.
+The complete unit has 785 cases: 767 exact comparisons, zero failures, 18 genuine
+callee deferrals. All 767 compared cases detect perturbation. No tolerance changes.
+The other seven affected units retain zero failures and full sensitivity before
+the final official-main integration. Final integration gates are recorded in the PR.
+
+Merged PR #88 supplies the real SmEdge::IsWire coport; the shell helper now
+delegates to it. Native vertex-use ordering remains in Vertex::vertexuses for
+shell traversal; PR #88's cache-reset scans keep their existing behavior.
+
+## topology.shell: integration with main (PR #154, continuing PR #80; partial, no disagreements)
+
+- **Owners on main.** `topology.vertex`, `topology.edge` and `topology.topology_traverser` landed
+  while #80 was open. The shell's private copies of `SmVertex::GetEdges`, `SmEdge::GetVertices` /
+  `GetEdgeuses` / `IsWire` were replaced by calls to `topology::vertex::edges` and
+  `topology::edge::{vertices, edgeuses, is_wire}` (no filters, as upstream calls them). A NULL
+  vertex returned by `GetVertices` is a NULL dereference in `GetWireEdges` (`IsMarked`): error.
+  `Shell::is_inner_shell` calls `topology_traverser::is_inner_shell` (it needs `&mut Kernel`, so
+  `order_region_shells` takes one); its closed-shell cases now defer on `topology.face_p1`
+  (`points_in_face`) instead of on the traverser.
+- **Stubs wired.** `mass::integrator` `SmRegion::IsVoid` (`is_void != 0`, so `UNSURE` counts as
+  void, as the C truth test), `topology_traverser::remove_shell` (`SER(TransferChildrenTo(.., NULL))`)
+  and `faceuse_shell_replacement` (`Remove` / `PostInsert`, statuses ignored upstream; they cannot
+  fail on a consistent B-rep, so `shell::move_faceuse` reports an inconsistent one as an error).
+  The 7 traverser cases deferred on `topology.shell` now pass.
+- **Harness.** The `sc_topology_fixture.h`-style exports (vertexuse, vertex, edge, face_p2 shims,
+  and heal.gap's copy) already carried each region's shell list and each shell's type and face-use
+  list; the Rust importers dropped them. They now fill `Region::shells`, `Shell::shell_type` and
+  `Shell::members`. (First version of this PR inferred the wire/vertex shell heads from arena
+  order and left the void flags and the infinite region unset; superseded by the review round
+  below.)
+
+## topology.shell: review round on PR #154 (shell state export, generator, transfer fixtures)
+
+- **Shared shell state.** Every exporter (`sc_topology_fixture.h`, and the private
+  `export_graph` of the `topology.vertex`, `topology.edge`, `topology.face_p2`, `heal.gap` and
+  `query.face_p2` shims) now appends `sc_topology_fixture::append_shell_state` (version 3: infinite region,
+  region void flags, wire/vertex shell heads, vertex-use lists, face-use next/last links), read
+  from the native records. The four Rust importers read it through
+  `topology_vertexuse::read_shell_state`; `set_shell_heads` and the arena-order vertex-use lists
+  are gone. Their B-reps therefore carry the native `infinite_region` and its void flag (natively
+  `SetIsVoid(TRUE)` for the infinite region; `Region::new_with_infinite_region` of #130 uses 1).
+  Preconditions that made the exporter fail in #80: every walk now registers the vertex-use lists
+  (`walk(.., include_vertex_lists = true)`, and the same closure in the private walks) so
+  `identity()` never meets an unregistered vertex use. All ten affected units (`query.face_p2` imports through `topology_face_p2::import`) were re-run with
+  unchanged case, pass and deferred counts, except `topology.edge`: the GetEdges-first registration
+  changes which edge an edge selector picks, and 5 cases moved from deferred (`topology.edgeuse_p3` 67
+  -> 62) to passing (1710/77 -> 1715/72); 0 failures, `--perturb` SENSITIVE everywhere.
+- **`SmBrep::GetEdges` order.** `topology::shell::brep_get_edges` (co-port, `topology.brep_p1`) is
+  the edge arena in insertion order, which equals `m_pEdgeListHead` order only if the importer
+  registered `GetEdges` first. All five walks now do (`brep->GetEdges` before anything else), so
+  the arena order of imported B-reps is the native order and `remove_shell` ->
+  `transfer_children(.., None)` -> `wire_edges` picks the same Unknown-recipient head as C++. Edge
+  indices in those units' fixtures therefore select different (still identical on both sides)
+  edges than before.
+- **Generator and fixtures.** `topology.shell`'s generator draws every operation (query, wires,
+  `TransferChildrenTo`, type members, ray, degeneracy, region order and filter) over vertex, face,
+  network, `.smb` and the new `mixed` native fixture (`5 has_face [face] networks`: an optional
+  face plus 0..3 wire networks in one B-rep), with random shell pairs, NULL and duplicate wire
+  candidates, `pre` transfers and arbitrary `SM_TYPE` codes (all 64-bit patterns). 126 new fixture
+  cases (`fixtures/topology.shell/transfer.json`, `mixed_*`) cover face -> wire (the wire
+  recipient becomes a face-use shell, wire edge uses stay), wire -> face, wire -> wire (two wire
+  shells, candidate subsets and duplicates), face-use shell holding wires -> empty (via `pre`),
+  candidate filtering on a face-use source, chained transfers, and 9 rejected inputs. Probe
+  (`--seeds 3000`): 3895 cases, 0 failed, no crash, no new undefined behaviour.
+- **Transfer shim guard (reviewer note 11).** `sc_topology_shell_transfer` rejects (SC_ERR_ARG; both
+  sides then return `rejected_input`) exactly what dereferences NULL: a candidate that is NULL or
+  has no primary edge use when the branch reads it, and `GetWireEdges` (no candidate list, or the
+  final per-shell snapshot) on a wire shell without list head (`GetWireEdge()` NULL). That last
+  state cannot be built with native constructors, so it has no regression fixture (the other
+  guard has the 9 `*_null_candidate` cases).
+- **RayFire is compared on the empty-shape branch only (harness-limited).** `EmptyRayWorld`
+  represents no geometry, so every compared ray case takes the no-solution branch (144
+  `ray_empty_boundary`, 4 Endcap). Solution selection, negative / too-close parameter branches,
+  `LoadFromIntersection` and the line-segment + `LocalCurveSector` path are not compared. The 8
+  `ray_closed_*` cases need `topology::brep_cache::BrepObjects` over a built `BrepCache`
+  (`query.brep`) and `SmBrep::LocalCurveSector` (`topology.brep_p2`); until then
+  `EmptyRayWorld::shell_ray_shape` defers any non-empty boundary-face shape as
+  `UNPORTED(query.brep)`, so they stay deferred instead of failing when `query.face_p1` lands.
+  Whoever ports `query.brep` / `topology.brep_p2` replaces `EmptyRayWorld` by a `BrepObjects` world.
+- **Mark counters (review round 2).** `SmShell::GetWireEdges`, `GetMatedShells` and `RayFire` take
+  `SmNewMarkAndLock`, which advances and locks a context mark; the Rust functions do the same
+  (`geom::context::with_mark_lock`, `ALL_MARKS`) and take `&mut Kernel`. The difftest shim compares
+  the advance of the 5 context mark counters per call (the shim context is shared, so deltas) and
+  that no mark stays locked. `SmShape::SmShape` also locks a mark for non-empty inputs: that part is
+  `geom.object`'s (`Shape::new` is Unported for non-empty shapes), so RayFire's real path will have
+  to be re-checked for the combined counter advance when it lands.
+- **Void / infinite-region branches of `geom.attribute` / `geom.a_object`.** `geom.attribute` now
+  covers them (ops `SetIsVoid` and `MakeInfinite` in `geom_attribute.cpp`, mirrored by
+  `RegionScene::set_is_void` / `make_infinite`; mutating the INFINITE arm of `add_region` fails
+  generated cases). `geom_a_object.cpp` still never calls `SmRegion::SetIsVoid`, so
+  `other_solid = false` (a_object.rs; `SmAObject.cpp:310`) is compared only on the solid side;
+  `geom.a_object` is `partial` (131 deferred on `query.brep`), not promoted.
+- **Library region lookup.** `RegionLookup` has no library implementation; region handlers reached
+  without a context return `Unported` (`topology.shell`, with `justified:`). Both sites are
+  tagged `REGION-LOOKUP(#86)` (grep it) and justified by the "borrowed region context" section.
 
 ## topology.loopuse (`SmLoop` / `SmLoopuse`, 2026-10-15; partial, no disagreements)
 
