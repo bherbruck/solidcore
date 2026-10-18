@@ -175,8 +175,32 @@ jobs:
         if: steps.green.outputs.any == 'true'
         run: cargo clippy --workspace --all-targets --features difftest/cpp -- -D warnings
 
+      # The committed reports of the base commit (main for a PR, the previous main for a
+      # push) are the ratchet's baseline: no case that passed there may disappear, stop
+      # passing or stop comparing values (crates/difftest/README.md, "Regression gate").
+      - name: Baseline reports from the base commit
+        if: steps.green.outputs.any == 'true'
+        env:
+          BASE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          dir="$RUNNER_TEMP/difftest-baseline"
+          rm -rf "$dir" && mkdir -p "$dir"
+          if [ -n "$BASE" ] && [ "$BASE" != "0000000000000000000000000000000000000000" ] \
+             && git fetch --quiet --depth 1 origin "$BASE" \
+             && git archive "$BASE" reports/difftest | tar -x -C "$dir"; then
+            echo "DIFFTEST_BASELINE=--baseline $dir/reports/difftest" >> "$GITHUB_ENV"
+            echo "baseline: reports/difftest at $BASE"
+          else
+            echo "::warning::no baseline reports for '$BASE'; the difftest ratchet is skipped"
+          fi
+
       - name: Difftest green units
         if: steps.green.outputs.any == 'true'
         # Optimised profile (Cargo.toml [profile.difftest]): identical results, about 20x
         # faster than the debug build that used to take ~35 min here.
-        run: cargo run --profile difftest -p difftest --features cpp -- --green
+        run: cargo run --profile difftest -p difftest --features cpp -- --green $DIFFTEST_BASELINE
+
+      # Sensitivity: a runner whose comparison would not notice a changed output fails.
+      - name: Difftest perturbation check
+        if: steps.green.outputs.any == 'true'
+        run: cargo run --profile difftest -p difftest --features cpp -- --green --perturb

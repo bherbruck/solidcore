@@ -30,6 +30,7 @@ nice -n 10 cargo test -p difftest --features cpp                     # harness s
 | `--seeds N` | generated cases per unit (default 16) |
 | `--filter S` | only cases whose name contains `S` |
 | `--perturb` | change one item of each case's Rust output (below); passes only if **every** perturbed case is caught. No report written. |
+| `--baseline D` | regression ratchet: compare each unit with its earlier report `D/<unit>.json` (see [Regression gate](#regression-gate---baseline-value-share)). CI passes the base commit's `reports/difftest` |
 | `--report-dir D` / `--no-report` | report location (default `reports/difftest/`) / skip writing |
 | `--fuzz N` | with `--unit`: probe the unit's FFI guard with N mutated cases, each run in a child process (below). No report written. |
 | `--fuzz-out D` | where `--fuzz` writes failing inputs (default `bin/fuzz/`; files go to `D/<unit>/`) |
@@ -100,6 +101,9 @@ Rust port), then copy the case into `fixtures/<unit>/` as a regression case
 failure. A `differs` case is printed as a `note (differs)` line with its file and
 is written the same way (so it can be re-run), but does not fail the run.
 
+`.github/workflows/nightly.yml` runs `--fuzz 300` on every green and partial unit
+each night and uploads failing inputs as the `fuzz-failures` artifact.
+
 ## Deferred cases, `partial` units
 
 A unit's Rust code may call into a unit that is not ported yet; it then returns
@@ -134,6 +138,53 @@ excludes the case from parity passes, failures and sensitivity counts. Reports a
 summaries include a rejected count when nonzero. A run containing only rejected
 fixtures fails the gate: rejection cannot establish parity. Layout errors, native
 exceptions and errors from the operation itself must not be classified this way.
+
+## Regression gate (`--baseline`, value share)
+
+Passing every case is not enough: a unit that silently loses cases, turns passes
+into deferrals, or makes its generator reach only error paths stays green. Two
+checks, run on every unit that does not already fail, close that gap
+(`src/baseline.rs`):
+
+* **Ratchet** (`--baseline D`): the run is compared case by case, by name, with
+  the unit's earlier report `D/<unit>.json`. CI uses the reports committed on the
+  base commit (main for a PR, the previous main for a push). A **GATE-FAIL** is
+  printed when a case that **passed** there is missing, now deferred or rejected,
+  or compared values there but compares nothing now (e.g. both sides now return
+  the same error); when a **deferred or failing** case is missing; or, with
+  `--green`, when a unit that was green/partial there is no longer run. Allowed:
+  new cases, deferred → pass (a dependency landed), removing rejected fixtures.
+  Generated cases are matched only when both runs used the same `--seeds`; with
+  `--filter` the ratchet is skipped. A unit with no earlier report is new and
+  only gets the value-share check.
+* **Value share** (always on, also in `--status-of`): at least 75% of a unit's
+  passing cases, and at least one, must compare a value (float, integer or
+  topology entry), not only an error string both sides agreed on. When this
+  floor was set, every green/partial unit was at 78% or more.
+
+Reports record `exact_compared` (integer/topology comparisons) per case when
+nonzero, so the ratchet can tell integer-only cases that compared something.
+
+**Stale reports.** Before overwriting `reports/difftest/<unit>.json`, a run compares
+the counts recorded there (status, cases, passed, failed, deferred, rejected) with
+its own and prints `STALE-REPORT` when they differ. On GitHub Actions this is also a
+warning annotation on the file. A stale committed report makes the next PR's ratchet
+baseline weaker, so regenerate and commit it, also for units your change affected
+indirectly (e.g. by wiring a back-edge). It warns and does not fail.
+
+A legitimate regression (a wrong fixture removed, a case renamed) needs a waiver
+in `plan/difftest-waivers.toml`, reviewed with the PR:
+
+```toml
+[[waiver]]
+unit = "nlib.knots"
+check = "ratchet"          # or "value-share"
+case = "insert_at_end"     # ratchet only; omit to waive every case of the unit
+reason = "fixture asserted the pre-#123 clamp; replaced by insert_at_end_clamped"
+```
+
+A waiver is only needed until the base commit's reports catch up, so remove
+ratchet waivers once the PR has merged.
 
 ## Pass criteria (fixed; never weaken)
 

@@ -178,6 +178,15 @@ into `upstream/` (see README), build the C++ reference with
    cargo check -p solidcore --target wasm32-unknown-unknown
    cargo run --profile difftest -p difftest --features cpp -- --unit <unit id>   # and every unit you touched
    cargo run --profile difftest -p difftest --features cpp -- --green            # what CI runs (~2 min)
+   cargo run --profile difftest -p difftest --features cpp -- --green --perturb  # CI too
+   ```
+   CI also runs `--green` with `--baseline` set to `main`'s committed reports: no case
+   that passed there may disappear, stop passing or stop comparing values, and at least
+   75% of a unit's passes must compare values (`crates/difftest/README.md`, "Regression
+   gate"). To check locally, extract them first:
+   ```sh
+   mkdir -p bin/baseline && git archive origin/main reports/difftest | tar -x -C bin/baseline
+   cargo run --profile difftest -p difftest --features cpp -- --unit <unit id> --baseline bin/baseline/reports/difftest --no-report
    ```
 5. **Before you mark a PR ready**, check each item. Earlier PRs passed CI yet still
    disagreed with the C++ because of these:
