@@ -26,6 +26,38 @@ are also logged, one entry each, in `plan/upstream-issues.md` for the upstream m
 - **difftest report `seeds` field.** It records the `--seeds` CLI value, not the number of
   generated cases a runner actually produced. `nlib.knots` overrides `cases()` to always
   generate at least 1200.
+- **Math libraries differ by platform (2026-10-17).** difftest proves solidcore matches
+  the C++ bit for bit only on Linux x86_64 with glibc, where Rust's `f64::sin` and the C++
+  `sin` both call glibc. Elsewhere Rust calls a different libm. On 200,000 kernel-like
+  inputs per function, against glibc 2.39 x86_64 with FMA, `harness/mathprobe/run.sh`
+  measured (differing results, max ulp):
+
+  | fn (solidcore call sites) | glibc arm64 | macOS (Apple libm) | wasm32 (Rust libm) |
+  |---|---|---|---|
+  | `cos` (83) / `sin` (74) | 0 / 0 | 3.4% / 3.2%, 1 | 2.4% / 2.5%, 1 |
+  | `atan2` (14) | 0 | 0.4%, 1 | 17.1%, 1 |
+  | `powf` (12) | 0 | 0.2%, 1 | 6.2%, 1 |
+  | `tan` (9) | 0 | 39.4%, 3 | 2.9%, 1 |
+  | `sinh` / `cosh` (4 each) | 0 / 0 | 20.7% / 19.1%, 2 | 2.0% / 9.6%, 2 |
+  | `log10` (3) | 0 | 9.1%, 2 | 9.1%, 2 |
+  | `acos` (2), `asin`, `atan`, `ln` (1 each) | 0 | 0.02–12.3%, 1 | 1.1–6.2%, 1 |
+  | `cbrt` (1) | 19.3%, 4 | 47.5%, 3 | 47.5%, 3 |
+  | `powi` (6) | | (reference) | 0 |
+
+  `sqrt` is correctly rounded everywhere, so it is not measured. Consequences:
+  - The wasm build computes slightly different results than the C++ reference that CI
+    proved parity against, and nothing tests the wasm build's values (CI only runs
+    `cargo check` for wasm). Single-call differences are about 1e-16 relative, far
+    inside difftest's 1e-9, but they can compound in iterative solvers or flip a
+    branch that sits exactly at a tolerance. Whether that ever happens is not
+    measured yet. The next step is to replay the Rust side on wasm against Linux results.
+  - Running difftest on macOS (once the harness builds there) or on Linux arm64
+    (`cbrt`) shows libm disagreements that are not port bugs. Compare there only
+    against references produced on the same platform.
+  - Options, undecided: document "bit-identical on Linux x86_64 glibc, within a few
+    ulp elsewhere"; route every transcendental through one pure-Rust libm (native and
+    wasm agree, but no longer bit-match the glibc C++); or correctly rounded math on
+    both sides (identical everywhere).
 
 ## nlib.knots (green; no disagreements)
 
