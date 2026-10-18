@@ -49,7 +49,7 @@
 //! - **Unported callees** (`UNPORTED` stubs): `SmBrep::GetVertices`, `GetEdges`,
 //!   `GetFaces`, `GetInfiniteRegion` and `SmBrep::HealBrep` (`topology.brep_p1`),
 //!   `SmBrep::TestClosureSplitRegion`
-//!   (`topology.brep_p6`), `SmBrep::FindAndSetInfiniteRegion` (`topology.brep_p5`),
+//!   (`topology.brep_p6`), `SmBrep::FindInfiniteRegion` (`topology.brep_p9`, through part 5),
 //!   `SmRegion::IsVoid` / `SetIsVoid` (`topology.shell`) and
 //!   `SmFace::CreateUVTrimCurves` (`topology.face_p3`). Default target gathering in `HealBrep`,
 //!   `SmApiHealBrep` on a B-rep and `Fix_InfiniteRegion` stop at a stub, as do
@@ -116,12 +116,11 @@ fn brep_regions_from_infinite(_b: &Brep) -> Result<Vec<RegionId>> {
 
 /// `pBrep->FindAndSetInfiniteRegion()`: ray casts for the infinite region and moves
 /// it to the head of the region list.
-fn brep_find_and_set_infinite_region(_b: &mut Brep) -> Result<()> {
-    // UNPORTED(topology.brep_p5): SmBrep::FindAndSetInfiniteRegion
-    Err(SolidError::unported(
-        "SmBrep::FindAndSetInfiniteRegion",
-        "topology.brep_p5",
-    ))
+fn brep_find_and_set_infinite_region(b: &mut Brep) -> Result<()> {
+    crate::topology::brep::p5::find_and_set_infinite_region(
+        b, None, 2, // SM_VS_INFINITEREGION_SWAP: SmBrep.h's native default.
+        None,
+    )
 }
 
 /// `pRegion->IsVoid()`.
@@ -756,7 +755,7 @@ impl<O: LoopObject> HealData<O> {
     ///
     /// [`SolidError::Unported`] for `SmBrep::GetInfiniteRegion` (`topology.brep_p1`),
     /// `SmRegion::IsVoid` / `SetIsVoid` (`topology.shell`) and
-    /// `SmBrep::FindAndSetInfiniteRegion` (`topology.brep_p5`);
+    /// `SmBrep::FindInfiniteRegion` (`topology.brep_p9`, through part 5);
     /// [`SolidError::InvalidInput`] for a B-rep without regions (upstream dereferences
     /// null).
     pub fn fix_infinite_region(&self, b: &mut Brep, _this_healer_op: HealerOpType) -> Result<()> {

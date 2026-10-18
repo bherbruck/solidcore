@@ -22,8 +22,9 @@
 //! The Rust B-rep has no editing gate: exclusive mutable access permits editing.
 //! Mutating callees not yet ported return `Unported`, including when C++ ignores
 //! their status; no successful mutation is simulated. Removed/added identities
-//! are returned by the mutation adapters rather than accumulated by a temporary context
-//! callback. Recursive target catch-up is limited to 32 nested updates (upstream
+//! for p5 edits are captured by the actual context callback. Nonempty captures
+//! still require the owning notification adapter's key-to-id map; they defer rather
+//! than guessing identities from arena indices. Recursive target catch-up is limited to 32 nested updates (upstream
 //! has no bound); temporary counters and healer state are restored on every exit.
 //! Ordinary statuses from nested `HealTgts` are ignored as upstream, but unported
 //! calls and invalid memory accesses propagate. Bare/SE mutation statuses are
@@ -139,6 +140,9 @@ impl<O: LoopObject> HealData<O> {
                 code: SM_ERR,
                 entity: None,
             });
+        }
+        if let Some(error) = tracker.failure() {
+            return Err(error);
         }
         let removed: Vec<_> = tracker
             .rm_list()
@@ -394,7 +398,7 @@ impl<O: LoopObject> HealData<O> {
                 .props(deleted)?
                 .vertex
                 .ok_or_else(|| invalid("deleted props without vertex"))?;
-            let changes = combine_vertices(b, a, d)?;
+            let changes = combine_vertices(k, b, a, d)?;
             self.update_target_lists(
                 k,
                 b,
@@ -452,13 +456,57 @@ impl<O: LoopObject> HealData<O> {
     }
 }
 
-fn combine_vertices(_b: &mut Brep, _a: VertexId, _d: VertexId) -> Result<Changes> {
-    // UNPORTED(topology.brep_p5): SmBrep::CombineCoincidentVertices
-    Err(SolidError::unported(
-        "SmBrep::CombineCoincidentVertices",
-        "topology.brep_p5",
-    ))
+// The context callback, not a mutation's nominal inputs/outputs, owns these lists.
+// Arena-only callers currently cannot map arbitrary notification ObjectKeys back
+// to typed ids. Do not fabricate such identities if a real mutation emits events.
+fn capture_changes<T>(
+    k: &mut Kernel,
+    b: &mut Brep,
+    edit: impl FnOnce(&mut Kernel, &mut Brep) -> Result<T>,
+) -> Result<(T, Changes)> {
+    use crate::geom::context::NotifyCallback;
+    use crate::topology::topology::TopologyChangeCallback;
+    if k.context.sys_notify_callback().is_some() {
+        // Native asserts against nested SmTrackTopologyChanges. Keep the existing
+        // callback installed and preserve the callee's error (especially Unported).
+        edit(k, b)?;
+        return Err(SolidError::Unsupported {
+            operation: OP,
+            reason: "nested topology-change tracking is unsupported upstream",
+        });
+    }
+    k.context
+        .set_sys_notify_callback(Some(Box::new(TopologyChangeCallback::new(1))));
+    let result = edit(k, b);
+    let captured = k
+        .context
+        .sys_notify_callback()
+        .and_then(NotifyCallback::as_any)
+        .and_then(|a| a.downcast_ref::<TopologyChangeCallback>())
+        .map(|callback| (callback.lists(), callback.failure()));
+    k.context.set_sys_notify_callback(None);
+    let value = result?;
+    let (lists, failure) = captured.ok_or_else(|| invalid("edit replaced its topology tracker"))?;
+    if let Some(error) = failure {
+        return Err(error);
+    }
+    if !lists.rm_list.is_empty() || !lists.add_list.is_empty() {
+        // UNPORTED(topology.brep_p2): SmBrep::Notify
+        // The owning notification adapter must expose its actual key-to-id map;
+        // arena index encodings are not interchangeable with ObjectKey identities.
+        return Err(SolidError::unported("SmBrep::Notify", "topology.brep_p2"));
+    }
+    Ok((value, Changes::default()))
 }
+
+fn combine_vertices(k: &mut Kernel, b: &mut Brep, a: VertexId, d: VertexId) -> Result<Changes> {
+    let ((), changes) = capture_changes(k, b, |k, b| {
+        let mut deleted_edge = None;
+        crate::topology::brep::p5::combine_coincident_vertices(k, b, a, d, &mut deleted_edge)
+    })?;
+    Ok(changes)
+}
+
 fn squeeze_edge(_b: &mut Brep, _e: EdgeId, _survivor: VertexId) -> Result<Changes> {
     // UNPORTED(topology.brep_p3): SmBrep::SqueezeEdge
     Err(SolidError::unported(
@@ -559,7 +607,7 @@ impl<O: LoopObject> HealData<O> {
                             );
                             if (b.vertex(v)?.point - b.vertex(old_vertex)?.point).length() < tol {
                                 changes.append(
-                                    ignore_soft(glue_vertices(b, v, old_vertex))?
+                                    ignore_soft(glue_vertices(k, b, v, old_vertex))?
                                         .unwrap_or_default(),
                                 );
                                 break;
@@ -572,7 +620,7 @@ impl<O: LoopObject> HealData<O> {
                 }
             } else {
                 let (new_edges, deleted_edges, edits) =
-                    ignore_soft(squeeze_face(b, f))?.unwrap_or_default();
+                    ignore_soft(squeeze_face(k, b, f))?.unwrap_or_default();
                 changes.append(edits);
                 for e in new_edges {
                     if !edges.contains(&e) {
@@ -963,20 +1011,27 @@ fn create_face_from_surface(_b: &mut Brep, _r: RegionId, _s: Surface) -> Result<
         "topology.brep_p8",
     ))
 }
-fn glue_vertices(_b: &mut Brep, _a: VertexId, _d: VertexId) -> Result<Changes> {
-    // UNPORTED(topology.brep_p5): SmBrep::GlueVertices
-    Err(SolidError::unported(
-        "SmBrep::GlueVertices",
-        "topology.brep_p5",
-    ))
+fn glue_vertices(k: &mut Kernel, b: &mut Brep, a: VertexId, d: VertexId) -> Result<Changes> {
+    let ((), changes) = capture_changes(k, b, |k, b| {
+        crate::topology::brep::p5::glue_vertices(k, b, Some(a), Some(d), None)
+    })?;
+    Ok(changes)
 }
-fn squeeze_face(_b: &mut Brep, _f: FaceId) -> Result<(Vec<EdgeId>, Vec<EdgeId>, Changes)> {
-    // UNPORTED(topology.brep_p5): SmBrep::SqueezeFace
-    Err(SolidError::unported(
-        "SmBrep::SqueezeFace",
-        "topology.brep_p5",
-    ))
+fn squeeze_face(
+    k: &mut Kernel,
+    b: &mut Brep,
+    f: FaceId,
+) -> Result<(Vec<EdgeId>, Vec<EdgeId>, Changes)> {
+    let (output, changes) = capture_changes(k, b, |k, b| {
+        let mut output = crate::topology::brep::p5::SqueezedFace::default();
+        // The enclosing healer edit session enables editing upstream. SqueezeFace
+        // receives NULL for its deleted-vertices output at this call site.
+        crate::topology::brep::p5::squeeze_face(k, b, true, f, None, &mut output)?;
+        Ok(output)
+    })?;
+    Ok((output.new_edges, output.deleted_edges, changes))
 }
+
 fn delete_vertex(_b: &mut Brep, _v: VertexId) -> Result<Changes> {
     // UNPORTED(topology.brep_p4): SmBrep::DeleteVertex
     Err(SolidError::unported(

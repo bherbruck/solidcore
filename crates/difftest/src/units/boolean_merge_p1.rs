@@ -108,7 +108,7 @@ fn obj(k: u64, t: i64) -> ObjectRef {
 fn id<I: ArenaId>(v: Option<I>) -> i64 {
     v.map_or(-1, |v| i64::from(v.index()))
 }
-fn graph(b: &Brep, record: Vec<f64>) -> Output {
+pub(crate) fn graph(b: &Brep, record: Vec<f64>) -> Output {
     let mut ints = vec![
         b.regions().len() as i64,
         b.shells().len() as i64,
@@ -266,7 +266,7 @@ fn run_rust(i: &Inputs, b: &mut Brep, other: &Brep) -> Result<Vec<f64>, SolidErr
     let [a, c, d] = i.args;
     let mut other = other.clone();
     let other = &mut other;
-    let k = Kernel::default();
+    let mut k = Kernel::default();
     let mut out = Vec::new();
     let mut context = Context::default();
     context.set_user_notify_callback(Some(Box::new(Recorder::default())));
@@ -289,7 +289,7 @@ fn run_rust(i: &Inputs, b: &mut Brep, other: &Brep) -> Result<Vec<f64>, SolidErr
                 r.edges.push(EdgeId::from_index(u32::MAX));
                 r.vertices.push(VertexId::from_index(u32::MAX));
             }
-            port::boolean_post_process(&k, b, &r, a != 0)?;
+            port::boolean_post_process(&mut k, b, &r, a != 0)?;
         }
         2 => {
             let maps: BTreeMap<_, _> = if c != 0 {

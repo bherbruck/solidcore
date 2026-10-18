@@ -374,7 +374,7 @@ fn set_face_tolerance(_brep: &mut Brep, _face: FaceId, _tolerance: f64) -> Resul
 /// mates. In both modes the vertex list is the intersection list plus the deleted
 /// edges' endpoints, rather than every vertex in the B-rep.
 pub fn boolean_post_process(
-    k: &Kernel,
+    k: &mut Kernel,
     brep: &mut Brep,
     relations: &CleanupRelations,
     check_all_edges: bool,
@@ -455,10 +455,13 @@ pub fn boolean_post_process(
             continue;
         }
         if vertex::is_topological_vertex(k, brep, v)? {
-            // UNPORTED(topology.brep_p5): SmBrep::DeleteTopologicalVertex
-            ignore_failure(unavailable::<()>(
-                "SmBrep::DeleteTopologicalVertex",
-                "topology.brep_p5",
+            let editing = crate::topology::brep::p5::editing_enabled(brep)?;
+            ignore_failure(crate::topology::brep::p5::delete_topological_vertex(
+                k,
+                brep,
+                editing,
+                Some(v),
+                None,
             ))?;
         }
     }
@@ -557,7 +560,7 @@ mod tests {
             vertices: vec![VertexId::from_index(u32::MAX)],
             ..CleanupRelations::default()
         };
-        let error = boolean_post_process(&Kernel::default(), &mut b, &r, false).unwrap_err();
+        let error = boolean_post_process(&mut Kernel::default(), &mut b, &r, false).unwrap_err();
         assert!(matches!(
             error,
             SolidError::Unported {
